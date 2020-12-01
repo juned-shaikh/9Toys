@@ -1,0 +1,571 @@
+<div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="padding-top: 50px;">
+  <!-- <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul> -->
+
+  <div class="carousel-inner" style="height: 490px; border-radius: 9.5px!important;  overflow: hidden;">
+    <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
+      <img src="{{ bannerdata.value.banner_image_a }}" />
+    </div>
+     <div class="carousel-item" *ngIf="!bannerdata.value.banner_image_a_group || bannerdata.value.banner_image_a_group==''" class="carousel-item active">
+      <img src="{{ bannerdata.value.banner_image_a }}" />
+    </div>
+    <div class="carousel-item" *ngIf="bannerdata.value.banner_image_b_group && bannerdata.value.banner_image_b_group!=''" class="carousel-item cursor-pointer" (click)="navigation(bannerdata.value.banner_image_b_group,bannerdata.value.banner_image_b_group_type,bannerdata.value.banner_image_b_group_id)">
+      <img src="{{ bannerdata.value.banner_image_b }}" />
+    </div>
+    <div class="carousel-item" *ngIf="!bannerdata.value.banner_image_b_group || bannerdata.value.banner_image_b_group==''" class="carousel-item">
+      <img src="{{ bannerdata.value.banner_image_c }}" />
+    </div>
+
+    <div class="carousel-item" *ngIf="bannerdata.value.banner_image_c_group && bannerdata.value.banner_image_c_group!=''" class="carousel-item cursor-pointer" (click)="navigation(bannerdata.value.banner_image_c_group,bannerdata.value.banner_image_c_group_type,bannerdata.value.banner_image_c_group_id)">
+      <img src="{{ bannerdata.value.banner_image_b }}" />
+    </div>
+    <div class="carousel-item" *ngIf="!bannerdata.value.banner_image_c_group || bannerdata.value.banner_image_c_group==''" class="carousel-item">
+      <img src="{{ bannerdata.value.banner_image_c }}" />
+    </div>
+  </div>
+
+  <a class="carousel-control-prev ml-1" style="    border-top-right-radius: 120px;
+  border-bottom-right-radius: 120px;" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"><i class="fas fa-chevron-left"></i></span>
+  </a>
+  <a class="carousel-control-next mr-1" style="    border-top-left-radius: 120px;
+  border-bottom-left-radius: 120px;" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
+  </a>
+</div>
+
+<!-- SECTION -->
+<!-- <div class="section">
+
+  <div class="container">
+  
+    <h3 class="title2" >Top Brand Products</h3>
+    <div class="row">
+     
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/BestSellers_without_21-07.jpg" height="240px" alt="">
+          </div>
+          <div class="shop-body">
+            <h3>Toys<br>Collection</h3>
+            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Fun-2-Learn__21-07.jpg" height="240px" alt="">
+          </div>
+          <div class="shop-body">
+            <h3>Baby Toys<br>Collection</h3>
+            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Smiggle__21-07.jpg" height="240px" alt="">
+          </div>
+          <div class="shop-body">
+            <h3>Model Building Kits<br>Collection</h3>
+            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+   
+  </div>
+ 
+</div> -->
+<!-- /SECTION -->
+
+<!-- new card by juned -->
+<div class="section" style="padding-left: 48px;">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <h3 class="title2" >Top Brand Products</h3>
+    <div class="row" >
+      <div class="card">
+        <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Smiggle__21-07.jpg" >
+        <div class="card-content">
+          <a href="#">
+            <p class="card-category">Toys Collection<i class="fas fa-chevron-right fa-sm"></i></p>
+          </a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Fun-2-Learn__21-07.jpg" >
+        <div class="card-content">
+          <a href="#">
+            <p class="card-category">Baby Toys<i class="fas fa-chevron-right fa-sm"></i></p>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Indoor-Games-and-Sports__21-07.jpg" >
+        <div class="card-content">
+          <a href="#">
+            <p class="card-category">Building Blocks<i class="fas fa-chevron-right fa-sm"></i></p>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Remote-Control-Cars__21-07.jpg" >
+        <div class="card-content">
+          <a href="#">
+            <p class="card-category">Casual<i class="fas fa-chevron-right fa-sm"></i></p>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+   </div>
+ </div>
+<!-- end card -->
+
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title2" >New Products</h3>
+        </div>
+      </div>
+      <!-- /section title -->
+<!-- juned 1/12/2020 -->
+<div class="container">
+ 
+  <div class="row">
+      <div class="col-md-3 col-sm-6">
+          <div class="product-grid7">
+              <div class="product-image7">
+                  <a href="#">
+                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766.jpg">
+                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766-4.jpg">
+                  </a>
+                  <ul class="social">
+                      <li><a href="" class="fa fa-search"></a></li>
+                      <li><a href="" class="fa fa-shopping-bag"></a></li>
+                      <li><a href="" class="fa fa-shopping-cart"></a></li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+              </div>
+              <div class="product-content">
+                  <h3 class="title"><a href="#">Remote control</a></h3>
+                  <ul class="rating">
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                  </ul>
+                  <div class="price">$15.00
+                      <span>$20.00</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+          <div class="product-grid7">
+              <div class="product-image7">
+                  <a href="#">
+                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766.jpg">
+                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766-4.jpg">
+                  </a>
+                  <ul class="social">
+                      <li><a href="" class="fa fa-search"></a></li>
+                      <li><a href="" class="fa fa-shopping-bag"></a></li>
+                      <li><a href="" class="fa fa-shopping-cart"></a></li>
+                  </ul>
+              </div>
+              <div class="product-content">
+                  <h3 class="title"><a href="#">Car's</a></h3>
+                  <ul class="rating">
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                  </ul>
+                  <div class="price">$15.00</div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+          <div class="product-grid7">
+              <div class="product-image7">
+                  <a href="#">
+                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/490619131-1.jpg">
+                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/490619131-1.jpg">
+                  </a>
+                  <ul class="social">
+                      <li><a href="" class="fa fa-search"></a></li>
+                      <li><a href="" class="fa fa-shopping-bag"></a></li>
+                      <li><a href="" class="fa fa-shopping-cart"></a></li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+              </div>
+              <div class="product-content">
+                  <h3 class="title"><a href="#">Dart</a></h3>
+                  <ul class="rating">
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                  </ul>
+                  <div class="price">$15.00
+                      <span>$20.00</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+          <div class="product-grid7">
+              <div class="product-image7">
+                  <a href="#">
+                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491635767-1_1.jpg">
+                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491635767-3_1.jpg">
+                  </a>
+                  <ul class="social">
+                      <li><a href="" class="fa fa-search"></a></li>
+                      <li><a href="" class="fa fa-shopping-bag"></a></li>
+                      <li><a href="" class="fa fa-shopping-cart"></a></li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+              </div>
+              <div class="product-content">
+                  <h3 class="title"><a href="#">Party Mic</a></h3>
+                  <ul class="rating">
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                  </ul> 
+                  <div class="price">$15.00
+
+                      <span>$20.00</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<hr>
+<!--  end juned 1/12/2020 -->
+      <!-- Products tab & slick -->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4 col-sm-6" *ngFor="let nprd of newproduct">
+            <div class="card my-2">
+              <img src="{{nprd.gallery?.medium_thumbnail_link}}" alt="Product Image" width="200px" height="200px" class="card-img-top"  style="cursor:pointer;">
+              <!--<div class="card-header">
+                <div class="card-title">
+                
+                </div>
+              </div>-->
+              <div class="card-body">
+                <p>{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</p>
+                <div class="col-sm-4" >
+                  <!-- <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i> -->
+                  <span
+                  class="fa fa-star checked"
+                  *ngFor="let i of createRange2(nprd.ratings)"
+                ></span>
+                <span *ngIf="nprd.ratings>'0'"><span
+                  class="fa fa-star unchecked"
+                  *ngFor="let i of createRange2(5 - nprd.ratings)"
+                ></span>
+              </span>
+            </div>
+                <p class="lead" >
+                 <span *ngIf="nprd.rate[0].is_rent == '1'" 
+    >{{ nprd.rate[0].name }} @ {{ nprd.rate[0].rate }}
+  </span>
+  <span *ngIf="nprd.rate[0].is_rent != '2'" 
+    >₹ {{ nprd.rate[0].rate}}
+  </span> &nbsp;
+  <span class="for-you text-muted" *ngIf="nprd.rate[0].rate < nprd.mrp"
+    ><del>₹ {{ nprd.mrp  }} </del></span
+  >
+  <span *ngIf="nprd.rate[0].is_rent == '2'" 
+    >{{ nprd.rate[1].name }} @ {{ nprd.rate[1].rate }} </span
+  ><br />
+  <span
+    *ngIf="nprd.rate[0].rate < nprd.mrp"
+    class="font-wieght-bold text-center for-you text-success"
+    >Discount : {{ nprd.rate[0].discount_percent | number:'1.0-0' }}%</span
+  >
+                </p>
+                <ul>
+                  <li>
+                    <a  style="cursor:pointer" *ngIf="nprd.wishlist_check == false"
+                      style="cursor:pointer"
+                  
+                  
+                      ><i class="far fa-heart text-secondary"></i
+                    ></a>
+                    <a
+                      style="cursor:pointer" *ngIf="nprd.wishlist_check == true"
+                    
+                    
+                      > <i class="far fa-heart text-danger"></i></a>
+    
+                      <a  style="cursor:pointer" *ngIf="userC == false"
+                      style="cursor:pointer"
+                 
+                    
+                      ><i class="far fa-heart text-secondary"></i
+                    ></a>
+                  </li>
+                  <!-- <li>
+                    <a
+                      style="cursor:pointer"
+                      (click)="addToCart(nprd2)"
+                      matTooltip="Add to Cart"
+                      ><i class="fa fa-shopping-bag text-primary"></i
+                    ></a>
+                  </li> -->
+                    <li *ngIf="userC==true">
+    
+                      <!-- //start for update cart 13/08/2020 Priyangee-->
+                      <!--<a *ngIf="nprd2.cart_check == false"
+                        style="cursor:pointer"
+                        
+                        matTooltip="Add to Cart"
+                        ><i class="fa fa-shopping-bag "></i
+                      ></a>-->
+    
+                         
+    
+                               
+                            
+                        </li>
+                         <li *ngIf="userC==false">
+    
+                      <!-- //start for update cart 13/08/2020 Priyangee-->
+                     <!---<a 
+                        style="cursor:pointer"
+                     
+                        matTooltip="Add to Cart"
+                        ><i class="fa fa-shopping-bag "></i
+                      ></a>-->
+    
+                         
+                      <!-- // end for update cart 13/08/2020 Priyangee-->
+                    </li>
+                </ul>
+              </div>
+
+              <div class="row d-flex justify-content-center border-primary my-3">
+                <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block" *ngIf="nprd.txn_quantity>=1"
+                 
+                    (click)="addToCart(nprd)"         
+                  >
+                     Add To Cart
+                  </button>
+                <button  *ngIf="nprd.txn_quantity<1"
+                  
+                   class="btn btn-outline-danger btn-sm btn-block">
+                    Out of Stock
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /container -->
+<!--section offer-->
+<div class="section">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+      <div class="section-title">
+        <h3 class="title2" >What We Offer</h3>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3 sm-6">
+          <div class="card my-2 text-center">
+            <img src="../../../assets/img/icon-1.png" height="150px" width="140px" alt="">
+            <div class="card-header">
+              <div class="card-title">
+                <h4 class="title" style="color: rgb(71, 40, 233)">Smart Toy Library</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 sm-6">
+          <div class="card my-2 text-center">
+            <img src="../../../assets/img/icon-6.png" height="150px" alt="">
+            <div class="card-header">
+              <div class="card-title">
+                <h4 class="title" style="color: rgb(255, 117, 0);">On Demand Availability</h4>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <div class="col-md-3 sm-6">
+          <div class="card my-2 text-center">
+            <img src="../../../assets/img/icon-2.png" height="150px" alt="">
+            <div class="card-header">
+              <div class="card-title">
+                <h4 class="title">Tele Support Assistance</h4>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <div class="col-md-3 sm-6">
+          <div class="card my-2 text-center">
+            <img src="../../../assets/img/icon-3.png" height="150px"  alt="">
+            <div class="card-header">
+              <div class="card-title">
+                <h4 class="title" style="color: rgb(233, 22, 26)">Free Shipping and returns</h4>
+              </div>
+            </div>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- /SECTION -->
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-14">
+        <h4 class="heading">Shop By Category</h4>
+        <p class="section-heading-subtitle light-copy">Made with quality and care, our toys inspire a world of discovery and hands-on learning.</p>
+        <div class="row justify-content-center ">
+          <div class="col-md-2" style="margin-top: 10px;" *ngFor="let category of categories"  >
+            
+        <img src="../../../assets/img/9toyslogo.jpeg" style="border-radius: 50px;width: 100px;height: 100px;z-index: 1;box-sizing: border-box;
+        margin: 0 auto 15px;    "   alt="">
+        <a title="{{ category.name }}"
+        (click)=" 
+        navigateCategory(category.name, category.category_no)
+      "
+    class="category-title"    ><br><span class="title1">&nbsp;{{category.name}}</span></a>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- HOT DEAL SECTION -->
+<!--<div id="hot-deal" class="section">
+  container 
+  <div class="container">
+     row 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hot-deal">
+          <ul class="hot-deal-countdown">
+            <li>
+              <div>
+                <h3>02</h3>
+                <span>Days</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>10</h3>
+                <span>Hours</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>34</h3>
+                <span>Mins</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>60</h3>
+                <span>Secs</span>
+              </div>
+            </li>
+          </ul>
+          <h2 class="text-uppercase">hot deal this week</h2>
+          <p>New Collection Up to 50% OFF</p>
+          <a class="primary-btn cta-btn" href="#">Shop now</a>
+        </div>      </div>
+    </div>
+    
+  </div>
+</div>
+
+-->
+
+<!-- NEWSLETTER -->
+<!--<div id="newsletter" class="section">
+
+  <div class="container">
+  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="newsletter">
+          <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+          <form>
+            <input class="input" type="email" placeholder="Enter Your Email">
+            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+          </form>
+          <ul class="newsletter-follow">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-pinterest"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>-->
+<!-- /NEWSLETTER -->

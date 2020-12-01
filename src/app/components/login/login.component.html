@@ -1,0 +1,288 @@
+<div class="container" *ngIf="signup == 0" style="margin-top: 10px;">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-6 d-flex mx-auto flex-column ">
+          <h4 class="text-uppercase " style="margin: auto;"><strong>Login Admin</strong></h4>
+        <!--<ng-container >
+            <div class="alert alert-danger alert-dismissible text-center">
+              
+            </div>
+          </ng-container>-->
+          <form [formGroup]="loginForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input class="form-control" id="email" type="email" formControlName="username"  name="email" required>
+            </div>
+  
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" id="password" type="password"  name="password" formControlName="password" required>
+              <p class="alert text-right cursor-pointer"><a data-toggle="modal" data-target="#myModal">Forgot password?</a></p>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-around">
+              <button class="btn btn-primary btn-sm btn-block" (click)="onSubmit()"
+              [disabled]="!loading"  >Login</button>
+              <hr>
+              <p>Don't have an account?<span  ><a  (click)="onSubmitSign()" class="cursor-pointer text-primary"> click here!</a></span></p>
+            <!---<h4 class="text-uppercase"><strong>Login Using</strong></h4>-->
+  
+            <!--- <button  class="btn btn-danger btn-sm btn-block mt-4"><span><i
+                class="fa fa-google"></i> Google </span>
+              </button>-->
+            </div>
+          </form>
+  
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+    
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+    
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>-->
+  <body *ngIf="signup == 1">
+  
+    <div class="panda">
+      <div class="ear"></div>
+      <div class="face">
+        <div class="eye-shade"></div>
+        <div class="eye-white">
+          <div class="eye-ball"></div>
+        </div>
+        <div class="eye-shade rgt"></div>
+        <div class="eye-white rgt">
+          <div class="eye-ball"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="body"> </div>
+      <div class="foot">
+        <div class="finger"></div>
+      </div>
+      <div class="foot rgt">
+        <div class="finger"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-md-6 d-flex mx-auto flex-column ">
+            <h4 class="text-uppercase " style="margin: auto;"><strong>Register</strong></h4>
+            <form [formGroup]="registerForm" class="form-box">
+              <div class="hand"></div>
+              <div class="hand rgt"></div>
+            
+              <div class="form-group mt-5">
+                <input required="required" class="form-control pl-3" placeholder="enter email or mobile number"  formControlName="username"/>
+              </div>
+              <div class="form-group text-center">
+               
+                <button class="btn btn-primary" (click)="onSubmitSign()"
+                [disabled]="!loading">Get otp </button>
+                <hr>
+                <p class="mt-2">Already exist? <span  class="text-primary cursor-pointer" (click)="onSubmit()">click here</span></p>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    
+  </body>
+  <body *ngIf="signup == 2">
+    <div class="panda">
+      <div class="ear"></div>
+      <div class="face">
+        <div class="eye-shade"></div>
+        <div class="eye-white">
+          <div class="eye-ball"></div>
+        </div>
+        <div class="eye-shade rgt"></div>
+        <div class="eye-white rgt">
+          <div class="eye-ball"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="body"> </div>
+      <div class="foot">
+        <div class="finger"></div>
+      </div>
+      <div class="foot rgt">
+        <div class="finger"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="jumbotron">
+
+      
+      <div class="row">
+        <div class="col-md-6 d-flex mx-auto flex-column">
+          <h4 class="text-uppercase " style="margin: auto;"><strong>Register</strong></h4>
+          <form  [formGroup]="otpForm" class="form-box">
+            <div class="hand"></div>
+            <div class="hand rgt"></div>
+            <div class="row justify-content-around">
+              <h3 class="mb-2 row justify-content-between"></h3>   <span class="cursor-pointer text-info"   (click)="onSubmitResendOtp()">Resend otp?</span>
+            </div>
+           
+            <div class="form-group ">
+              <input required="required" class="form-control pl-3" placeholder="enter otp" formControlName="otp"/>
+            </div>
+            
+              <div class="form-group">
+                <input required="required" class="form-control pl-3" type="password" placeholder="enter password" formControlName="password" type="password"/>
+              </div>
+              <div class="form-group">
+                <input required="required" class="form-control pl-3" placeholder="confirm password" type="password"  [class.is-invalid]="otpForm.errors?.misMatch" required
+                formControlName="confirmPassword"/>
+              </div>
+            <div class="form-group text-center">
+              <button class="btn btn-primary" (click)="onSubmitOTP()" [disabled]="!loading">Submit </button>
+              <hr/>
+              <p class=" ">Already exist?<a class="text-primary cursor-pointer" (click)="onSubmit()">click here!</a></p>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  
+  
+    </body>
+    <body *ngIf="signup == 4">
+      <div class="panda">
+        <div class="ear"></div>
+        <div class="face">
+          <div class="eye-shade"></div>
+          <div class="eye-white">
+            <div class="eye-ball"></div>
+          </div>
+          <div class="eye-shade rgt"></div>
+          <div class="eye-white rgt">
+            <div class="eye-ball"></div>
+          </div>
+          <div class="nose"></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="body"> </div>
+        <div class="foot1">
+          <div class="finger"></div>
+        </div>
+        <div class="foot1 rgt">
+          <div class="finger"></div>
+        </div>
+      </div>
+      <div class="container"  style="margin-top: 10px;">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-md-6 d-flex mx-auto flex-column ">
+              <h4 class="text-uppercase " style="margin: auto;"><strong>Register</strong></h4>
+              <form [formGroup]="otpForm" class="form-box">
+                <div class="hand"></div>
+                <div class="hand rgt"></div>
+                <div class="row justify-content-around">
+                  <h3 class="mb-2 row justify-content-between"></h3>   <span class="cursor-pointer text-info"   (click)="onSubmitResendOtp()">Resend otp?</span>
+                </div>
+                <div class="form-group ">
+                  <input required="required" class="form-control pl-3" placeholder="enter otp" formControlName="otp"/>
+                </div>
+                <div class="form-group ">
+                  <input required="required" class="form-control pl-3" placeholder="username" formControlName="username"/>
+                </div>
+                <div class="form-group">
+                  <input required="required" class="form-control pl-3" type="password" placeholder="enter password" formControlName="password" type="password"/>
+                </div>
+                <div class="form-group">
+                  <input required="required" class="form-control pl-3" placeholder="confirm password" type="password"  [class.is-invalid]="otpForm.errors?.misMatch" required
+                  formControlName="confirmPassword"/>
+                </div>
+              <div class="form-group text-center">
+                <button class="btn btn-primary" (click)="onSubmitOTP()" [disabled]="!loading">Submit </button>
+                <hr/>
+                <p class=" ">Already exist?<a class="text-primary cursor-pointer" (click)="onSubmit()">click here!</a></p>
+              </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+     
+    
+      </body>
+    
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        
+        <div class="modal-header">
+          <h4 class="modal-title">Forgot Password</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+      
+        <div class="modal-body">
+          <div class="container-fluid">
+            <form [formGroup]="forgotForm">
+              <div class="form-group">
+                <div class="row ">
+                  <div class="col-md-10">
+                     <div class="input-group mb-3 mt-3 ml-3 mr-auto">
+                               
+                                <input type="text" style="padding-left: 2%;" class="form-control" formControlName="username"  placeholder="Please Enter Email/Mobile" >
+                            </div>
+                   
+                
+                   
+                  </div>
+                </div>
+               
+               
+                <div class="row justify-content-center mt-3 mb-3">
+                  
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <span><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>&nbsp;
+            <button type="button" (click)="forgotPassword();" class="btn btn-primary"  data-dismiss="modal" [disabled]="!loading">Save</button>
+          </span>
+         
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+ 
+  
