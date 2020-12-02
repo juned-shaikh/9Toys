@@ -345,19 +345,20 @@ this.fetch_categories(this.comp_num_new)
     // let slug = name.replace(/\s+/g, '-') + "-?product_no=" + id  + "&marketplace=ECOMTRAILS";
     if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/Admin/preview/product", slug]));
+      .then(() => this.router.navigate(["/view-product", slug]));
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/product", slug]));
+      .then(() => this.router.navigate(["/view-product", slug]));
 
     }
   }
+  
   
 
     // this.router
@@ -434,6 +435,51 @@ this.fetch_categories(this.comp_num_new)
         }
       });
   }
+  addToWishlist(product) {
+    var postData = { product_no: "", access_token: "", user_num: "" ,comp_num:sessionStorage.getItem("comp_num_new")};
+    postData.product_no = product.product_no;
+    postData.access_token = sessionStorage.getItem("access_token");
+    postData.user_num = sessionStorage.getItem("user_num");
+    if (
+      postData.user_num == null ||
+      postData.access_token == null ||
+      postData.user_num == "" ||
+      postData.access_token == ""
+    ) {
+      this.snackbar.open("Please Login To Add product in Wishlist", "", {
+        duration: 1000
+      });
+      if(this.previewFlag == '1'){
+        this.router.navigate(["/login"]);
+      }else{
+        this.router.navigate(["/login"]);
+
+      }
+      
+    } else {
+      if (product.is_wishlist == "True") {
+        this.snackbar.open("Already Exists in Wishlist", "", {
+          duration: 1000
+        });
+      } else {
+        this.adminService.addWishlist(postData).subscribe(data => {
+          if (data["status"] == 1) {
+            this.ngOnInit();
+            // alert('Added to Wishlist');
+            this.snackbar.open("Added to Wishlist", "", {
+              duration: 1000
+            });
+            
+          } else if (data["status"] == 0) {
+            this.snackbar.open("Already Added", "", {
+              duration: 1000
+            });
+          }
+        });
+      }
+    }
+  }
+
   count=0;
   addToCart(product) {
 

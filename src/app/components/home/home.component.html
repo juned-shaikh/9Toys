@@ -151,121 +151,83 @@
 <div class="container">
  
   <div class="row">
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-4 col-sm-6" *ngFor="let nprd of newproduct">
           <div class="product-grid7">
               <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766-4.jpg">
-                  </a>
+               <a href="" >
+                    <img src="{{nprd.gallery?.medium_thumbnail_link}}" (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check);" alt="Product Image"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
+               </a>                 
                   <ul class="social">
                       <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
+                      <li>
+                        <a  style="cursor:pointer" *ngIf="nprd.wishlist_check == false"
+                        style="cursor:pointer"
+                     
+                        style="cursor:pointer"
+                        (click)="addToWishlist(nprd)"
+                    
+                        ><i class="far fa-heart text-secondary"></i
+                      ></a>
+                      <a
+                        style="cursor:pointer" *ngIf="nprd.wishlist_check == true"
+                      
+                        style="cursor:pointer"
+                        (click)="addToWishlist(nprd)"
+                      
+                        > <i class="far fa-heart text-danger"></i></a>
+      
+                        <a  style="cursor:pointer" *ngIf="userC == true"
+                        style="cursor:pointer"
+                        (click)="addToWishlist(nprd)"
+                      
+                        ><i class="far fa-heart text-secondary"></i
+                      ></a>
+                      </li>
+                      <li><a href="" class="fa fa-shopping-cart" *ngIf="nprd.txn_quantity>=1"
+                 
+                        (click)="addToCart(nprd)"         ></a>
+                      <a href="" class="fa fa-shopping-cart text-danger" *ngIf="nprd.txn_quantity<1"></a>
+                      </li>
                   </ul>
                   <span class="product-new-label">New</span>
               </div>
               <div class="product-content">
-                  <h3 class="title"><a href="#">Remote control</a></h3>
+                  <h3 class="title"><a href="#">{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</a></h3>
                   <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
+                    <span
+                    class="fa fa-star checked"
+                    *ngFor="let i of createRange2(nprd.ratings)"
+                  ></span>
+                  <span *ngIf="nprd.ratings>'0'"><span
+                    class="fa fa-star unchecked"
+                    *ngFor="let i of createRange2(5 - nprd.ratings)"
+                  ></span>
+                </span>
                   </ul>
-                  <div class="price">$15.00
-                      <span>$20.00</span>
+                  <div class="price">
+                    <span *ngIf="nprd.rate[0].is_rent == '1'" 
+    >{{ nprd.rate[0].name }} @ {{ nprd.rate[0].rate }}
+  </span>
+  <span *ngIf="nprd.rate[0].is_rent != '2'" 
+    >₹ {{ nprd.rate[0].rate}}
+  </span> &nbsp;
+  <span class="for-you text-muted" *ngIf="nprd.rate[0].rate < nprd.mrp"
+    ><del>₹ {{ nprd.mrp  }} </del></span
+  >
+  <span *ngIf="nprd.rate[0].is_rent == '2'" 
+    >{{ nprd.rate[1].name }} @ {{ nprd.rate[1].rate }} </span
+  ><br />
+  <span
+    *ngIf="nprd.rate[0].rate < nprd.mrp"
+    class="font-wieght-bold text-center for-you text-success"
+    >Discount : {{ nprd.rate[0].discount_percent | number:'1.0-0' }}%</span
+  >
                   </div>
               </div>
           </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid7">
-              <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766-4.jpg">
-                  </a>
-                  <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
-                  </ul>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Car's</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                  </ul>
-                  <div class="price">$15.00</div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid7">
-              <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/490619131-1.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/490619131-1.jpg">
-                  </a>
-                  <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
-                  </ul>
-                  <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Dart</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                  </ul>
-                  <div class="price">$15.00
-                      <span>$20.00</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid7">
-              <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491635767-1_1.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491635767-3_1.jpg">
-                  </a>
-                  <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
-                  </ul>
-                  <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Party Mic</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                  </ul> 
-                  <div class="price">$15.00
-
-                      <span>$20.00</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+     
+      
 </div>
 <hr>
 <!--  end juned 1/12/2020 -->
@@ -278,121 +240,76 @@
 <div class="container">
  
   <div class="row">
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-3 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
               <div class="product-image7">
                   <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766-4.jpg">
+                    <img  src="{{ nprd2.gallery.medium_thumbnail_link }}"   (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200" height="300" class="card-img-top"  style="cursor:pointer;">
                   </a>
                   <ul class="social">
                       <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
+                      <li><a  style="cursor:pointer" *ngIf="nprd2.wishlist_check == false"
+                        style="cursor:pointer"
+                    
+                    
+                        ><i class="far fa-heart text-secondary"></i
+                      ></a>
+                      <a
+                        style="cursor:pointer" *ngIf="nprd2.wishlist_check == true"
+                      
+                      
+                        > <i class="far fa-heart text-danger"></i></a>
+      
+                        <a  style="cursor:pointer" *ngIf="userC == true"
+                        style="cursor:pointer"
+                   
+                      
+                        ><i class="far fa-heart text-secondary"></i
+                      ></a></li>
+                      <li><a href="" class="fa fa-shopping-cart" *ngIf="nprd2.txn_quantity>=1"></a>
+                        <a href="" class="fa fa-shopping-cart" style="display: none;" *ngIf="nprd2.txn_quantity<1"></a>
+                      </li>
                   </ul>
                   <span class="product-new-label">New</span>
               </div>
               <div class="product-content">
-                  <h3 class="title"><a href="#">Remote control</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
+                  <h3 class="title"><a href="#">{{ (nprd2.name.length>60)? (nprd2.name | slice:0:35)+'...':(nprd2.name) }}</a></h3>
+                  <ul class="rating justify-content-center text-center pb-1 start-mobile"  *ngIf="rating_option==true"  >
+                    <span
+                    class="fa fa-star checked"
+                    *ngFor="let i of createRange2(nprd2.ratings)"
+                  ></span>
+                  <span *ngIf="nprd2.ratings>'0'"><span
+                    class="fa fa-star unchecked"
+                    *ngFor="let i of createRange2(5 - nprd2.ratings)"
+                  ></span>
+                </span>
                   </ul>
-                  <div class="price">$15.00
-                      <span>$20.00</span>
+                  <div class="price">
+                    <span *ngIf="nprd2.rate[0].is_rent == '1'" 
+                    >{{ nprd2.rate[0].name }} @ {{ nprd2.rate[0].rate }}
+                  </span>
+                  <span *ngIf="nprd2.rate[0].is_rent != '2'" 
+                    >₹ {{ nprd2.rate[0].rate}}
+                  </span> &nbsp;
+                  <span class="for-you text-muted" *ngIf="nprd2.rate[0].rate < nprd2.mrp"
+                    ><del>₹ {{ nprd2.mrp  }} </del></span
+                  >
+                  <span *ngIf="nprd2.rate[0].is_rent == '2'" 
+                    >{{ nprd2.rate[1].name }} @ {{ nprd2.rate[1].rate }} </span
+                  ><br />
+                  <span
+                    *ngIf="nprd2.rate[0].rate < nprd2.mrp"
+                    class="font-wieght-bold text-center for-you text-success"
+                    >Discount : {{ nprd2.rate[0].discount_percent | number:'1.0-0' }}%</span
+                  >
                   </div>
               </div>
           </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid7">
-              <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491395766-4.jpg">
-                  </a>
-                  <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
-                  </ul>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Car's</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                  </ul>
-                  <div class="price">$15.00</div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid7">
-              <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/490619131-1.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/490619131-1.jpg">
-                  </a>
-                  <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
-                  </ul>
-                  <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Dart</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                  </ul>
-                  <div class="price">$15.00
-                      <span>$20.00</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid7">
-              <div class="product-image7">
-                  <a href="#">
-                      <img class="pic-1" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491635767-1_1.jpg">
-                      <img class="pic-2" src="https://www.hamleys.in/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/4/9/491635767-3_1.jpg">
-                  </a>
-                  <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
-                      <li><a href="" class="fa fa-shopping-bag"></a></li>
-                      <li><a href="" class="fa fa-shopping-cart"></a></li>
-                  </ul>
-                  <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Party Mic</a></h3>
-                  <ul class="rating">
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                      <li class="fa fa-star"></li>
-                  </ul> 
-                  <div class="price">$15.00
-
-                      <span>$20.00</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+     
+      
+       </div>
 </div>
 <hr>
 <!-- trending product end -->
