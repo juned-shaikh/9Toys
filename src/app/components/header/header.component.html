@@ -7,7 +7,7 @@
    <!--  <a href="#" class="logo">logo</a> -->
 <!--    <img src="list.png" width=40px" style="color: white"> -->
 
-   <img src="./assets/1.png" width="120px" height="60px" routerLink="/" style="padding: 10px;">
+   <img src="./assets/img/9toyslogo.jpeg" width="120px" height="60px" routerLink="/" style="padding: 10px;">
     <input type="checkbox" id="chkToggle">
     
     
@@ -120,7 +120,7 @@
               aria-label="search..."
             />
             <i
-              class="searchIcon fa fa-search "
+              class="searchIcon fa fa-search " style="color:rgb(76, 83, 146)!important;"
               title="search"
               (click)="
                 navigateCategory(
@@ -235,7 +235,7 @@
           ><i class="far fa-user text-center text-success"></i> Account
         </a>
         <a class="nav-link project-heading" routerLink="/wishlist"
-        ><i class="far fa-heart text-center text-success"></i> WishList
+        ><i style="color:rgb(76, 83, 146)!important;" class="far fa-heart text-center text-success"></i> WishList
       </a>
       <a class="nav-link project-heading" (click)="logout()"
       ><i class="fas fa-user-lock text-center text-success"></i> Logout
@@ -268,7 +268,7 @@
 
 <li style="list-style: none;" class="ml-0" *ngIf="is_logged_out">
 <a class="nav-link" routerLink="/login"
-  ><i class="far fa-heart text-center text-success"></i>
+  ><i style="color:rgb(76, 83, 146)!important;" class="far fa-heart text-center text-success"></i>
 </a>
 </li>
 <!-- <li style="list-style: none;" class="ml-1" *ngIf="is_logged_in">
