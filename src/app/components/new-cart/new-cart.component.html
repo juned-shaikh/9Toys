@@ -1,0 +1,1140 @@
+<!--<p>new-cart works!</p>-->
+<div *ngIf="loader">
+    <!--========================= if user not loggged in start===================== -->
+    <div *ngIf="isLoggedOut">
+      <div *ngIf="isLoggedOutPro">
+        <div class="text-center" style="padding: 10% 0;">
+          <mat-card-content>
+            <img src="https://img.icons8.com/carbon-copy/100/000000/clear-shopping-cart.png" />
+            <h2 class="font-weight-500 text-muted">Cart Is Empty.</h2>
+            <h5 class="pt-3">Looks Like you have no products in your shopping cart.
+            </h5>
+            <h3 class="mt-2" routerLink="/">Click <span  class="text-primary cursor-pointer" title="click">here</span> to
+              continue shopping.</h3>
+  
+          </mat-card-content>
+        </div>
+      </div>
+      <div *ngIf="isLoggedInPro" class="bg-secondary-color h-100">
+  
+        <!---================ if user not login  for mobile  view ================================-->
+        <div class="container-fluid d-block d-lg-none d-md-none  pt-3" style="height: 100%;">
+   
+          <div class=" pt-4 d-block d-md-none d-lg-none fixed-bottom">
+  
+            <mat-accordion style="border:none;">
+              <mat-expansion-panel [hideToggle]=true>
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="justify-content-between ">
+                    <button  routerLink="/home" mat-raised-button class="order-button">
+                      Continue Shopping
+                    </button>
+                    <span>
+                      <h3> ₹ {{ total_nett }}</h3>
+                    </span>
+                    <button mat-raised-button (click)="WtoutLoginCheckout()" class="order-button ">
+                      Checkout
+                    </button>
+                   
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="example-button-row">
+  
+                  <mat-card>
+                    <div class="row price-details mt-2">
+                  </div>
+                    <div *ngIf="total_discount>0 && total_discount>0" class="row price-details mt-2">
+  
+                      <div class="col-md-8 col-8">
+                        <p class="">Total MRP </p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p>₹{{ total_mrp}}</p>
+                      </div>
+                    </div>
+                    <div *ngIf="total_discount>0 && total_discount>0" class="row price-details">
+                      <div class="col-md-8 col-8">
+                        <p>Discount </p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p> ₹{{ total_mrp-net_amount}}</p>
+                      </div>
+                    </div>
+                    <div class="row price-details">
+                      <div class="col-md-8 col-8">
+                        <!-- <p>Price (item {{ products.length }})</p> -->
+                        <p>Price (Inclusive of GST)</p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p>₹{{net_amount}}</p>
+                      </div>
+                    </div>
+  
+                    <div class="row price-details border-bottom" *ngIf="ship_ask==true"> 
+                      <div class="col-md-8 col-8" >
+                        <p>Shipping Charge</p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        
+                        <p>₹ {{ total_shipp}}</p>
+                      </div>
+                    </div>
+                    <!-- 31/08/2020 start -->
+                   <div *ngIf="ship_ask==false" class="row price-details border-bottom">
+                    <div class="col-md-8 col-8">
+                      <p>Shipping Charge</p>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <p> ₹{{ ship_charge }}</p>
+                    </div>
+                  </div>
+  <!-- 31/08/2020 end -->
+  
+  
+                    <div *ngIf="(total_mrp-net_amount)>0 && (total_mrp-net_amount)>0" class="row border-top pt-3">
+                      <div class="col-md-12">
+                        <h3 class="text-success">
+                          You Will Save ₹{{total_mrp-net_amount}} on this product
+                        </h3>
+                      </div>
+                    </div>
+  
+                  </mat-card>
+  
+  
+  
+                </div>
+  
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+  
+          <div class="row   justify-content-center ">
+            <div class="col-11  mobile-cart-row mb-2 cursor-pointer shadow" *ngFor="let pr of products"
+              >
+              <div class="row  ">
+                <div class="col-4 col-mobile pt-1 pb-1">
+                  <div class="row justify-content-center">
+                  <img src="{{
+    pr.product_image?.medium_thumbnail_link
+  }}" height="80" class="mb-1" (click)="view_product(pr.product.meta_title,pr.product.product_no,pr.product.slug,pr.product.quick_product_check)" />
+  
+  </div>
+        <div class="row justify-content-center">
+  
+  
+          <!-- // start for qty update-->
+    <div class="_3md1dr">
+     
+      <button *ngIf="pr.quantity > 1 || pr.quantity > '1'" class="wNrY5O   btn-info btn-sm ml-1"
+        title="decrease"
+        (click)="updateCart3minusl(pr.quantity,pr.product.txn_quantity,pr.product.product_no);">-
+      </button>
+  
+     
+      <!-- start for delete -->
+       <button *ngIf="pr.quantity == 1 || pr.quantity == '1'" class="wNrY5O  btn btn-info btn-sm ml-1"
+         (click)="deleteFromCartWithoutLogin(pr.product.product_no)">-
+      </button>
+  <!-- end for delete -->
+      <input class="_2zH4zg form-control text-center" type="number" matInput placeholder="Quantity"
+      [style.font-size.px]="(pr.quantity.length <=2)?12:(16-(pr.quantity.length+2))"  [style.width.px]="(pr.quantity.length <=2)?40:(40+(pr.quantity.length*3))"  
+   
+        value="{{pr.quantity}}" required min="1"
+        (change)="updateCart3l(pr.quantity,pr.product.txn_quantity,$event.target.value,pr.product.product_no)"
+        (keyup)="updateCart3l(pr.quantity,pr.product.txn_quantity,$event.target.value,pr.product.product_no)">
+      <button *ngIf="pr.product.txn_quantity2>pr.qty2" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="increase"
+        (click)="updateCart3plusl(pr.quantity,pr.product.txn_quantity,pr.product.product_no)">+
+      </button>
+       <!-- disable button for increase with stock start 13/08/2020 -->
+    <button *ngIf="pr.qty2 >= pr.product.txn_quantity2" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="Reached limit" [disabled]=true
+      >+
+     
+    </button>
+    <!-- disable button for increase with stock end 13/08/2020 -->
+    </div>
+        </div>
+    
+  
+                </div>
+                <div class="col-6 col-mobile " (click)="view_product(pr.product.meta_title,pr.product.product_no,pr.product.slug,pr.product.quick_product_check)">
+                  <div class="row mt-1">
+                    <h3 class="text-titlecase font-weight-600 mobile-cart-font-size">
+                      {{ pr.product.name }}
+                      <br>
+                      <span class="font-weight-400"> {{ pr.product.subheading }}</span>
+                    </h3>
+                  </div>
+  
+                  <div class="row text-titlecase mobile-cart-font-size">
+                    <span *ngIf=" pr.product_rate[0].is_rent =='0'"> </span>
+                    <span *ngIf=" pr.product_rate[0].is_rent !='0'"> {{ pr.product_rate[0].name }} @</span>&nbsp;
+                    <span class="font-weight-500"> ₹ {{ pr.product_rate[0].rate_qty }}</span>
+                    &nbsp;<span *ngIf="pr.product_rate[0].rate<pr.product.mrp"
+                      class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span> &nbsp;
+  
+                    &nbsp;&nbsp;<span *ngIf="pr.product_rate[0].rate_qty<pr.product.mrp_qty"
+                    class="text-success font-weight-600 pl-2">{{pr.product_rate[0].discount_percent | number: '1.0-0'}}
+                    %
+                    Off </span>
+                  </div>
+                 
+  
+                  <div class="row mobile-cart-font-size">
+                    <span class="text-titlecase font-weight-500 ">
+                      Qty : {{pr.quantity}}</span>
+  
+                  </div>
+  
+                  <div *ngFor="let sh of pr.product_rate " class="row mobile-cart-font-size">
+                    <span *ngIf="sh.is_rent == '2' && ship_ask==true && (sh.rate_qty==0 || sh.rate_qty==null || sh.rate_qty=='0') " class="text-success text-titlecase font-weight-300 mobile-cart-font-size">
+                      Free Shipping
+                      </span>
+                    <span *ngIf="sh.is_rent == '2' && ship_ask==true && sh.rate_qty!=0 && sh.rate_qty!='0' &&  sh.rate_qty!=null" class="text-titlecase font-weight-300 mobile-cart-font-size">
+                      Shipping Charge : {{sh.rate_qty}}
+                    </span>
+                  </div>
+                </div>
+                <div class="col-2 d-flex col-mobile pt-2">
+  
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+        <!--=========================== if user not login for mobile view end======================== -->
+      
+  
+        <!--============================= if user not login for pc view start==============================================-->
+        <div class="container-fluid d-none d-lg-block d-md-block">
+          <div class="container mt-3">
+            <div class="row">
+              <div class="col-lg-8">
+                <mat-card  class="mycart-scroll">
+                  
+                  <div class="row border-bottom justify-content-between">
+                   
+                    <h5 class="ml-3 heading"    >My Cart ({{ products.length }})</h5>
+                   
+                         <!-- start for 24/08/2020 enter pincode-->
+ 
+                  <!-- end for 24/08/2020 enter pincode -->
+                  </div>
+                  <div *ngFor="let pr of products" matTooltip="View Product" class="border-bottom cursor-pointer">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="row p-3"
+                          (click)="view_product(pr.product.meta_title,pr.product.product_no,pr.product.slug,pr.product.quick_product_check)">
+  
+  
+                          <img src="{{
+                              pr.product_image?.medium_thumbnail_link
+                            }}" onerror="this.src='assets/img/favicon1.png';" height="150" style="width: 100%;"
+                             />
+                          <br />
+                        </div>
+                      </div>
+  
+                      
+                      <!-- {{pr.product_rate[1]}} -->
+  
+                      <!-- end for qty update -->
+                      <div (click)="view_product(pr.product.meta_title,pr.product.product_no,pr.product.slug,pr.product.quick_product_check)"
+                        class="col-md-9 pt-3">
+                        <div class="row cursor-pointer" >
+                          <h3 class="text-titlecase font-weight-600">
+                            {{ pr.product.name }}
+                          </h3>
+                        </div>
+                        <div class="row " style="cursor: pointer; margin-top: -15px;">
+                          <h3 class="text-titlecase font-weight-500 text-muted">
+                            {{ pr.product.subheading }}
+                          </h3>
+                        </div>
+                        <div class="row">
+                          <h3 class="text-titlecase font-weight-500 text-muted">
+                            Quantity : {{pr.quantity}}
+                          </h3>
+                        </div>
+  
+                        <div *ngIf="  pr.product_rate[0].is_rent !='2' " class="row text-titlecase">
+                          <span *ngIf=" pr.product_rate[0].is_rent =='0'"></span>
+                          <span *ngIf=" pr.product_rate[0].is_rent !='0'">{{ pr.product_rate[0].name }} @</span>&nbsp;
+                          <span class="font-weight-500"> ₹  {{ pr.product_rate[0].rate_qty }}</span>
+                          &nbsp;<span *ngIf="pr.product_rate[0].rate_qty<pr.product.mrp_qty"
+                            class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span>
+  
+                          &nbsp;&nbsp;<span *ngIf="pr.product_rate[0].rate_qty<pr.product.mrp_qty"
+                            class="text-success font-weight-600 pl-2">{{pr.product_rate[0].discount_percent | number: '1.0-0'}}
+                            %
+                            Off </span>
+  
+  
+                        </div>
+  
+                        <div class="row text-titlecase" *ngIf=" pr.product_rate[0].is_rent =='2'">
+                          <!-- <div *ngFor="let sh of pr.product_rate|0:1" class="row mt-2"> -->
+  
+                          <span *ngIf=" pr.product_rate[1].is_rent=='0'">Buy @ </span>&nbsp;
+                          <span *ngIf=" pr.product_rate[1].is_rent !='0'"> {{ pr.product_rate[1].name }} @</span>&nbsp;
+                          <span class="font-weight-500"> ₹ {{ pr.product_rate[1].rate_qty}}</span>
+                          &nbsp;<span *ngIf="pr.product_rate[1].rate_qty<pr.product.mrp_qty"
+                            class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span>
+  
+                          &nbsp;&nbsp;<span *ngIf="pr.product_rate[1].rate_qty<pr.product.mrp_qty"
+                            class="text-success font-weight-600 pl-2">{{pr.product_rate[1].discount_percent | number: '1.0-0'}}
+                            %
+                            Off </span>
+  
+  
+                        </div>
+  
+                        <div *ngFor="let sh of pr.product_rate" class="row mt-2">
+                          <h3 *ngIf="(sh.rate_qty==0 || sh.rate_qty=='0' || sh.rate_qty==null) && ship_ask==true" class="text-titlecase font-weight-400 text-success">
+                            Free Shipping
+                          </h3>
+                          <h3 *ngIf="sh.is_rent == '2' && ship_ask==true && sh.rate_qty!=0 && sh.rate_qty!=null && sh.rate_qty!='0'" class="text-titlecase font-weight-400">
+                            Shipping Charge : {{sh.rate_qty}}
+                          </h3>
+                        </div>
+              <div class="row">
+               
+                      <!-- <div class="" *ngIf="is_estimate==true && pr.etd !=0">
+                          
+                    <h3>Delivery by {{pr.etd}}</h3>
+                  </div> -->
+               
+              </div>
+  
+                      </div>
+                    </div>
+                    <div class="row ">
+                      <div class="col-md-3 mb-1">
+                        <div class="row justify-content-center ">
+  
+                          <div class="row ">
+  
+                            <!-- // start for qty update-->
+                      <div class="_3md1dr">
+                       
+                        <button *ngIf="pr.quantity > 1 || pr.quantity > '1'" class="wNrY5O   btn-info btn-sm ml-1"
+                          title="decrease"
+                          (click)="updateCart3minusl(pr.quantity,pr.product.txn_quantity,pr.product.product_no);">-
+                        </button>
+  
+                        <!-- <button *ngIf="pr.quantity == 1 || pr.quantity == '1'" class="wNrY5O  btn btn-info btn-sm ml-1"
+                           [disabled]=true>-
+                        </button> -->
+                        <!-- start for delete  -->
+  <button *ngIf="pr.quantity == 1 || pr.quantity == '1'" class="wNrY5O  btn btn-info btn-sm ml-1"
+                           (click)="deleteFromCartWithoutLogin(pr.product.product_no)">-
+                        </button>
+                        <!-- end for delete -->
+                        <!-- (click)="deleteFromCartWithoutLogin(pr.product.product_no)" -->
+  
+                        <input class="_2zH4zg form-control text-center" type="number" matInput placeholder="Quantity"
+                          value="{{pr.quantity}}" required min="1"
+                          [style.font-size.px]="(pr.quantity.length <=2)?12:(16-(pr.quantity.length+2))"  [style.width.px]="(pr.quantity.length <=2)?40:(40+(pr.quantity.length*3))"  
+   
+                          (change)="updateCart3l(pr.quantity,pr.product.txn_quantity,$event.target.value,pr.product.product_no)"
+                          (keyup)="updateCart3l(pr.quantity,pr.product.txn_quantity,$event.target.value,pr.product.product_no)">
+                        <button *ngIf="pr.product.txn_quantity2>pr.qty2" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="increase"
+                          (click)="updateCart3plusl(pr.quantity,pr.product.txn_quantity,pr.product.product_no)">+
+                        </button>
+                         <!-- disable button for increase with stock start 13/08/2020 -->
+                      <button *ngIf="pr.qty2 >= pr.product.txn_quantity2" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="Reached limit" [disabled]=true
+                        >+
+                       
+                      </button>
+                      <!-- disable button for increase with stock end 13/08/2020 -->
+                      </div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      
+                    </div>
+  
+                  </div>
+                </mat-card>
+              </div>
+  
+              <div class="col-lg-4" style="position: sticky; top: 40px;">
+                <mat-card>
+                  <div class="row border-bottom ">
+                    <h5 class="text-uppercase ml-3">price details</h5>&nbsp;&nbsp;
+                    (Products {{ products.length}} & Total Qty {{total_entity}})
+                  </div>
+                  <div class="row price-details mt-2">
+                    
+                  </div>
+                  <div *ngIf="total_discount>0 && total_discount>0" class="row price-details ">
+                    <div class="col-md-8 col-8">
+                      <p class="">Total MRP </p>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <p>₹{{ total_mrp}}</p>
+                    </div>
+                  </div>
+  
+                  <div *ngIf="total_discount>0 && total_discount>0" class="row price-details">
+                    <div class="col-md-8 col-8">
+                      <p>Discount </p>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <p>₹ {{ total_mrp-net_amount}}</p>
+                    </div>
+                  </div>
+  
+                  <div class="row price-details">
+                    <div class="col-md-8 col-8">
+                      <!-- <p>Price (item {{ products.length }})</p> -->
+                      <p>Price (Inclusive of GST)</p>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <p>₹{{net_amount}}</p>
+                    </div>
+                  </div>
+  
+                  <div *ngIf="ship_ask==true" class="row price-details border-bottom">
+                    <div class="col-md-8 col-8">
+                      <p>Shipping Charge</p>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <p> ₹{{ total_shipp }}</p>
+                    </div>
+                  </div>
+  <!-- 31/08/2020 start -->
+                   <div *ngIf="ship_ask==false" class="row price-details border-bottom">
+                    <div class="col-md-8 col-8">
+                      <p>Shipping Charge</p>
+                    </div>
+                    <div class="col-md-4 col-4" >
+                      <p> ₹{{ ship_charge }}</p>
+                    </div>
+                  </div>
+  <!-- 31/08/2020 end -->
+  
+                  <div class="row mt-2 mb-2">
+                    <div class="col-md-8 col-7">
+                      <h3>Total Amount</h3>
+                    </div>
+                    <div class="col-md-4 col-5">
+                      <h3> ₹{{ total_nett}}</h3>
+                    </div>
+                  </div>
+                  <!-- for-qty -->
+                  <!-- <div class="row mt-2 mb-2">
+                    <div class="col-md-8 col-7">
+                      <h3>Total Qty</h3>
+                    </div>
+                    <div class="col-md-4 col-5">
+                      <h3>{{total_entity}} </h3>
+                    </div>
+                  </div> -->
+                  <!-- for qty -->
+                  <div *ngIf="(total_mrp-net_amount)>0 && (total_mrp-net_amount)>0" class="row border-top pt-3">
+                    <div class="col-md-12">
+                      <h3 class="text-success">
+                        You Will Save ₹ {{total_mrp-net_amount}} on this purchase 
+                      </h3>
+                    </div>
+                  </div>
+                 
+                  <!-- <div class="row border-top pt-3 pr-2 pl-2"> -->
+                   
+                </mat-card>
+                <div class="row  justify-content-between pl-3 pr-3">
+                  <button mat-raised-button  routerLink="/" class="order-button mt-2">
+                    Continue Shopping
+                  </button>
+                  <button mat-raised-button (click)="WtoutLoginCheckout()" class="order-button  mt-2">
+                    Checkout
+                  </button>
+                </div>
+                <div class="row  mt-3 justify-content-end ">
+                  <div class="col-md-9 text-left"> 
+                    <ul>
+                      <li class="text-info">
+                        Safe and Secure Payments.
+                      </li>
+                     
+                      <li class="text-info">
+                        100% Authentic products.
+                      </li>
+                    </ul>
+                    
+                    </div>
+                  </div>
+          <!-- <div class="row mt-2">
+            <div class="col-md-12 text-right">
+              <h3><i class="fas fa-share"></i> <span routerLink="/home" class="cursor-pointer "> &nbsp;back to shopping </span></h3>
+            </div>
+          </div> -->
+  
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!--============================= if user not login for pc view end==============================================-->
+      </div>
+    </div>
+  
+    <!--========================= if user not loggged in end===================== -->
+  
+  
+  
+  
+    <!--========================= if user  loggged in start===================== -->
+  
+  
+    <div *ngIf="isLoggedIn" class="bg-secondary-color   w-100">
+      <div *ngIf="isLoginEmpty" class="row justify-content-center mt-5 pt-5 w-100">
+        <div class="text-center shadow-lg col-md-6 p-2 col-10">
+          <img src="/assets/img/empty-cart.png" class="img-fluid" />
+          <br />
+          <a routerLink="/" class="bg-primary-color">
+            Start Shopping
+          </a>
+  
+  
+        </div>
+      </div>
+      <div *ngIf="isLoginFull">
+  
+        <!--====================user login for mobile view start =============================-->
+        <div class="container-fluid d-block d-lg-none d-md-none  " style="height: 100vh;">
+   
+  
+          <div class=" pt-4 d-block d-md-none d-lg-none fixed-bottom">
+            <mat-accordion style="border:none;">
+              <mat-expansion-panel [hideToggle]=true>
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="justify-content-between ">
+                  
+                    <button  routerLink="/" mat-raised-button class="order-button ">
+                      Continue Shopping
+                    </button>
+                    <span>
+                      <h3> ₹{{ cart.net_amt }}</h3>
+                    </span>
+                    <button mat-raised-button (click)="checkout()" class=" order-button">
+                      Checkout
+                    </button>
+                   
+  
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="example-button-row">
+  
+                  <mat-card>
+  
+                    <div class="row price-details mt-2">
+                     <!--  (item {{cart.cart_inventory.length}} & Total Qty {{total_entity}}) -->
+                    </div>
+                    <div class="row price-details">
+                      <div class="col-md-8 col-8">
+                        <p class="">Total MRP </p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p>₹{{ cart.total_mrp_amount}}</p>
+                      </div>
+                    </div>
+                    <div class="row  price-details">
+                      <div class="col-md-8 col-8">
+                        <p>Discount </p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p>₹ {{cart.total_mrp_amount-cart.inventory_total_amt}}</p>
+                      </div>
+                    </div>
+  
+                    <div class="row price-details">
+                      <div class="col-md-8 col-8">
+                        <!-- <p>Price (item {{cart.cart_inventory.length}})</p> -->
+                        <p>Price (Inclusive of GST)</p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p>₹ {{ cart.inventory_total_amt }}</p>
+                      </div>
+                    </div>
+  
+                    <div class="row price-details border-bottom" *ngIf="ship_ask==true">
+                      <div class="col-md-8 col-8">
+                        <p>Shipping Charge</p>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <p>₹ {{ cart.shipping_total_amt }}</p>
+                      </div>
+                    </div>
+                    <!-- 31/08/2020 start -->
+                   <div *ngIf="ship_ask==false" class="row price-details border-bottom">
+                    <div class="col-md-8 col-8">
+                      <p>Shipping Charge</p>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <p> ₹{{ ship_charge }}</p>
+                    </div>
+                  </div>
+  <!-- 31/08/2020 end -->
+  
+  
+  
+                    <div *ngIf="(cart.total_mrp_amount-cart.inventory_total_amt)>0 && (cart.total_mrp_amount-cart.inventory_total_amt)>0" class="row border-top pt-3">
+                      <div class="col-md-12 text-right">
+                        <h3 class="text-success">
+                          You Will Save ₹ {{ cart.total_mrp_amount-cart.inventory_total_amt }}
+                        </h3>
+                      </div>
+                    </div>
+  
+                  </mat-card>
+  
+                </div>
+  
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+  
+          <div class="row  justify-content-center pt-3">
+            <div class="col-11  mobile-cart-row mb-1 shadow cursor-pointer" matTooltip="View Product"
+              *ngFor="let cd of c">
+              <div class="row  ">
+                <div class="col-4 col-mobile pt-1 pb-1">
+                  <div class="row">
+                    <div class="col-md-12 "
+                      (click)="view_product(cd.product.meta_title,cd.product.product_no,cd.product.slug,cd.product.quick_product_check)">
+                      <img src="{{cd.product_image?.medium_thumbnail_link}}" height="150" width="150" class="img-fluid" />
+                    </div>
+                  </div>
+                  <div class="row mt-1 justify-content-center">
+  
+                    <div class="_3md1dr">
+                      
+                      <button *ngIf="cd.qty > 1 || cd.qty > '1'" class="wNrY5O   btn-info btn-sm ml-1" title="decrease"
+                        (click)="updateCart3minus(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,cd.qty,cd.product.txn_quantity);">-
+                      </button>
+  
+                      <button *ngIf="cd.qty == 1 || cd.qty == '1'" class="wNrY5O  btn btn-info btn-sm ml-1"
+                         (click)="deleteFromCart(cd.cart_inventory_id)" matTooltip="REMOVE">-
+                      </button>
+  
+                      <input class="_2zH4zg form-control text-center" type="number" matInput placeholder="Quantity"
+                        value="{{cd.qty}}" required min="1"
+                        [style.font-size.px]="(cd.qty.length <=2)?12:(16-(cd.qty.length+2))"  [style.width.px]="(cd.qty.length <=2)?40:(40+(cd.qty.length*3))"  
+   
+                        (change)="updateCart3(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,$event.target.value,cd.product.txn_quantity)"
+                        (keyup)="updateCart3(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,$event.target.value,cd.product.txn_quantity)">
+                      <button *ngIf="cd.qty2 < cd.product.txn_quantity2" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="increase"
+                        (click)="updateCart3plus(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,cd.qty,cd.product.txn_quantity);">+
+                      </button>
+                      <!-- disable button for increase with stock start 13/08/2020 -->
+                      <button *ngIf="cd.qty2 >= cd.product.txn_quantity2" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="Reached limit" [disabled]=true
+                        >+
+                       
+                      </button>
+                      <!-- disable button for increase with stock end 13/08/2020 -->
+  
+  
+                      <button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1" matTooltip="update rate type also" data-toggle="modal" data-target="#exampleModal-sm"
+                        (click)="fetch_cart_specific(cd.cart_id,cd.cart_inventory_id);">Update Rate Type
+                      </button>
+                    </div>
+                  </div>
+   
+                </div>
+                <div class="col-6 col-mobile "
+                  (click)="view_product(cd.product.meta_title,cd.product.product_no,cd.product.slug,cd.product.quick_product_check)">
+                  <div class="row mt-3 product-name">
+                    <h3 class="text-titlecase font-weight-600 mobile-cart-font-size">
+                      {{ cd.product.name }}
+                      <br>
+                      <span class="font-weight-400"> {{ cd.product.subheading }}</span>
+                    </h3>
+                  </div>
+                  <div class="row " style="line-height: 0;">
+  
+                    <!-- <span *ngIf="cd.product.txn_quantity > '0'"  >
+          <h3 class="text-success font-weight-600 mobile-cart-font-size">In Stock </h3></span> -->
+                    <span *ngIf="cd.product.txn_quantity < '1' ">
+                      <h3 class="text-danger font-weight-600 mobile-cart-font-size">Out of Stock </h3>
+                    </span>
+  
+  
+                  </div>
+                  <div class="row text-titlecase mobile-cart-font-size">
+                    <!-- <span *ngIf="cd.is_rent =='0'">Buy @ </span>&nbsp; -->
+                    <span *ngIf="cd.is_rent !='0'">{{ cd.rate_name }} </span>&nbsp;
+                    <span class="font-weight-500">  ₹{{ cd.rate }}</span>&nbsp;<span
+                      *ngIf="cd.rate < cd.total_mrp_amount" class="text-muted font-weight-400">&nbsp;<del> ₹
+                        {{ cd.total_mrp_amount }}</del></span> 
+                    <!-- <div class=" mobile-cart-font-size"> -->
+                      <span *ngIf="cd.rate < cd.total_mrp_amount" class="text-success  mobile-cart-font-size">&nbsp;&nbsp;
+                        {{cd.discount_percent | number: '1.0-0'}} % Off 
+                      </span>
+                    <!-- </div> -->
+  
+                  </div>
+                  <!-- <div class="row mobile-cart-font-size">
+            <span  *ngIf="cd.rate < cd.total_mrp_amount" class="text-primary  mobile-cart-font-size"
+            >Discount : {{cd.discount_percent}} % 
+            </span
+          >
+           </div> -->
+  
+                  <!-- <div class="row mobile-cart-font-size">
+         <span class="text-titlecase font-weight-500 ">
+                  Qty : </span>
+                &nbsp;&nbsp;{{ cd.qty }}
+      </div> -->
+  
+                  <div class="row " *ngIf="ship_ask==true">
+                    <h3 class="text-titlecase font-weight-400 mobile-cart-font-size" *ngIf="cd.shipping_amt  != null && cd.shipping_amt  != 0 && cd.shipping_amt  != '0'">
+                      Shipping Charge : {{cd.shipping_amt}}
+                    </h3>
+                    <h3 class="test-success text-titlecase font-weight-400 mobile-cart-font-size" *ngIf="cd.shipping_amt  == null || cd.shipping_amt  == 0 || cd.shipping_amt  == '0'">
+                       Free Shipping
+                    </h3>
+                  </div>
+   <!-- start 20/08/2020 for estimate delivery -->
+   <!-- <div class="row" *ngIf="is_estimate==true">
+            
+    <h3 class="mobile-cart-font-size">Delivery by {{cd.etd}}</h3>
+  </div> -->
+  <!-- end 20/08/2020 for estimate delivery -->
+                </div>
+                <div class="col-2 d-flex col-mobile pt-2">
+  
+                  <h3 class="text-uppercase font-weight-500 cursor-pointer mt-3">
+  
+                    <i class="fas fa-trash cursor-pointer text-danger" (click)="deleteFromCart(cd.cart_inventory_id)"></i>
+                  </h3>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+        <!--====================user login for mobile view end =============================-->
+  
+  
+  
+        <!--====================user login for pc view start =============================-->
+        <div class="container-fluid d-none d-lg-block d-md-block d-xl-block "
+          style="background: #f7f7f7; min-height: 90vh;">
+          <div class="row justify-content-center">
+            <div class="col-lg-11 mt-4 ">
+              <div class="row mt-2 mb-3 pb-1 ">
+                <div class="col-lg-7 pl-3">
+                    <h5 class="ml-3 font-weight-600">
+                        My Cart ({{ cart.cart_inventory.length }})
+                      </h5>
+                   
+                
+                  <!-- start for 24/08/2020 enter pincode-->
+                  <div *ngIf="is_national==true" class="pl-2">
+  <form [formGroup]="otpForm">
+      
+      <!--  <mat-form-field  class="example-full-width mt-1">
+                <mat-label class="mat-label">Please enter pincode</mat-label>
+                <input
+                  matInput
+                  autocomplete="off"
+                type="number"
+                  (keyup)="estim()"
+                  
+                  formControlName="delivery_postcode"
+                  id="text1"
+                  onkeypress="return IsNumeric(event);"
+                  ondrop="return false;"
+                  onpaste="return false;"
+                  required
+                />
+  
+                
+                <mat-hint id="error" style="color: Red; display: none"
+                  >*put Numeric value </mat-hint
+                >
+               
+              </mat-form-field>
+          
+        <button *ngIf="estimate_count==1"
+              mat-raised-button
+              class=""
+              (click)="estimate_time_delivery()"
+              type="submit"
+              class="viewall"
+              style="margin: 1em;"
+            >
+              check
+            </button> -->
+            <!-- <button *ngIf="estimate_count==0"
+              mat-raised-button
+              class=""
+              (click)="estimate_time_delivery()"
+              type="submit"
+              class="viewall"
+              style="margin: 1em;"
+            >
+              change
+            </button> -->
+        <br>
+      </form>
+    </div>
+                  <!-- end for 24/08/2020 enter pincode -->
+                </div>
+                <div class="col-lg-5 pl-2 text-center">
+                  <span class="stepper-for-order"><i class="fas fa-shopping-cart"></i>&nbsp; Your Cart</span>
+                  ---------- <span class=" text-muted"> <i class="fas fa-file-invoice"></i>&nbsp; Order Summary
+                    ------------ </span> <span class=" text-muted"> <i class="far fa-credit-card"></i>&nbsp; Payment
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-7 ">
+  
+                  <mat-card class="mb-2 mycart-scroll"> 
+  
+                    <div class="" *ngFor="let cd of c; let i = index">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="row p-3 justify-content-center cursor-pointer"
+                            (click)="view_product(cd.product.meta_title, cd.product.product_no,cd.product.slug,cd.product.quick_product_check)"
+                            matTooltip="View Product">
+  
+  
+                            <img src="{{cd.product_image?.medium_thumbnail_link}}" class=""
+                              style="max-width: 100%; max-height: 140px; min-height: auto;" />
+                          </div>
+                        </div>
+                        <div class="col-md-8 pt-3">
+                          <div class="row cursor-pointer" style="cursor: pointer;">
+                            <h3 class="text-titlecase font-weight-600">
+                              {{ cd.product.name }}
+                            </h3>
+                         
+                          </div>
+                          <div class="row" style="cursor: pointer;"
+                            (click)="view_product(cd.product.meta_title,cd.product.product_no,cd.product.slug,cd.product.quick_product_check)"
+                            title="View Product">
+                            <h3 class="text-titlecase font-weight-500 ">
+                              {{ cd.product.subheading }}
+                            </h3>
+                          </div>
+  
+                          <div class="row text-titlecase">
+                            <!-- <span *ngIf="cd.is_rent =='0'"></span>&nbsp; -->
+                            <span *ngIf="cd.is_rent !='0'">{{ cd.rate_name }} </span>
+                            <span class="font-weight-600">₹ {{ cd.rate }}</span>&nbsp;<span
+                              *ngIf="cd.rate < cd.total_mrp_amount" class="text-muted font-weight-400">&nbsp;<del> ₹
+                                {{ cd.total_mrp_amount }}</del></span> &nbsp; &nbsp; <span
+                              *ngIf="cd.rate < cd.total_mrp_amount" class="text-success font-weight-500">
+                              {{cd.discount_percent | number: '1.0-0'}} % Off 
+                            </span>
+                          </div>
+  
+  
+                          <div class="row ">
+                         
+                            <span *ngIf="cd.product.txn_quantity < '1' " class=" font-weight-500 ">
+                              <h3 class="text-danger">Out of Stock </h3>
+                            </span>
+  
+                          </div>
+                     
+                          <div class="row " *ngIf="ship_ask==true">
+                            <h3 *ngIf="cd.shipping_amt!=null && cd.shipping_amt!=0 && cd.shipping_amt!='0'" class="text-titlecase font-weight-400 text-info">
+                              Shipping Charge : {{cd.shipping_amt}}
+                            </h3>
+  
+                            <h3 *ngIf="cd.shipping_amt==null || cd.shipping_amt==0 || cd.shipping_amt=='0'" class="text-titlecase font-weight-400 text-info text-success">
+                              Free Shipping
+                            </h3>
+                          </div>
+                          <div class="row">
+                            <!-- <div  *ngIf="is_estimate==true">
+                                
+                          <h3>Delivery by {{cd.etd}}</h3>
+                        </div> -->
+                                            </div>
+  
+                        </div>
+                        <div class="col-md-1">
+                          <h3 class="text-uppercase font-weight-500 cursor-pointer text-right">
+  
+                            <span (click)="deleteFromCart(cd.cart_inventory_id)" matTooltip="REMOVE"
+                              class="cursor-pointer mt-3"><mat-icon  class="text-danger">delete</mat-icon></span>
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="row ">
+                        <div class="col-md-3 mb-1">
+                          <div class="row justify-content-center ">
+  
+                            <div class="row ">
+  
+                              <div class="_3md1dr">
+                                <button *ngIf="cd.qty > 1 || cd.qty > '1'" class="wNrY5O   btn-info btn-sm ml-1"
+                                  title="decrease"
+                                  (click)="updateCart3minus(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,cd.qty,cd.product.txn_quantity);">-
+                                </button>
+  
+                                <button *ngIf="cd.qty == 1 || cd.qty == '1'" class="wNrY5O  btn btn-info btn-sm ml-1"
+                                  (click)="deleteFromCart(cd.cart_inventory_id)" matTooltip="REMOVE">-
+                                </button>
+  
+                                <input class="_2zH4zg form-control text-center" type="number" matInput
+                                [style.font-size.px]="(cd.qty.length <=2)?12:(16-(cd.qty.length+2))"  [style.width.px]="(cd.qty.length <=2)?40:(40+(cd.qty.length*3))"  
+   
+                                  placeholder="Quantity" value="{{cd.qty}}" required min="1"
+                                  (change)="updateCart3(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,$event.target.value,cd.product.txn_quantity)"
+                                  (keyup)="updateCart3(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,$event.target.value,cd.product.txn_quantity)">
+                                <button *ngIf="cd.qty < cd.product.txn_quantity" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="increase"
+                                  (click)="updateCart3plus(cd.cart_id,cd.cart_inventory_id,cd.rate_type_actual,cd.qty,cd.product.txn_quantity);">+
+                                </button>
+                                 <!-- disable button for increase with stock start 13/08/2020 -->
+                      <button *ngIf="cd.qty >= cd.product.txn_quantity" class="btn btn-info btn-sm ml-1 wNrY5O text-center" title="Reached limit" [disabled]=true
+                        >+ </button>
+                      <!-- disable button for increase with stock end 13/08/2020 -->
+  <br>
+                                <button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1 "
+                                  matTooltip="update rate type also"  data-toggle="modal" data-target="#exampleModal-sm"
+                                  (click)="fetch_cart_specific(cd.cart_id,cd.cart_inventory_id);">Update Rate Type
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                     
+                      
+                      </div>
+                      <hr *ngIf="i != (cart.cart_inventory.length-1)" />
+                    </div>
+  
+                  </mat-card>
+                </div>
+                <div class="col-lg-5">
+  
+                  <mat-card>
+                    <div class="row border-bottom ">
+                      <h3 class="text-titlecase ml-3 font-weight-600">Payment details</h3>&nbsp;&nbsp;
+                       (Products {{cart.cart_inventory.length}} & Total Qty {{total_entity}})
+                    
+                    </div>
+                    <div class="row price-details mt-2">
+                     </div>
+                    <div *ngIf="(cart.total_mrp_amount-cart.inventory_total_amt)>0 && (cart.total_mrp_amount-cart.inventory_total_amt)>0" class="row price-details">
+                      <div class="col-md-8 col-8">
+                        <p class="" *ngIf="cart.cart_inventory.length ==1">Total MRP 
+                        </p>
+                        <p class="" *ngIf="cart.cart_inventory.length >= 2">Total MRP <!-- (items
+                          {{cart.cart_inventory.length}}) --></p>
+                      </div>
+                      <div class="col-md-4 col-4 text-right">
+                        <p>₹ {{ cart.total_mrp_amount }}</p>
+                      </div>
+                    </div>
+                    <div *ngIf="(cart.total_mrp_amount-cart.inventory_total_amt)>0 && (cart.total_mrp_amount-cart.inventory_total_amt)>0" class="row  price-details">
+                      <div class="col-md-8 col-8">
+                        <p>Discount </p>
+                      </div>
+                      <div class="col-md-4 col-4 text-right">
+                        <p>₹ {{ cart.total_mrp_amount-cart.inventory_total_amt }}</p>
+                      </div> 
+                    </div>
+  
+                    <div  class="row price-details">
+                      <div class="col-md-8 col-8">
+                       <!--  <p>Price (item {{cart.cart_inventory.length}})</p> -->
+                        <p>Price (Inclusive of GST)</p>
+                      </div>
+                      <div class="col-md-4 col-4 text-right">
+                        <p>₹ {{ cart.inventory_total_amt}}</p>
+                      </div>
+                    </div>
+  
+                    <div class="row price-details border-bottom" *ngIf="ship_ask==true">
+                      <div class="col-md-8 col-8">
+                        <p>Shipping Charge</p>
+                      </div>
+                      <div class="col-md-4 col-4 text-right">
+                        <p>₹ {{ cart.shipping_total_amt }}</p>
+                      </div>
+                    </div>
+                    <!-- 31/08/2020 start -->
+                   <div *ngIf="ship_ask==false" class="row price-details border-bottom">
+                    <div class="col-md-8 col-8">
+                      <p>Shipping Charge</p>
+                    </div>
+                    <div class="col-md-4 col-4 text-right">
+                      <p> ₹{{ ship_charge }}</p>
+                    </div>
+                  </div>
+  <!-- 31/08/2020 end -->
+  
+  
+                    <div class="row mt-2 mb-2">
+                      <div class="col-md-8 col-7">
+                        <h3>Total Amount</h3>
+                      </div>
+                      <div class="col-md-4 col-5 text-right">
+                        <h3>₹ {{ cart.net_amt }}</h3>
+                      </div>
+                    </div>
+    <!-- for-qty -->
+    <!-- <div class="row mt-2 mb-2">
+      <div class="col-md-10 col-7">
+        <h3>Total Qty </h3>
+      </div>
+      <div class="col-md-2 col-5">
+        <h3> {{total_entity}}</h3>
+      </div>
+    </div> -->
+    <!-- for qty -->
+  
+                    <div *ngIf="(cart.total_mrp_amount-cart.inventory_total_amt)>0 && (cart.total_mrp_amount-cart.inventory_total_amt)>0" class="row border-top pt-3">
+                      <div class="col-md-12 text-right">
+                        <h3 class="text-success">
+                          You Will Save ₹ {{ cart.total_mrp_amount-cart.inventory_total_amt }}
+                        </h3>
+                      </div>
+                    </div>
+  
+                  </mat-card>
+                  <!-- <div class="row justify-content-end pt-3 pr-3 "> -->
+                    <!-- 
+                   <div class="row justify-content-end pt-3 pr-3 ">
+                    <button mat-raised-button (click)="checkout()" class="order-button w-50 pt-1 pb-1"
+                      style="font-size: 17px; letter-spacing: 1px;">
+                      Checkout
+                    </button>
+                  </div> -->
+                  <!-- <div class="row  justify-content-end pt-3 pr-3 ">
+                   
+                  </div> -->
+                   <div class="row justify-content-between pt-3 pr-3 ">
+                    <button mat-raised-button  routerLink="/" class="order-button  pt-1 pb-1 ml-3">
+                      Continue Shopping
+                    </button>
+                    <button mat-raised-button (click)="checkout()" class="order-button  pt-1 pb-1"
+                      style="font-size: 17px; letter-spacing: 1px;">
+                      Checkout
+                    </button>
+                  </div>
+                 <!--  </div> -->
+                  <div class="row  mt-3 justify-content-end ">
+                    <div class="col-md-10 text-left"> 
+                      <ul>
+                        <li class="text-info">
+                          Safe and Secure Payments.
+                        </li>
+                       
+                        <li class="text-info">
+                          100% Authentic products.
+                        </li>
+                      </ul>
+                      
+                      </div>
+                    </div>
+            <div class="row mt-2">
+              <!-- <div class="col-md-12 text-right">
+                <h3><i class="fas fa-share"></i> <span routerLink="/home" class="cursor-pointer "> &nbsp;back to shopping </span></h3>
+              </div> -->
+            </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+  
+          <!--====================user login for pc view end =============================-->
+  
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal fade " id="exampleModal-sm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title" id="exampleModalLabel" style="font-weight: 600; font-size: 1.5rem;font-family: sans-serif;">Update Cart Value</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form [formGroup]="registerForm2">
+                      <div class="row justify-content-center">
+            
+                        <div class="row ">
+                          <div class=" col-lg-12">
+            
+                            <div class="col-lg-4 text-center">
+                              <mat-form-field appearance="fill" class="example-full-width">
+                                <mat-label class="mat-label">Quantity</mat-label>
+                                <input class="text-left" type="number" matInput placeholder="Quantity" formControlName="qty"
+                                  required min="0" (change)="checkQty();" (keyup)="checkQty()">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-lg-8 text-center">
+            
+            
+                              <div class="dropdown">
+                                <select id="rate_type" formControlName="rate_type" placeholder="Rate Type"
+                                  style="height: 50px; width: 200px; border:none; background-color: lightgrey;">
+                                  <option *ngFor="let result of specificCart2" [value]="result.rate_type">{{result.name}} </option>
+            
+                                </select>
+                              </div>
+                            </div>
+            
+            
+                            <!-- </mat-form-field> -->
+            
+            
+            
+            
+            
+            
+            
+                          </div>
+            
+            
+            
+            
+                        </div>
+                      </div>
+            
+            
+            
+            
+            
+                      <div class="text-center mt-2 ">
+                      
+                        <button class=" text-white bg-primary" (click)="updateCart2();" mat-raised-button
+                          matTooltip="Update cart">Update
+                        </button>
+                      </div>
+            
+            
+            
+                    </form>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              
+             
+            </div>
+          </div>
+        </div>
+      </div>
