@@ -22,30 +22,30 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import {  HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './_guards';
 import { AlertService, AuthenticationService, UserService} from './_services';
-import  {MatIconModule} from '@angular/material/icon'
-import {MatMenuModule} from '@angular/material/menu'
-import {MatListModule} from '@angular/material/list'
+import  {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
 
 import {NgxSpinnerModule} from "ngx-spinner";
 
-import { WishlistComponent } from './components/wishlist/wishlist.component'
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
-import {MatButtonModule } from '@angular/material/button'
+import {MatButtonModule } from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { NewCartComponent } from './components/new-cart/new-cart.component'
+import { NewCartComponent } from './components/new-cart/new-cart.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { NewCheckoutComponent } from './components/new-checkout/new-checkout.component'
-import {MatInputModule} from '@angular/material/input'
+import { NewCheckoutComponent } from './components/new-checkout/new-checkout.component';
+import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ViewProductComponent } from './components/view-product/view-product.component'
+import { ViewProductComponent } from './components/view-product/view-product.component';
 import { LightboxModule } from "@ngx-gallery/lightbox";
 import { GalleryModule } from "@ngx-gallery/core";
 import { GallerizeModule } from '@ngx-gallery/gallerize';
 import {ZoomComponent} from '../app/components/view-product/zoom.component'
 import { PinchZoomModule } from 'ngx-pinch-zoom';
-import {MatStepper, MatStepperModule} from '@angular/material/stepper'
-import { MatDialogModule} from '@angular/material/dialog'
-import {MatProgressBarModule} from "@angular/material/progress-bar"
+import {MatStepper, MatStepperModule} from '@angular/material/stepper';
+import { MatDialogModule} from '@angular/material/dialog';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 @NgModule({
   declarations: [
     AppComponent,
