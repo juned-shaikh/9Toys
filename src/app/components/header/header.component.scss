@@ -232,7 +232,7 @@
 	
    
 	.login-button-for{
-	  background: rgb(43, 42, 42);
+	  background: #fff;
 	  color: green;
 	}
 	/* new .searchbar start */
@@ -347,7 +347,7 @@
 	  @media all and (min-width: 992px) {
 		.navbar{ padding-top: 0; padding-bottom: 0; }
 		.navbar .has-megamenu{position:static!important;}
-		.navbar .megamenu{left:0; right:0; width:100%; padding:10px; background: #202328; border: none; border-radius: .1px; color: white!important;}
+		.navbar .megamenu{left:0; right:0; width:100%; padding:10px; background:rgb(76, 83, 146)!important; border: none; border-radius: .1px; color: white!important;}
 		.navbar .nav-link{ padding-top:1rem; padding-bottom:1rem;  }
 	  }
 	
@@ -480,7 +480,7 @@
 		}
 		.dropdown-toggle:after { content: none }
 		.profile-dropdown{
-		  background: #202328;
+		  background: rgb(76, 83, 146)!important;
 		}
 		.dropdown-item:focus, .dropdown-item:hover {
 		  color: #16181b;
