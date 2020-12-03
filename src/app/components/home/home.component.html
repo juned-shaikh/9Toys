@@ -154,7 +154,7 @@
       <div class="col-md-4 col-sm-6" *ngFor="let nprd of newproduct">
           <div class="product-grid7">
               <div class="product-image7">
-               <a href="" >
+               <a  >
                     <img src="{{nprd.gallery?.medium_thumbnail_link}}" (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check);" alt="Product Image"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
                </a>                 
                   <ul class="social">
@@ -243,11 +243,11 @@
       <div class="col-md-3 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
               <div class="product-image7">
-                  <a href="#">
+                  <a >
                     <img  src="{{ nprd2.gallery.medium_thumbnail_link }}"   (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200" height="300" class="card-img-top"  style="cursor:pointer;">
                   </a>
                   <ul class="social">
-                      <li><a href="" class="fa fa-search"></a></li>
+                      <li><a  class="fa fa-search"></a></li>
                       <li><a  style="cursor:pointer" *ngIf="nprd2.wishlist_check == false"
                         style="cursor:pointer"
                     
@@ -273,7 +273,7 @@
                   <span class="product-new-label">New</span>
               </div>
               <div class="product-content">
-                  <h3 class="title"><a href="#">{{ (nprd2.name.length>60)? (nprd2.name | slice:0:35)+'...':(nprd2.name) }}</a></h3>
+                  <h3 class="title"><a >{{ (nprd2.name.length>60)? (nprd2.name | slice:0:35)+'...':(nprd2.name) }}</a></h3>
                   <ul class="rating justify-content-center text-center pb-1 start-mobile"  *ngIf="rating_option==true"  >
                     <span
                     class="fa fa-star checked"

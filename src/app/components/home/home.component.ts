@@ -344,17 +344,21 @@ this.fetch_categories(this.comp_num_new)
      // name.replace(re,"-");
     // let slug = name.replace(/\s+/g, '-') + "-?product_no=" + id  + "&marketplace=ECOMTRAILS";
     if(this.previewFlag == '1'){
+      const currentRoute = this.router.url;
       this.router
       .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/view-product", slug]));
-    }else{
+      .then(() => 
+      this.router.navigate(["/Admin/preview/view-product", slug]));
+    } else{
+      const currentRoute = this.router.url;
       this.router
       .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/view-product", slug]));
+      .then(() => 
+      this.router.navigate(["/view-product", slug]));
 
     }
   }
