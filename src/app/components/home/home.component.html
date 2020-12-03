@@ -93,7 +93,7 @@
   <!-- container -->
   <div class="container">
     <!-- row -->
-    <h3 class="title2" >Top Brand Products</h3>
+    <h3 class="title2" >Featured Products</h3>
     <div class="row" >
       <div class="card">
         <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Smiggle__21-07.jpg" >
@@ -154,8 +154,9 @@
       <div class="col-md-4 col-sm-6" *ngFor="let nprd of newproduct">
           <div class="product-grid7">
               <div class="product-image7" id="box-img1">
-               <a href="" > 
-                    <img src="{{nprd.gallery?.medium_thumbnail_link}}"  (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check)" alt="Product Image" id="img1"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
+               <a  > 
+                    <img src="{{nprd.gallery?.medium_thumbnail_link}}"
+            (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check)" alt="Product Image" id="img1"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
                </a>                 
                   <ul class="social">
                       <li><a href="" class="fa fa-heart"></a></li>
@@ -193,7 +194,7 @@
                   <span class="product-new-label">New</span>
               </div>
               <div class="product-content">
-                  <h3 class="title"><a href="#">{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</a></h3>
+                  <h3 class="title"><a >{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</a></h3>
                   <ul class="rating">
                     <span
                     class="fa fa-star checked"
@@ -244,11 +245,11 @@
       <div class="col-md-3 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
               <div class="product-image7">
-                  <a href="#">
+                  <a >
                     <img  src="{{ nprd2.gallery.medium_thumbnail_link }}"   (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200" height="300" class="card-img-top"  style="cursor:pointer;">
                   </a>
                   <ul class="social">
-                      <li><a href="" class="fa fa-heart"></a></li>
+                      <li><a  class="fa fa-heart"></a></li>
                       <li><a  style="cursor:pointer" *ngIf="nprd2.wishlist_check == false"
                         style="cursor:pointer"
                     
@@ -267,8 +268,8 @@
                       
                         ><i class="far fa-heart text-secondary"></i
                       ></a></li>
-                      <li><a href="" class="fa fa-shopping-cart" *ngIf="nprd2.txn_quantity>=1"></a>
-                        <a href="" class="fa fa-shopping-cart" style="display: none;" *ngIf="nprd2.txn_quantity<1"></a>
+                      <li><a  class="fa fa-shopping-cart" *ngIf="nprd2.txn_quantity>=1"></a>
+                        <a  class="fa fa-shopping-cart" style="display: none;" *ngIf="nprd2.txn_quantity<1"></a>
                       </li>
                   </ul>
                   <span class="product-new-label">New</span>
