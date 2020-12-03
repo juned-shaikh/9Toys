@@ -114,7 +114,7 @@
 		position: absolute;
 		left: 0;
 		top: 70px;
-		width: 100%;
+		width: 50%;
 		z-index: 999;
 	  }
 	  // input search effects
@@ -260,6 +260,8 @@
   }
   // container navigation
   .nav-container {
+    background:#fff!important;
+  color: black!important;
 	align-items: center;
 	display: flex;
 	margin: 0 auto;
@@ -714,6 +716,8 @@ header {
 }
 // container navigation
 .nav-container {
+  background:#fff!important;
+  color: black!important;
   align-items: center;
   display: flex;
   margin: 0 auto;

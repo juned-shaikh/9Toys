@@ -155,7 +155,7 @@
           <div class="product-grid7">
               <div class="product-image7" id="box-img1">
                <a href="" > 
-                    <img src="{{nprd.gallery?.medium_thumbnail_link}}" (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check);" alt="Product Image" id="img1"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
+                    <img src="{{nprd.gallery?.medium_thumbnail_link}}"  (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check)" alt="Product Image" id="img1"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
                </a>                 
                   <ul class="social">
                       <li><a href="" class="fa fa-heart"></a></li>
@@ -185,7 +185,8 @@
                       </li>
                       <li><a href="" class="fa fa-shopping-cart" *ngIf="nprd.txn_quantity>=1"
                  
-                        (click)="addToCart(nprd)"         ></a>
+                        (click)="addToCart(nprd)"
+                        matTooltip="Add to Cart"        ></a>
                       <a href="" class="fa fa-shopping-cart text-danger" *ngIf="nprd.txn_quantity<1"></a>
                       </li>
                   </ul>
