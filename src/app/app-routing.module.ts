@@ -4,11 +4,11 @@ import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {CartComponent} from "./components/cart/cart.component";
-import {CheckoutComponent} from "./components/checkout/checkout.component";
+
 import {ProductComponent} from "./components/product/product.component";
 import {ThankyouComponent} from "./components/thankyou/thankyou.component";
 import {NewCartComponent} from "./components/new-cart/new-cart.component";
-import {NewCheckoutComponent} from "./components/new-checkout/new-checkout.component"
+
 import {WishlistComponent} from "./components/wishlist/wishlist.component"
 import {ViewProductComponent} from "./components/view-product/view-product.component"
 
@@ -28,9 +28,7 @@ const routes: Routes = [
   {
     path: 'cart', component: CartComponent
   },
-  {
-    path: 'checkout', component: CheckoutComponent
-  },
+ 
   {
     path: 'thankyou', component: ThankyouComponent
   },
@@ -40,9 +38,6 @@ const routes: Routes = [
   },{
     path:"new-cart",
     component:NewCartComponent
-  },{
-    path:"new-checkout",
-    component:NewCheckoutComponent
   },{
     path:"view-product/:id",
     component:ViewProductComponent

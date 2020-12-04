@@ -1,307 +1,113 @@
-	
-<div class="header" >
-  <nav class="navbar" style="height: 70px; ">
-    <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
-            <i class="fa fa-bars"></i>
-        </label>
-   <!--  <a href="#" class="logo">logo</a> -->
-<!--    <img src="list.png" width=40px" style="color: white"> -->
+<!-- 
+Front-End Design
+Ui Design
+Website: www.cupcom.com.br
+-->
+<!-- <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script> -->
 
-   <img src="./assets/img/9toyslogo.jpeg" width="120px" height="60px" routerLink="/" style="padding: 10px;">
-    <input type="checkbox" id="chkToggle">
-    
-    
-   
-<ul class="navbar-nav mr-auto flex-row"  id="js-menu">
 
-  <li *ngFor="let category of categories2; let i = index" style="color: antiquewhite;padding:10px" class="nav-item dropdown has-megamenu">
-    <a class="nav-link sub-cat" href="#" data-toggle="dropdown" (click)="navigateCategory(category.name, category.category_no);"
-  style="font-family: 'Cinzel', serif;color: white;font-size: 18px;"
-    >{{
-    category.name
-  }}  </a>
-      <div class="dropdown-menu megamenu" role="menu" *ngIf="category.sub_category ">
-                 <div class="row justify-content-center">
-               <div class="col-md-10 pl-5" >
-                <div class="row category-name">
-                  <div class="col-md-2" style="border-right: 2px solid green;">
-                    <p class="project-heading">What's New</p>  
-                    <p class="project-heading">Bestsellers</p>   
-                  </div>
-                  
-                  <!-- <h3>Gifts for Her</h3><br/>
-                  <h3>Gifts for Her</h3><br/> -->
-                <div class="col-md-10">
-                  <div class="row">
-                    
-                    <div class="col-md-4 " style="color: white;" > 
-
-                      <div *ngFor="let categoryi of category.sub_category | slice:0:8;">
-                      <p class=""  (click)="navigateCategory(category.name, category.category_no)"  ><span class="sub-1-category first-category-on"> {{categoryi.name}} </span></p>
-                     
-                    
-                          <div *ngIf="categoryi.sub_category2" class="text-right second-category-on" >
-                            <p *ngFor="let categoryj of categoryi.sub_category2 | slice:0:4;">
-                              <a style="color: white;" class="sub-2-category project-discription " (click)="navigateCategory(category.name, category.category_no)">{{
-                                categoryj.name.length > 25
-                                  ? (categoryj.name | slice: 0:25) + "..."
-                                  : categoryj.name
-                              }}</a>
-                            </p>
-                          </div>
-                        </div>
-                    
-                    </div>
-                        
-                    <div class="col-md-4 " style="color: white;" > 
-                      <div *ngFor="let categoryi of category.sub_category | slice:8:16;">
-                      <p class=""  (click)="navigateCategory(category.name, category.category_no)"  ><span class="sub-1-category"> {{categoryi.name}} </span></p>
-                     
-                    
-                          <div *ngIf="categoryi.sub_category2">
-                            <p *ngFor="let categoryj of categoryi.sub_category2 | slice:4:8;">
-                              <a style="color: white;" class="sub-2-category project-discription " (click)="navigateCategory(category.name, category.category_no)">{{
-                                categoryj.name.length > 25
-                                  ? (categoryj.name | slice: 0:25) + "..."
-                                  : categoryj.name
-                              }}</a>
-                            </p>
-                          </div>
-                        </div>
-                    
-                    </div>
-                        
-                    <div class="col-md-4 " style="color: white;" > 
-                      <div *ngFor="let categoryi of category.sub_category | slice:16:24;">
-                      <p class=""  (click)="navigateCategory(category.name, category.category_no)"  ><span class="sub-1-category"> {{categoryi.name}} </span></p>
-                     
-                    
-                          <div *ngIf="categoryi.sub_category2">
-                            <p *ngFor="let categoryj of categoryi.sub_category2 | slice:8:12;">
-                              <a style="color: white;" class="sub-2-category project-discription " (click)="navigateCategory(category.name, category.category_no)">{{
-                                categoryj.name.length > 25
-                                  ? (categoryj.name | slice: 0:25) + "..."
-                                  : categoryj.name
-                              }}</a>
-                            </p>
-                          </div>
-                        </div>
-                    
-                    </div>
-                    
-                  </div>
-                </div>
-                  
-                 
-              </div>
-               </div>
-                 </div> 
-        </div> 
-  </li>
-</ul> 
-<!-- end -->
-
-    <ul style="display: contents; list-style: none;" class="ml-auto">
-      <li style=" text-decoration: none; list-style: none!important;" class="">
-       
-        <div class="search searchFull"  >
-          <mat-card>
-            <input
-              type="search"
-              (keyup)="search($event.target.value)"
-              (keyup.enter)="
-                navigateCategory(
-                  searchList.category[0].name,
-                  searchList.category[0].category_no
-                )
-              "
-              (focus)="searchFocus = !searchFocus"
-              placeholder="Search for brand, category, product more..."
-              aria-label="search..."
-            />
-            <i
-              class="searchIcon fa fa-search " style="color:rgb(76, 83, 146)!important;"
-              title="search"
-              (click)="
-                navigateCategory(
-                  searchList.category[0].name,
-                  searchList.category[0].category_no
-                )
-              "
-            ></i>
-            <mat-card *ngIf="searchFocus" class="searchItems w-100">
-              <div
-                    class="d-flex align-items-center mt-2 mb-1 cursor-pointer category-hover"
-                    *ngFor="let category of searchList.category | slice: 0:6"
-                  >
-                    <i class="fa fa-search mr-3 ml-3"></i>
-                    <a
-                      (click)="
-                        navigateCategory(category.name, category.category_no)
-                      "
-                    >
-                      <div style="font-size: 12px">
-                        in {{ category.name }}
-                      </div>
-                    </a>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center cursor-pointer mt-1 category-hover"
-                    *ngFor="let brand of searchList.brand | slice: 0:6"
-                  >
-                    <i class="fa fa-search mr-3 ml-3"></i>
-                    <a (click)="navigateBrand(brand.name, brand.brand_id)">
-                      <div style="font-size: 12px">in {{ brand.name }}</div>
-                    </a>
-                  </div>
-
-                  <div 
-                    class="d-flex align-items-center category-hover text-success"
-                    *ngFor="let product of searchList.product | slice: 0:3"
-                  >
-                    <i class="fa fa-search mr-3 ml-3"></i>
-
-                    <a 
-                      routerLink="/product/{{
-                        getSlug(
-                          product.name,
-                          product.product_no,
-                          product.slug
-                        )
-                      }}"
-                    >
-                      <div style="font-size:13px" class="p-1 text-success">
-                        {{ product.name | slice: 0:40 }} |
-                        {{ product.model | slice: 0:40 }}
-                      </div>
-                    </a>
-                  </div>
-            </mat-card>
-          </mat-card>
-        </div>
-      </li> 
-    
-      <li
-      class="nav-item dropdown apna-view d-none d-md-none d-lg-block m-0 mr-0 ml-2"
-      *ngIf="is_logged_out"
-    >
-      <a
-        class="dropdown-toggle cursor-pointer nav-link"
-        id="navbarDropdown"
-        role="button"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        <i class="fas fa-user text-center" ></i>
-      </a>
-      <div
-        class="dropdown-menu profile-dropdown"
-        aria-labelledby="navbarDropdown"
-      >
-        <a class="dropdown-item mb-3"
-          ><span class=" pt-2 pb-2 pl-3 pr-3 login-button-bar"
-            >
-           <button routerLink="/login" mat-raised-button class="project-heading login-button-for" ><i class="fas fa-fingerprint"></i> SignIn</button>
-            </span
-          ></a
-        >
-      </div>
-    </li>
-
-    <li
-    class="nav-item dropdown apna-view d-none d-md-none d-lg-block"
-    *ngIf="is_logged_in"
-  >
-    <a
-      class="nav-link dropdown-toggle cursor-pointer"
-      id="navbarDropdown"
-      role="button"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      <i class="fas fa-user text-center" ></i>
-    </a>
-    <div
-      class="dropdown-menu profile-dropdown"
-      aria-labelledby="navbarDropdown"
-    >
-      <a class="dropdown-item mb-3"
-        ><span class="  login-button-bar2"
-          >
-          <a class="nav-link project-heading" routerLink="/client-info"
-          ><i class="far fa-user text-center text-success"></i> Account
-        </a>
-        <a class="nav-link project-heading" routerLink="/wishlist"
-        ><i style="color:rgb(76, 83, 146)!important;" class="far fa-heart text-center text-success"></i> WishList
-      </a>
-      <a class="nav-link project-heading" (click)="logout()"
-      ><i class="fas fa-user-lock text-center text-success"></i> Logout
-    </a>
-
-         <!-- <button routerLink="/login" mat-raised-button class="project-heading login-button-for" >SignIn</button> -->
-          </span
-        ></a
-      >
+  <!-- contact content -->
+  <!-- <div class="header-content-top">
+    <div class="content">
+      <span><i class="fas fa-phone-square-alt"></i> +91-7415918988</span>
+      <span><i class="fas fa-envelope-square"></i>info@9toys.in</span>
     </div>
-  </li>
+  </div> -->
+  <!-- / contact content -->
+  <div class="container">
+    <!-- logo -->
+    <strong class="logo"><img src="assets/img/9toyslogo.jpeg" routerLink="/" height="70px" width="90px"></strong>
+    <!-- open nav mobile -->
 
-
-      <!-- <li *ngIf="is_logged_in" routerLink="/client-info" class="mr-2">
-        <a routerLink="/" style="list-style-type:none;" class="nav-links" >  <i
-          *ngIf="nm != null" 
-          class="fas fa-user text-center " style="color: green;"
-          title="{{ nm }}"
-        >
-          </i
-        >
-        <i
-          *ngIf="nm == null"
-          class="fas fa-user text-center"
-          title="user"
-          >user</i
-        > </a>
-      </li> -->
-   
-
-<li style="list-style: none;" class="ml-0" *ngIf="is_logged_out">
-<a class="nav-link" routerLink="/login"
-  ><i style="color:rgb(76, 83, 146)!important;" class="far fa-heart text-center text-success"></i>
-</a>
-</li>
-<!-- <li style="list-style: none;" class="ml-1" *ngIf="is_logged_in">
-<a class="nav-link" routerLink="/client-info"
-  ><i class="far fa-heart text-center text-success"></i>
-</a>
-</li> -->
-      <li style="list-style: none;" class="ml-1" routerLink="/new-cart">
-         <a> <i class="fas fa-shopping-cart text-center" >
-
-             <sup class="text-danger ">
-            {{ cart }}
-          </sup></i
-        >
-        </a>
-      </li>
-    </ul>
-            
- 
-          
-
-
-  </nav>
-
-                
-
-
+    <!--search -->
+    <!-- <label class="open-search" for="open-search">
+      <i class="fas fa-search"></i>
+            <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
+    <div class="search">
+      <button class="button-search"><i class="fas fa-search"></i></button>
+      <input type="text" placeholder="What are you looking for?" class="input-search"/>
+    </div>
+    </label> -->
+    <div class="nav-container" style="background:#fff!important;
+    color: black!important;">
+      <nav class="all-category-nav">
+        <label class="open-menu-all" for="open-menu-all">
+          <input class="input-menu-all" id="open-menu-all" type="checkbox" name="menu-open" />
+          <span class="all-navigator"><i class="fas fa-bars"></i> <span>All category</span> <i class="fas fa-angle-down"></i>
+            <i class="fas fa-angle-up"></i>
+          </span>
   
-</div>
+          <ul class="all-category-list">
+            <li class="all-category-list-item"><a href="https://www.cupcom.com.br/" class="all-category-list-link">Smartphones<i class="fas fa-angle-right"></i></a>
+              <div class="category-second-list">
+                <ul class="category-second-list-ul">
+                  <li class="category-second-item"><a href="https://www.cupcom.com.br/">Iphone 10</a></li>
+                  <li class="category-second-item"><a href="https://www.cupcom.com.br/">Galaxy Note 10</a></li>
+                  <li class="category-second-item"><a href="https://www.cupcom.com.br/">Motorola One </a></li>
+                  <li class="category-second-item"><a href="https://www.cupcom.com.br/">Galaxy A80 </a></li>
+                  <li class="category-second-item"><a href="https://www.cupcom.com.br/">Galaxy M </a></li>
+                  <li class="category-second-item"><a href="https://www.cupcom.com.br/">Huaway P30 </a></li>
+                </ul>
+  
+                <div class="img-product-menu"><img src="https://i.ibb.co/Vvndkmy/banner.jpg"></div>
+                </div>
+            </li>
+            <li class="all-category-list-item"><a href="https://www.cupcom.com.br/" class="all-category-list-link">Furniture <i class="fas fa-angle-right"></i></a></li>
+            <li class="all-category-list-item"><a href="https://www.cupcom.com.br/" class="all-category-list-link">Toys<i class="fas fa-angle-right"></i></a></li>
+            <li class="all-category-list-item"><a href="https://www.cupcom.com.br/" class="all-category-list-link">Computing<i class="fas fa-angle-right"></i></a></li>
+            <li class="all-category-list-item"><a href="https://www.cupcom.com.br/" class="all-category-list-link">Games<i class="fas fa-angle-right"></i></a></li>
+            <li class="all-category-list-item"><a href="" class="all-category-list-link">Automotive<i class="fas fa-angle-right"></i></a></li>
+  
+          </ul>
+        </label>
+  
+      </nav>
+      <nav class="featured-category">
+        <ul class="nav-row">
+          <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Smartphones</a></li>
+          <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">furniture</a></li>
+          <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Toys</a></li>
+          <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Computing</a></li>
+          <!-- <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Games</a></li> -->
+          <!-- <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Automotive</a></li> -->
+        </ul>
+      </nav>
+    </div>
+    <!-- // search -->
+    <nav class="nav-content">
+      <!-- nav -->
+      <ul class="nav-content-list">
+        <li class="nav-content-item account-login">
+          <!-- <label class="open-menu-login-account" for="open-menu-login-account"> -->
+
+            <input class="input-menu" id="open-menu-login-account" type="checkbox" name="menu" />
+<!-- junde -->
+          
+<!-- end -->
+<i class="fas fa-user-circle" routerLink="/login"></i><span class="login-text">Hello, Sign in <strong>Create Account</strong></span> <span class="item-arrow"></span>
+
+            <!-- submenu -->
+            <ul class="login-list">
+              <li class="login-list-item"><a href="https://www.cupcom.com.br/">My account</a></li>
+              <li class="login-list-item"><a href="https://www.cupcom.com.br/">Create account</a></li>
+              <li class="login-list-item"><a href="https://www.cupcom.com.br/">logout</a></li>
+              <!-- </label> -->
+            </ul>
+        </li>
+        <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+        <li class="nav-content-item" routerLink="/new-cart"><a><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+        
+        <!-- call to action -->
+      </ul>
+    </nav>
+  </div>
+  <!-- nav navigation commerce -->
+ 
 
 
+<!-- <div style="margin: 50px 0; display: flex; align-items: center; justify-content: center; width: 100%">
+  
+    <a style="display: block; text-align:  center; color: #555; text-decoration: none; margin-right: 15px; " href="https://www.cupcom.com.br/" target="_blank"><i class="fas fa-home" style="color: #1da1f2; margin-right: 5px;"></i>More compoments: cupcom.com.br</a>
 
-<router-outlet></router-outlet>
-
-
-
+</div> -->
