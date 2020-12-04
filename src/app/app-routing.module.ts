@@ -11,8 +11,13 @@ import {NewCartComponent} from "./components/new-cart/new-cart.component";
 
 import {WishlistComponent} from "./components/wishlist/wishlist.component"
 import {ViewProductComponent} from "./components/view-product/view-product.component"
-
+//import {CategoryPageComponent} from './components/category-page/category-page.component';
 const routes: Routes = [
+
+  //{path: 'category-page/', component:CategoryPageComponent },
+  // {path: 'category-page/:id1/:id', component:CategoryPageComponent },
+  // {path: 'category-page/:id', component:CategoryPageComponent },
+
   {
     path: '', component: HomeComponent
   },
