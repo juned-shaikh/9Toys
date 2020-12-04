@@ -82,7 +82,7 @@
             
               <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
                 <pinch-zoom>
-                  <img src="{{img}}" alt="">
+                  <img src="{{img}}" data-toggle="modal" data-target="#exampleModal" alt="">
                 </pinch-zoom>
                 
                <!---<app-zoom [img]="img" [zoom]="2" [lenSize]="120"    class="new-image-show  d-none d-lg-block d-xl-block"   [divZoomed]="divZoomed" ></app-zoom>
@@ -862,3 +862,126 @@
     </div>
 
     </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999!important;">
+      <div class="modal-dialog  modal-xl" style="z-index: 111111;">
+        <div class="modal-content">
+           <div class="modal-header">
+            <h4 class=" font-weight-600 m-0 project-heading" style="margin-left: 16px;">{{ product?.name }}  </h4>    
+              <button type="button" class="close btn btn-secondry" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+            </div>
+          <div class="modal-body">
+            <section class="mt-2">
+              
+                      <div class="row wrapper">
+                        <div class="col-md-12 " >
+                          <div class="row justify-content-center"  >
+                            <!-- for pc laptop gallary -->
+        
+       
+        
+          <div class="col-md-8 col-9 ">
+        
+            <div class="row">
+              
+              <div class="preview col-md-12 col-12" >
+                <!-- <h1  class="show-status" *ngIf="product.txn_quantity < '1'"><span> Out of stock </span></h1>   -->
+              
+                    <div class=" tab-content  p-1  d-none d-lg-block d-xl-block " style="overflow: hidden;">
+                     
+                    
+                      <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
+                       
+                          <img src="{{img}}" alt="" style="min-width: 720px;
+                          min-height: 500px; max-width: 720px; max-height: 550px;" >
+                      
+                        
+                     
+                            
+                      </div>
+                    
+        
+                    </div>
+        
+                    
+                      <!-- for mobile ipad -->
+        
+                      
+                  
+                    <div class="preview-pic tab-content  p-1 show-image3 d-block d-lg-none" >
+                    
+                      <div class="tab-pane active show-image3  cursor-pointer " id="pic-1 " >
+                       
+                     <!--<img src="{{imageView}}" onerror="this.src='assets/img/favicon1.png';" class="img-1 ">-->
+                    
+        
+                    
+        
+                      </div>
+        
+                    </div>
+        
+                 
+        
+                   
+                  </div>
+                  
+            </div>
+          </div>
+          <div class="col-md-2  d-none d-md-block d-lg-block">
+        
+                    
+            <div class="preview-thumbnail nav nav-tabs  mt-1 row "  >
+              <ul>
+                <li class="col-12 col-md-12 border border-info"  style="list-style: none;"
+                *ngFor="let image1 of product_image | slice:0:6;let s=index"
+                class="active cursor-pointer"  
+              >
+                <a  
+                  data-target="#pic-1" 
+                  matTooltip="more product image "
+                  data-toggle="tab"
+                  (click)="Image(image1.image_link)"
+                >
+                  <img 
+                    
+            src="{{items23[s].thumb}}"
+                    onerror="this.src='assets/img/favicon1.png';"
+                    alt="Product Image"
+                    class=" p-1"
+                    height="80"
+                    width="80"
+                />
+              </a> 
+                <span *ngIf="product_image > 5" style="color: white;">more</span>
+               
+            </li>
+          </ul>
+          
+          </div>
+        </div>
+                          </div>
+                         
+         <!-- start for update cart qty 13/08/2020 Priyangee-->
+        
+                       
+                          
+                        </div>
+                    <!-- {{items23}} -->
+                  
+        
+               
+                  </div>
+               
+            </section>
+        
+           
+          </div>
+       
+          
+        </div>
+    
+      </div>
+    </div>

@@ -141,7 +141,7 @@ nav a:visited {
   .menu-bar > li > [aria-haspopup="true"]:focus,
   .menu-bar > li:focus-within > [aria-haspopup="true"],
   .menu-bar > li:hover > a {
-    background: #177E89;
+    // background: #177E89;
     color: #ffffff;
   }
   .menu-bar > li > [aria-haspopup="true"]:focus:after,
@@ -151,8 +151,8 @@ nav a:visited {
   }
   .mega-menu {
     position: absolute;
-    top: 100%;
-       left: 90px;
+    top: 60px;
+       left: 68px;
     width: 1000px;
   }
   .mega-menu:hover {
