@@ -249,8 +249,9 @@ margin-top: 3px;
 width: 100%;
 /* border-radius: 12px; */
 /* overflow: hidden; */
+
 height: 60vh;
-/* object-fit: contain; */
+//  object-fit: contain; 
 }
 }
 @media screen and (min-width: 768px){
@@ -326,4 +327,16 @@ p {
   width: 100%;
   cursor: pointer;
   height: auto;
+}
+
+// input field
+#ip1 {
+  border-radius: 30px;
+  background: #fff;
+  padding: 20px; 
+  width: 139px;
+  height: 51px;  
+  position:absolute;
+  top: 563px;
+  left: 545px;  
 }
