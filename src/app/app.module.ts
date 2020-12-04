@@ -48,7 +48,8 @@ import { MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatRadioModule} from '@angular/material/radio'
-import {MatSelectModule} from '@angular/material/select'
+import {MatSelectModule} from '@angular/material/select';
+import {CheckoutComponent} from './components/checkout/checkout.component'
 
 @NgModule({
   declarations: [
@@ -65,7 +66,9 @@ import {MatSelectModule} from '@angular/material/select'
     WishlistComponent,
     NewCartComponent,
   
-    ViewProductComponent
+    ViewProductComponent,
+  
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

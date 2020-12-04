@@ -247,6 +247,7 @@
       font-family: sans-serif!important;
       font-weight: 600;
       font-size: 1rem;
+      color: black;
     }
     .desc{
       margin-top: 0;
@@ -257,7 +258,14 @@
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    color: black;
     }
+    ul, ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 500px;
+  }
     .spec2{
       
       margin-bottom: 1rem;
@@ -267,6 +275,7 @@
       margin-block-end: 1em;
       margin-inline-start: 0px;
       margin-inline-end: 0px;
+      color: black;
     }
     .rating{
       margin-bottom: .5rem;

@@ -113,7 +113,7 @@ this.fetch_categories(this.comp_num_new)
     })
     .subscribe(data => {
       if (data["status"] == 1) {
-        this.categories = data["result"];
+        this.categories =  JSON.stringify(data["result"]);
         console.log(data["result"]+"home")
         this.categoryresp = data["result"];
         let size = this.categories.length;

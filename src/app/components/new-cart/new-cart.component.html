@@ -280,7 +280,7 @@
   
                           <span *ngIf=" pr.product_rate[1].is_rent=='0'">Buy @ </span>&nbsp;
                           <span *ngIf=" pr.product_rate[1].is_rent !='0'"> {{ pr.product_rate[1].name }} @</span>&nbsp;
-                          <span class="font-weight-500"> ₹ {{ pr.product_rate[1].rate_qty}}</span>
+                          <span class="font-weight-500 buy"> ₹ {{ pr.product_rate[1].rate_qty}}</span>
                           &nbsp;<span *ngIf="pr.product_rate[1].rate_qty<pr.product.mrp_qty"
                             class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span>
   
@@ -641,9 +641,9 @@
                       <!-- disable button for increase with stock end 13/08/2020 -->
   
   
-                      <button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1" matTooltip="update rate type also" data-toggle="modal" data-target="#exampleModal-sm"
+                     <!--<button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1" matTooltip="update rate type also" data-toggle="modal" data-target="#exampleModal-sm"
                         (click)="fetch_cart_specific(cd.cart_id,cd.cart_inventory_id);">Update Rate Type
-                      </button>
+                      </button>-->
                     </div>
                   </div>
    
@@ -904,10 +904,10 @@
                         >+ </button>
                       <!-- disable button for increase with stock end 13/08/2020 -->
   <br>
-                                <button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1 "
+                               <!--<button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1 "
                                   matTooltip="update rate type also"  data-toggle="modal" data-target="#exampleModal-sm"
                                   (click)="fetch_cart_specific(cd.cart_id,cd.cart_inventory_id);">Update Rate Type
-                                </button>
+                                </button>-->
                               </div>
                             </div>
                           </div>

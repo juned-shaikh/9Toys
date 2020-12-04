@@ -22,19 +22,29 @@ export class FooterComponent implements OnInit {
   ) {}
   host_name;
   compd;
-  
-
+  user_num = sessionStorage.getItem("user_num");
+  access_token = sessionStorage.getItem("access_token");
+  username = sessionStorage.getItem("username");
+  email = sessionStorage.getItem("email");
+  categories;
+  more = false;
+  public visibleIndexw =false;
+  categories2 = [];
+  categoryresp=[];
+  topCategories;
+  menuShow = false;
+  ninetoys = false;
   ngOnInit() { 
     let l = location.origin;
     var c = l.split("//");
     this.host_name = c[1];
 
-    
+     
       if((this.host_name == "vendor.9toys.in"  && sessionStorage.getItem('previewFlag') == '1' ) || (this.host_name == "signup.9toys.in"  && sessionStorage.getItem('previewFlag') == '1' ) ){
         this.comp_num_new = sessionStorage.getItem('comp_num_new');
         this.medialinks(this.comp_num_new);
         this.basicCompany(this.comp_num_new);
-
+        this.fetch_categories(this.comp_num_new);
       }else{
         this.adminservice
         .hostlink({ host_name: this.host_name })
@@ -73,6 +83,54 @@ export class FooterComponent implements OnInit {
         } else if (data["status"] == 0) {
         }
       });
+  }
+  fetch_categories(dd){
+    if(this.ninetoys==true){
+      dd='0';
+    }
+    this.adminservice
+    .fetch_categories({
+
+      // this.adminService
+    // .fetch_categories_ecom({//for ecom
+      access_token: this.access_token,
+      user_num: this.user_num,
+      comp_num : dd
+    })
+    .subscribe(data => {
+      if (data["status"] == 1) {
+        this.categories = JSON.stringify(data["result"]);
+        console.log(data["result"]+"home")
+        this.categoryresp = data["result"];
+        let size = this.categories.length;
+        if (size > 4) {
+          for (let n = 0; n < 3; n++) {
+            this.more = true;
+            this.categories2.push(this.categories[n]);
+          }
+          this.menuShow = true;
+        } else {
+          for (let n2 = 0; n2 < this.categories.length; n2++) {
+            this.categories2.push(this.categories[n2]);
+          }
+        }
+
+      } else if (data["status"] == 10) {
+        sessionStorage.clear();
+        this.snackbar.open(
+          "Multiple login with this ID has been detected, Logging you out. ",
+          "",
+          {
+            duration: 3000,
+            horizontalPosition: "center"
+          }
+        );
+        // this.router.navigate(['/Admin/login']);
+      } else if (data["status"] == 0) {
+      }
+    });
+
+
   }
   basicCompany(dd) {
     this.adminservice
