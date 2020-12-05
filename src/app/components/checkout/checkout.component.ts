@@ -18,9 +18,11 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatTableDataSource } from "@angular/material/table";
 
 import {  MatStepper } from "@angular/material/stepper";
-import { WindowRefService } from "../../window-ref.service";
+//import { WindowRefService } from "../../window-ref.service";
 import { CookieService } from "ngx-cookie-service";
 import { environment } from "../../../environments/environment";
+import {} from '@ng-bootstrap/ng-bootstrap'
+import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 @Component({
   selector: 'mg-checkout',
   templateUrl: './checkout.component.html',
@@ -29,7 +31,7 @@ import { environment } from "../../../environments/environment";
 export class CheckoutComponent implements OnInit {
 
   disabled = true;
-  bill_as_ship=false;
+  bill_as_ship:boolean=false;
   cod_otp_enable=true;
   billingDone = false;
   total_entity=0;
@@ -37,7 +39,7 @@ export class CheckoutComponent implements OnInit {
   ship_ask=true;
   net_amt2;
     ship_charge;
-
+couponForm:FormGroup;
   cart_id2;
   coupon_log_id:any;
     loading=true;
@@ -166,7 +168,22 @@ save_promo2;
     receipt: "",
     payment_capture: ""
   };
-  
+
+    openXl(content) {
+    this.modalService.open(content, { size: "lg" });
+  }
+  openXl1(content) {
+    this.modalService.open(content, { size: "md" });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return "by pressing ESC";
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return "by clicking on a backdrop";
+    } else {
+      return `with: ${reason}`;
+    }
+  }
   public fillPaymentForm = {
     firstname: "",
     email: "",
@@ -233,14 +250,17 @@ save_promo2;
     private route: ActivatedRoute,
     private router: Router,
     private adminservice: NinetoysserviceService,
-
-    private winRef: WindowRefService,
+    private modalService:NgbModal,
+  //  private winRef: WindowRefService,
     private cookie: CookieService,
     private http: HttpClient
-  ) {}
+  ) {
+    this.couponForm=this.formBuilder.group({
+      coupon:['']
+    })
+  }
 
   
- 
   // onOtpChange(otp) {
   //   this.otp = otp;
   // }
@@ -428,7 +448,7 @@ this.compSettingsBillShip();
   this.billingDone = true;
   }
 
-  // addBillingAddress(id, stepper: MatStepper) {
+  // addBillingAddress(id) {
   //   this.sendDataToAPI.billing_address_no = this.addresses[id].address_no;
   //   // this.otpForm.billing_address_no = this.addresses[id].address_no;
   //   this.sendDataToAPIRazorpay.billing_address_no = this.addresses[
@@ -450,7 +470,7 @@ this.compSettingsBillShip();
     this.stepBillingAddress = true;
     // setTimeout(() => stepper.next(), 300);
   }
-  addBillingAddress3(id, stepper: MatStepper) {
+  addBillingAddress3(id) {
      this.sendDataToAPI.billing_address_no = this.addresses[id].address_no;
     this.sendDataToAPIRazorpay.billing_address_no = this.addresses[
       id
@@ -479,7 +499,7 @@ this.compSettingsBillShip();
     // setTimeout(() => stepper.next(), 300);
   }
 
-  addShippingAddress(id, stepper: MatStepper) {
+  addShippingAddress(id) {
     this.sendDataToAPI.shipping_address_no = this.addresses[id].address_no;
 
     this.sendDataToAPIRazorpay.shipping_address_no = this.addresses[
@@ -490,7 +510,7 @@ this.makePaymenShip=true;
     // setTimeout(() => stepper.next(), 300);
   }
 
-  reviewOrder(stepper: MatStepper) {
+  reviewOrder() {
     this.stepReviewOrder = true;
     // setTimeout(() => stepper.next(), 300);
   }
@@ -538,27 +558,24 @@ this.makePaymenShip=true;
         if (this.previewFlag == "1") {
           if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
           // if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "www.ecomtrails.com")) {
-            const currentRoute = this.router.url;
               this.router
                 .navigateByUrl("/", {
                   skipLocationChange: true
                 })
                 .then(() => this.router.navigate(["/Admin/preview/home"]));
           } else {
-            const currentRoute = this.router.url;
             this.router
               .navigateByUrl("/", {
                 skipLocationChange: true
               })
-              .then(() => this.router.navigate(["/"]));
+              .then(() => this.router.navigate(["/home"]));
           }
         } else {
-          const currentRoute = this.router.url;
           this.router
             .navigateByUrl("/", {
               skipLocationChange: true
             })
-            .then(() => this.router.navigate(["/"]));
+            .then(() => this.router.navigate(["/home"]));
         }
       } else {
         this.loader = true;
@@ -566,27 +583,24 @@ this.makePaymenShip=true;
           if (this.previewFlag == "1") {
              if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
           // if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "www.ecomtrails.com")) {
-            const currentRoute = this.router.url;
                 this.router
                   .navigateByUrl("/", {
                     skipLocationChange: true
                   })
                   .then(() => this.router.navigate(["/Admin/preview/home"]));
               } else {
-                const currentRoute = this.router.url;
                 this.router
-                  .navigateByUrl("/", {
+                  .navigateByUrl("/RefreshComponent", {
                     skipLocationChange: true
                   })
-                  .then(() => this.router.navigate(["/"]));
+                  .then(() => this.router.navigate(["/home"]));
               }
           } else {
-            const currentRoute = this.router.url;
             this.router
-              .navigateByUrl("/", {
+              .navigateByUrl("/RefreshComponent", {
                 skipLocationChange: true
               })
-              .then(() => this.router.navigate(["/"]));
+              .then(() => this.router.navigate(["/home"]));
           }
         }
       }
@@ -639,15 +653,14 @@ this.makePaymenShip=true;
             if (this.previewFlag == "1") {
                if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
           // if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "www.ecomtrails.com")) {
-            const currentRoute = this.router.url;
                   this.router
-                    .navigateByUrl("/", {
+                    .navigateByUrl("/RefreshComponent", {
                       skipLocationChange: true
                     })
                     .then(() => this.router.navigate(["/Admin/preview/checkout"]));
               } else {
-                const currentRoute = this.router.url;
-                this.router.navigateByUrl("/", {
+                this.router
+                  .navigateByUrl("/RefreshComponent", {
                     skipLocationChange: true
                   })
                   .then(() =>
@@ -655,9 +668,8 @@ this.makePaymenShip=true;
                    );
               }
             } else {
-              const currentRoute = this.router.url;
               this.router
-                .navigateByUrl("/", {
+                .navigateByUrl("/RefreshComponent", {
                   skipLocationChange: true
                 })
                 .then(() => this.router.navigate(["/checkout"]));
@@ -704,7 +716,7 @@ this.makePaymenShip=true;
           if (data["status"] == 1) {
              this.flagEmail=1;
             this.flagMobile=1;
-           
+             this.modalService.dismissAll('Save click');
               
             this.snackbar.open("Address is updated Successfully ", "", {
               duration: 3000,
@@ -899,24 +911,21 @@ this.makePaymenShip=true;
             if (this.previewFlag == "1") {
               if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
           // if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "www.ecomtrails.com")) {
-            const currentRoute = this.router.url;
                 this.router
-                  .navigateByUrl("/", {
+                  .navigateByUrl("/RefreshComponent", {
                     skipLocationChange: true
                   })
                   .then(() => this.router.navigate(["/Admin/preview/home"]));
               } else {
-                const currentRoute = this.router.url;
                 this.router
-                  .navigateByUrl("/", {
+                  .navigateByUrl("/RefreshComponent", {
                     skipLocationChange: true
                   })
                   .then(() => this.router.navigate(["/home"]));
               }
             } else {
-              const currentRoute = this.router.url;
               this.router
-                .navigateByUrl("/", {
+                .navigateByUrl("/RefreshComponent", {
                   skipLocationChange: true
                 })
                 .then(() => this.router.navigate(["/home"]));
@@ -1181,16 +1190,14 @@ this.makePaymenShip=true;
           if(this.previewFlag == '1'){
             if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
           // if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "www.ecomtrails.com")) {
-            const currentRoute = this.router.url;
                   this.router
-                  .navigateByUrl("/", {
+                  .navigateByUrl("/RefreshComponent", {
                     skipLocationChange: true
                   })
                   .then(() => this.router.navigate(["/Admin/preview/login"]));
             }else{
-              const currentRoute = this.router.url;
               this.router
-              .navigateByUrl("/", {
+              .navigateByUrl("/RefreshComponent", {
                 skipLocationChange: true
               })
               .then(() => this.router.navigate(["/login"]));
@@ -1230,9 +1237,8 @@ this.makePaymenShip=true;
                 }
   
             }else{
-              const currentRoute = this.router.url;
               this.router
-              .navigateByUrl("/", {
+              .navigateByUrl("/RefreshComponent", {
                 skipLocationChange: true
               })
               .then(() => this.router.navigate(["/login"]));
@@ -1320,7 +1326,7 @@ this.makePaymenShip=true;
   // }
 
   public initPay(): void {
-    var rzp1 = new this.winRef.nativeWindow.Razorpay({
+   /* var rzp1 = new this.winRef.nativeWindow.Razorpay({
       // key: "rzp_test_9XUwfPpg7b1vBo", //testing
       // key: "rzp_live_pEf6WmxW8zCcr9", //live
       key:this.rz_key,
@@ -1346,6 +1352,7 @@ this.makePaymenShip=true;
     });
 
     rzp1.open();
+    */
   }
 
   paymentResponseHander(response) {
@@ -1694,7 +1701,7 @@ paymentPayumoney2(e,r){
     this.loader = true;
   }
 
-  otpGenerate(data) {
+  otpGenerate() {
     this.otpgeneration = false;
       this.loading=false;
 
@@ -1719,7 +1726,7 @@ paymentPayumoney2(e,r){
       }
     );
   }
-  otpVerificationUser(data) {
+  otpVerificationUser() {
       this.loading=false;
 
     this.adminservice.otpVerificationUser(this.otpForm.value).subscribe(
@@ -1751,7 +1758,7 @@ paymentPayumoney2(e,r){
       }
     );
   }
-  resendOtpVerify(data) {
+  resendOtpVerify() {
       this.loading=false;
 
     this.adminservice.resendOtpVerify(this.otpForm.value).subscribe(
@@ -1944,21 +1951,21 @@ paymentPayumoney2(e,r){
    
   }
 
-  coupon_code(couponform){
+  coupon_code(){
      this.sendDataToAPI.coupon_log_id = '';
     this.sendDataToAPIRazorpay.coupon_log_id = '';
      
-    if(couponform.value.coupon==null){
+    if(this.couponForm.value.coupon==null){
       this.snackbar.open("ENTER COUPON CODE","",{duration: 5000,horizontalPosition: "center"});
     }
     else{
     if(this.coupon_count==1){
     this.coupon_count = 0;
     this.temp_amt = this.fees;
-    this.sendDataToAPIRazorpay['coupon_code']=couponform.value.coupon;
+    this.sendDataToAPIRazorpay['coupon_code']=this.couponForm.value.coupon;
     this.sendDataToAPIRazorpay['net_amt']=this.sendDataToAPIRazorpay.amount;
     
-    this.sendDataToAPI['coupon_code']=couponform.value.coupon;
+    this.sendDataToAPI['coupon_code']=this.couponForm.value.coupon;
     this.sendDataToAPI['inventory_amt']=this.net_amt2;
     this.sendDataToAPI['shipping_amt']=this.shipping_amt;
     
@@ -2157,9 +2164,8 @@ var dnQ = sessionStorage.getItem('buy_now_quant');
            this.snackbar.open("Update Successfully", "", {
             duration: 3000
           });
-          const currentRoute = this.router.url;
             this.router
-            .navigateByUrl("/", {
+            .navigateByUrl("/RefreshComponent", {
               skipLocationChange: true
             })
             .then(() => this.router.navigate(["/checkout"]));
@@ -2253,9 +2259,8 @@ var dnQ = sessionStorage.getItem('buy_now_quant');
             this.snackbar.open("Update Successfully", "", {
             duration: 3000
           });
-          const currentRoute = this.router.url;
              this.router
-            .navigateByUrl("/", {
+            .navigateByUrl("/RefreshComponent", {
               skipLocationChange: true
             })
             .then(() => this.router.navigate(["/checkout"]));
@@ -2351,9 +2356,8 @@ var dnQ = sessionStorage.getItem('buy_now_quant');
            this.snackbar.open("Update Successfully", "", {
             duration: 3000
           });
-          const currentRoute = this.router.url;
             this.router
-            .navigateByUrl("/", {
+            .navigateByUrl("/RefreshComponent", {
               skipLocationChange: true
             })
             .then(() => this.router.navigate(["/checkout"]));
@@ -2369,9 +2373,8 @@ var dnQ = sessionStorage.getItem('buy_now_quant');
             
           }
         } else if (data["status"] == "10") {
-          const currentRoute = this.router.url;
           this.router
-            .navigateByUrl("/", {
+            .navigateByUrl("/RefreshComponent", {
               skipLocationChange: true
             })
             .then(() => this.router.navigate(["/expired"]));
@@ -2381,9 +2384,8 @@ var dnQ = sessionStorage.getItem('buy_now_quant');
             duration: 3000
           });
           if (sessionStorage.getItem("access_token") == "") {
-            const currentRoute = this.router.url;
             this.router
-              .navigateByUrl("/", {
+              .navigateByUrl("/RefreshComponent", {
                 skipLocationChange: true
               })
               .then(() => this.router.navigate(["/expired"]));
@@ -2405,22 +2407,14 @@ var dnQ = sessionStorage.getItem('buy_now_quant');
  view_product(name, id,slug,quick) {
     if(quick=='N'){
     // let slug = name.replace(/\s/, "-") + "-?" + id;
-    // this.router
-    //   .navigateByUrl("/RefreshComponent", {
-    //     skipLocationChange: true
-    //   })
-    //   .then(() => this.router.navigate(["/product-view", slug]));
-
-
-
-      const currentRoute = this.router.url;
-
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(["/product-view", slug]); // navigate to same route
-      });
-
+    this.router
+      .navigateByUrl("/RefreshComponent", {
+        skipLocationChange: true
+      })
+      .then(() => this.router.navigate(["/product", slug]));
   }
   }
  
 
 }
+

@@ -12,6 +12,7 @@ import {NewCartComponent} from "./components/new-cart/new-cart.component";
 import {WishlistComponent} from "./components/wishlist/wishlist.component"
 import {ViewProductComponent} from "./components/view-product/view-product.component"
 import {CheckoutComponent} from './components/checkout/checkout.component'
+import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
 //import {CategoryPageComponent} from './components/category-page/category-page.component';
 const routes: Routes = [
 
@@ -50,6 +51,9 @@ const routes: Routes = [
   },{
     path:"checkout",
     component:CheckoutComponent
+  },{
+    path:"checkout-status",
+    component:CheckoutStatusComponent
   }
 ];
 

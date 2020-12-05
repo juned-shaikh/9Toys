@@ -1,10 +1,10 @@
 
 
-<div class="nav">
+<div class="nav"> 
   <nav>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger">Open mobile menu</a> -->
-      <ul class="menu menu-bar">
-        <strong class="logo"><img src="../../../assets//img/new9toys.jpeg" routerLink="/" height="50px" width="70px"></strong>
+      <ul class="menu menu-bar" style="left: 30px;top: 15px;">
+        <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;"></strong>
           <li>
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Shop
                   </a>
@@ -13,15 +13,19 @@
                       <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Shop by Age</a>
                       <ul class="menu menu-list">
                           <li>
-                            <div class="row">
-                              <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw6fe5c7dc/Navigation/12-to-24-months.png" width="100px" height="100px" style="padding-right: 10px;">
-                              <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw367a0dc4/Navigation/2-to-3-years.png" width="100px" height="100px">
+                         <div class="container">
+
+                           <div class="row">
+                                 <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw6fe5c7dc/Navigation/12-to-24-months.png" width="100px" height="100px" style="padding-right: 10px;">
+                                    <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw367a0dc4/Navigation/2-to-3-years.png" width="100px" height="100px">
+                           </div>
+                              <div class="row" style="padding-top: 10px;">
+                                   <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;">
+                                    <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px">
+                                </div>
+                                   
+                          
                             </div>
-                            <div class="row" style="padding-top: 10px;">
-                                <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;">
-                                <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px">
-                              </div>
-                            
 
                               <!-- <a href="/page" class="menu-link menu-list-link">1.1.1 Page link</a> -->
                           </li>
@@ -221,13 +225,15 @@
 
 <!-- Search form -->
 <!-- Search form -->
-<div class="active-purple-4 mb-4" style="padding: 10px;">
-  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-</div>
+
 <!-- Search form -->
             </ul>
-
-            <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
+        <ul style="display: flex;position: absolute;top: 10px;right: 183px;margin-right: 20px;">
+            <div class="active-purple-4 mb-4" style="padding: 10px;">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </div>
+         </ul>
+            <ul style="display: flex;position: absolute;top: 30px;right: 23px;margin-right: 20px;">
               <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
               <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
               <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>

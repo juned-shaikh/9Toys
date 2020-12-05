@@ -1563,7 +1563,7 @@ if (
       if(this.previewFlag == '1'){
         this.router.navigate(["/Admin/preview/checkout"]); 
       }else{
-          this.router.navigate(["/new-checkout"]);
+          this.router.navigate(["/checkout"]);
   
       }
     }

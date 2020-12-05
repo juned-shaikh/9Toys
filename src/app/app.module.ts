@@ -50,6 +50,8 @@ import {MatTabsModule} from '@angular/material/tabs'
 import {MatRadioModule} from '@angular/material/radio'
 import {MatSelectModule} from '@angular/material/select';
 import {CheckoutComponent} from './components/checkout/checkout.component'
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap'
+import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import {CheckoutComponent} from './components/checkout/checkout.component'
   
     ViewProductComponent,
   
-    CheckoutComponent
+    CheckoutComponent,
+    CheckoutStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -88,10 +91,10 @@ import {CheckoutComponent} from './components/checkout/checkout.component'
    MatButtonModule,
    MatCardModule,
    MatExpansionModule,
-   MatFormFieldModule,
+   MatFormFieldModule, 
    MatListModule,
    MatMenuModule,
-   MatSnackBarModule,
+   MatSnackBarModule, 
    MatStepperModule,
    MatTooltipModule,
    MatInputModule,
@@ -104,7 +107,7 @@ MatProgressBarModule,
 MatTabsModule,
 MatRadioModule,
 MatSelectModule,
-
+NgbModalModule
 
 
   ],

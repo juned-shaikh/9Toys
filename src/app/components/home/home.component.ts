@@ -103,7 +103,7 @@ this.fetch_categories(this.comp_num_new)
       dd='0';
     }
     this.adminService
-    .fetch_categories({
+    .fetch_categories({ 
 
       // this.adminService
     // .fetch_categories_ecom({//for ecom
