@@ -43,7 +43,7 @@
  
 </div>
 
-<input type="text" id="ip1"/>
+<!-- <input type="text" id="ip1"/> -->
 
 <!-- <div class="section">
 
@@ -96,9 +96,9 @@
 <!-- /SECTION -->
 
 <!-- new card by juned -->
-<div class="section" style="padding-left: 48px;">
+<div class="section" >
   <!-- container -->
-  <div class="container">
+  <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5" style="padding-left: 87px;">
     <!-- row -->
     <h3 class="title2" >Featured Products</h3>
     <div class="row" >
@@ -135,37 +135,62 @@
           </a>
         </div>
       </div>
+
+      <div class="card">
+        <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw91a2b36e/Homepage/Passion/MDAAP-plp-pretend-play-banner-1.jpg" >
+        <div class="card-content">
+          <a href="#">
+            <p class="card-category">Toys Collection<i class="fas fa-chevron-right fa-sm"></i></p>
+          </a>
+        </div>
+      </div>
+
       
     </div>
    </div>
  </div>
 <!-- end card -->
 
-<div class="section">
 
+
+<!-- banner start -->
+   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
+    <div class="col-md-12">
+            <div class="section-title">
+              <h3 class="title2" >Preschool Products</h3>
+            </div>
+          </div>
+       
+
+            <div class="row" >
+              <div class="col-md-12 col-sm-12" >
+                <img src="https://cdn.shopify.com/s/files/1/0088/7986/5907/files/pre_school2_9e54ba9b-7dbd-4b50-80b1-d2d95f3af8ba_1350x624.jpg"  height="350px">
+              </div>
+            </div>
+   </div>      
+<!-- banner end -->
 
   
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
+ 
 
 
 
 <!-- trending product start -->
-<div class="col-md-12">
-  <div class="section-title">
-    <h3 class="title2" >Trending Products</h3>
-  </div>
-</div>
-<div class="container">
+<div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
+              <div class="col-md-12">
+                <div class="section-title">
+                  <h3 class="title2" >Trending Products</h3>
+                </div>
+              </div>
  
-  <div class="row">
+ 
+  <div class="row" >
       <div class="col-md-3 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
               <div class="product-image7" style="height: 300px;">
                   <a >
-                    <img  src="{{ nprd2.gallery.medium_thumbnail_link }}"   (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200px" height="300px" class="card-img-top"  style="cursor:pointer;">
+                    <img  src="{{ nprd2.gallery.medium_thumbnail_link }}" 
+          (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200px" height="300px" class="card-img-top"  style="cursor:pointer;">
                   </a>
                   <ul class="social">
                       <li><a  class="fa fa-heart"></a></li>
@@ -231,127 +256,115 @@
      
       
        </div>
-</div>
+
 <hr>
-<!-- trending product end -->
-<!-- banner start -->
- <div class="col-md-12">
-        <div class="section-title">
-          <h3 class="title2" >Preschool Products</h3>
-        </div>
-      </div>
-<div class="container">
- 
-  <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <img src="https://cdn.shopify.com/s/files/1/0088/7986/5907/files/pre_school2_9e54ba9b-7dbd-4b50-80b1-d2d95f3af8ba_1350x624.jpg">
-      </div>
-  </div>
 </div>
-<!-- banner end -->
-      <!-- section title -->
-      <div class="col-md-12">
+<!-- trending product end -->
+
+     
+
+   <!-- section title -->
+   <div class="col-md-12">
         <div class="section-title">
           <h3 class="title2" >New Products</h3>
         </div>
-      </div>
-      <!-- /section title -->
-<!-- juned 1/12/2020 -->
-<div class="container">
- 
-  <div class="row">
-      <div class="col-md-4 col-sm-6" *ngFor="let nprd of newproduct">
-          <div class="product-grid7">
-              <div class="product-image7" id="box-img1">
-               <a  > 
-                    <img src="{{nprd.gallery?.medium_thumbnail_link}}"
-            (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check)" alt="Product Image" id="img1"   style="width: 200px; height: 200px;"  class="card-img-top"  style="cursor:pointer;">
-               </a>                 
-                  <ul class="social">
-                      <li><a href="" class="fa fa-heart"></a></li>
-                      <li>
-                        <a  style="cursor:pointer" *ngIf="nprd.wishlist_check == false"
-                        style="cursor:pointer"
-                     
-                        style="cursor:pointer"
-                        (click)="addToWishlist(nprd)"
-                    
-                        ><i class="far fa-heart text-secondary"></i
-                      ></a>
-                      <a
-                        style="cursor:pointer" *ngIf="nprd.wishlist_check == true"
+  </div>
+  <!-- /section title -->
+  <!-- <div class="container" > -->
+        <div class="row " >
+            <div class="col-md-2 col-sm-6" *ngFor="let nprd of newproduct">
+                          <div class="product-grid7">
+                              <div class="product-image7" id="box-img1">
+                              <a  > 
+                                    <img src="{{nprd.gallery?.medium_thumbnail_link}}"
+                            (click)="view_product(nprd.meta_title, nprd.product_no,nprd.slug,nprd.quick_product_check)" alt="Product Image" id="img1"    class="card-img-top"  style="cursor:pointer;">
+                              </a>                 
+                                  <ul class="social">
+                                      <li><a href="" class="fa fa-heart"></a></li>
+                                      <li>
+                                        <a  style="cursor:pointer" *ngIf="nprd.wishlist_check == false"
+                                        style="cursor:pointer"
+                                    
+                                        style="cursor:pointer"
+                                        (click)="addToWishlist(nprd)"
+                                    
+                                        ><i class="far fa-heart text-secondary"></i
+                                      ></a>
+                                      <a
+                                        style="cursor:pointer" *ngIf="nprd.wishlist_check == true"
+                                      
+                                        style="cursor:pointer"
+                                        (click)="addToWishlist(nprd)"
+                                      
+                                        > <i class="far fa-heart text-danger"></i></a>
                       
-                        style="cursor:pointer"
-                        (click)="addToWishlist(nprd)"
-                      
-                        > <i class="far fa-heart text-danger"></i></a>
-      
-                        <a  style="cursor:pointer" *ngIf="userC == true"
-                        style="cursor:pointer"
-                        (click)="addToWishlist(nprd)"
-                      
-                        ><i class="far fa-heart text-secondary"></i
-                      ></a>
-                      </li>
-                      <li><a href="" class="fa fa-shopping-cart" *ngIf="nprd.txn_quantity>=1"
-                 
-                        (click)="addToCart(nprd)"
-                        matTooltip="Add to Cart"        ></a>
-                      <a href="" class="fa fa-shopping-cart text-danger" *ngIf="nprd.txn_quantity<1"></a>
-                      </li>
-                  </ul>
-                  <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a >{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</a></h3>
-                  <ul class="rating">
-                    <span
-                    class="fa fa-star checked"
-                    *ngFor="let i of createRange2(nprd.ratings)"
-                  ></span>
-                  <span *ngIf="nprd.ratings>'0'"><span
-                    class="fa fa-star unchecked"
-                    *ngFor="let i of createRange2(5 - nprd.ratings)"
-                  ></span>
-                </span>
-                  </ul>
-                  <div class="price">
-                    <span *ngIf="nprd.rate[0].is_rent == '1'" 
-    >{{ nprd.rate[0].name }} @ {{ nprd.rate[0].rate }}
-  </span>
-  <span *ngIf="nprd.rate[0].is_rent != '2'" 
-    >₹ {{ nprd.rate[0].rate}}
-  </span> &nbsp;
-  <span class="for-you text-muted" *ngIf="nprd.rate[0].rate < nprd.mrp"
-    ><del>₹ {{ nprd.mrp  }} </del></span
-  >
-  <span *ngIf="nprd.rate[0].is_rent == '2'" 
-    >{{ nprd.rate[1].name }} @ {{ nprd.rate[1].rate }} </span
-  ><br />
-  <span
-    *ngIf="nprd.rate[0].rate < nprd.mrp"
-    class="font-wieght-bold text-center for-you text-success"
-    >Discount : {{ nprd.rate[0].discount_percent | number:'1.0-0' }}%</span
-  >
-                  </div>
-              </div>
-          </div>
-      </div>
-     
-      
-</div>
+                                        <a  style="cursor:pointer" *ngIf="userC == true"
+                                        style="cursor:pointer"
+                                        (click)="addToWishlist(nprd)"
+                                      
+                                        ><i class="far fa-heart text-secondary"></i
+                                      ></a>
+                                      </li>
+                                      <li><a href="" class="fa fa-shopping-cart" *ngIf="nprd.txn_quantity>=1"
+                                
+                                        (click)="addToCart(nprd)"
+                                        matTooltip="Add to Cart"        ></a>
+                                      <a href="" class="fa fa-shopping-cart text-danger" *ngIf="nprd.txn_quantity<1"></a>
+                                      </li>
+                                  </ul>
+                                  <span class="product-new-label">New</span>
+                              </div>
+                              <div class="product-content">
+                                  <h3 class="title"><a >{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</a></h3>
+                                  <ul class="rating">
+                                    <span
+                                    class="fa fa-star checked"
+                                    *ngFor="let i of createRange2(nprd.ratings)"
+                                  ></span>
+                                  <span *ngIf="nprd.ratings>'0'"><span
+                                    class="fa fa-star unchecked"
+                                    *ngFor="let i of createRange2(5 - nprd.ratings)"
+                                  ></span>
+                                </span>
+                                  </ul>
+                                  <div class="price">
+                                    <span *ngIf="nprd.rate[0].is_rent == '1'" 
+                    >{{ nprd.rate[0].name }} @ {{ nprd.rate[0].rate }}
+                  </span>
+                  <span *ngIf="nprd.rate[0].is_rent != '2'" 
+                    >₹ {{ nprd.rate[0].rate}}
+                  </span> &nbsp;
+                  <span class="for-you text-muted" *ngIf="nprd.rate[0].rate < nprd.mrp"
+                    ><del>₹ {{ nprd.mrp  }} </del></span
+                  >
+                  <span *ngIf="nprd.rate[0].is_rent == '2'" 
+                    >{{ nprd.rate[1].name }} @ {{ nprd.rate[1].rate }} </span
+                  ><br />
+                  <span
+                    *ngIf="nprd.rate[0].rate < nprd.mrp"
+                    class="font-wieght-bold text-center for-you text-success"
+                    >Discount : {{ nprd.rate[0].discount_percent | number:'1.0-0' }}%</span
+                  >
+                                  </div>
+                              </div>
+                          </div>
+            </div>
+        </div>   
+<!-- </div>      -->
+<!-- </div> -->
 <hr>
 <!--  end juned 1/12/2020 -->
 
 
 
 <!-- banner data  2/12/2020-->
+<div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
 <div class="col-md-12">
   <div class="section-title">
     <h3 class="title2" >Games Corner</h3>
   </div>
 </div>
-<div class="container">
+
  
   <div class="row">
       <div class="col-md-6 col-sm-6">
@@ -362,14 +375,7 @@
         </div>
    </div>
    <br/>
-   <div class="row">
-    <div class="col-md-6 col-sm-6">
-        <img src="http://cdn.shopify.com/s/files/1/0088/7986/5907/files/GrownUps_2_a9334e78-52bc-49e5-b8fd-b3b747adfb6d_1350x624.jpg">
-      </div>
-      <div class="col-md-6 col-sm-6">
-          <img src="http://cdn.shopify.com/s/files/1/0088/7986/5907/files/Chalk_Chuckles-2_be994e64-f6a8-4320-ba96-1125c6ac7fa6_1350x624.jpg">
-      </div>
- </div>
+  
 
 </div>   
 <!-- end -->
