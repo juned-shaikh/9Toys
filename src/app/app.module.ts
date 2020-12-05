@@ -46,6 +46,7 @@ import { PinchZoomModule } from 'ngx-pinch-zoom';
 import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { CategoryPageComponent } from './components/category-page/category-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +62,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     WishlistComponent,
     NewCartComponent,
     NewCheckoutComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,
