@@ -338,12 +338,24 @@ p {
 #ip1 {
   border-radius: 30px;
   background: #fff;
+  color: #000;
   padding: 20px; 
-  width: 139px;
-  height: 51px;  
+  width: 150px;
+  height: 53px;  
   position:absolute;
-  top: 563px;
-  left: 545px;  
+  bottom: 98px;
+  left: 610px;  
+}
+#ip2 {
+  border-radius: 30px;
+  color: #000;
+  background: #fff;
+  padding: 20px; 
+  width: 194px;
+  height: 53px;  
+  position:absolute;
+  bottom: 98px;
+  left: 1019px;  
 }
 
 
