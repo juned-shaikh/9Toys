@@ -14,7 +14,7 @@ import {ViewProductComponent} from "./components/view-product/view-product.compo
 import {CategoryPageComponent} from "./components/category-page/category-page.component";
 const routes: Routes = [
 
-  {path: 'category-page/', component:CategoryPageComponent },
+  {path: 'category-page', component:CategoryPageComponent },
    {path: 'category-page/:id1/:id', component:CategoryPageComponent },
    {path: 'category-page/:id', component:CategoryPageComponent },
 

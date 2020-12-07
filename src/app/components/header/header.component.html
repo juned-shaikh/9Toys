@@ -2,15 +2,17 @@
 
 <div class="nav">
   <nav>
-      <!-- <a href="javascript:void(0);" class="mobile-menu-trigger">Open mobile menu</a> -->
+      <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
       <ul class="menu menu-bar" style="left: 30px;top: 15px;">
         <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;"></strong>
-          <li>
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Shop
+          <li *ngFor="let category of categories2; let i = index">
+              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
+                category.name
+              }} 
                   </a>
               <ul class="mega-menu mega-menu--multiLevel">
-                  <li>
-                      <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Shop by Age</a>
+                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8;">
+                      <a href="javascript:void(0);"(click)="navigateCategory(category.name, category.category_no)"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                       <ul class="menu menu-list">
                           <li>
                          <div class="container">
@@ -212,11 +214,11 @@
           </li>
         
           <li>
-              <a href="/page" class="menu-link menu-bar-link">Static link</a>
+              <a href="/" class="menu-link menu-bar-link">Static link</a>
           </li>
 
           <li class="mobile-menu-header">
-              <a href="/home" class="">
+              <a href="/" class="">
                   <span>Home</span>
               </a>
           </li>
