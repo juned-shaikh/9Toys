@@ -55,7 +55,7 @@ nav a:visited {
   z-index: 1;
 }
 .menu-link[aria-haspopup="true"] {
-  padding-right: 40px;
+  padding-right: 0px;
 }
 .menu-link[aria-haspopup="true"]:after {
   content: "";
@@ -65,7 +65,7 @@ nav a:visited {
   height: 14px;
   font-size: 12px;
   position: absolute;
-  right: 10px;
+  right: -18px;
   top: 50%;
   transform: translateY(-50%);
 }
