@@ -1,19 +1,19 @@
 <!--<p>view-product works!</p>-->
 <div *ngIf="loader">
 
-    <section class="mt-2">
+    <section class="mt-3">
       <div class="container-fluid">
         <!-- <div class="container"> -->
           <div class=" row justify-content-center">
             <div class="col-md-12 col-lg-12">
               <div class="row wrapper">
                 <div class="col-md-5 " >
-                  <div class="row "  >
+                  <div class="row mt-2"  >
                     <!-- for pc laptop gallary -->
   <div class="col-md-2  d-none d-md-block d-lg-block">
 
               <!-- <ul class="preview-thumbnail nav nav-tabs  mt-1 row " gallerize > -->
-                <ul class="preview-thumbnail nav nav-tabs  mt-1 row "  >
+                <ul class="preview-thumbnail nav nav-tabs  mt-3 row "  >
                 <li class="col-12 col-md-12" style="display: inherit!important;"
                   *ngFor="let image of product_image | slice:0:5;let s=index"
                   class="active cursor-pointer"  
@@ -82,7 +82,7 @@
             
               <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
                 <pinch-zoom>
-                  <img src="{{img}}" data-toggle="modal" data-target="#exampleModal" alt="">
+                  <img src="{{img}}" alt="" data-toggle="modal" data-target="#exampleModal">
                 </pinch-zoom>
                 
                <!---<app-zoom [img]="img" [zoom]="2" [lenSize]="120"    class="new-image-show  d-none d-lg-block d-xl-block"   [divZoomed]="divZoomed" ></app-zoom>
@@ -274,11 +274,11 @@
               
               </div>
               <!-- //heading -->
-              <h5 class="product-title font-weight-600 pt-1 " style="font-family: sans-serif;">{{ product.name }}  <span  *ngIf="product.color != null || product.color != null" class="" >(<span *ngIf="product.color != null" ><span class="text-muted pl-2 pr-2" >{{ product.color }}</span></span> -<span *ngIf="product.size != null"> <span class="text-muted  pl-2 pr-2">{{ product.size }}</span></span>)</span> </h5>    
+              <h5 class="product-title font-weight-600 pt-1 " style="font-family: sans-serif; color: black;">{{ product.name }}  <span  *ngIf="product.color != null || product.color != null" class="" >(<span *ngIf="product.color != null" ><span class="text-muted pl-2 pr-2" >{{ product.color }}</span></span> -<span *ngIf="product.size != null"> <span class="text-muted  pl-2 pr-2">{{ product.size }}</span></span>)</span> </h5>    
               <!-- //subheading -->
               
            
-              <h6 class="product-title1 pt-2" style="font-family: sans-serif;">{{ product.subheading }}</h6>
+              <h6 class="product-title1 pt-2" style="font-family: sans-serif;color: gray;">{{ product.subheading }}</h6>
           
           
             <div *ngIf="ratings != 0 && rating_option==true">
@@ -299,8 +299,8 @@
                 
                   <div *ngIf=" prates.is_rent !=2">
                     <span class="">  
-                    <span style="font-size: 34px;">   {{prates.rate | currency:'INR'}}</span></span> &nbsp;
-                    <span *ngIf="product.mrp>prates.rate" class=" font-weight-500  mb-2">  <del> MRP : {{product.mrp | currency:'INR'}}</del></span> &nbsp;&nbsp;<span *ngIf="product.mrp>prates.rate" class="text-success">{{prates.discount_percent | number:'1.0-0'}} % off</span>  <br/>
+                    <span  style="font-size: 2.5rem; color: black;">   {{prates.rate | currency:'INR'}}</span></span> &nbsp;
+                    <span *ngIf="product.mrp>prates.rate" style="color: black;" class=" font-weight-500  mb-2">  <del> MRP : {{product.mrp | currency:'INR'}}</del></span> &nbsp;&nbsp;<span *ngIf="product.mrp>prates.rate" class="text-success">{{prates.discount_percent | number:'1.0-0'}} % off</span>  <br/>
                   </div>
                 </div>
                 </div>
@@ -382,7 +382,7 @@
                
 
                 <div *ngIf="product_groups_color.length > 0" class=" row">
-                <span class="font-weight-600 ">&nbsp;&nbsp; Color :</span>   <div class="ml-2" style="display: inline-block;" *ngFor="let color of product_groups_color;let count=index"><div class= " cursor-pointer " style="display: inline-block;" *ngIf="color != '' && color != null">
+                <span class="font-weight-600 " style="color: black;">&nbsp;&nbsp; Color :</span>   <div class="ml-2" style="display: inline-block;" *ngFor="let color of product_groups_color;let count=index"><div class= " cursor-pointer " style="display: inline-block;" *ngIf="color != '' && color != null">
 
 <!-- start for color image -->
 
@@ -408,7 +408,7 @@
                   
                 </div>
                 <div *ngIf="product_groups_size.length > 0" class="">
-                  <span class="font-weight-600" style="font-size: 1.0rem; font-family: sans-serif;">Size :</span>  <ul class="" style="display: inline-block;" *ngFor="let size of product_groups_size"><li class=" cursor-pointer" style="display: inline-block;" *ngIf="size != '' && size != null"><div *ngIf="sizing == size"  (click)="sizes(size)"  class=""><h3><span class="p-1 ml-2 badge badge-success">{{size}}</span></h3></div>
+                  <span class="font-weight-600" style="font-size: 1.0rem; font-family: sans-serif;color: black;">Size :</span>  <ul class="" style="display: inline-block;" *ngFor="let size of product_groups_size"><li class=" cursor-pointer" style="display: inline-block;" *ngIf="size != '' && size != null"><div *ngIf="sizing == size"  (click)="sizes(size)"  class=""><h3><span class="p-1 ml-2 badge badge-success">{{size}}</span></h3></div>
                     <div *ngIf="sizing != size" (click)="sizes(size)" class=""><span class="pre-size p-2">{{size}}</span></div></li></ul>
                   </div>
 
@@ -862,14 +862,13 @@
     </div>
 
     </section>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999!important;">
       <div class="modal-dialog  modal-xl" style="z-index: 111111;">
         <div class="modal-content">
            <div class="modal-header">
             <h4 class=" font-weight-600 m-0 project-heading" style="margin-left: 16px;">{{ product?.name }}  </h4>    
               <button type="button" class="close btn btn-secondry" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" style="color: white;">&times;</span>
+                <span aria-hidden="true" >&times;</span>
               </button>
             </div>
           <div class="modal-body">
@@ -893,9 +892,16 @@
                      
                     
                       <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
-                       
-                          <img src="{{img}}" alt="" style="min-width: 720px;
-                          min-height: 500px; max-width: 720px; max-height: 550px;" >
+                         <pinch-zoom>
+                          <img src="{{img}}" alt="" style="text-align: center;
+                          max-width: 100%;
+                          min-width: 99%;
+                          max-height: 400px;
+                          min-height: 400px;
+                          object-fit: contain;
+                          margin: auto;" >
+                         </pinch-zoom>
+                         
                       
                         
                      
@@ -985,3 +991,4 @@
     
       </div>
     </div>
+    

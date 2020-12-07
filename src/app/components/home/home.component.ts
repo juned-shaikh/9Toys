@@ -6,6 +6,8 @@ import {Router} from "@angular/router";
 import {NinetoysserviceService} from '../../ninetoysservice.service'
 import {MatSnackBar, SimpleSnackBar} from '@angular/material/snack-bar'
 import { CookieService } from "ngx-cookie-service";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import {NgbModal,ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
 @Component({
   selector: 'mg-home',
   templateUrl: './home.component.html',
@@ -20,6 +22,8 @@ export class HomeComponent implements OnInit {
   cartTotal: Number;
   topSelling;
   ninetoys = false;
+  host_link;
+  host_name;
   user_num = sessionStorage.getItem("user_num");
   access_token = sessionStorage.getItem("access_token");
   username = sessionStorage.getItem("username");
@@ -49,6 +53,7 @@ export class HomeComponent implements OnInit {
   categoryresp=[];
   topCategories;
   menuShow = false;
+  serverlink;
   isShow: boolean;
   alreadyCart=false;
   alreadyCartStock=false;
@@ -69,6 +74,7 @@ export class HomeComponent implements OnInit {
   pagesNew=1;
   ratebuy;
 qty_set;
+registerForm2:FormGroup
    offsetSelling=1;
    pagesSelling=1;
   page_itemsSelling=6;
@@ -84,10 +90,27 @@ qty_set;
               private cartService: CartService,
               private router:Router,
               private adminService:NinetoysserviceService,
-              public snackbar: MatSnackBar,private cookie:CookieService) {
+              public snackbar: MatSnackBar,private cookie:CookieService,private formBuilder:FormBuilder) {
+                this.registerForm2 = this.formBuilder.group({
+                  rate_type: [""],
+                  product_no: [""],
+                  user_num: sessionStorage.getItem("user_num"),
+                  access_token: sessionStorage.getItem("access_token")
+                });
   }
 
   ngOnInit() {
+    this.adminService
+    .get_host_link({
+    comp_num : 0
+    })
+    .subscribe(datan => {
+      if(datan['status']==1){
+        var h= JSON.parse(datan['result']['value']);
+         this.serverlink=h['host_link'];
+      }
+
+  })
     this.productService.getAllProducts(8).subscribe((prods: serverResponse ) => {
       this.products = prods.products;
       console.log(this.products);
@@ -103,7 +126,7 @@ this.fetch_categories(this.comp_num_new)
       dd='0';
     }
     this.adminService
-    .fetch_categories({
+    .fetch_categories({ 
 
       // this.adminService
     // .fetch_categories_ecom({//for ecom
@@ -113,7 +136,7 @@ this.fetch_categories(this.comp_num_new)
     })
     .subscribe(data => {
       if (data["status"] == 1) {
-        this.categories = data["result"];
+        this.categories =  JSON.stringify(data["result"]);
         console.log(data["result"]+"home")
         this.categoryresp = data["result"];
         let size = this.categories.length;
@@ -344,17 +367,21 @@ this.fetch_categories(this.comp_num_new)
      // name.replace(re,"-");
     // let slug = name.replace(/\s+/g, '-') + "-?product_no=" + id  + "&marketplace=ECOMTRAILS";
     if(this.previewFlag == '1'){
+      const currentRoute = this.router.url;
       this.router
       .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/view-product", slug]));
-    }else{
+      .then(() => 
+      this.router.navigate(["/Admin/preview/view-product", slug]));
+    } else{
+      const currentRoute = this.router.url;
       this.router
       .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/view-product", slug]));
+      .then(() => 
+      this.router.navigate(["/view-product", slug]));
 
     }
   }
@@ -367,6 +394,7 @@ this.fetch_categories(this.comp_num_new)
     //   })
     //   .then(() => this.router.navigate(["/product", slug]));
   }
+  
   getImage(image): string {
     return this.adminService.getImage(image);
   }
@@ -386,6 +414,7 @@ this.fetch_categories(this.comp_num_new)
   getGalleryThumbnail2(thumbnail2): string {
     return this.adminService.getGalleryThumbnail2(thumbnail2);
   }
+ 
   bannerImage(dd) {
     this.adminService
       .fetch_banner_image({
@@ -708,4 +737,105 @@ this.ngOnInit();
       }
     }
   }
+  
+  rates(product) {
+    // if (
+    //   this.registerForm2.controls.user_num.value == null ||
+    //   this.registerForm2.controls.access_token.value == null ||
+    //   this.registerForm2.controls.user_num.value == "" ||
+    //   this.registerForm2.controls.access_token.value == ""
+    // ) {
+    //   this.modalService.dismissAll("Save click");
+    //   this.snackbar.open("Please Login First", "", {
+    //     duration: 1000
+    //   });
+    // } else {
+      this.registerForm2.get("product_no").setValue(product.product_no);
+      if (
+          product.rate[0].rate_type != "2" &&
+          product.rate[0].rate_type != 2
+        ) {
+        this.ratebuy=product.rate[0].rate_type;
+       this.registerForm2.get("rate_type").setValue(product.rate[0].rate_type);
+      }
+      else if( product.rate[1].rate_type != "2" &&
+          product.rate[1].rate_type != 2){
+         this.ratebuy=product.rate[1].rate_type;
+       this.registerForm2.get("rate_type").setValue(product.rate[1].rate_type);
+     
+      }
+      for (let k = 0; k < product.rate.length; k++) {
+       
+        if (
+          product.rate[k].rate_type == "2" ||
+          product.rate[k].rate_type == 2
+        ) {
+          this.shipping=product.rate[k].rate;
+         this.ratebuy=this.ratebuy+ this.shipping;
+       // this.registerForm2.get("rate_type").setValue(this.ratebuy);
+     
+         
+        }
+      }
+    }
+    updateCart3plus(cart_id,cart_inventory_id,rate_type_actual,qty2,qty_stock) {
+      console.log(qty2);
+      console.log(qty_stock);
+      var qty=parseInt(qty2)+1;
+      if (qty < 1) {
+        this.snackbar.open("Choose Valid quantity.", "", {
+          duration: 3000
+        });
+        this.ngOnInit();
+      }
+      else if(qty > parseInt(qty_stock)){
+        let msg="Quantity limit exceed.";
+        // let msg="only "+qty_stock+" quantity available.";
+         this.snackbar.open(msg, "", {
+          duration: 3000
+        });
+          this.ngOnInit();
+      } else if (qty >= 1) {
+        let data2 = { rate_type: rate_type_actual,
+        qty: qty,
+        cart_id: cart_id,
+        cart_inventory_id: cart_inventory_id,
+        user_num: sessionStorage.getItem("user_num"),
+        comp_num: sessionStorage.getItem("comp_num_new"),
+        access_token: sessionStorage.getItem("access_token")
+      }
+  
+        this.adminService.updateCart(data2).subscribe(data => {
+          
+          if (data["status"] == "1") {
+           
+             this.ngOnInit();
+              this.snackbar.open("Update Cart Successfully", "", {
+              duration: 3000
+            });
+            if(this.previewFlag == '1'){
+              if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
+                    }else{
+                
+              }
+      
+    
+            }else{
+             
+            }
+          }  else {
+            this.snackbar.open("This cart is not update..!", "", {
+              duration: 3000
+            });
+            
+          }
+        });
+      } else {
+  
+        this.snackbar.open("This quantity is not available.", "", {
+          duration: 3000
+        });
+        this.ngOnInit();
+      }
+    }
 }

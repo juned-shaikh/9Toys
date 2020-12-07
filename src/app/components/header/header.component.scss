@@ -47,9 +47,9 @@ nav a:visited {
   display: flex;
 }
 .menu-link {
-  padding: 20px 25px;
+  padding: 20px 15px;
   background: #ffffff;
-  color: #177E89;
+  // color: #177E89;
   transition: background 0.2s, color 0.2s;
   position: relative;
   z-index: 1;
@@ -370,3 +370,20 @@ span {
   .fas {
     margin-right: 15px;
   }}
+  .brand-circle{
+    width: 20px; height: 20px; border-radius: 50%; overflow: hidden; background: white; margin-top: 3px;
+  }
+  .brand-circle-img{
+    height: 20px!important; width: 20px; margin-bottom: 5px;
+  }
+  nav .navbar-right .dropdown-menu{
+    left: unset;
+    right: 0;
+
+}
+nav .navbar-right .dropdown-menu a{
+/*color: #707070!important;
+*/
+color: #2980B9!important;
+
+}

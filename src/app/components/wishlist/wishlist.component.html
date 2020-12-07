@@ -1,5 +1,5 @@
 <!--<p>wishlist works!</p>-->
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 50px;">
     <div class="container mb-4 mt-4">
       <div class="row">
           <div class="col-lg-12 pb-2">
@@ -40,7 +40,7 @@
             <div class="cart-item-product-info">
                 <h4 class="cart-item-product-title pt-3">{{pwl.product.name | titlecase}}</h4>
              
-                <h6 class="text-muted"><span>Model :</span>  {{pwl.product.model}}</h6>
+                <h6 class="text-muted" style="font-weight: 600;font-size: 1rem;font-family: sans-serif;"><span>Model :</span>  {{pwl.product.model}}</h6>
 
                 <span *ngIf="pwl.product_rate[0].is_rent== '1'" class="for-you">{{pwl.product_rate[0].name}} @  {{pwl.product_rate[0].rate }}  </span>
                 <span *ngIf="pwl.product_rate[0].is_rent!='2'" class="for-you">Buy @  {{pwl.product_rate[0].rate }}  </span>
@@ -54,10 +54,10 @@
     >
     <i class="fas fa-cart-plus pb-1"></i>    add to cart
     </button></span> -->
-<span *ngIf="pwl.product.txn_quantity<'1'" class="mt-3" mat-raised-button  title="Out of Stock" (click)="addToCart(pwl);"> <span style="border-radius: 9px;cursor: not-allowed;" class=" border p-2 bg-secondary text-white" ><i class="fa fa-shopping-cart"></i> Add To Cart</span></span>
+<span *ngIf="pwl.product.txn_quantity<'1'" class="mt-3" mat-raised-button  title="Out of Stock" (click)="addToCart(pwl);"> <span style="border-radius: 9px;cursor: not-allowed;" class=" border p-2 bg-secondary text-white" ><i class="fa fa-shopping-cart"></i> Move To Cart</span></span>
 
-                <span *ngIf="pwl.product.txn_quantity>'0'" class="mt-3" mat-raised-button   (click)="addToCart(pwl);addtocartFromWishlist(pwl.wishlist_num)"  title="Add to Cart"> <span style="border-radius: 9px;" class=" cursor-pointer border p-2  bg-secondary text-white "><i class="fa fa-shopping-cart"></i> Add To Cart</span></span>
-          
+                <span *ngIf="pwl.product.txn_quantity>'0'" class="mt-3" mat-raised-button   (click)="addToCart(pwl);addtocartFromWishlist(pwl.wishlist_num)"  title="Move to Cart"> <span style="border-radius: 9px;" class=" cursor-pointer border p-2  bg-secondary text-white "><i class="fa fa-shopping-cart"></i> Move To Cart</span></span>
+                <span   style="margin-left: 130px;margin-top: -20px;" mat-raised-button   (click)="deleteFromWishlist(pwl.wishlist_num)"  title="Remove Cart"> <span style="border-radius: 9px;" class=" cursor-pointer border p-2  bg-danger text-white "><i class="fa fa-trash"></i> Remove Cart</span></span>
                   <!-- <span  class="mt-3" mat-raised-button  (click)="addToCart(pwl);addtocartFromWishlist(pwl.wishlist_num)"  title="Add to Cart"> <span style="border-radius: 9px;" class="cursor-pointer border p-2 bg-info text-white"><i class="fa fa-shopping-cart"></i> Add To Cart</span></span> -->
             
                 </div>

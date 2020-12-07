@@ -169,7 +169,7 @@
                   <div class="row text-titlecase mobile-cart-font-size">
                     <span *ngIf=" pr.product_rate[0].is_rent =='0'"> </span>
                     <span *ngIf=" pr.product_rate[0].is_rent !='0'"> {{ pr.product_rate[0].name }} @</span>&nbsp;
-                    <span class="font-weight-500"> ₹ {{ pr.product_rate[0].rate_qty }}</span>
+                    <span class="font-weight-500" style="color: black;"> ₹ {{ pr.product_rate[0].rate_qty }}</span>
                     &nbsp;<span *ngIf="pr.product_rate[0].rate<pr.product.mrp"
                       class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span> &nbsp;
   
@@ -263,7 +263,7 @@
                         <div *ngIf="  pr.product_rate[0].is_rent !='2' " class="row text-titlecase">
                           <span *ngIf=" pr.product_rate[0].is_rent =='0'"></span>
                           <span *ngIf=" pr.product_rate[0].is_rent !='0'">{{ pr.product_rate[0].name }} @</span>&nbsp;
-                          <span class="font-weight-500"> ₹  {{ pr.product_rate[0].rate_qty }}</span>
+                          <span class="font-weight-500" style="color: black;"> ₹  {{ pr.product_rate[0].rate_qty }}</span>
                           &nbsp;<span *ngIf="pr.product_rate[0].rate_qty<pr.product.mrp_qty"
                             class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span>
   
@@ -279,8 +279,8 @@
                           <!-- <div *ngFor="let sh of pr.product_rate|0:1" class="row mt-2"> -->
   
                           <span *ngIf=" pr.product_rate[1].is_rent=='0'">Buy @ </span>&nbsp;
-                          <span *ngIf=" pr.product_rate[1].is_rent !='0'"> {{ pr.product_rate[1].name }} @</span>&nbsp;
-                          <span class="font-weight-500"> ₹ {{ pr.product_rate[1].rate_qty}}</span>
+                          <span *ngIf=" pr.product_rate[1].is_rent !='0'" style="color: black;"> {{ pr.product_rate[1].name }} @</span>&nbsp;
+                          <span class="font-weight-500 buy" style="color: black;"> ₹ {{ pr.product_rate[1].rate_qty}}</span>
                           &nbsp;<span *ngIf="pr.product_rate[1].rate_qty<pr.product.mrp_qty"
                             class="text-muted font-weight-400">&nbsp;<del>₹ {{ pr.product.mrp_qty }}</del></span>
   
@@ -641,9 +641,9 @@
                       <!-- disable button for increase with stock end 13/08/2020 -->
   
   
-                      <button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1" matTooltip="update rate type also" data-toggle="modal" data-target="#exampleModal-sm"
+                     <!--<button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1" matTooltip="update rate type also" data-toggle="modal" data-target="#exampleModal-sm"
                         (click)="fetch_cart_specific(cd.cart_id,cd.cart_inventory_id);">Update Rate Type
-                      </button>
+                      </button>-->
                     </div>
                   </div>
    
@@ -832,7 +832,7 @@
                           <div class="row text-titlecase">
                             <!-- <span *ngIf="cd.is_rent =='0'"></span>&nbsp; -->
                             <span *ngIf="cd.is_rent !='0'">{{ cd.rate_name }} </span>
-                            <span class="font-weight-600">₹ {{ cd.rate }}</span>&nbsp;<span
+                            <span class="font-weight-600" style="color: black;font-size: 1rem; font-family: sans-serif;">₹ {{ cd.rate }}</span>&nbsp;<span
                               *ngIf="cd.rate < cd.total_mrp_amount" class="text-muted font-weight-400">&nbsp;<del> ₹
                                 {{ cd.total_mrp_amount }}</del></span> &nbsp; &nbsp; <span
                               *ngIf="cd.rate < cd.total_mrp_amount" class="text-success font-weight-500">
@@ -904,10 +904,10 @@
                         >+ </button>
                       <!-- disable button for increase with stock end 13/08/2020 -->
   <br>
-                                <button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1 "
+                               <!--<button *ngIf="rentShow" class=" btn btn-info btn-sm ml-1 "
                                   matTooltip="update rate type also"  data-toggle="modal" data-target="#exampleModal-sm"
                                   (click)="fetch_cart_specific(cd.cart_id,cd.cart_inventory_id);">Update Rate Type
-                                </button>
+                                </button>-->
                               </div>
                             </div>
                           </div>
