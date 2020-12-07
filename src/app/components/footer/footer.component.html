@@ -21,8 +21,10 @@
         <div class="col-md-3 col-xs-6">
           <div class="footer">
             <h3 class="footer-title">Categories</h3>
-            <ul class="footer-links">
-              <li><a href="#">Hot deals</a></li>
+            <ul class="footer-links" >
+             <!--<li *ngFor="let category of categories" ><a href="#" 
+              > {{category.name}}
+</a></li>-->
               <li><a href="#">Laptops</a></li>
               <li><a href="#">Smartphones</a></li>
               <li><a href="#">Cameras</a></li>
@@ -50,9 +52,9 @@
           <div class="footer">
             <h3 class="footer-title">Service</h3>
             <ul class="footer-links">
-              <li><a href="#">My Account</a></li>
-              <li><a href="#">View Cart</a></li>
-              <li><a href="#">Wishlist</a></li>
+              <li><a routerLink="/login">My Account</a></li>
+              <li><a routerLink="/new-cart">View Cart</a></li>
+              <li><a routerLink="/wishlist">Wishlist</a></li>
               <li><a href="#">Track My Order</a></li>
               <li><a href="#">Help</a></li>
             </ul>

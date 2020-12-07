@@ -750,23 +750,23 @@ this.compSettings(this.comp);
          if ((sessionStorage.getItem("comp_num_new") == "0") && (this.host_name != "localhost:4209")) {
              
           this.router
-            .navigateByUrl("/RefreshComponent", {
+            .navigateByUrl("/", {
               skipLocationChange: true
             })
-            .then(() => this.router.navigate(["/new-checkout"]));
+            .then(() => this.router.navigate(["/checkout"]));
             } else {
           this.router
-            .navigateByUrl("/RefreshComponent", {
+            .navigateByUrl("/", {
               skipLocationChange: true
             })
-            .then(() => this.router.navigate(["/new-checkout"]));
+            .then(() => this.router.navigate(["/checkout"]));
         }
       } else {
         this.router
-          .navigateByUrl("/RefreshComponent", {
+          .navigateByUrl("/", {
             skipLocationChange: true
           })
-          .then(() => this.router.navigate(["/new-checkout"]));
+          .then(() => this.router.navigate(["/checkout"]));
       }
     }
    

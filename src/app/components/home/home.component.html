@@ -192,7 +192,7 @@
 <!-- banner end -->
 
   
- 
+
 
 
 
@@ -206,12 +206,12 @@
  
  
   <div class="row" >
-      <div class="col-md-3 col-sm-6" *ngFor="let nprd2 of topSelling">
+      <div class="col-md-2 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
-              <div class="product-image7" style="height: 300px;">
+              <div class="product-image7" id="box-img1" >
                   <a >
                     <img  src="{{ nprd2.gallery.medium_thumbnail_link }}" 
-          (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200px" height="300px" class="card-img-top"  style="cursor:pointer;">
+          (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" id="img1" class="card-img-top"  style="cursor:pointer;">
                   </a>
                   <ul class="social">
                       <li><a  class="fa fa-heart"></a></li>
@@ -252,21 +252,21 @@
                   ></span>
                 </span>
                   </ul>
-                  <div class="price">
+                  <div class="price" style="text-decoration: none;">
                     <span *ngIf="nprd2.rate[0].is_rent == '1'" 
                     >{{ nprd2.rate[0].name }} @ {{ nprd2.rate[0].rate }}
                   </span>
-                  <span *ngIf="nprd2.rate[0].is_rent != '2'" 
+                  <span *ngIf="nprd2.rate[0].is_rent != '2'" style="text-decoration: none;" 
                     >₹ {{ nprd2.rate[0].rate}}
                   </span> &nbsp;
                   <span class="for-you text-muted" *ngIf="nprd2.rate[0].rate < nprd2.mrp"
                     ><del>₹ {{ nprd2.mrp  }} </del></span
                   >
-                  <span *ngIf="nprd2.rate[0].is_rent == '2'" 
+                  <span *ngIf="nprd2.rate[0].is_rent == '2'"  style="text-decoration: none;"
                     >{{ nprd2.rate[1].name }} @ {{ nprd2.rate[1].rate }} </span
                   ><br />
                   <span
-                    *ngIf="nprd2.rate[0].rate < nprd2.mrp"
+                    *ngIf="nprd2.rate[0].rate < nprd2.mrp" style="text-decoration: none;"
                     class="font-wieght-bold text-center for-you text-success"
                     >Discount : {{ nprd2.rate[0].discount_percent | number:'1.0-0' }}%</span
                   >

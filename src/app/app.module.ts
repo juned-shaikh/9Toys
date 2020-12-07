@@ -9,13 +9,13 @@ import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {CartComponent} from './components/cart/cart.component';
-import {CheckoutComponent} from './components/checkout/checkout.component';
-import {HttpClientModule} from "@angular/common/http";
+
+ import {HttpClientModule} from "@angular/common/http";
 import {ProductComponent} from './components/product/product.component';
 import {ThankyouComponent} from './components/thankyou/thankyou.component';
 
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule,NgModel} from "@angular/forms";
 import {ToastrModule} from 'ngx-toastr';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -26,7 +26,8 @@ import  {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 
-import {NgxSpinnerModule} from "ngx-spinner";
+
+
 
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
@@ -34,7 +35,7 @@ import {MatButtonModule } from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NewCartComponent } from './components/new-cart/new-cart.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { NewCheckoutComponent } from './components/new-checkout/new-checkout.component';
+
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ViewProductComponent } from './components/view-product/view-product.component';
@@ -46,7 +47,16 @@ import { PinchZoomModule } from 'ngx-pinch-zoom';
 import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatTabsModule} from '@angular/material/tabs'
+import {MatRadioModule} from '@angular/material/radio'
+import {MatSelectModule} from '@angular/material/select';
+import {CheckoutComponent} from './components/checkout/checkout.component'
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap'
+import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
+
 import { CategoryPageComponent } from './components/category-page/category-page.component';
+import {OurBrandComponent} from './components/our-brand/our-brand.component'
+import {ToysComponent} from './components/toys/toys.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,14 +66,21 @@ import { CategoryPageComponent } from './components/category-page/category-page.
     LoginComponent,
     RegisterComponent,
     CartComponent,
-    CheckoutComponent,
+   
     ProductComponent,
     ThankyouComponent,
     WishlistComponent,
     NewCartComponent,
-    NewCheckoutComponent,
+  
     ViewProductComponent,
-    CategoryPageComponent
+  
+    CheckoutComponent,
+    CheckoutStatusComponent
+,
+    ViewProductComponent,
+    CategoryPageComponent,
+    OurBrandComponent,
+    ToysComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +89,7 @@ import { CategoryPageComponent } from './components/category-page/category-page.
     AppRoutingModule,
     MatCardModule,
     HttpClientModule,
-    NgxSpinnerModule,
+
     ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot(),
@@ -83,10 +100,10 @@ import { CategoryPageComponent } from './components/category-page/category-page.
    MatButtonModule,
    MatCardModule,
    MatExpansionModule,
-   MatFormFieldModule,
+   MatFormFieldModule, 
    MatListModule,
    MatMenuModule,
-   MatSnackBarModule,
+   MatSnackBarModule, 
    MatStepperModule,
    MatTooltipModule,
    MatInputModule,
@@ -95,7 +112,12 @@ import { CategoryPageComponent } from './components/category-page/category-page.
    GallerizeModule,
    MatDialogModule,
    PinchZoomModule,
-MatProgressBarModule
+MatProgressBarModule, 
+MatTabsModule,
+MatRadioModule,
+MatSelectModule,
+NgbModalModule,
+
 
 
   ],

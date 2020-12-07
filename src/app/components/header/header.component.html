@@ -1,33 +1,104 @@
 
 
-<div class="nav">
+<div class="nav"> 
   <nav>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
-      <ul class="menu menu-bar" style="left: 30px;top: 15px;">
+      <ul class="menu menu-bar" style="left: 30px;">
+        
         <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;"></strong>
+        <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+            routerLink="/our-brand"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Brands</a>
+            <div
+            class="dropdown-menu for-brands "
+            aria-labelledby="navbarDropdown"
+            
+          >
+          <div class="profile-dropdown-node"></div>
+          <ul>
+            <li class="brand-list"
+              *ngFor="let brand of brands | slice:0:9;"
+              style="list-style: none;"
+            >
+              <span 
+                class=" cursor-pointer  text-titlecase "
+                (click)="navigateBrand(brand.name,brand.brand_id)"
+               
+              >
+              <!-- <div class="brand-circle"> -->
+                <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+                {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                    : brand.name
+                }} 
+               <!-- </div> -->
+               </span
+              >
+
+           
+            </li>
+            <li>
+              <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+            </li>
+          </ul>
+
+          </div>
+        </li>
           <li *ngFor="let category of categories2; let i = index">
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
                 category.name
               }} 
                   </a>
               <ul class="mega-menu mega-menu--multiLevel">
-                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8;">
-                      <a href="javascript:void(0);"(click)="navigateCategory(category.name, category.category_no)"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
+                      <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                       <ul class="menu menu-list">
-                          <li>
-                         <div class="container">
+                          <li *ngFor="let categoryi of category.sub_category"
+                          style="list-style: none;">
+                         <div class="container"  title="{{ categoryi.name }}"
+                         (click)="
+                           navigateCategory(
+                             categoryi.name,
+                             categoryi.category_no
+                           )
+                         ">
+                         {{
+                            categoryi.name.length > 40
+                              ? (categoryi.name | slice: 0:40) + "..."
+                              : categoryi.name
+                          }} 
 
-                           <div class="row">
-                                 <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw6fe5c7dc/Navigation/12-to-24-months.png" width="100px" height="100px" style="padding-right: 10px;">
+                          <div class="row">
+                              <img src="{{categoryi.large_icon_link}}"  >
+                                <!-- <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw6fe5c7dc/Navigation/12-to-24-months.png" width="100px" height="100px" style="padding-right: 10px;">
                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw367a0dc4/Navigation/2-to-3-years.png" width="100px" height="100px">
-                           </div>
-                              <div class="row" style="padding-top: 10px;">
+                                -->
+                                </div>
+                              <!--<div class="row" style="padding-top: 10px;">
                                    <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;">
                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px">
-                                </div>
+                                </div>-->
                                    
                           
                             </div>
+                            <div *ngIf="categoryi.sub_category2" class="pt-2 sub_categoryItem">
+                                <p
+                                  *ngFor="let categoryj of categoryi.sub_category2"
+                                  class="cursor-pointer sub_category-2"
+                                  style="line-height: 0;"
+                                >
+                                  <span>
+                                    {{
+                                      categoryj.name.length > 25
+                                        ? (categoryj.name | slice: 0:25) + "..."
+                                        : categoryj.name
+                                    }}
+                                  </span>
+                                </p>
+                              </div>
 
                               <!-- <a href="/page" class="menu-link menu-list-link">1.1.1 Page link</a> -->
                           </li>
@@ -231,11 +302,11 @@
 <!-- Search form -->
             </ul>
         <ul style="display: flex;position: absolute;top: 10px;right: 183px;margin-right: 20px;">
-            <div class="active-purple-4 mb-4" style="padding: 10px;">
+            <div class="active-purple-4 mb-4" >
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             </div>
          </ul>
-            <ul style="display: flex;position: absolute;top: 30px;right: 23px;margin-right: 20px;">
+            <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
               <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
               <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
               <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
