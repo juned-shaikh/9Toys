@@ -176,7 +176,10 @@ nav a:visited {
   }
   .mega-menu a:hover {
    // background: #dceced;
-    color:#136a73 ;
+   
+   background: #dceced;
+   color: #136a73;
+    
   }
   .mega-menu--multiLevel > li {
     width: 33.33333333%;
@@ -401,6 +404,9 @@ span {
   //color: #fff;
   //font-size: 12px;
  // margin: 0 10px;
+  //color: #000;
+  //font-size: 12px;
+  margin: 0 10px;
 
   .fas {
     margin-right: 15px;

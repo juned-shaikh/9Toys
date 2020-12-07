@@ -28,6 +28,7 @@ import {MatListModule} from '@angular/material/list';
 
 
 
+
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 import {MatButtonModule } from '@angular/material/button';
@@ -53,6 +54,7 @@ import {CheckoutComponent} from './components/checkout/checkout.component'
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap'
 import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
 
+import { CategoryPageComponent } from './components/category-page/category-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,9 @@ import {CheckoutStatusComponent} from './components/checkout-status/checkout-sta
   
     CheckoutComponent,
     CheckoutStatusComponent
+,
+    ViewProductComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,
@@ -103,11 +108,12 @@ import {CheckoutStatusComponent} from './components/checkout-status/checkout-sta
    GallerizeModule,
    MatDialogModule,
    PinchZoomModule,
-MatProgressBarModule,
+MatProgressBarModule, 
 MatTabsModule,
 MatRadioModule,
 MatSelectModule,
-NgbModalModule
+NgbModalModule,
+
 
 
   ],

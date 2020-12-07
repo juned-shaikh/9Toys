@@ -977,10 +977,10 @@ this.makePaymenShip=true;
        this.billingDone = true;
       }
     
-    });
+    });   
   }
 
-  getPaymentDetails(mode) {
+  getPaymentDetails(mode) {  
     //console.log(mode);
     this.loader = true;
     this.visibledisabled = true;
@@ -996,7 +996,7 @@ this.makePaymenShip=true;
     if (mode == 1) {
       this.placeOrder2codN=false;
       this.placeOrder2codY=false;
-      this.placeOrder = false;
+      this.placeOrder = false;  
        this.placeOrderPayumoney = false;
        this.placeOrderPaytm=false;
       this.placeOrder2 = true;

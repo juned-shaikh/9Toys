@@ -14,11 +14,12 @@ import {ViewProductComponent} from "./components/view-product/view-product.compo
 import {CheckoutComponent} from './components/checkout/checkout.component'
 import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
 //import {CategoryPageComponent} from './components/category-page/category-page.component';
+import {CategoryPageComponent} from "./components/category-page/category-page.component";
 const routes: Routes = [
 
-  //{path: 'category-page/', component:CategoryPageComponent },
-  // {path: 'category-page/:id1/:id', component:CategoryPageComponent },
-  // {path: 'category-page/:id', component:CategoryPageComponent },
+  {path: 'category-page', component:CategoryPageComponent },
+   {path: 'category-page/:id1/:id', component:CategoryPageComponent },
+   {path: 'category-page/:id', component:CategoryPageComponent },
 
   {
     path: '', component: HomeComponent
