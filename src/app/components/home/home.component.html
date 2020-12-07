@@ -256,7 +256,7 @@
                     <span *ngIf="nprd2.rate[0].is_rent == '1'" 
                     >{{ nprd2.rate[0].name }} @ {{ nprd2.rate[0].rate }}
                   </span>
-                  <span *ngIf="nprd2.rate[0].is_rent != '2'" style="text-decoration: none;" 
+                  <span *ngIf="nprd2.rate[0].is_rent != '2'" style="text-decoration: none;"
                     >₹ {{ nprd2.rate[0].rate}}
                   </span> &nbsp;
                   <span class="for-you text-muted" *ngIf="nprd2.rate[0].rate < nprd2.mrp"
@@ -348,11 +348,11 @@
                                   ></span>
                                 </span>
                                   </ul>
-                                  <div class="price">
+                                  <div class="price" style="text-decoration: none;">
                                     <span *ngIf="nprd.rate[0].is_rent == '1'" 
                     >{{ nprd.rate[0].name }} @ {{ nprd.rate[0].rate }}
                   </span>
-                  <span *ngIf="nprd.rate[0].is_rent != '2'" 
+                  <span *ngIf="nprd.rate[0].is_rent != '2'"  style="text-decoration: none;"
                     >₹ {{ nprd.rate[0].rate}}
                   </span> &nbsp;
                   <span class="for-you text-muted" *ngIf="nprd.rate[0].rate < nprd.mrp"
@@ -361,7 +361,7 @@
                   <span *ngIf="nprd.rate[0].is_rent == '2'" 
                     >{{ nprd.rate[1].name }} @ {{ nprd.rate[1].rate }} </span
                   ><br />
-                  <span
+                  <span style="text-decoration: none;"
                     *ngIf="nprd.rate[0].rate < nprd.mrp"
                     class="font-wieght-bold text-center for-you text-success"
                     >Discount : {{ nprd.rate[0].discount_percent | number:'1.0-0' }}%</span
@@ -411,7 +411,7 @@
         <div class="row justify-content-center ">
           <div class="col-md-2" style="margin-top: 10px;" *ngFor="let category of categories"  >
             
-        <img src="../../../assets/img/9toyslogo.jpeg" style="border-radius: 50px;width: 100px;height: 100px;z-index: 1;box-sizing: border-box;
+        <img src="../../assets/img/9toyslogo.jpeg" style="border-radius: 50px;width: 100px;height: 100px;z-index: 1;box-sizing: border-box;
         margin: 0 auto 15px;    "   alt="">
         <a title="{{ category.name }}"
         (click)=" 
