@@ -79,7 +79,7 @@ mat-expansion-panel-header{
   top: -8px;
 }
 .checked {
-  color: gold; }
+  color:#4E50B3!important; }
   .star-mobile{
       font-size: 10px;
   }
@@ -488,7 +488,7 @@ background-size: cover;
     color: orangered;
   }
   .mobile-heading{
-    background: -webkit-linear-gradient(45deg,#6c0753, #e58247, #9c1c8b, #d4474d);
+    background: #4E50B3!important;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 20px;
@@ -527,7 +527,7 @@ background-size: cover;
   border-radius: 20px;
   font-size: 18px;
   /* background-color: #117a8b; */
-  background: linear-gradient(45deg, #6c0753, #d4474d);
+  background: #4E50B3!important
   /* border-color: #10707f; */
 }
 .Quantity-box{
@@ -550,7 +550,7 @@ background-size: cover;
 }
 .buynow-button{
   color: white!important;
-  background: linear-gradient(45deg, #6c0753, #d4474d);
+  background: #4E50B3!important;
     padding: 2px 9px 2px 9px;
     border-radius: 4px;
     font-size: 14px;

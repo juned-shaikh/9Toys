@@ -309,7 +309,7 @@
                               <label class="by-font-size">
                                 <mat-radio-button
                                   (click)="setSorting('new')"
-                                  value="1"
+                                  value="1" color="primary"
                                   >  New
                                 </mat-radio-button>
                               </label>
@@ -319,6 +319,7 @@
                                 <mat-radio-button
                                   (click)="setSorting('high-to-low')"
                                   value="2"
+                                  color="primary"
                                 >
                                    Price High to Low
                                 </mat-radio-button>
@@ -329,6 +330,7 @@
                                 <mat-radio-button
                                   (click)="setSorting('low-to-high')"
                                   value="3"
+                                  color="primary"
                                 >
                                   Price Low to high
                                 </mat-radio-button>
@@ -616,7 +618,7 @@
                           title="remove" >-
                         </button>
 &nbsp;
-                        <input class="_2zH4zg form-control text-center" type="number" matInput style="width: 44px; height: 27px;"
+                        <input class="_2zH4zg form-control text-center" type="number" matInput style="width: 54px; height: 27px;"
                         [style.font-size.px]="(nprd.product.cart.qty.length <=2)?12:(16-(nprd.product.cart.qty.length+2))"  [style.width.px]="(nprd.product.cart.qty.length <=2)?40:(40+(nprd.product.cart.qty.length*3))"  
                           placeholder="Quantity" value="{{nprd.product.cart.qty}}" required min="1"
                           (change)="updateCart3(nprd.product.cart.cart_id,nprd.product.cart.cart_inventory_id,nprd.product.cart.rate_type,$event.target.value,nprd.product.txn_quantity)"
@@ -636,9 +638,9 @@
                      <!-- start for buy now -->
                   <div class="add-to-cart2 d-flex justify-content-end Quantity-box" *ngIf=" nprd.product.txn_quantity > '0' && quick_buy=='1'">
                     <a  matTooltip="Buy Now" (click)="rates(nprd)" *ngIf="(nprd.product.cart_check == false) && userC==true 
-                    " class="default-btn buynow-button cursor-pointer"><span class="fa fa-bolt text-danger" ></span>&nbsp; Buy Now</a>
+                    " class="default-btn buynow-button cursor-pointer"><span class="fa fa-bolt text-white" ></span>&nbsp; Buy Now</a>
 
-                     <a  matTooltip="Buy Now" (click)="rates(nprd)" *ngIf="userC == false" class="default-btn buynow-button cursor-pointer"><span class="fa fa-bolt text-danger" ></span>&nbsp; Buy Now</a>
+                     <a  matTooltip="Buy Now" (click)="rates(nprd)" *ngIf="userC == false" class="default-btn buynow-button cursor-pointer"><span class="fa fa-bolt text-white" ></span>&nbsp; Buy Now</a>
                   </div>
 <!-- end for buy now -->
                 
@@ -671,6 +673,7 @@
                               <mat-radio-button
                               (click)="setSorting('new')"
                               value="1"
+                              color="primary"
                             >
                               Price New
                             </mat-radio-button>
@@ -682,6 +685,7 @@
                               <mat-radio-button
                               (click)="setSorting('high-to-low')"
                               value="2"
+                              color="primary"
                             >
                               Price High to Low
                             </mat-radio-button>
@@ -691,6 +695,7 @@
                               <mat-radio-button
                               (click)="setSorting('low-to-high')"
                               value="3"
+                              color="primary"
                             >
                               Price Low to high
                             </mat-radio-button>
