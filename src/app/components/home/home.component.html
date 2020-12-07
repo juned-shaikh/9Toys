@@ -40,30 +40,30 @@
 <!-- SECTION -->
 <div class="" style="top: 50px;" >
   <img src="assets/img/Melissa.png">
- 
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button"  id="ip1"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      &#x20b9;10-&#x20b9;100
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">&#x20b9;100-&#x20b9;200</a>
+      <a class="dropdown-item" href="#">&#x20b9;300-&#x20b9;400</a>
+      <a class="dropdown-item" href="#">&#x20b9;500-&#x20b9;1000</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button"   id="ip2"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     0 to 12 months
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#"> 0 to 12 months</a>
+      <a class="dropdown-item" href="#"> 0 to 12 months </a>
+      <a class="dropdown-item" href="#"> 0 to 12 months</a>
+    </div>
+  </div>
 </div>
 
 <!-- <input  type="text" id="ip1"/> -->
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button"  id="ip1"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    10rs-100rs
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">100rs-200rs</a>
-    <a class="dropdown-item" href="#">300rs-400rs</a>
-    <a class="dropdown-item" href="#">500rs-1000rs</a>
-  </div>
-</div>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button"   id="ip2"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   0 to 12 months
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#"> 0 to 12 months</a>
-    <a class="dropdown-item" href="#"> 0 to 12 months </a>
-    <a class="dropdown-item" href="#"> 0 to 12 months</a>
-  </div>
-</div>
+
 
 
 <!-- <div class="section">
@@ -206,12 +206,12 @@
  
  
   <div class="row" >
-      <div class="col-md-3 col-sm-6" *ngFor="let nprd2 of topSelling">
+      <div class="col-md-2 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
-              <div class="product-image7" style="height: 300px;">
+              <div class="product-image7" id="box-img1" >
                   <a >
                     <img  src="{{ nprd2.gallery.medium_thumbnail_link }}" 
-          (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" width="200px" height="300px" class="card-img-top"  style="cursor:pointer;">
+          (click)="view_product(nprd2.meta_title, nprd2.product_no,nprd2.slug,nprd2.quick_product_check)" alt="Product Image" id="img1" class="card-img-top"  style="cursor:pointer;">
                   </a>
                   <ul class="social">
                       <li><a  class="fa fa-heart"></a></li>
@@ -252,21 +252,21 @@
                   ></span>
                 </span>
                   </ul>
-                  <div class="price">
+                  <div class="price" style="text-decoration: none;">
                     <span *ngIf="nprd2.rate[0].is_rent == '1'" 
                     >{{ nprd2.rate[0].name }} @ {{ nprd2.rate[0].rate }}
                   </span>
-                  <span *ngIf="nprd2.rate[0].is_rent != '2'" 
+                  <span *ngIf="nprd2.rate[0].is_rent != '2'" style="text-decoration: none;" 
                     >₹ {{ nprd2.rate[0].rate}}
                   </span> &nbsp;
                   <span class="for-you text-muted" *ngIf="nprd2.rate[0].rate < nprd2.mrp"
                     ><del>₹ {{ nprd2.mrp  }} </del></span
                   >
-                  <span *ngIf="nprd2.rate[0].is_rent == '2'" 
+                  <span *ngIf="nprd2.rate[0].is_rent == '2'"  style="text-decoration: none;"
                     >{{ nprd2.rate[1].name }} @ {{ nprd2.rate[1].rate }} </span
                   ><br />
                   <span
-                    *ngIf="nprd2.rate[0].rate < nprd2.mrp"
+                    *ngIf="nprd2.rate[0].rate < nprd2.mrp" style="text-decoration: none;"
                     class="font-wieght-bold text-center for-you text-success"
                     >Discount : {{ nprd2.rate[0].discount_percent | number:'1.0-0' }}%</span
                   >

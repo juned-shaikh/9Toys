@@ -387,6 +387,7 @@ qty_set;
     .subscribe(data => {
       if (data["status"] == 1) {
         this.categories = data["result"];
+        console.log(this.categories)
         console.log(data["result"])
         this.categoryresp = data["result"];
         let size = this.categories.length;
@@ -665,13 +666,13 @@ qty_set;
     window.scroll(0, 0);
     if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/Admin/preview/shop", slug]));
+      .then(() => this.router.navigate(["/shop", slug]));
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
       .then(() => this.router.navigate(["/shop", slug]));
@@ -714,13 +715,13 @@ qty_set;
     window.scroll(0, 0);
     if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/Admin/preview/shop", "brand", slug]));
+      .then(() => this.router.navigate(["/shop", "brand", slug]));
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
       .then(() => this.router.navigate(["/shop", "brand", slug]));

@@ -55,6 +55,8 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap'
 import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
 
 import { CategoryPageComponent } from './components/category-page/category-page.component';
+import {OurBrandComponent} from './components/our-brand/our-brand.component'
+import {ToysComponent} from './components/toys/toys.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +78,9 @@ import { CategoryPageComponent } from './components/category-page/category-page.
     CheckoutStatusComponent
 ,
     ViewProductComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    OurBrandComponent,
+    ToysComponent
   ],
   imports: [
     BrowserModule,

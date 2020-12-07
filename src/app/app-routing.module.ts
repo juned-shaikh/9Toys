@@ -15,6 +15,8 @@ import {CheckoutComponent} from './components/checkout/checkout.component'
 import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
 //import {CategoryPageComponent} from './components/category-page/category-page.component';
 import {CategoryPageComponent} from "./components/category-page/category-page.component";
+import {OurBrandComponent} from './components/our-brand/our-brand.component'
+import {ToysComponent} from './components/toys/toys.component'
 const routes: Routes = [
 
   {path: 'category-page', component:CategoryPageComponent },
@@ -55,7 +57,16 @@ const routes: Routes = [
   },{
     path:"checkout-status",
     component:CheckoutStatusComponent
-  }
+  },{
+    path:"our-brand",
+    component:OurBrandComponent
+  },
+  { path: "shop/:id", 
+     component:ToysComponent
+    },
+      { path: "shop/:id1/:id", 
+      component:ToysComponent
+ },
 ];
 
 @NgModule({

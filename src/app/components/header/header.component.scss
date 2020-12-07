@@ -6,6 +6,14 @@
   border: 1px solid rgb(76, 83, 146)8;
   box-shadow: 0 0 0 1px rgb(76, 83, 146);
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #fafafa;
+  }
+}
+
+// start
 body {
   font-family: 'Noto Sans', sans-serif;
   background: #fafafa;
@@ -47,7 +55,7 @@ nav a:visited {
   z-index: 1;
 }
 .menu-link[aria-haspopup="true"] {
-  padding-right: 40px;
+  padding-right: 0px;
 }
 .menu-link[aria-haspopup="true"]:after {
   content: "";
@@ -57,7 +65,7 @@ nav a:visited {
   height: 14px;
   font-size: 12px;
   position: absolute;
-  right: 10px;
+  right: -18px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -77,6 +85,11 @@ nav a:visited {
 @media all and (min-width: 951px) {
   .nav {
     // margin-top: 50px;
+    position: fixed;
+    z-index: 44444444;
+    width: 100%;
+     top: 0;
+
     background: #ffffff;
   }
   .nav > nav {
@@ -109,7 +122,7 @@ nav a:visited {
   .menu-bar > li > [aria-haspopup="true"]:focus,
   .menu-bar > li:focus-within > [aria-haspopup="true"],
   .menu-bar > li:hover > a {
-    background: #177E89;
+    // background: #177E89;
     color: #ffffff;
   }
   .menu-bar > li > [aria-haspopup="true"]:focus:after,
@@ -119,8 +132,8 @@ nav a:visited {
   }
   .mega-menu {
     position: absolute;
-    top: 100%;
-       left: 90px;
+    top: 60px;
+       left: 68px;
     width: 1000px;
   }
   .mega-menu:hover {
@@ -153,7 +166,7 @@ nav a:visited {
   .mega-menu--multiLevel li:focus-within > [aria-haspopup="true"],
   .mega-menu--multiLevel li:hover > a,
   .mega-menu--multiLevel li:focus-within > a {
-    background: #177E89;
+    // background: #177E89;
     color: #136a73;
   }
   .mega-menu--multiLevel [aria-haspopup="true"] ~ ul,
@@ -350,10 +363,27 @@ nav a:visited {
   }
 }
 span {
- 
+  color: #000;
   font-size: 12px;
   margin: 0 10px;
 
   .fas {
     margin-right: 15px;
   }}
+  .brand-circle{
+    width: 20px; height: 20px; border-radius: 50%; overflow: hidden; background: white; margin-top: 3px;
+  }
+  .brand-circle-img{
+    height: 20px!important; width: 20px; margin-bottom: 5px;
+  }
+  nav .navbar-right .dropdown-menu{
+    left: unset;
+    right: 0;
+
+}
+nav .navbar-right .dropdown-menu a{
+/*color: #707070!important;
+*/
+color: #2980B9!important;
+
+}
