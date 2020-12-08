@@ -4,7 +4,7 @@
   <nav>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
       <ul class="menu menu-bar" style="left: 30px;">
-        <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;"></strong>
+        <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;"></strong>
         <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
             routerLink="/our-brand"
             id="navbarDropdown"
@@ -54,10 +54,18 @@
               <ul class="mega-menu mega-menu--multiLevel">
                   <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
                       <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+        
                       <ul class="menu menu-list">
+
+                        <div class="container" style="width:1000px" >
+                            <div class="row" >
+                                <div class="col first-column">
                           <li *ngFor="let categoryi of category.sub_category"
-                          style="list-style: none;">
-                         <div class="container"  title="{{ categoryi.name }}"
+                          style="list-style: none;" >
+<!-- start -->
+
+        
+                         <div class="container"  title="{{ categoryi.name }}" style="color: black;"
                          (click)="
                            navigateCategory(
                              categoryi.name,
@@ -76,13 +84,17 @@
                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw367a0dc4/Navigation/2-to-3-years.png" width="100px" height="100px">
                                 -->
                                 </div>
+                         </div>
+
+                         
                               <!--<div class="row" style="padding-top: 10px;">
                                    <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;">
                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px">
                                 </div>-->
                                    
-                          
+                            </li>
                             </div>
+                            <div class="col second-column">
                             <div *ngIf="categoryi.sub_category2" class="pt-2 sub_categoryItem">
                                 <p
                                   *ngFor="let categoryj of categoryi.sub_category2"
@@ -98,9 +110,40 @@
                                   </span>
                                 </p>
                               </div>
-
+                            </div>
+                        
+                            <div class="col first-column">
+                                <div class="row">
+                                                      <a>
+                                                          <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwae4da86c/OurToys/ActivityPads/activitypads-coloring-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Coloring Books &amp; Pads</h5>
+                                                      </a>
+                                                      <a>
+                                                          <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwce1bcec2/OurToys/ActivityPads/activitypads-drawing-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle">Drawing Pads</h5>
+                                                      </a>
+                                                     
+                                                      
+                                                    </div>
+                                                    <div class="row" style="padding-top: 10px;">
+                                                     
+                                                      <a>
+                                                          <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw673a747a/OurToys/ActivityPads/activitypads-earlylearn-flyoutnav.jpg " width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Early Skill Builders</h5>
+                                                      </a>
+                                                      <a>
+                                                          <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwa1081531/OurToys/ActivityPads/activitypads-spy-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle">Spy Mysteries</h5>
+                                                      </a>
+                                                     
+                                                      </div>             
+                      
+                          </div>
                               <!-- <a href="/page" class="menu-link menu-list-link">1.1.1 Page link</a> -->
-                          </li>
+                           
+                           
+                        </div>
+                    </div>
                           <!-- <li>
                               <a href="javascript:void(0);" class="menu-link menu-list-link"
                                   aria-haspopup="true">1.1.2 Flyout link</a>
@@ -116,7 +159,11 @@
                           <li>
                               <a href="/page" class="menu-link menu-list-link">1.1.3 Page link</a>
                           </li> -->
+
+                     
+                    
                       </ul>
+            
                   </li>
                   <li>
                       <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
