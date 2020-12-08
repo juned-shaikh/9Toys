@@ -407,3 +407,20 @@ background: #F2F3F4;
 border-width: 2px;
 color: white;
 }
+
+// second header
+@media all and (min-width: 951px) {
+  .nav1 {
+    // margin-top: 50px;
+    position: relative;
+    z-index: 44444444;
+    width: 100%;
+     top: 0;
+
+    background: #ffffff;
+  }
+  .nav1 > nav1 {
+    max-width: 900px;
+    // margin: 0 auto;
+  }
+}
