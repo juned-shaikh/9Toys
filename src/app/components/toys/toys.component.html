@@ -3,13 +3,13 @@
   *ngIf="!loader"
   class="row justify-content-center"
   style="margin-top: 10%;"
->
+> 
   <div class="col-md-4 text-center"> 
     <img src="assets/img/loader.gif" height="200" width="200" />
   </div>
 </div>
 
-<section>
+<section style="margin-top:80px">
   <div class="filter-part">
     <div class="container-fluid">
       <div class="row">
@@ -422,7 +422,7 @@
                   <div class="row">
                     <div class="col-md-12 mobile-product-heading">
                      <h6 >
-                       <a class="text-titlecase" title="{{nprd.name}}"> {{ (nprd.product.name.length>35)? (nprd.product.name | slice:0:35)+'...':(nprd.product.name)  | titlecase}}</a>
+                       <a style="font-weight: 600;font-family: sans-serif;font-size: 1.5rem;" class="text-titlecase" title="{{nprd.name}}"> {{ (nprd.product.name.length>35)? (nprd.product.name | slice:0:35)+'...':(nprd.product.name)  | titlecase}}</a>
                      </h6>
                    
                     </div>
@@ -566,7 +566,7 @@
                         nprd.product.product_no,nprd.product.slug,nprd.product.quick_product_check
                       )
                     ">
-                        <h6 class="text-titlecase text-left font-weight-600" title="{{ nprd.product.name }} "> 
+                        <h6 class="text-titlecase text-left font-weight-600" style="font-size: 1.0rem; font-weight: 600;font-family: sans-serif;" title="{{ nprd.product.name }} "> 
                           {{ (nprd.product.name.length>80)? (nprd.product.name | slice:0:80)+'...':(nprd.product.name) }} </h6>
                       </div>
                       <p class="text-left">

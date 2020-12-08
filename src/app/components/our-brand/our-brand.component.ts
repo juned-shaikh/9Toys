@@ -124,14 +124,14 @@ export class OurBrandComponent implements OnInit {
      window.scroll(0,0);
      if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/Admin/preview/shop", "brand", slug]));
+      .then(() => this.router.navigate(["/shop", "brand", slug]));
 
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
       .then(() => this.router.navigate(["/shop", "brand", slug]));

@@ -4,7 +4,6 @@
   <nav>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
       <ul class="menu menu-bar" style="left: 30px;">
-        
         <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;"></strong>
         <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
             routerLink="/our-brand"
@@ -12,7 +11,7 @@
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
-            aria-expanded="false">Brands</a>
+            aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
             <div
             class="dropdown-menu for-brands "
             aria-labelledby="navbarDropdown"
@@ -307,9 +306,10 @@
             </div>
          </ul>
             <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
-              <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
-              <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
-              <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+              <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  matTooltip="login" routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+              <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link"  (click)="logout()" style="font-size: 1.5rem;" matTooltip="logout"><i class="fa fa-power-off"></i></a></li>
+              <li class="nav-content-item"><a class="nav-content-link" matTooltip="wishlist" routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+              <li class="nav-content-item" ><a routerLink="/new-cart" matTooltip="cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
             </ul>
 
   </nav>

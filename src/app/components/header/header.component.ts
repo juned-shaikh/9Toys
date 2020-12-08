@@ -584,9 +584,11 @@ qty_set;
        console.log("topic not unsubscribed")
      }
    })
+   this.ngOnInit()
    // location.reload();
    window.location.reload();
-   this.router.navigate(["/home"]);
+   this.router.navigate([""]);
+   this.reloadPage();
  }
  }
   /*logout() {
@@ -795,6 +797,9 @@ this.showsearch = !this.showsearch;
     document.body.style.backgroundColor = "white";
     this.sidenav1 = false;
   }
+  reloadPage() {
+    window.location.reload();
+ }
 
   doesExist(val) {
     return val != '';

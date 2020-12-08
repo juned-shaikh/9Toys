@@ -1,5 +1,5 @@
 import {BrowserModule,} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -49,7 +49,7 @@ import { MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatRadioModule} from '@angular/material/radio'
-import {MatSelectModule} from '@angular/material/select';
+// import {MatSelectModule} from '@angular/material/select';
 import {CheckoutComponent} from './components/checkout/checkout.component'
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap'
 import {CheckoutStatusComponent} from './components/checkout-status/checkout-status.component'
@@ -115,12 +115,13 @@ import {ToysComponent} from './components/toys/toys.component';
 MatProgressBarModule, 
 MatTabsModule,
 MatRadioModule,
-MatSelectModule,
+// MatSelectModule,
 NgbModalModule,
 
 
 
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [ AlertService,
     AuthGuard,
     AuthenticationService,
