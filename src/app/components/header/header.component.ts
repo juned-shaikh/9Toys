@@ -143,6 +143,7 @@ qty_set;
       this.is_logged_in = true;
       this.is_logged_out = false;
     }
+    this.header();
     let l = location.origin;
     var c = l.split("//");
     this.host_name = c[1];
@@ -563,6 +564,7 @@ qty_set;
         }
       });
   }
+ 
   logout() {
     var res = confirm("Are you sure you want to Logout.");
    if(res){
@@ -992,5 +994,16 @@ this.showsearch = !this.showsearch;
       });
     }
   }
-
+header(){
+  let prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("nav1").style.top = "0";
+    } else {
+      document.getElementById("nav1").style.top = "-70px";
+    }
+    prevScrollpos = currentScrollPos;
+  } 
+}
 }
