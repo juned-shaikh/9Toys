@@ -996,14 +996,33 @@ this.showsearch = !this.showsearch;
   }
 header(){
   let prevScrollpos = window.pageYOffset;
+  console.log(prevScrollpos)
   window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("nav1").style.top = "0";
-    } else {
+    console.log(currentScrollPos)
+    /*if (prevScrollpos > currentScrollPos) {
       document.getElementById("nav1").style.top = "-70px";
-    }
+      document.getElementById("nav2").style.top="0";
+    } else {
+      document.getElementById("nav1").style.top = "0";
+      document.getElementById("nav2").style.top="-100px";
+    }*/
+  /* if(currentScrollPos==0){
+     document.getElementById("nav2").style.top="0";
+     document.getElementById("nav1").style.top="-70px"   
+   }else{
+     document.getElementById("nav2").style.top="-100px";
+     document.getElementById("nav1").style.top="0";
+   }*/
     prevScrollpos = currentScrollPos;
+    if(prevScrollpos==0){
+      document.getElementById("nav2").style.top="0";
+      document.getElementById("nav1").style.top="-70px"   
+    }else{
+      document.getElementById("nav2").style.top="-100px";
+      document.getElementById("nav1").style.top="0";
+    }
+    
   } 
 }
 }

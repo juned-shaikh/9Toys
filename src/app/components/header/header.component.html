@@ -1,10 +1,14 @@
 
 
-<div class="nav" id="nav1"> 
+<div class="nav1" id="nav2" > 
   <nav>
+      <div class="center" style="left: 648px;
+      position: relative;" >
+          <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="70px" width="90px" style="padding-right: 10px;margin-top: 10px;"></strong>
+    </div>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
-      <ul class="menu menu-bar" style="left: 30px;" >
-        <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;"></strong>
+      <ul class="menu menu-bar" style="left: 327px;">
+        
         <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
             routerLink="/our-brand"
             id="navbarDropdown"
@@ -54,10 +58,18 @@
               <ul class="mega-menu mega-menu--multiLevel">
                   <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
                       <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+        
                       <ul class="menu menu-list">
+
+                        <div class="container" style="width:1000px" >
+                            <div class="row" >
+                                <div class="col first-column">
                           <li *ngFor="let categoryi of category.sub_category"
-                          style="list-style: none;">
-                         <div class="container"  title="{{ categoryi.name }}"
+                          style="list-style: none;" >
+<!-- start -->
+
+        
+                         <div class="container"  title="{{ categoryi.name }}" style="color: black;"
                          (click)="
                            navigateCategory(
                              categoryi.name,
@@ -76,13 +88,17 @@
                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw367a0dc4/Navigation/2-to-3-years.png" width="100px" height="100px">
                                 -->
                                 </div>
+                         </div>
+
+                         
                               <!--<div class="row" style="padding-top: 10px;">
                                    <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;">
                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px">
                                 </div>-->
                                    
-                          
+                            </li>
                             </div>
+                            <div class="col second-column">
                             <div *ngIf="categoryi.sub_category2" class="pt-2 sub_categoryItem">
                                 <p
                                   *ngFor="let categoryj of categoryi.sub_category2"
@@ -98,9 +114,40 @@
                                   </span>
                                 </p>
                               </div>
-
+                            </div>
+                        
+                            <div class="col first-column">
+                                <div class="row">
+                                                      <a>
+                                                          <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwae4da86c/OurToys/ActivityPads/activitypads-coloring-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Coloring Books &amp; Pads</h5>
+                                                      </a>
+                                                      <a>
+                                                          <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwce1bcec2/OurToys/ActivityPads/activitypads-drawing-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle">Drawing Pads</h5>
+                                                      </a>
+                                                     
+                                                      
+                                                    </div>
+                                                    <div class="row" style="padding-top: 10px;">
+                                                     
+                                                      <a>
+                                                          <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw673a747a/OurToys/ActivityPads/activitypads-earlylearn-flyoutnav.jpg " width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Early Skill Builders</h5>
+                                                      </a>
+                                                      <a>
+                                                          <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwa1081531/OurToys/ActivityPads/activitypads-spy-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                          <h5 class="extended-nav--subtitle">Spy Mysteries</h5>
+                                                      </a>
+                                                     
+                                                      </div>             
+                      
+                          </div>
                               <!-- <a href="/page" class="menu-link menu-list-link">1.1.1 Page link</a> -->
-                          </li>
+                           
+                           
+                        </div>
+                    </div>
                           <!-- <li>
                               <a href="javascript:void(0);" class="menu-link menu-list-link"
                                   aria-haspopup="true">1.1.2 Flyout link</a>
@@ -116,7 +163,11 @@
                           <li>
                               <a href="/page" class="menu-link menu-list-link">1.1.3 Page link</a>
                           </li> -->
+
+                     
+                    
                       </ul>
+            
                   </li>
                   <li>
                       <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
@@ -300,10 +351,90 @@
 
 <!-- Search form -->
             </ul>
-        <ul style="display: flex;position: absolute;top: 10px;right: 183px;margin-right: 20px;">
-            <div class="active-purple-4 mb-4" >
+        <ul style="display: flex;position: absolute;top: 32px;right: 183px;margin-right: 20px;">
+           <!--<div class="active-purple-4 mb-4" >
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </div>
+            </div>-->
+         
+                <li class="nav-item">
+                  <div class="searchbar d-none d-lg-block d-md-block d-xl-block">
+                    <input
+                      class="search_input"
+                      type="text"
+                      (keyup)="search($event.target.value)"
+                      (keyup.enter)="
+                        navigateCategory(
+                          searchList.category[0].name,
+                          searchList.category[0].category_no
+                        )
+                      "
+                      (focus)="searchFocus = !searchFocus"
+                      placeholder="Search for brand, category, product more..."
+                      aria-label="search..."
+                    />
+                    <a class="search_icon"
+                      ><i
+                        class="fas fa-search"
+                        title="search"
+                        (click)="
+                          navigateCategory(
+                            searchList.category[0].name,
+                            searchList.category[0].category_no
+                          )
+                        "
+                      ></i
+                    ></a>
+                    <div *ngIf="searchFocus" class="searchItems shadow-sm">
+                      <div
+                        class="d-flex align-items-center mt-2 mb-1 cursor-pointer category-hover"
+                        *ngFor="let category of searchList.category | slice: 0:6"
+                      >
+                        <i class="fa fa-search mr-3 ml-3"></i>
+                        <a
+                          (click)="
+                            navigateCategory(category.name, category.category_no)
+                          "
+                        >
+                          <div style="font-size: 12px">
+                            in {{ category.name }}
+                          </div>
+                        </a>
+                      </div>
+  
+                      <div
+                        class="d-flex align-items-center cursor-pointer mt-1 category-hover"
+                        *ngFor="let brand of searchList.brand | slice: 0:6"
+                      >
+                        <i class="fa fa-search mr-3 ml-3"></i>
+                        <a (click)="navigateBrand(brand.name, brand.brand_id)">
+                          <div style="font-size: 12px">in {{ brand.name }}</div>
+                        </a>
+                      </div>
+  
+                      <div
+                        class="d-flex align-items-center category-hover"
+                        *ngFor="let product of searchList.product | slice: 0:3"
+                      >
+                        <i class="fa fa-search mr-3 ml-3"></i>
+  
+                        <a
+                          routerLink="/product/{{
+                            getSlug(
+                              product.name,
+                              product.product_no,
+                              product.slug
+                            )
+                          }}"
+                        >
+                          <div style="font-size:14px" class="p-1">
+                            {{ product.name | slice: 0:40 }} |
+                            {{ product.model | slice: 0:40 }}
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
          </ul>
             <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
               <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  matTooltip="login" routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
@@ -314,3 +445,369 @@
 
   </nav>
 </div>
+
+
+
+<!-- header 2 start -->
+
+<div class="nav" id="nav1" > 
+    <nav>
+        <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
+        <ul class="menu menu-bar" style="left: 30px;">
+          <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;"></strong>
+          <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+              routerLink="/our-brand"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
+              <div
+              class="dropdown-menu for-brands "
+              aria-labelledby="navbarDropdown"
+              
+            >
+            <div class="profile-dropdown-node"></div>
+            <ul>
+              <li class="brand-list"
+                *ngFor="let brand of brands | slice:0:9;"
+                style="list-style: none;"
+              >
+                <span 
+                  class=" cursor-pointer  text-titlecase "
+                  (click)="navigateBrand(brand.name,brand.brand_id)"
+                 
+                >
+                <!-- <div class="brand-circle"> -->
+                  <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+                  {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                      : brand.name
+                  }} 
+                 <!-- </div> -->
+                 </span
+                >
+  
+             
+              </li>
+              <li>
+                <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+              </li>
+            </ul>
+  
+            </div>
+          </li>
+            <li *ngFor="let category of categories2; let i = index">
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
+                  category.name
+                }} 
+                    </a>
+                <ul class="mega-menu mega-menu--multiLevel">
+                    <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
+                        <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+          
+                        <ul class="menu menu-list">
+  
+                          <div class="container" style="width:1000px" >
+                              <div class="row" >
+                                  <div class="col first-column">
+                            <li *ngFor="let categoryi of category.sub_category"
+                            style="list-style: none;" >
+  <!-- start -->
+  
+          
+                           <div class="container"  title="{{ categoryi.name }}" style="color: black;"
+                           (click)="
+                             navigateCategory(
+                               categoryi.name,
+                               categoryi.category_no
+                             )
+                           ">
+                           {{
+                              categoryi.name.length > 40
+                                ? (categoryi.name | slice: 0:40) + "..."
+                                : categoryi.name
+                            }} 
+  
+                            <div class="row">
+                                <img src="{{categoryi.large_icon_link}}"  >
+                                  <!-- <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw6fe5c7dc/Navigation/12-to-24-months.png" width="100px" height="100px" style="padding-right: 10px;">
+                                      <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw367a0dc4/Navigation/2-to-3-years.png" width="100px" height="100px">
+                                  -->
+                                  </div>
+                           </div>
+  
+                           
+                                <!--<div class="row" style="padding-top: 10px;">
+                                     <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;">
+                                      <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px">
+                                  </div>-->
+                                     
+                              </li>
+                              </div>
+                              <div class="col second-column">
+                              <div *ngIf="categoryi.sub_category2" class="pt-2 sub_categoryItem">
+                                  <p
+                                    *ngFor="let categoryj of categoryi.sub_category2"
+                                    class="cursor-pointer sub_category-2"
+                                    style="line-height: 0;"
+                                  >
+                                    <span>
+                                      {{
+                                        categoryj.name.length > 25
+                                          ? (categoryj.name | slice: 0:25) + "..."
+                                          : categoryj.name
+                                      }}
+                                    </span>
+                                  </p>
+                                </div>
+                              </div>
+                          
+                              <div class="col first-column">
+                                  <div class="row">
+                                                        <a>
+                                                            <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwae4da86c/OurToys/ActivityPads/activitypads-coloring-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                            <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Coloring Books &amp; Pads</h5>
+                                                        </a>
+                                                        <a>
+                                                            <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwce1bcec2/OurToys/ActivityPads/activitypads-drawing-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                            <h5 class="extended-nav--subtitle">Drawing Pads</h5>
+                                                        </a>
+                                                       
+                                                        
+                                                      </div>
+                                                      <div class="row" style="padding-top: 10px;">
+                                                       
+                                                        <a>
+                                                            <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw673a747a/OurToys/ActivityPads/activitypads-earlylearn-flyoutnav.jpg " width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                            <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Early Skill Builders</h5>
+                                                        </a>
+                                                        <a>
+                                                            <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwa1081531/OurToys/ActivityPads/activitypads-spy-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                                            <h5 class="extended-nav--subtitle">Spy Mysteries</h5>
+                                                        </a>
+                                                       
+                                                        </div>             
+                        
+                            </div>
+                                <!-- <a href="/page" class="menu-link menu-list-link">1.1.1 Page link</a> -->
+                             
+                             
+                          </div>
+                      </div>
+                            <!-- <li>
+                                <a href="javascript:void(0);" class="menu-link menu-list-link"
+                                    aria-haspopup="true">1.1.2 Flyout link</a>
+                                <ul class="menu menu-list">
+                                    <li>
+                                        <a href="/page" class="menu-link menu-list-link">1.1.2.1 Page link</a>
+                                    </li>
+                                    <li>
+                                        <a href="/page" class="menu-link menu-list-link">1.1.2.2 Page link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">1.1.3 Page link</a>
+                            </li> -->
+  
+                       
+                      
+                        </ul>
+              
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
+                        <ul class="menu menu-list">
+                            <li>
+                              <div class="row">
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwae4da86c/OurToys/ActivityPads/activitypads-coloring-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Coloring Books &amp; Pads</h5>
+                                  </a>
+                                  <a>
+                                      <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwce1bcec2/OurToys/ActivityPads/activitypads-drawing-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle">Drawing Pads</h5>
+                                  </a>
+                                 
+                                  
+                                </div>
+                                <div class="row" style="padding-top: 10px;">
+                                 
+                                  <a>
+                                      <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw673a747a/OurToys/ActivityPads/activitypads-earlylearn-flyoutnav.jpg " width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Early Skill Builders</h5>
+                                  </a>
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwa1081531/OurToys/ActivityPads/activitypads-spy-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle">Spy Mysteries</h5>
+                                  </a>
+                                 
+                                  </div>
+                            </li>
+                            <!-- <li>
+                                <a href="/page" class="menu-link menu-list-link">1.2.2 Page link</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Art & Craft</a>
+                        <ul class="menu menu-list">
+                            <li>
+                             
+                              <div class="row">
+                                  <a>
+                                      <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6edb9039/OurToys/BabyandToddler/babytoddler-books-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;"> Books </h5>
+                                  </a>
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw48c851ab/OurToys/BabyandToddler/babytoddler-developmental-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle">Developmental Toys</h5>
+                                  </a>
+                                 
+                                  
+                                </div>
+                                <div class="row" style="padding-top: 10px;">
+                                 
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc3749fb2/OurToys/BabyandToddler/babytoddler-push-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Push pull Toys</h5>
+                                  </a>
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6d7c45bf/OurToys/BabyandToddler/babytoddler-rocking-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle">Ride on toys</h5>
+                                  </a>
+                                 
+                                  </div>
+                            </li>
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/page" class="menu-link mega-menu-link">Kids toys Bundle</a>
+                    </li>
+                    <li>
+                      <a href="/page" class="menu-link mega-menu-link">Books</a>
+                  </li>
+                    <li class="mobile-menu-back-item">
+                        <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                    </li>
+                </ul>
+            </li>
+  
+            <li>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Discover </a>
+                <ul class="mega-menu mega-menu--flat">
+                    <li>
+                        <a href="/page" class="menu-link mega-menu-link mega-menu-header">2.1 Page link header</a>
+                        <ul class="menu menu-list">
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.1.1 Page link</a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.1.2 Page link</a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.1.3 Page link</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/page" class="menu-link mega-menu-link mega-menu-header">2.2 Page link header</a>
+                        <ul class="menu menu-list">
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.2.1 Page link</a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.2.2 Page link</a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.2.3 Page link</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/page" class="menu-link mega-menu-link mega-menu-header">2.3 Page link header</a>
+                        <ul class="menu menu-list">
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.2.1 Page link</a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">2.2.2 Page link</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mobile-menu-back-item">
+                        <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                    </li>
+                </ul>
+            </li>
+  
+            <li>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
+                <ul class="mega-menu mega-menu--flat">
+                    <li>
+                        <a href="#" class="menu-link mega-menu-link mega-menu-header">3.1 Page link header</a>
+                        <ul class="menu menu-list">
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">
+                                    3.1.1 Page link<br />
+                                    <small>Short decription of link</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">
+                                    3.1.2 Page link<br />
+                                    <small>Short decription of link</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">
+                                    3.1.2 Page link<br />
+                                    <small>Short decription of link</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu-content">
+                        <p class="mega-menu-header">3.2 Page link header</p>
+                        <p>This is just static content. You can add anything here. Images, text, buttons, your grandma's
+                            secrect
+                            recipe.</p>
+                    </li>
+                    <li class="mobile-menu-back-item">
+                        <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                    </li>
+                </ul>
+            </li>
+          
+            <li>
+                <a href="/" class="menu-link menu-bar-link">Static link</a>
+            </li>
+  
+            <li class="mobile-menu-header">
+                <a href="/" class="">
+                    <span>Home</span>
+                </a>
+            </li>
+  
+        <!-- Search form -->
+  
+  <!-- Search form -->
+  <!-- Search form -->
+  
+  <!-- Search form -->
+              </ul>
+          <ul style="display: flex;position: absolute;top: 10px;right: 183px;margin-right: 20px;">
+              <div class="active-purple-4 mb-4" >
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              </div>
+           </ul>
+              <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
+                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+                <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+                <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+              </ul>
+  
+    </nav>
+  </div>
+  

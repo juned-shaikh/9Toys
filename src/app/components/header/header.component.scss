@@ -387,3 +387,137 @@ nav .navbar-right .dropdown-menu a{
 color: #2980B9!important;
 
 }
+
+// start
+
+.first-column {
+  background:#F2F3F4;
+  color: white;
+min-height:100px;
+  border-width:2px;
+  border-style: solid;
+
+  
+  background:#F2F3F4;
+}
+.second-column {
+
+border-style: solid;
+background: #F2F3F4;
+border-width: 2px;
+color: white;
+}
+.search {
+  width: 400px;
+  position: relative;
+  z-index: 109;
+}
+
+.search .mat-card {
+  padding: 0;
+  position: relative;
+  top: -10;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.search input{
+ 
+    width: 100%;
+    border: .25px solid #781352;
+    /* border: none; */
+    font-size: 14px;
+    height: 38px;
+    border-radius: 21px;
+    padding: 5px 40px 5px 20px;
+
+}
+
+.search input:focus{
+  /* border:none; */
+  /* box-shadow: none; */
+  outline: none;
+}
+
+.search .mat-card .searchIcon{
+  font-size: 15px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.search .searchItems{
+  position: absolute;
+  top:38px;
+  left: 0;
+  background-color: white;
+}
+.search .mat-card.searchItems > div{
+  padding: 0px 0px 0px 10px ;
+}
+.searchbar{
+  margin-bottom: auto;
+  overflow: hidden;
+  margin-top: auto;
+  height: 40px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  padding: 6px;
+  }
+  
+  .search_input{
+  color: black;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 14px;
+  width: 0;
+  left: 0;
+  caret-color:transparent;
+  line-height: 25px;
+  transition: width 0.4s ;
+  }
+  
+  .searchbar:hover > .search_input{
+  padding: 0 10px;
+  min-width: 320px;
+  max-width: 390px;
+  left: 0;
+  /* caret-color:black;
+  transition: width 0.4s ; */
+  }
+  
+  .searchbar:hover > .search_icon{
+  background: white;
+  color: #e74c3c;
+  }
+  
+  .search_icon{
+  height: 30px;
+  width: 30px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color:black;
+  text-decoration:none;
+  }
+// second header
+@media all and (min-width: 951px) {
+  .nav1 {
+    // margin-top: 50px;
+    position: fixed;
+    z-index: 44444444;
+    width: 100%;
+     top: 0;
+
+    background: #ffffff;
+  }
+  .nav1 > nav1 {
+    max-width: 900px;
+    // margin: 0 auto;
+  }
+}
