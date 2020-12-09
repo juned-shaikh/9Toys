@@ -1492,7 +1492,7 @@ sessionStorage.setItem("buy_now_quant", '1');
        }
      else{
          if(this.previewFlag == '1'){
-          this.router.navigate(["/Admin/preview/checkout"]);
+          this.router.navigate(["/checkout"]);
         }else{
           this.router.navigate(["/checkout"]);
 

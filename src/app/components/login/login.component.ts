@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     sessionStorage.setItem("database", "9toys");
           
     // var host = location.origin;
@@ -187,6 +188,7 @@ export class LoginComponent implements OnInit {
               this.snackbar.open("Login Succefull. ", "ok", {
                 duration: 3000
               });
+
               sessionStorage.setItem("user_num", data["user_num"]);
               sessionStorage.setItem("access_token", data["access_token"]);
               sessionStorage.setItem("jwtoken", data["jwtoken"]);
@@ -198,6 +200,7 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem("name", data ["name"]);
 
               if (data["comp_num"] == "0" && data["usertype_id"] == "1") {
+                window.location.reload();
                 this.router.navigate([""]);
               } else {
                 this.router.navigate([""]);
