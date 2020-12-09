@@ -1,11 +1,11 @@
-<div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="height: auto;top:20px">
+<div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="height: auto;top:10px">
   <!-- <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul> -->
 
-  <div class="carousel-inner" style="height: 390px; border-radius: 9.5px!important; padding-top: 39px; overflow: hidden;">
+  <div class="carousel-inner" style="height: 390px; border-radius: 9.5px!important; padding-top: 19px; overflow: hidden;">
     <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
       <img src="{{ bannerdata.value.banner_image_a }}" />
     </div>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- SECTION -->
-<div class="" style="top: 50px;" >
+<!-- <div class="" style="top: 50px;" >
   <img src="assets/img/Melissa.png">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button"  id="ip1"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,7 +60,7 @@
       <a class="dropdown-item" href="#"> 0 to 12 months</a>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- <input  type="text" id="ip1"/> -->
 

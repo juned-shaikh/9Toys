@@ -46,6 +46,9 @@ nav a:visited {
   background: #ffffff;
   display: flex;
 }
+
+.menu-bar:hover .menu-link{display:block ;}
+
 .menu-link {
   padding: 20px 15px;
   background: #ffffff;
@@ -509,7 +512,7 @@ color: white;
 @media all and (min-width: 951px) {
   .nav1 {
     // margin-top: 50px;
-    position: fixed;
+    position: relative;
     z-index: 44444444;
     width: 100%;
      top: 0;
@@ -520,4 +523,12 @@ color: white;
     max-width: 900px;
     // margin: 0 auto;
   }
+}
+
+
+.extended-nav--subtitle{
+  padding-left:20px;
+}
+#pd{
+  padding: 35px;
 }
