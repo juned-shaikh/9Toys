@@ -251,12 +251,15 @@ checkUserExist(data) {
     );
   }
   fetchBrandsEcom(data) {
-    return this.https.post(
+    return this.https.post( 
       this.baseUrl + "user/fetch_brand_all_for_comp_ecom",
       data
     );
   }
+  fetch_customer_registration(data){
+    return this.https.post(this.baseUrl + "associates/fetch_customer_registration", data);
 
+  }
   otpGenerate(data) {
     return this.https.post(this.baseUrl + "user/otpGenerate", data);
   }

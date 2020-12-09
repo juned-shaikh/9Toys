@@ -18,7 +18,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatTableDataSource } from "@angular/material/table";
 
 import {  MatStepper } from "@angular/material/stepper";
-//import { WindowRefService } from "../../window-ref.service";
+
+import { WindowRefService } from "../../window-ref.service";
 import { CookieService } from "ngx-cookie-service";
 import { environment } from "../../../environments/environment";
 import {} from '@ng-bootstrap/ng-bootstrap'
@@ -26,7 +27,8 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 @Component({
   selector: 'mg-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  styleUrls: ['./checkout.component.scss'],
+  providers: [WindowRefService]
 })
 export class CheckoutComponent implements OnInit {
 
@@ -51,6 +53,7 @@ save_promo2;
   rz_key="rzp_live_pEf6WmxW8zCcr9";
   host_name;
   shipAddShow=false;
+  visible=false;
   public payuform :any={};
   public stepBillingAddress = false;
   public stepShippingAddress = false;
@@ -251,7 +254,8 @@ save_promo2;
     private router: Router,
     private adminservice: NinetoysserviceService,
     private modalService:NgbModal,
-  //  private winRef: WindowRefService,
+    
+    private winRef: WindowRefService,
     private cookie: CookieService,
     private http: HttpClient
   ) {
@@ -522,7 +526,7 @@ this.makePaymenShip=true;
      
     if (this.buy_now == true) {
       
-       this.sendDataToAPI["buy_now_qty"] = sessionStorage.getItem("buy_now_quant");
+       this.sendDataToAPI["buy_now_qty"] = 1;
      
       this.sendDataToAPI["product_no"] = sessionStorage.getItem("product_no2");
       this.sendDataToAPI["rate_type"] = sessionStorage.getItem("rate_buy");
@@ -981,7 +985,7 @@ this.makePaymenShip=true;
   }
 
   getPaymentDetails(mode) {  
-    //console.log(mode);
+    console.log(mode);
     this.loader = true;
     this.visibledisabled = true;
     // document.getElementById("cod_btn").style.display = "none";
@@ -1053,6 +1057,7 @@ this.makePaymenShip=true;
 
     }
     else if(mode==2){
+      console.log("payment");
        this.placeOrder2 = false;
        this.placeOrderPayumoney = false;
        this.placeOrderPaytm=false;
@@ -1107,7 +1112,7 @@ this.makePaymenShip=true;
       this.sendDataToAPIRazorpay["product_no"] = sessionStorage.getItem(
         "product_no2"
       );
-      this.sendDataToAPIRazorpay["buy_now_qty"] = sessionStorage.getItem("buy_now_quant");
+      this.sendDataToAPIRazorpay["buy_now_qty"] = 1;
      
       this.sendDataToAPIRazorpay["rate_type"] = sessionStorage.getItem(
         "rate_buy"
@@ -1326,7 +1331,7 @@ this.makePaymenShip=true;
   // }
 
   public initPay(): void {
-   /* var rzp1 = new this.winRef.nativeWindow.Razorpay({
+   var rzp1 = new this.winRef.nativeWindow.Razorpay({
       // key: "rzp_test_9XUwfPpg7b1vBo", //testing
       // key: "rzp_live_pEf6WmxW8zCcr9", //live
       key:this.rz_key,
@@ -1352,7 +1357,7 @@ this.makePaymenShip=true;
     });
 
     rzp1.open();
-    */
+    
   }
 
   paymentResponseHander(response) {

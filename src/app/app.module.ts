@@ -57,7 +57,11 @@ import {CheckoutStatusComponent} from './components/checkout-status/checkout-sta
 import { CategoryPageComponent } from './components/category-page/category-page.component';
 import {OurBrandComponent} from './components/our-brand/our-brand.component'
 import {ToysComponent} from './components/toys/toys.component';
-// import { HeaderOneComponent } from './header-one/header-one.component';
+//import {WindowRefService} from './window-ref.service'
+ // import { HeaderOneComponent } from './header-one/header-one.component';
+ import {HomeProfileComponent} from './components/home-profile/home-profile.component'
+ import {CustomerProfileComponent} from './components/customer-profile/customer-profile.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +86,8 @@ import {ToysComponent} from './components/toys/toys.component';
     CategoryPageComponent,
     OurBrandComponent,
     ToysComponent,
+    HomeProfileComponent,
+    CustomerProfileComponent
     // HeaderOneComponent
   ],
   imports: [
@@ -128,6 +134,7 @@ NgbModalModule,
     AuthGuard,
     AuthenticationService,
     UserService,
+   
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]

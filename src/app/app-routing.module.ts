@@ -17,6 +17,8 @@ import {CheckoutStatusComponent} from './components/checkout-status/checkout-sta
 import {CategoryPageComponent} from "./components/category-page/category-page.component";
 import {OurBrandComponent} from './components/our-brand/our-brand.component'
 import {ToysComponent} from './components/toys/toys.component'
+import { HomeProfileComponent } from './components/home-profile/home-profile.component';
+import {CustomerProfileComponent} from './components/customer-profile/customer-profile.component'
 const routes: Routes = [
 
   {path: 'category-page', component:CategoryPageComponent },
@@ -66,7 +68,20 @@ const routes: Routes = [
     },
       { path: "shop/:id1/:id", 
       component:ToysComponent
- },
+ },{
+   path:"My-Account",
+   component:HomeProfileComponent,
+   children:[
+     {
+       path:'',
+       component:CustomerProfileComponent
+     },
+ {
+   path:"customer-profile",
+   component:CustomerProfileComponent
+ }
+   ]
+ }
 ];
 
 @NgModule({

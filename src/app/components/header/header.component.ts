@@ -15,6 +15,7 @@ import { UserService } from "../../_services/user.service";
 export class HeaderComponent implements OnInit {
   cartData: CartModelServer;
   newproduct;
+  shows=false;
   count=sessionStorage.getItem('cart_count');
   cartTotal: Number;
   loader;
@@ -143,7 +144,7 @@ qty_set;
       this.is_logged_in = true;
       this.is_logged_out = false;
     }
-    this.header();
+    this.header(1);
     let l = location.origin;
     var c = l.split("//");
     this.host_name = c[1];
@@ -994,19 +995,26 @@ this.showsearch = !this.showsearch;
       });
     }
   }
-header(){
+header(data:number){
+ console.log("header")
+ setTimeout(function (){
+  document.getElementById("nav1").style.top="-70px"
+    },700)
   let prevScrollpos = window.pageYOffset;
-  console.log(prevScrollpos)
+ // console.log(prevScrollpos)
   window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    console.log(currentScrollPos)
-    /*if (prevScrollpos > currentScrollPos) {
+   // console.log(currentScrollPos)
+  
+    if (prevScrollpos > currentScrollPos) {
       document.getElementById("nav1").style.top = "-70px";
       document.getElementById("nav2").style.top="0";
+      
     } else {
       document.getElementById("nav1").style.top = "0";
+     
       document.getElementById("nav2").style.top="-100px";
-    }*/
+    }
   /* if(currentScrollPos==0){
      document.getElementById("nav2").style.top="0";
      document.getElementById("nav1").style.top="-70px"   
@@ -1021,6 +1029,7 @@ header(){
     }else{
       document.getElementById("nav2").style.top="-100px";
       document.getElementById("nav1").style.top="0";
+      this.shows=true;
     }
     
   } 
