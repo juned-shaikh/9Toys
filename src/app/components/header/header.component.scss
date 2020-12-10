@@ -493,8 +493,9 @@ color: white;
   }
   
   .searchbar:hover > .search_icon{
-  background: white;
+  // background: white;
   color: #e74c3c;
+  position: relative;top: 5px;left: 7px;
   }
   
   .search_icon{
