@@ -1,0 +1,65 @@
+<mat-card class="card">
+    <mat-card-content>
+<div class="container mt-1" style="background: #fff">
+    
+        
+        
+     <div class="row justify-content-center" >
+        <div class="col-md-11 mt-2 mb-1 col-11">
+            <div class="row  justify-content-start pb-2 cursor-pointer" >
+                <h4 class="font-weight-500  pl-2  project-heading " style="color:black;" matTooltip="Change Password">Change Pass<span class="border-heading">word</span></h4>  
+                
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                
+                <form [formGroup]= "Changepassword">
+                  <div class="row mt-1" >
+                      <mat-form-field appearance="fill" class="example-full-width">
+                          <mat-label>Enter Current Password</mat-label>
+                          <input matInput  required formControlName="old_password" [type]="hide ? 'password' : 'text'"  type="password">
+                    <mat-icon  matSuffix (click)="hide = !hide" class="cursor-pointer">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          <!--<mat-icon (click)="myFunction()"  matSuffix *ngIf="visiblityoff" class="cursor-pointer" >visibility_off</mat-icon>-->
+                      </mat-form-field>
+                  </div>
+                  <div class="row" >
+                      <mat-form-field appearance="fill" class="example-full-width">
+                          <mat-label>Enter New Password</mat-label>
+                          <input matInput (keyup)="checkConfirmPassword()" [type]="hide1 ? 'password' : 'text'"  required formControlName="new_password" type="password">
+                          <mat-icon   matSuffix (click)="hide1 = !hide1" class="cursor-pointer">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          <!--<mat-icon (click)="myFunction2()"  matSuffix *ngIf="!visibility2" class="cursor-pointer">visibility_off</mat-icon>-->
+                      </mat-form-field>
+                  </div>
+                  <div class="row" >
+                      <mat-form-field appearance="fill" class="example-full-width">
+                          <mat-label>Re-Enter New Password</mat-label>
+      
+                          <input matInput (keyup)="checkConfirmPassword()" [type]="hide2 ? 'password' : 'text'"  required formControlName="confirm_password" type="password">
+                          <mat-icon   matSuffix (click)="hide2 = !hide2" class="cursor-pointer">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        
+                         <!--<mat-icon (click)="myFunction3()"  matSuffix *ngIf="!visibility3" class="cursor-pointer">visibility_off</mat-icon>-->
+                          <mat-hint class="text-danger" *ngIf="is_confirm">Confirm Password do not match with Password</mat-hint>
+                        </mat-form-field>
+                  </div>
+                 
+                  <div class="row mb-2" >
+                      <button mat-raised-button class="project-button project-heading" color="primary" (click)="ChangePassword()">Change Password</button>
+                  </div>
+              </form>
+                   
+              
+              </div>
+              <div class="col-md-7 d-none d-md-block d-lg-block">
+                <div class=" text-center mt-2">
+                  <img src="../../assets/change-password.png" height="190"/>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+</div>
+</mat-card-content>
+</mat-card>

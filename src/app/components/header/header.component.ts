@@ -996,6 +996,9 @@ this.showsearch = !this.showsearch;
     }
   }
 header(data:number){
+  //add this js script into the web page,
+//you want reload once after first load
+
  console.log("header")
  setTimeout(function (){
   document.getElementById("nav1").style.top="-70px"

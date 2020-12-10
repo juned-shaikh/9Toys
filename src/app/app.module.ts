@@ -61,7 +61,14 @@ import {ToysComponent} from './components/toys/toys.component';
  // import { HeaderOneComponent } from './header-one/header-one.component';
  import {HomeProfileComponent} from './components/home-profile/home-profile.component'
  import {CustomerProfileComponent} from './components/customer-profile/customer-profile.component'
-
+ import {OrderHistoryComponent} from './components/order-history/order-history.component'
+ import {MatSortModule} from "@angular/material/sort"
+ import{MatTableModule} from '@angular/material/table'
+ import {SelectionModel} from '@angular/cdk/collections'
+import {AccountInfoComponent} from './components/account-info/account-info.component'
+import {OrderViewDetailsComponent} from './components/order-view-details/order-view-details.component'
+import {MemberProfileComponent} from './components/member-profile/member-profile.component'
+import {ClientaddressComponent} from './components/clientaddress/clientaddress.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +94,12 @@ import {ToysComponent} from './components/toys/toys.component';
     OurBrandComponent,
     ToysComponent,
     HomeProfileComponent,
-    CustomerProfileComponent
+    CustomerProfileComponent,
+    MemberProfileComponent,
+    AccountInfoComponent,
+    OrderHistoryComponent,
+    OrderViewDetailsComponent,
+    ClientaddressComponent
     // HeaderOneComponent
   ],
   imports: [
@@ -125,6 +137,9 @@ MatTabsModule,
 MatRadioModule,
 // MatSelectModule,
 NgbModalModule,
+MatSortModule,
+MatTableModule,
+
 
 
 

@@ -1,0 +1,374 @@
+<div *ngIf="!loader" class="row justify-content-center" style="margin-top: 10%;">
+  <div class="col-md-4 text-center">
+  <img src="assets/loader.gif" height="200" width="200">
+  </div>
+  </div>
+<div *ngIf="loader">
+<div class="container-fluid " >
+  <div class="row justify-content-center mt-5" *ngIf="orders?.length==0 && loader">
+    <div  class="col-md-6 text-center">
+     <img src="assets/no-order.png"/>
+     <p class="mt-3 font-weight-500 text-muted project-discription">  No Order available! </p>
+    </div>
+ </div>
+    <div *ngIf="orders?.length>0" class="row justify-content-center ">
+        <div class="col-md-12 ">
+            <div class="card mb-2" *ngFor="let orders of orders">
+            <div class=" card  p-1 m-0 " style="background: white">
+<div class="row pt-1 pb-0">
+    <div class="col-md-2">
+      <h6 class="order-history-heading1 font-weight-600 project-heading m-0 ">  &nbsp;&nbsp;  ORDER {{orders?.order_number}}</h6>
+        <!-- <h6 class="font-weight-600 order-history-heading1">Order Placed</h6> -->
+        <h6 class="order-history-date  text-white text-center">
+           {{orders.order_timestamp}}
+        </h6>
+    </div>
+    <div class="col-md-2">
+        <h6 class="order-history-heading m-0 project-heading">Ship To</h6>
+        
+
+        <div class="dropdown ">
+            <a
+              id="dropdownMenuButton" class="text-primary order-history-heading project-discription"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >  <span>{{ orders.shipping_address?.receiver_name }} </span> 
+              <i
+                class="fas fa-angle-down cursor-pointer text-muted"
+                aria-hidden="true"
+              ></i> 
+            </a>
+            <div
+              class="dropdown-menu p-0 sub-2"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <a
+                class="dropdown-item project-discription p-1 text-wrap " style="width: 10rem;"
+              
+                >  
+ {{ orders.shipping_address.line1 }},{{ orders.shipping_address.line2 }}, {{ orders.shipping_address.city }}, {{ orders.shipping_address.state }}, {{ orders.shipping_address.country }} ,                
+                {{ orders.shipping_address.pin_code }}
+                      </a
+              >
+            
+            </div>
+          </div>
+
+    </div>
+    <div class="col-md-2">
+        <h6 class="order-history-heading project-heading m-0">Placed By</h6>
+        <div class="dropdown mt-0">
+            <a
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false" class="text-primary order-history-heading project-discription cursor-pointer"
+            >  <span>{{ orders.billing_address?.receiver_name }} </span> 
+              <i
+                class="fas fa-angle-down cursor-pointer text-muted"
+                aria-hidden="true"
+              ></i> 
+            </a>
+            <div
+              class="dropdown-menu sub-2 p-0"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <a
+                class="dropdown-item  p-1 text-wrap project-discription" style="width: 10rem;"
+              
+                > 
+                        
+ {{ orders.billing_address.line1 }},{{ orders.billing_address.line2 }}, {{ orders.billing_address.city }}, {{ orders.billing_address.state }}, {{ orders.billing_address.country }} ,  
+          {{ orders.billing_address.pin_code }}
+                    </a
+              >
+            
+            </div>
+          </div>
+    </div>
+    <div class="col-md-3">
+<h6 class="order-history-heading project-heading m-0">Total</h6>
+<h6 class="order-history-heading1">₹ {{orders?.order_amount}}</h6>
+    </div>
+    <div class="col-md-3 text-right">
+
+
+
+<h6    class=" text-primary text-right order-history-heading m-0"><span (click)="
+  sendOrderId(orders.order_id,orders.orderRandomId); " class="cursor-pointer project-discription link-click" title="view-order-details">View Order Details &nbsp;</span> 
+            
+</h6>
+<!-- <h6 
+                  
+                 class="cursor-pointer  text-right order-history-heading1 p-0 m-0"  > Tracking Id: 00000
+            
+</h6> -->
+<h6  *ngIf="invoice_gen==1 && orders.parcel_inventory[0].order_inventory[0].deliver==true" 
+                  
+                 class="cursor-pointer text-primary m-0 text-right order-history-heading project-discription" ><span title="view Invoice"  (click)="print_invoice(orders.parcel_inventory,'multi');" class="link-click">Invoice &nbsp;</span> 
+            
+</h6>
+
+                      
+    </div>
+</div>
+            </div>
+            <div class="card" *ngFor="let parcel_inventory of orders.parcel_inventory">
+              <div class="container-fluid">
+                <div class="row  ">
+                  <div class="col-md-9">
+                    <h6 class="order-history-heading1 project-heading  cursor-pointer font-weight-600 p-0 m-0" *ngFor="let order_status of parcel_inventory.order_inventory[0].status_flow; let i = index; first as isFirst; last as isLast">
+                      <span *ngIf="isLast" style="color: #B89D4E; text-shadow: -2px 1px black;">{{order_status.status}}</span>
+                    </h6>
+                  </div>
+                  
+                  <div class="col-md-3 d-flex "> &nbsp; &nbsp;
+<h6 class="order-history-heading text-primary text-right link-click project-discription cursor-pointer font-weight-600 p-0 m-0" (click)="trackStatus(parcel_inventory.order_inventory[0].status_flow,parcel_inventory.order_inventory[0].product.name,orders.order_number,parcel_inventory.awb_no,parcel_inventory.courier_method_id);openXl(contentTrack)">Track Details</h6> &nbsp; &nbsp;
+&nbsp;
+<h6 class="order-history-heading  text-primary project-discription link-click cursor-pointer font-weight-600 text-right p-0 m-0" *ngIf="invoice_gen==1 && orders.parcel_inventory[0].order_inventory[0].deliver==true" 
+(click)="print_invoice(orders.parcel_inventory,'multi');">Invoice</h6>
+
+                 
+             
+               
+                  </div>
+                </div>
+               
+              
+                   <div class="row">
+                    <div class="col-md-6 " *ngFor="let order_inventory of parcel_inventory.order_inventory">
+                      <div class=" card mt-1 mb-1 " style="background:  white;" >
+                        
+                          <div class="row " > 
+                              <div class="col-md-2 text-center"> 
+                                   <img class="cursor-pointer "
+                    (click)="view_product2(order_inventory.product.meta_title, order_inventory.product.product_no,order_inventory.product.slug,order_inventory.product.quick_product_check)" matTooltip="View Product"
+                    class="order-image"
+                    src="{{ order_inventory.product_image.medium_thumbnail_link }}"  
+                    onerror="this.src='assets/no-img.png';"
+                  />
+                            </div>
+                              <div class="col-md-9 p-0 m-0">
+                                <div class="font-weight-600 project-discription text-white" style="font-size: 12px;">
+                                  {{ (order_inventory.product.name?.length>20)? (order_inventory.product.name | slice:0:20)+'...':(order_inventory.product.name) }}  &nbsp; Type : {{ order_inventory.product_rate.name }}, &nbsp; Qty : {{ order_inventory.qty }}
+                                  
+                                  
+                                  </div>
+                                  <div class="heading-font-size-value">
+                                    <span *ngIf=" order_inventory?.status_name!=null &&  order_inventory?.status_name=='Order Confirm Transaction'" > Payment Method : Online </span>
+                                    <span *ngIf="order_inventory?.status_name!=null &&  order_inventory?.status_name=='Order Confirm COD'">Payment Method : Cash On Delivery</span> <span *ngIf="order_inventory.product_rate.promo_code_discount!=0 && order_inventory.product_rate.promo_code_discount!=null">Promo code Discount : {{ orders.product_rate.promo_code_discount }} </span>
+                                  </div>
+             
+                  <div class="heading-font-size-value">Rate : {{ order_inventory.product_rate.rate }}  &nbsp;   Net Amount :
+                    ₹ {{ order_inventory.product_rate.net_amt  }}  <span (click)="rating(order_inventory.product)" *ngIf="rating_option==true && order_inventory.rate_pro==true"  class="rate-button text-success" title="rate this product" >Rate Product </span></div>
+
+
+
+                              </div>
+                            
+
+                          </div>
+
+                      </div>
+
+                 
+                
+                   </div>
+                 </div>
+               
+
+
+
+              
+                </div>
+            </div></div>
+        </div>
+    </div>
+</div>
+</div>
+
+ <!-- start for deducted amount model -->
+ 
+ <ng-template #contentReturn let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title" align="center">
+      Return Reason
+    </h5>
+
+
+    <h6 class="modal-title" id="modal-basic-title" align="center">
+      Order ID : {{myFormReturn.controls.order_number.value}}
+    </h6>
+    <h6 class="modal-title" id="modal-basic-title" align="center">
+     Product : {{myFormReturn.controls.product_name.value}}
+    </h6>
+
+    <mat-icon
+      title="close modal"
+      class="cursor-pointer"
+      (click)="modal.dismiss('Cross click')"
+      >close</mat-icon
+    >
+  </div>
+  <!-- modal body starts -->
+  <div class="modal-body ">
+    <!-- start table -->
+  <form [formGroup]="myFormReturn" >
+
+      
+      <div class="row">
+        <div  *ngIf="return_reason==0 || return_choose.length==0" class="col-lg-6 text-center">
+           <mat-form-field appearance="fill" class="example-full-width">
+             <mat-label class="mat-label">Reason</mat-label>
+             <input 
+               matInput
+               placeholder="Reason"
+               formControlName="reason"
+               required
+             />
+             <mat-icon matSuffix>toc</mat-icon>
+           </mat-form-field>
+         </div>
+
+         <div  *ngIf="return_reason==1 && return_choose.length > 0" class="col-lg-6 text-center">
+        
+          <div class="dropdown">
+            <label class="mat-label">Reason</label>
+            <select
+             
+              id="category"
+              formControlName="reason"
+              placeholder="Reason"
+            >
+              <option
+                *ngFor="let return_choose2 of return_choose"
+                [value]="return_choose2.reason"
+                >{{return_choose2.reason}}
+              </option>
+            </select>
+          </div>
+        </div>
+      
+        <div class="col-lg-6 text-center">
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label class="mat-label">Comment Section</mat-label>
+            <!-- <input 
+             
+         
+              matInput
+              placeholder="Comment"
+              formControlName="return_comment"
+              
+            /> -->
+            <textarea
+            matInput
+            rows="6"
+            placeholder="Comment"
+            formControlName="return_comment"
+            required
+          >
+        </textarea>
+            <mat-icon matSuffix>toc</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    
+
+     </form>
+         <div class="row mt-2">
+                   <div class="col-md-8 "> 
+                       <button 
+                         mat-raised-button
+                         class="bg-info text-white self-accept"
+                         (click)="update_return_initiate()"
+                         >
+                      Save 
+                      </button>
+                      
+                   </div>
+                
+                </div>
+   
+  </div>
+</ng-template>
+     <!-- end for deducted amount modal -->
+     <!-- track details -->
+     <ng-template #contentTrack let-modal>
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-basic-title" align="center">
+          Tracking Details
+        </h5>
+    
+        <h6 class="modal-title" id="modal-basic-title" align="center">
+          Order ID : {{status_order_number}}
+        </h6>
+        <!-- <h6 class="modal-title" id="modal-basic-title" align="center">
+         Product : {{status_product_name}}
+        </h6> -->
+    
+      
+    
+        <mat-icon
+          title="close modal"
+          class="cursor-pointer"
+          (click)="modal.dismiss('Cross click')"
+          >close</mat-icon
+        >
+      </div>
+      <!-- modal body starts -->
+      <div class="modal-body ">
+        <!-- start table -->
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">S. No.</th>
+          <th scope="col">Status</th>
+          <th scope="col">TimeStamp</th>
+          <!-- <th scope="col">Handle</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let status_flow of status_flow;let k=index">
+          <th scope="row">{{k+1}}</th>
+          <td>{{status_flow.status}}</td>
+          <td>{{status_flow.added_on}}</td>
+          <!-- <td>@mdo</td> -->
+        </tr>
+       
+      </tbody>
+    </table>
+    <div class="col-lg-4">
+      <button *ngIf="courier_method_id==2 && awb_no!=null && track_more==false"
+                    (click)="shipyari_awb_track_lifecycle()" mat-raised-button class="order-button w-100 mt-2">View More
+                  </button> 
+                  </div>
+                    <!-- start table -->
+                    <div  *ngIf="track_more==true">
+                    <h5>tracking_number : {{track.result[0].msg.tracking_number}}</h5>
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">S. No.</th>
+          <th scope="col">Tag</th>
+          <th scope="col">TimeStamp</th>
+          <th scope="col">Location</th>
+          <!-- <th scope="col">Handle</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let track2 of track.result[0].msg.checkpoints;let k2=index">
+          <th scope="row">{{k2+1}}</th>
+          <td>{{track2.tag}}</td>
+          <td>{{track2.checkpoint_time}}</td>
+          <td>{{track2.location}}</td>
+          <!-- <td>@mdo</td> -->
+        </tr>
+       
+      </tbody>
+    </table>
+</div>
+                 
+    </div>
+    </ng-template>
+     <!-- track details -->

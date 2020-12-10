@@ -19,6 +19,11 @@ import {OurBrandComponent} from './components/our-brand/our-brand.component'
 import {ToysComponent} from './components/toys/toys.component'
 import { HomeProfileComponent } from './components/home-profile/home-profile.component';
 import {CustomerProfileComponent} from './components/customer-profile/customer-profile.component'
+import {OrderViewDetailsComponent} from './components/order-view-details/order-view-details.component'
+import {OrderHistoryComponent} from './components/order-history/order-history.component'
+import {ClientaddressComponent} from './components/clientaddress/clientaddress.component'
+import {AccountInfoComponent} from './components/account-info/account-info.component'
+import {MemberProfileComponent} from './components/member-profile/member-profile.component'
 const routes: Routes = [
 
   {path: 'category-page', component:CategoryPageComponent },
@@ -79,7 +84,36 @@ const routes: Routes = [
  {
    path:"customer-profile",
    component:CustomerProfileComponent
- }
+ },
+ {
+  path: "member-profile", component:MemberProfileComponent
+},
+
+//  {path : 'orders', 
+//  loadChildren: () =>
+//  import('./order/order.module').then(m => m.OrderModule)
+// },
+{
+  path: "order-history",
+ component:OrderHistoryComponent
+
+},
+{ path: "wishlist",
+component:WishlistComponent
+ },
+
+{path: "manage-address", 
+component:ClientaddressComponent
+
+},
+{path: "account-setting", 
+component:AccountInfoComponent
+
+},
+{
+path: "order-details/:id" ,
+component:OrderViewDetailsComponent
+},
    ]
  }
 ];
