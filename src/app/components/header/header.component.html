@@ -1,65 +1,65 @@
 
 
-<div class="nav1"  id="nav2" > 
-  <nav style="overflow: hidden;">
+<div class="nav1" id="nav2" > 
+  <nav style=" width: max-content;">
       <div class="center" style="left: 648px;
       position: relative;" >
-          <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="70px" width="90px" style="padding-right: 10px;margin-top: 10px;"></strong>
+          <strong class="logo"><img src="assets/img/9toyslogo.jpeg" routerLink="/" height="70px" width="100px" style="padding-right: 10px;margin-top: 10px;"></strong>
     </div>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
       <ul class="menu menu-bar" style="left: 327px;">
         
         <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
-            routerLink="/our-brand"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
-            <div
-            class="dropdown-menu for-brands "
-            aria-labelledby="navbarDropdown"
-            
+          routerLink="/our-brand"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
+          <div
+          class="dropdown-menu for-brands "
+          aria-labelledby="navbarDropdown"
+          
+        >
+        <div class="profile-dropdown-node"></div>
+        <ul>
+          <li class="brand-list"
+            *ngFor="let brand of brands | slice:0:9;"
+            style="list-style: none;"
           >
-          <div class="profile-dropdown-node"></div>
-          <ul>
-            <li class="brand-list"
-              *ngFor="let brand of brands | slice:0:9;"
-              style="list-style: none;"
+            <span 
+              class=" cursor-pointer  text-titlecase "
+              (click)="navigateBrand(brand.name,brand.brand_id)"
+             
             >
-              <span 
-                class=" cursor-pointer  text-titlecase "
-                (click)="navigateBrand(brand.name,brand.brand_id)"
-               
-              >
-              <!-- <div class="brand-circle"> -->
-                <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
-                {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
-                    : brand.name
-                }} 
-               <!-- </div> -->
-               </span
-              >
+            <!-- <div class="brand-circle"> -->
+              <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+              {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                  : brand.name
+              }} 
+             <!-- </div> -->
+             </span
+            >
 
-           
-            </li>
-            <li>
-              <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
-            </li>
-          </ul>
+         
+          </li>
+          <li>
+            <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+          </li>
+        </ul>
 
-          </div>
-        </li>
+        </div>
+      </li>
           <li *ngFor="let category of categories2; let i = index">
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
                 category.name
               }} 
                   </a>
-              <ul class="mega-menu mega-menu--multiLevel">
+              <ul class="mega-menu mega-menu--multiLevel" >
                   <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
                       <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
         
-                      <ul class="menu menu-list">
+                      <ul class="menu menu-list" style="position: inherit;">
 
                         <div class="container" style="width:1000px" >
                             <div class="row" >
@@ -559,7 +559,7 @@
                     />
                     <a class="search_icon"
                       ><i
-                        class="fas fa-search"
+                        class="fas fa-search" style="padding: 6px;"
                         title="search"
                         (click)="
                           navigateCategory(
@@ -574,7 +574,7 @@
                         class="d-flex align-items-center mt-2 mb-1 cursor-pointer category-hover"
                         *ngFor="let category of searchList.category | slice: 0:6"
                       >
-                        <i class="fa fa-search mr-3 ml-3"></i>
+                        <i class="fa fa-search mr-3 ml-3" ></i>
                         <a
                           (click)="
                             navigateCategory(category.name, category.category_no)
@@ -590,7 +590,7 @@
                         class="d-flex align-items-center cursor-pointer mt-1 category-hover"
                         *ngFor="let brand of searchList.brand | slice: 0:6"
                       >
-                        <i class="fa fa-search mr-3 ml-3"></i>
+                        <i class="fa fa-search mr-3 ml-3" ></i>
                         <a (click)="navigateBrand(brand.name, brand.brand_id)">
                           <div style="font-size: 12px">in {{ brand.name }}</div>
                         </a>
@@ -600,7 +600,7 @@
                         class="d-flex align-items-center category-hover"
                         *ngFor="let product of searchList.product | slice: 0:3"
                       >
-                        <i class="fa fa-search mr-3 ml-3"></i>
+                        <i class="fa fa-search mr-3 ml-3" ></i>
   
                         <a
                           routerLink="/product/{{
@@ -622,10 +622,20 @@
                 </li>
          </ul>
             <ul style="display: flex;position: absolute;top: 40px;right: 23px;margin-right: 20px;">
-              <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  matTooltip="login" routerLink="/login">Login/Sign Up</a></li>
+              <!-- <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  matTooltip="login" routerLink="/login">Login/Sign Up</a></li>
               <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link"  (click)="logout()" style="font-size: 1.5rem;" matTooltip="logout"><i class="fa fa-power-off"></i></a></li>
+              <li class="nav-content-item" ><a routerLink="/new-cart" matTooltip="cart"><i class="fa fa-shopping-bag" aria-hidden="true">{{ cart }}</i></a></li> -->
               <!-- <li class="nav-content-item"><a class="nav-content-link" matTooltip="wishlist" routerLink="/wishlist"><i class="fas fa-heart"></i></a></li> -->
-              <li class="nav-content-item" ><a routerLink="/new-cart" matTooltip="cart"><i class="fa fa-shopping-bag" aria-hidden="true">{{ cart }}</i></a></li>
+             
+
+
+
+
+              <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+
+              <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+              
+              <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
             </ul>
 
   </nav>
@@ -686,12 +696,14 @@
                   category.name
                 }} 
                     </a>
+                    
                 <ul class="mega-menu mega-menu--multiLevel">
                     <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
                         <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
           
                         <ul class="menu menu-list">
   
+
       <div class="container" style="width:1000px" >
          <div class="row" >
             <div class="col first-column">
@@ -1176,11 +1188,11 @@
                 
             </li> -->
   
-            <li class="mobile-menu-header">
+            <!-- <li class="mobile-menu-header">
                 <a href="/" class="">
                     <span>Home</span>
                 </a>
-            </li>
+            </li> -->
   
         <!-- Search form -->
   

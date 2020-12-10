@@ -1,11 +1,11 @@
-<div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="height: auto;top:10px">
+<div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="height: auto;top:0px">
   <!-- <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul> -->
 
-  <div class="carousel-inner" style="height: 390px; border-radius: 9.5px!important; padding-top: 19px; overflow: hidden;">
+  <div class="carousel-inner" style="height: 390px; border-radius: 9.5px!important;  overflow: hidden;">
     <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
       <img src="{{ bannerdata.value.banner_image_a }}" />
     </div>
@@ -205,7 +205,7 @@
               </div>
  
  
-  <div class="row" >
+  <div class="row justify-content-start mt-0">
       <div class="col-md-2 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
               <div class="product-image7" id="box-img1" >
@@ -285,6 +285,7 @@
      
 
    <!-- section title -->
+   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
    <div class="col-md-12">
         <div class="section-title">
           <h3 class="title2" >New Products</h3>
@@ -371,9 +372,12 @@
                           </div>
             </div>
         </div>   
+
+
 <!-- </div>      -->
 <!-- </div> -->
 <hr>
+</div>
 <!--  end juned 1/12/2020 -->
 
 
@@ -402,7 +406,7 @@
 <!-- end -->
       
 <!-- /SECTION -->
-<div class="section">
+<!-- <div class="section">
   <div class="container">
     <div class="row">
       <div class="col-md-14">
@@ -424,7 +428,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- HOT DEAL SECTION -->
 <!--<div id="hot-deal" class="section">
   container 
@@ -470,38 +474,3 @@
 
 -->
 
-<!-- NEWSLETTER -->
-<!--<div id="newsletter" class="section">
-
-  <div class="container">
-  
-    <div class="row">
-      <div class="col-md-12">
-        <div class="newsletter">
-          <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-          <form>
-            <input class="input" type="email" placeholder="Enter Your Email">
-            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-          </form>
-          <ul class="newsletter-follow">
-            <li>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-pinterest"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-
-</div>-->
-<!-- /NEWSLETTER -->
