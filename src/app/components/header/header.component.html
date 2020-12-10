@@ -1,7 +1,7 @@
 
 
 <div class="nav1" id="nav2" > 
-  <nav style=" overflow: hidden;">
+  <nav style=" width: max-content;">
       <div class="center" style="left: 648px;
       position: relative;" >
           <strong class="logo"><img src="assets/img/9toyslogo.jpeg" routerLink="/" height="70px" width="100px" style="padding-right: 10px;margin-top: 10px;"></strong>
@@ -10,46 +10,46 @@
       <ul class="menu menu-bar" style="left: 327px;">
         
         <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
-            routerLink="/our-brand"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
-            <div
-            class="dropdown-menu for-brands "
-            aria-labelledby="navbarDropdown"
-            
+          routerLink="/our-brand"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
+          <div
+          class="dropdown-menu for-brands "
+          aria-labelledby="navbarDropdown"
+          
+        >
+        <div class="profile-dropdown-node"></div>
+        <ul>
+          <li class="brand-list"
+            *ngFor="let brand of brands | slice:0:9;"
+            style="list-style: none;"
           >
-          <div class="profile-dropdown-node"></div>
-          <ul>
-            <li class="brand-list"
-              *ngFor="let brand of brands | slice:0:9;"
-              style="list-style: none;"
+            <span 
+              class=" cursor-pointer  text-titlecase "
+              (click)="navigateBrand(brand.name,brand.brand_id)"
+             
             >
-              <span 
-                class=" cursor-pointer  text-titlecase "
-                (click)="navigateBrand(brand.name,brand.brand_id)"
-               
-              >
-              <!-- <div class="brand-circle"> -->
-                <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
-                {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
-                    : brand.name
-                }} 
-               <!-- </div> -->
-               </span
-              >
+            <!-- <div class="brand-circle"> -->
+              <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+              {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                  : brand.name
+              }} 
+             <!-- </div> -->
+             </span
+            >
 
-           
-            </li>
-            <li>
-              <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
-            </li>
-          </ul>
+         
+          </li>
+          <li>
+            <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+          </li>
+        </ul>
 
-          </div>
-        </li>
+        </div>
+      </li>
           <li *ngFor="let category of categories2; let i = index">
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
                 category.name
@@ -559,7 +559,7 @@
                     />
                     <a class="search_icon"
                       ><i
-                        class="fas fa-search"
+                        class="fas fa-search" style="padding: 6px;"
                         title="search"
                         (click)="
                           navigateCategory(

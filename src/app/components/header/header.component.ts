@@ -1019,7 +1019,7 @@ header(){
       document.getElementById("nav2").style.top="0";
       document.getElementById("nav1").style.top="-70px"   
     }else{
-      document.getElementById("nav2").style.top="-100px";
+      document.getElementById("nav2").style.top="-50px";
       document.getElementById("nav1").style.top="0";
     }
     
