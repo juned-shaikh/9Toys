@@ -633,9 +633,24 @@
 
               <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
 
-              <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+              <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+              <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+            
+              <div class="dropdown1">
+                <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link"  style="font-size: 1rem;" ><i class="fa fa-user text-warning"></i></a></li>
+                <ul class="dropdown-content1">
+              <li ><a class="nav-link project-heading" routerLink="/My-Account"
+            ><i class="far fa-user text-center text-warning"></i> Account
+          </a></li>
+       <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
+          ><i class="far fa-heart text-center text-warning"></i> WishList
+        </a></li>
+        <li >
+        <a class="nav-link project-heading" (click)="logout()"
+        ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
+                </ul>
+              </div>
               
-              <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
             </ul>
 
   </nav>
@@ -1207,12 +1222,31 @@
               </div>
            </ul>
               <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
-               
                 <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+
+                <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+                <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+                
+                <div class="dropdown1">
+                  <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link" style="font-size: 1rem;"  ><i class="fa fa-user text-warning"></i></a></li>
+                  <ul class="dropdown-content1">
+                <li ><a class="nav-link project-heading" routerLink="/My-Account"
+              ><i class="far fa-user text-center text-warning"></i> Account
+            </a></li>
+         <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
+            ><i class="far fa-heart text-center text-warning"></i> WishList
+          </a></li>
+          <li >
+          <a class="nav-link project-heading" (click)="logout()"
+          ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
+                  </ul>
+                </div>
+                
+                <!--<li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
 
                 <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
                 
-                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>-->
               </ul>
   
     </nav>
