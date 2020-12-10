@@ -696,12 +696,14 @@
                   category.name
                 }} 
                     </a>
+                    
                 <ul class="mega-menu mega-menu--multiLevel">
                     <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
                         <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
           
                         <ul class="menu menu-list">
   
+
       <div class="container" style="width:1000px" >
          <div class="row" >
             <div class="col first-column">
