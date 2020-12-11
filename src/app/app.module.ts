@@ -57,7 +57,7 @@ import {CheckoutStatusComponent} from './components/checkout-status/checkout-sta
 import { CategoryPageComponent } from './components/category-page/category-page.component';
 import {OurBrandComponent} from './components/our-brand/our-brand.component'
 import {ToysComponent} from './components/toys/toys.component';
-// import { HeaderOneComponent } from './header-one/header-one.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +82,7 @@ import {ToysComponent} from './components/toys/toys.component';
     CategoryPageComponent,
     OurBrandComponent,
     ToysComponent,
-    // HeaderOneComponent
+  
   ],
   imports: [
     BrowserModule,
