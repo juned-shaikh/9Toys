@@ -9,47 +9,7 @@
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
       <ul class="menu menu-bar" style="left: 327px;">
         
-        <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
-          routerLink="/our-brand"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
-          <div
-          class="dropdown-menu for-brands "
-          aria-labelledby="navbarDropdown"
-          
-        >
-        <div class="profile-dropdown-node"></div>
-        <ul>
-          <li class="brand-list"
-            *ngFor="let brand of brands | slice:0:9;"
-            style="list-style: none;"
-          >
-            <span 
-              class=" cursor-pointer  text-titlecase "
-              (click)="navigateBrand(brand.name,brand.brand_id)"
-             
-            >
-            <!-- <div class="brand-circle"> -->
-              <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
-              {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
-                  : brand.name
-              }} 
-             <!-- </div> -->
-             </span
-            >
-
-         
-          </li>
-          <li>
-            <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
-          </li>
-        </ul>
-
-        </div>
-      </li>
+        
           <li *ngFor="let category of categories2; let i = index">
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
                 category.name
@@ -59,9 +19,9 @@
                   <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
                       <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
         
-                      <ul class="menu menu-list" style="position: inherit;">
+                      <ul class="menu menu-list" >
 
-                        <div class="container" style="width:1000px" >
+                        <div class="container" style="width:700px" >
                             <div class="row" >
                <div class="col first-column">
                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">Shop by Choice</h3>
@@ -90,7 +50,7 @@
                  
                   </div>      
                             </div>
-              <div class="col second-column">
+              <!-- <div class="col second-column">
                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">more Active Play &amp; Outdoor</h3>
                 <li *ngFor="let categoryi of category.sub_category"
                 style="list-style: none;text-align: center;" >
@@ -114,7 +74,7 @@
                       </div>
                </div>  
      </li>
-                            </div>
+                            </div> -->
                         
                             <div class="col first-column">
                               <div class="row" style="padding: 35px;">
@@ -462,6 +422,50 @@
             </ul>
           </li>
 
+          <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+            routerLink="/our-brand"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false" style="position: relative;top: 12px;">Brands</a>
+            <div
+            class="dropdown-menu for-brands "
+            aria-labelledby="navbarDropdown"
+            
+          >
+          <div class="profile-dropdown-node"></div>
+          <ul>
+            <li class="brand-list"
+              *ngFor="let brand of brands | slice:0:9;"
+              style="list-style: none;"
+            >
+              <span 
+                class=" cursor-pointer  text-titlecase "
+                (click)="navigateBrand(brand.name,brand.brand_id)"
+               
+              >
+              <!-- <div class="brand-circle"> -->
+                <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+                {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                    : brand.name
+                }} 
+               <!-- </div> -->
+               </span
+              >
+  
+           
+            </li>
+            <li>
+              <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+            </li>
+          </ul>
+  
+          </div>
+        </li>
+
+
+
           <li>
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
               <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
@@ -656,7 +660,7 @@
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
-              aria-expanded="false" style="position: relative;top: 11px;">Brands</a>
+              aria-expanded="false" style="position: relative;top: 12px;">Brands</a>
               <div
               class="dropdown-menu for-brands "
               aria-labelledby="navbarDropdown"

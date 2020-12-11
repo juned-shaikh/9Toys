@@ -511,12 +511,15 @@ color: white;
   }
 // second header
 @media all and (min-width: 951px) {
+  body{
+    overflow: hidden;
+  }
   .nav1 {
     // margin-top: 50px;
     position: relative;
     z-index: 44444444;
     width: 100%;
-     top: 10;
+    //  top: 10;
 
     background: #ffffff;
   }
