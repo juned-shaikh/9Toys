@@ -27,7 +27,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 
 
-
+import {FileSaver} from 'file-saver'
 
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
@@ -69,9 +69,11 @@ import {AccountInfoComponent} from './components/account-info/account-info.compo
 import {OrderViewDetailsComponent} from './components/order-view-details/order-view-details.component'
 import {MemberProfileComponent} from './components/member-profile/member-profile.component'
 import {ClientaddressComponent} from './components/clientaddress/clientaddress.component';
-import {HeaderOneComponent} from './header-one/header-one.component'
+
 import {NewHeaderComponent} from './components/new-header/new-header.component'
 import {MatDividerModule} from '@angular/material/divider'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +105,7 @@ import {MatDividerModule} from '@angular/material/divider'
     OrderHistoryComponent,
     OrderViewDetailsComponent,
     ClientaddressComponent,
-    HeaderOneComponent,
+   
     NewHeaderComponent
     // HeaderOneComponent
   ],
