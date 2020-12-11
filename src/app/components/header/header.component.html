@@ -10,15 +10,33 @@
       <ul class="menu menu-bar" style="left: 327px;">
         
         
-          <li *ngFor="let category of categories2; let i = index">
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
+          <li *ngFor="let category of categories2; index as i" >
+              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
                 category.name
               }} 
                   </a>
+                  <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==1"  style="color: #F57222;" (click)="navigateCategory(category.name, category.category_no);">{{
+                    category.name
+                  }} 
+                      </a>
+                      <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
+                        category.name
+                      }} 
+                          </a>
+                          
+                 
               <ul class="mega-menu mega-menu--multiLevel" >
-                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
-                      <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
-        
+                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8; index as i;" (click)="navigateCategory(category.name, category.category_no)">
+                      <a href="javascript:void(0);" *ngIf="i==0" style="color: #FDCC12;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==1" style="color:  #F57222;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==2" style="color: #CB1F3E;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==3" style="color:#872676;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==4" style="color: #292967;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==5" style="color: #FDCC12;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==6" style="color:  #F57222;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==7" style="color: #CB1F3E;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==8" style="color:#872676;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                      <a href="javascript:void(0);" *ngIf="i==9" style="color: #292967;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                       <ul class="menu menu-list" >
 
                         <div class="container" style="width:700px" >
@@ -216,7 +234,7 @@
           </li>
 
           <li>
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Discover </a>
+              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color: #292967;">Discover </a>
               <ul class="mega-menu mega-menu--multiLevel">
                 <li>
                     <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
@@ -467,7 +485,7 @@
 
 
           <li>
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
+              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" >Blog</a>
               <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
                 <li>
                     <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>
@@ -637,9 +655,24 @@
 
               <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
 
-              <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+              <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+              <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+            
+              <div class="dropdown1">
+                <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link"  style="font-size: 1rem;" ><i class="fa fa-user text-warning"></i></a></li>
+                <ul class="dropdown-content1">
+              <li ><a class="nav-link project-heading" routerLink="/My-Account"
+            ><i class="far fa-user text-center text-warning"></i> Account
+          </a></li>
+       <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
+          ><i class="far fa-heart text-center text-warning"></i> WishList
+        </a></li>
+        <li >
+        <a class="nav-link project-heading" (click)="logout()"
+        ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
+                </ul>
+              </div>
               
-              <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
             </ul>
 
   </nav>
@@ -650,7 +683,7 @@
 <!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start -->
 
 <div class="nav" id="nav1" style="top: 10px;"> 
-    <nav>
+    <nav style="overflow: hidden;">
         <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
         <ul class="menu menu-bar" style="left: 30px;">
           <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;"></strong>
@@ -660,7 +693,7 @@
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
-              aria-expanded="false" style="position: relative;top: 12px;">Brands</a>
+              aria-expanded="false" style="position: relative;top: 12px;" style="color: #CB1F3E;">Brands</a>
               <div
               class="dropdown-menu for-brands "
               aria-labelledby="navbarDropdown"
@@ -695,16 +728,34 @@
   
             </div>
           </li>
-            <li *ngFor="let category of categories2; let i = index">
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
-                  category.name
-                }} 
-                    </a>
+            <li *ngFor="let category of categories2;  index as i">
+                
+                    <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
+                      category.name
+                    }} 
+                        </a>
+                        <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==1"  style="color: #F57222;" (click)="navigateCategory(category.name, category.category_no);">{{
+                          category.name
+                        }} 
+                            </a>
+                            <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
+                              category.name
+                            }} 
+                                </a>
                     
                 <ul class="mega-menu mega-menu--multiLevel">
-                    <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
-                        <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
-          
+                    <li  *ngFor="let categoryi of category.sub_category | slice:0:8; index as i" (click)="navigateCategory(category.name, category.category_no)">
+                       
+                        <a href="javascript:void(0);" *ngIf="i==0" style="color: #FDCC12;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==1" style="color:  #F57222;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==2" style="color: #CB1F3E;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==3" style="color:#872676;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==4" style="color: #292967;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==5" style="color: #FDCC12;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==6" style="color:  #F57222;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==7" style="color: #CB1F3E;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==8" style="color:#872676;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+                        <a href="javascript:void(0);" *ngIf="i==9" style="color: #292967;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                         <ul class="menu menu-list">
   
 
@@ -739,7 +790,7 @@
             </div>
                               <div class="col second-column">
                                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">more Active Play &amp; Outdoor</h3>
-                                <li *ngFor="let categoryi of category.sub_category"
+                                <li *ngFor="let categoryi of category.sub_category; let i=index"
                                 style="list-style: none;text-align: center;" >
               
                                <div class="container"  title="{{ categoryi.name }}" style="color: black;"
@@ -888,7 +939,7 @@
             </li>
   
             <li>
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Discover </a>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color: #CB1F3E;">Discover </a>
                 <ul class="mega-menu mega-menu--multiLevel">
                   <li>
                       <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
@@ -1211,12 +1262,31 @@
               </div>
            </ul>
               <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
-               
                 <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+
+                <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+                <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+                
+                <div class="dropdown1">
+                  <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link" style="font-size: 1rem;"  ><i class="fa fa-user text-warning"></i></a></li>
+                  <ul class="dropdown-content1">
+                <li ><a class="nav-link project-heading" routerLink="/My-Account"
+              ><i class="far fa-user text-center text-warning"></i> Account
+            </a></li>
+         <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
+            ><i class="far fa-heart text-center text-warning"></i> WishList
+          </a></li>
+          <li >
+          <a class="nav-link project-heading" (click)="logout()"
+          ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
+                  </ul>
+                </div>
+                
+                <!--<li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
 
                 <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
                 
-                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>-->
               </ul>
   
     </nav>

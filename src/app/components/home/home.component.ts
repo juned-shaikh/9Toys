@@ -100,6 +100,7 @@ registerForm2:FormGroup
   }
 
   ngOnInit() {
+    sessionStorage.setItem("headertwo","0")
     this.adminService
     .get_host_link({
     comp_num : 0

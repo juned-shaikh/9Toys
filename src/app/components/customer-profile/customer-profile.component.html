@@ -1,0 +1,173 @@
+
+
+       <mg-new-header></mg-new-header>
+<mat-card  class="card" *ngIf="!shownamebox">
+    <mat-card-content>
+  <div class="row">
+    <div class="col-sm-3">
+              
+       
+      <div class="text-center">
+        <img 
+        src="{{userdata?.profile_image}}" onerror="this.src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+        class="avatar img-circle img-thumbnail" alt="avatar">
+
+       
+      </div>
+     
+            
+                 
+               
+          
+          
+        </div>
+        <div class="col-md-8" style="color: white;">
+          <h4 class="text-right" ><span><i class="fas fa-user-edit" (click)="edit()" title="update profile" style="cursor: pointer; color: #4E50B3!important;"  data-toggle="tab"></i></span></h4>
+          <h3 class="mt-2 project-heading"  >{{userdata.name}} </h3>
+          <h4 *ngIf="userdata.mobile" class="d-flex project-heading"><i class="fas fa-phone-square-alt" style="color:#4E50B3!important;"></i>&nbsp; {{userdata.mobile}}</h4> 
+          <h4 *ngIf="userdata.email" class="project-discription"><i class="fas fa-envelope-open-text" style="color:#4E50B3!important;"></i>&nbsp; {{userdata.email}}</h4> 
+         
+        </div>
+  </div>
+    </mat-card-content>
+</mat-card>
+                <mat-card class="card " *ngIf="shownamebox" >
+                    <mat-card-content>
+                  <div class="row " >
+                   
+                    <div class="col-md-6 pt-3 pl-3 col-7">
+                          <form [formGroup]="updateprofile" style="padding: 10px;">
+                              <mat-label class="project-heading pb-3" style="position: relative;
+                              color: black;
+                              top: -7px;">User Name :</mat-label>&nbsp;&nbsp;
+                          <mat-form-field class="example-full-width mt-2"  >
+                              <input matInput   formControlName="name" value="{{userdata?.name}}" style="border-radius: 7px; color: white; border: 1px solid whitesmoke; padding: 5px 10px 10px 10px;">
+                          </mat-form-field>
+                        
+                          
+                          <br/>
+                          <button mat-raised-button class="  mt-2   text-white " color="primary" style="margin-left: 17%; " (click)="update()">Update</button>
+                          </form>
+                    </div>
+                    <div class="col-md-3 p-3 col-2">
+                        <span class=" p-1 text-uppercase project-button project-heading btn btn-danger" style="    font-size: 10px;
+                        font-weight: 600; "  (click)="cancel()" title="Cancel">cancel</span>
+                    </div>
+              
+                </div>
+            </mat-card-content>
+                </mat-card>
+               
+            
+
+ <!-- <div class="container-fluid  mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-11 author-card-profile-colomn ">
+          
+            <div class="row mt-3 justify-content-center">
+                       
+                <div class="col-md-9 mt-2">
+                   <div class="row"><h6 class="font-weight-600 pl-4 col-md-6 col-6">Name</h6>  
+                    <h6 class="col-md-6 col-6 text-primary text-right cursor-pointer"><span matTooltip="edit " (click)="edit()" *ngIf="!shownamebox">Edit</span><span *ngIf="shownamebox" (click)="cancel()">cancel</span></h6>
+                </div>
+                <form [formGroup]="updateprofile">
+                    <div class="row mt-1">
+                       
+                        <div class="col-md-12 col-12 text-uppercase" *ngIf="!shownamebox">
+                            <mat-form-field class="example-full-width font-weight-600" appearance="fill" *ngIf="userdata?.name ==null">
+                                <input matInput placeholder="Name" disabled value="N. A." class="profile-text">
+                                <mat-icon class="text-warning" matSuffix>account_circle</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width font-weight-600" appearance="fill" *ngIf="userdata?.name !=null">
+                                <input matInput placeholder="Name" disabled value="{{userdata?.name}}" class="profile-text">
+                                <mat-icon class="text-warning" matSuffix>account_circle</mat-icon>
+                            </mat-form-field>
+                            </div>
+        
+                            <div class="col-md-10 col-8 text-uppercase" *ngIf="shownamebox">
+                                
+                                <mat-form-field class="example-full-width " appearance="fill">
+                                    <input matInput  formControlName="name" value="{{userdata?.name}}">
+                                    <mat-icon class="text-warning" matSuffix>account_circle</mat-icon>
+                                </mat-form-field>
+                                </div>
+                                <div class="col-md-2 col-4" *ngIf="shownamebox">
+                                    <button mat-raised-button class="bg-warning text-white mt-3" (click)="update()">Save</button>
+                                </div>
+                            
+                    </div>
+                </form>
+                    <div class="row"><h6 class="font-weight-600 pl-4">Email Addresses  </h6></div>
+                    <div class="row mt-1">
+                      
+                        <div class="col-md-12 col-12 text-lowercase">
+                            
+                            <mat-form-field class="example-full-width font-weight-600" appearance="fill" *ngIf="userdata?.email ==null">
+                                <input matInput  disabled value="N. A." class="profile-text">
+                                <mat-icon class="text-warning" matSuffix>local_post_office</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width font-weight-600" appearance="fill" *ngIf="userdata?.email !=null">
+                                <input matInput  disabled value="{{userdata?.email}}" class="profile-text">
+                                <mat-icon class="text-warning" matSuffix>local_post_office</mat-icon>
+                            </mat-form-field>
+                            </div>
+                    </div>
+                    <div class="row"><h6 class="font-weight-600 pl-4">Mobile No.  </h6></div>
+                    <div class="row mt-1">
+                       
+                        <div class="col-md-12 col-12">
+                            <mat-form-field class="example-full-width font-weight-600" appearance="fill" *ngIf="userdata?.mobile ==null">
+                                <input matInput  disabled value="N.A." class="profile-text">
+                                <mat-icon class="text-warning " matSuffix>call</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width font-weight-600" appearance="fill" *ngIf="userdata?.mobile !=null">
+                                <input matInput  disabled value="{{userdata?.mobile}}" class="profile-text">
+                                <mat-icon class="text-warning " matSuffix>call</mat-icon>
+                            </mat-form-field>
+                            </div>
+                    </div>
+                </div>
+            </div>
+<hr>
+
+        <div class="row justify-content-center">
+            <div class="col-md-9 mt-2 mb-3 col-11">
+                <div class="row  d-flex text-primary cursor-pointer" (click)="showchangepass()">
+                    <h6 class="font-weight-500 pb-2 pl-2 text-primary cursor-pointer" matTooltip="Change Password" >Change Password</h6>  
+                </div>
+                <form [formGroup]= "Changepassword">
+                <div class="row mt-2" *ngIf="changepasssbox">
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Enter Current Password</mat-label>
+                        <input matInput  required formControlName="old_password" type="password">
+                      <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="row" *ngIf="changepasssbox">
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Enter New Password</mat-label>
+                        <input matInput  required formControlName="new_password" type="password">
+                      <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="row" *ngIf="changepasssbox">
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Re-Enter New Password</mat-label>
+    
+                        <input matInput  required formControlName="confirm_password" type="password">
+                      <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                </div>
+               
+                <div class="row mb-5" *ngIf="changepasssbox">
+                    <button mat-raised-button class="bg-warning text-white w-100 cursor-pointer" (click)="ChangePassword()">Change Password</button>
+                </div>
+            </form>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>  -->
+

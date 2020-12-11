@@ -1,0 +1,602 @@
+<!--<p>new-header works!</p>-->
+<div class="nav" id="nav1" style="top: 10px;"> 
+    <nav style="overflow: hidden;">
+        <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
+        <ul class="menu menu-bar" style="left: 30px;">
+          <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;"></strong>
+          <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+              routerLink="/our-brand"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false" style="position: relative;top: 12px;">Brands</a>
+              <div
+              class="dropdown-menu for-brands "
+              aria-labelledby="navbarDropdown"
+              
+            >
+            <div class="profile-dropdown-node"></div>
+            <ul>
+              <li class="brand-list"
+                *ngFor="let brand of brands | slice:0:9;"
+                style="list-style: none;"
+              >
+                <span 
+                  class=" cursor-pointer  text-titlecase "
+                  (click)="navigateBrand(brand.name,brand.brand_id)"
+                 
+                >
+                <!-- <div class="brand-circle"> -->
+                  <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+                  {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                      : brand.name
+                  }} 
+                 <!-- </div> -->
+                 </span
+                >
+  
+             
+              </li>
+              <li>
+                <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+              </li>
+            </ul>
+  
+            </div>
+          </li>
+            <li *ngFor="let category of categories2; index as i">
+               
+                    <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
+                        category.name
+                      }} 
+                          </a>
+                          <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==1"  style="color: #F57222;" (click)="navigateCategory(category.name, category.category_no);">{{
+                            category.name
+                          }} 
+                              </a>
+                              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
+                                category.name
+                              }} 
+                                  </a>
+                    
+                <ul class="mega-menu mega-menu--multiLevel">
+                    <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
+                        <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
+          
+                        <ul class="menu menu-list">
+  
+
+      <div class="container" style="width:1000px" >
+         <div class="row" >
+            <div class="col first-column">
+              <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">Shop by Choice</h3>
+              <div class="row" style="padding: 35px;">
+                <a>
+                    <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6edb9039/OurToys/BabyandToddler/babytoddler-books-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                    <h5 class="extended-nav--subtitle" > Books </h5>
+                </a>
+                <a>
+                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw48c851ab/OurToys/BabyandToddler/babytoddler-developmental-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                    <h5 class="extended-nav--subtitle">Developmental Toys</h5>
+                </a>
+               
+                
+              </div>
+              <div class="row" style="padding-top: 10px;padding-left: 35px;"  >
+               
+                <a>
+                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc3749fb2/OurToys/BabyandToddler/babytoddler-push-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                    <h5 class="extended-nav--subtitle" >Push pull Toys</h5>
+                </a>
+                <a>
+                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6d7c45bf/OurToys/BabyandToddler/babytoddler-rocking-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                    <h5 class="extended-nav--subtitle">Ride on toys</h5>
+                </a>
+               
+                </div>       
+            </div>
+                              <div class="col second-column">
+                                <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">more Active Play &amp; Outdoor</h3>
+                                <li *ngFor="let categoryi of category.sub_category"
+                                style="list-style: none;text-align: center;" >
+              
+                               <div class="container"  title="{{ categoryi.name }}" style="color: black;"
+                               (click)="
+                                 navigateCategory(
+                                   categoryi.name,
+                                   categoryi.category_no
+                                 )
+                               ">
+                               {{
+                                  categoryi.name.length > 40
+                                    ? (categoryi.name | slice: 0:40) + "..."
+                                    : categoryi.name
+                                }} 
+      
+                                <div class="row">
+                                    <img src="{{categoryi.large_icon_link}}"  >
+                                     
+                                      </div>
+                               </div>  
+                     </li>
+                              <!-- <div *ngIf="categoryi.sub_category2" class="pt-2 sub_categoryItem">
+                                  <p
+                                    *ngFor="let categoryj of categoryi.sub_category2"
+                                    class="cursor-pointer sub_category-2"
+                                    style="line-height: 0;"
+                                  >
+                                    <span>
+                                      {{
+                                        categoryj.name.length > 25
+                                          ? (categoryj.name | slice: 0:25) + "..."
+                                          : categoryj.name
+                                      }}
+                                    </span>
+                                  </p>
+                                </div> -->
+                              </div>
+                          
+                              <div class="col first-column">
+                                <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">Shop by Age</h3>
+                                <div class="row" style="padding: 35px;">
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc2e4a93f/MD_1.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                     
+                                  </a>
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw8c5c76fd/MD_2.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                     
+                                  </a>                             
+                                </div>
+                                <div class="row" style="padding-left: 35px;">
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw90fb886d/MD_3.png" width="100px" height="100px" style="padding-right: 10px;"> </span>
+                                    
+                                  </a>
+                                  <a>
+                                      <span><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      
+                                  </a>                             
+                                </div>
+                                <div class="row" style="padding-top: 35px;padding-left: 35px;">
+                                  <a>
+                                      <span>  <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px" style="padding-right: 10px;"> </span>
+                                    
+                                  </a>
+                                  <a>
+                                      <span><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw0bed4bc8/MD_6.png"  width="100px" height="100px" style="padding-right: 10px;"></span>
+                                     
+                                  </a>                             
+                                </div>            
+                        
+                            </div>
+                                <!-- <a href="/page" class="menu-link menu-list-link">1.1.1 Page link</a> -->
+                             
+                             
+                          </div>
+                      </div>
+                            <!-- <li>
+                                <a href="javascript:void(0);" class="menu-link menu-list-link"
+                                    aria-haspopup="true">1.1.2 Flyout link</a>
+                                <ul class="menu menu-list">
+                                    <li>
+                                        <a href="/page" class="menu-link menu-list-link">1.1.2.1 Page link</a>
+                                    </li>
+                                    <li>
+                                        <a href="/page" class="menu-link menu-list-link">1.1.2.2 Page link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">1.1.3 Page link</a>
+                            </li> -->
+  
+                       
+                      
+                        </ul>
+              
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
+                       
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Art & Craft</a>
+                        <ul class="menu menu-list">
+                            <li>
+                             
+                              <div class="row">
+                                  <a>
+                                      <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6edb9039/OurToys/BabyandToddler/babytoddler-books-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;"> Books </h5>
+                                  </a>
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw48c851ab/OurToys/BabyandToddler/babytoddler-developmental-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle">Developmental Toys</h5>
+                                  </a>
+                                 
+                                  
+                                </div>
+                                <div class="row" style="padding-top: 10px;">
+                                 
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc3749fb2/OurToys/BabyandToddler/babytoddler-push-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Push pull Toys</h5>
+                                  </a>
+                                  <a>
+                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6d7c45bf/OurToys/BabyandToddler/babytoddler-rocking-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                      <h5 class="extended-nav--subtitle">Ride on toys</h5>
+                                  </a>
+                                 
+                                  </div>
+                            </li>
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/page" class="menu-link mega-menu-link">Kids toys Bundle</a>
+                    </li>
+                    <li>
+                      <a href="/page" class="menu-link mega-menu-link">Books</a>
+                  </li>
+                    <li class="mobile-menu-back-item">
+                        <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                    </li>
+                </ul>
+            </li>
+  
+            <li>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color:#CB1F3E">Discover </a>
+                <ul class="mega-menu mega-menu--multiLevel">
+                  <li>
+                      <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
+                      <ul class="menu menu-list">
+                          <li>
+                            <div class="row" style="padding: 35px;">
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc2e4a93f/MD_1.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                 
+                              </a>
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw8c5c76fd/MD_2.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                 
+                              </a>                             
+                            </div>
+                            <div class="row" style="padding-left: 35px;">
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw90fb886d/MD_3.png" width="100px" height="100px" style="padding-right: 10px;"> </span>
+                                
+                              </a>
+                              <a>
+                                  <span><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwbb2aa53b/Navigation/3-to-4-years.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  
+                              </a>                             
+                            </div>
+                            <div class="row" style="padding-top: 35px;padding-left: 35px;">
+                              <a>
+                                  <span>  <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwd49c6676/Navigation/5-to-7-years.png" width="100px" height="100px" style="padding-right: 10px;"> </span>
+                                
+                              </a>
+                              <a>
+                                  <span><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw0bed4bc8/MD_6.png"  width="100px" height="100px" style="padding-right: 10px;"></span>
+                                 
+                              </a>                             
+                            </div>
+                          
+                          </li>
+                         
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Price</a>
+                      <ul class="menu menu-list">
+                          <li>
+                            <div class="row" style="padding: 35px;">
+                              <a>
+                                  <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6edb9039/OurToys/BabyandToddler/babytoddler-books-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  <h5 class="extended-nav--subtitle" > Books </h5>
+                              </a>
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw48c851ab/OurToys/BabyandToddler/babytoddler-developmental-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  <h5 class="extended-nav--subtitle">Developmental Toys</h5>
+                              </a>
+                             
+                              
+                            </div>
+                            <div class="row" style="padding-top: 10px;padding-left: 35px;"  >
+                             
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc3749fb2/OurToys/BabyandToddler/babytoddler-push-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  <h5 class="extended-nav--subtitle" >Push pull Toys</h5>
+                              </a>
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6d7c45bf/OurToys/BabyandToddler/babytoddler-rocking-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  <h5 class="extended-nav--subtitle">Ride on toys</h5>
+                              </a>
+                             
+                              </div>
+                          </li>
+                         
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Room</a>
+                      <ul class="menu menu-list">
+                          <li>
+                            <div class="row" style="padding: 35px;">
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwd74267f9/ShopBy/Room/shop-by-room-bedroom-thumbnail.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  <h5 class="extended-nav--subtitle" > Bedroom </h5>
+                              </a>
+                              <a>
+                                  <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw35969089/ShopBy/Room/shop-by-room-nursery-thumbnail.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                  <h5 class="extended-nav--subtitle">Nursery</h5>
+                              </a>
+                            </div>
+                            <div class="row" style="padding-top: 35px;padding-left: 35px;">
+                              <a>
+                                <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw0a4f291a/ShopBy/Room/shop-by-room-playroom-thumbnail.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                                <h5 class="extended-nav--subtitle">playroom</h5>
+                            </a>
+                            <a>
+                              <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw35969089/ShopBy/Room/shop-by-room-nursery-thumbnail.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                              <h5 class="extended-nav--subtitle">Nursery</h5>
+                          </a>
+                            </div>
+                            
+                          </li>
+                          
+                      </ul>
+                  </li>
+                 
+                  <li>
+                    <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Play Experience</a>
+                    <ul class="menu menu-list">
+                        <li>
+                          <div class="row" style="padding: 35px;">
+                            <a>
+                                <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw1ad3a800/ShopBy/PlayExperience/MO_3D.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                             
+                            </a>
+                            <a>
+                                <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw8f4dd3a5/ShopBy/PlayExperience/MO_classic.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                              
+                            </a>
+                           
+                            
+                          </div>
+                          <div class="row" style="padding-top: 10px;padding-left: 35px;"  >
+                           
+                            <a>
+                                <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw1ad3a800/ShopBy/PlayExperience/MO_3D.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                               
+                            </a>
+                            <a>
+                                <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw8f4dd3a5/ShopBy/PlayExperience/MO_classic.png" width="100px" height="100px" style="padding-right: 10px;"></span>
+                              
+                            </a>
+                           
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Skills</a>
+                  <ul class="menu menu-list">
+                      <li>
+                        <div class="row" style="padding: 35px;">
+                          <a>
+                              <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw74549c3c/ShopBy/Skill/Skill-Cognitive-Skills-Letters-Numbers-sm.jpg"  width="100px" height="100px" style="padding-right: 10px;"></span>
+                             
+                          </a>
+                          <a>
+                              <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw356570ec/ShopBy/Skill/Skill-Cognitive-Skills-Shapes-Colors-sm.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
+                             
+                          </a>                             
+                        </div>
+                        <div class="row" style="padding-left: 35px;">
+                          <a>
+                              <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwf5bda401/ShopBy/Skill/Skill-Creative-Skills-sm.jpg" width="100px" height="100px" style="padding-right: 10px;"> </span>
+                            
+                          </a>
+                          <a>
+                              <span><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw74549c3c/ShopBy/Skill/Skill-Cognitive-Skills-Letters-Numbers-sm.jpg"  width="100px" height="100px" style="padding-right: 10px;"></span>
+                              
+                          </a>                             
+                        </div>
+                        <div class="row" style="padding-top: 35px;padding-left: 35px;">
+                          <a>
+                              <span>  <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw356570ec/ShopBy/Skill/Skill-Cognitive-Skills-Shapes-Colors-sm.jpg" width="100px" height="100px" style="padding-right: 10px;"> </span>
+                            
+                          </a>
+                          <a>
+                              <span><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw74549c3c/ShopBy/Skill/Skill-Cognitive-Skills-Letters-Numbers-sm.jpg"  width="100px" height="100px" style="padding-right: 10px;"></span>
+                             
+                          </a>                             
+                        </div>
+                      </li>
+                      
+                  </ul>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Special Needs</a>
+                <ul class="menu menu-list">
+                    <li>
+                        <a href="/page" class="menu-link menu-list-link">1.3.1 Page link</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Disney</a>
+              <ul class="menu menu-list">
+                  <li>
+                      <a href="/page" class="menu-link menu-list-link">1.3.1 Page link</a>
+                  </li>
+                  
+              </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Personalized toyz </a>
+            <ul class="menu menu-list">
+                <li>
+                    <a href="/page" class="menu-link menu-list-link">1.3.1 Page link</a>
+                </li>
+                
+            </ul>
+        </li>
+                  <li class="mobile-menu-back-item">
+                      <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                  </li>
+              </ul>
+            </li>
+  
+            <li>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color: #872676;">Blog</a>
+                <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
+                  <li>
+                      <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>
+                      <ul class="menu menu-list">
+                          <li>
+                            <h4 class="regular-heading simple-nav--item-title" style="font-family: hooligan-jf;    margin-left: 75px;
+                            font-size: 30px;
+                            font-weight: 400;
+                            line-height: 1;">
+                              The Latest
+                              </h4>
+                          </li>
+                          <li>
+                            <p class="simple-nav--item-descr" style=" margin-left: 35px;">Check out our most recent posts to find great play ideas, activities, advice, and more!</p>
+                          </li>
+                          
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwb0e13e7a/StaticPages/blog-nav-melissas-corner-fly-out-nav.jpg"></a>
+                      <ul class="menu menu-list">
+                          <li>
+                            <h4 class="regular-heading simple-nav--item-title" style="font-family: hooligan-jf;    margin-left: 85px;
+                            font-size: 30px;
+                            font-weight: 400;
+                            line-height: 1;">
+                              Melissa's 
+                              </h4>
+                          </li>
+                          <li>
+                            <p class="simple-nav--item-descr" style=" margin-left: 35px;">Get inspired by Melissa’s heartfelt take on nurturing the magic and wonder of childhood!</p>
+                          </li>
+                          
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw659d1643/StaticPages/blog-nav-seasonal-ideas-fly-out-nav.jpg"></a>
+                      <ul class="menu menu-list">
+                          <li>
+                            <h4 class="regular-heading simple-nav--item-title" style="font-family: hooligan-jf;    margin-left: 75px;
+                            font-size: 30px;
+                            font-weight: 400;
+                            line-height: 1;">
+                              Arts &amp; Crafts
+                              </h4>
+                          </li>
+                          <li>
+                            <p class="simple-nav--item-descr" style=" margin-left: 35px;">Discover fun and easy ideas to get kids tapping into their creativity!</p>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="mobile-menu-back-item">
+                      <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                  </li>
+              </ul>
+                <!-- <ul class="mega-menu mega-menu--flat">
+                    <li>
+                        <a href="#" class="menu-link mega-menu-link mega-menu-header">3.1 Page link header</a>
+                        <ul class="menu menu-list">
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">
+                                    3.1.1 Page link<br />
+                                    <small>Short decription of link</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">
+                                    3.1.2 Page link<br />
+                                    <small>Short decription of link</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/page" class="menu-link menu-list-link">
+                                    3.1.2 Page link<br />
+                                    <small>Short decription of link</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu-content">
+                        <p class="mega-menu-header">3.2 Page link header</p>
+                        <p>This is just static content. You can add anything here. Images, text, buttons, your grandma's
+                            secrect
+                            recipe.</p>
+                    </li>
+                    <li class="mobile-menu-back-item">
+                        <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
+                    </li>
+                </ul> -->
+            </li>
+          
+            <!-- <li>
+                <a href="/" class="menu-link menu-bar-link">Mission</a>
+                
+            </li> -->
+  
+            <!-- <li class="mobile-menu-header">
+                <a href="/" class="">
+                    <span>Home</span>
+                </a>
+            </li> -->
+  
+        <!-- Search form -->
+  
+  <!-- Search form -->
+  <!-- Search form -->
+  
+  <!-- Search form -->
+              </ul>
+          <ul style="display: flex;position: absolute;top: 10px;right: 183px;margin-right: 20px;">
+              <div class="active-purple-4 mb-4" >
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              </div>
+           </ul>
+              <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
+                <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+
+                <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+                <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
+                
+                <div class="dropdown1">
+                  <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link" style="font-size: 1rem;"  ><i class="fa fa-user text-warning"></i></a></li>
+                  <ul class="dropdown-content1">
+                <li ><a class="nav-link project-heading" routerLink="/My-Account"
+              ><i class="far fa-user text-center text-warning"></i> Account
+            </a></li>
+         <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
+            ><i class="far fa-heart text-center text-warning"></i> WishList
+          </a></li>
+          <li >
+          <a class="nav-link project-heading" (click)="logout()"
+          ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
+                  </ul>
+                </div>
+                
+                <!--<li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
+
+                <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
+                
+                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>-->
+              </ul>
+  
+    </nav>
+  </div>
+  
