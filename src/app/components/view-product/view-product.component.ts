@@ -136,6 +136,8 @@ ecomtrails = false;
   is_national=false;
   is_estimate=false;
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
+
     window.scroll(0, 0);
     this.main = location.origin;
 

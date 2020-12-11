@@ -53,8 +53,10 @@ export class FooterComponent implements OnInit {
             if(data['result']['is_active']=='Y'){
               sessionStorage.setItem("comp_num_new", data["result"].comp_num);
               this.comp_num_new = data["result"].comp_num;
+              console.log("compnew"+this.comp_num_new)
               this.medialinks(this.comp_num_new);
               this.basicCompany(this.comp_num_new);
+              this.fetch_categories(this.comp_num_new)
             } else {
 
             }
@@ -131,6 +133,58 @@ export class FooterComponent implements OnInit {
     });
 
 
+  }
+  previewFlag = sessionStorage.getItem('previewFlag');
+  megaMenu = false;
+  navigateCategory(name, id) {
+
+    this.adminservice
+      .fetch_product_list_check({
+        comp_num: sessionStorage.getItem("comp_num"),
+        brand_id: id
+      })
+      .subscribe(data => {
+        if (data["status"] == 1) {
+     
+
+    let slug =
+      name.replace(/\s+/g, "-") +
+      "-?category_no=" +
+      id +
+      "&marketplace=ECOMTRAILS";
+
+    window.scroll(0, 0);
+    if(this.previewFlag == '1'){
+      this.router
+      .navigateByUrl("/", {
+        skipLocationChange: true
+      })
+      .then(() => this.router.navigate(["/shop", slug]));
+    }else{
+      this.router
+      .navigateByUrl("/", {
+        skipLocationChange: true
+      })
+      .then(() => this.router.navigate(["/shop", slug]));
+
+    }
+          
+        }  else if (data["status"] == 0) {
+           this.snackbar.open(
+            "No Products Found. ",
+            "",
+            {
+              duration: 3000,
+              horizontalPosition: "center"
+            }
+          );
+        }
+      });
+    
+   
+    
+  
+    this.megaMenu = false;
   }
   basicCompany(dd) {
     this.adminservice

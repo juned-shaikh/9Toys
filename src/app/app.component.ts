@@ -9,5 +9,13 @@ import {NgxSpinnerService} from "ngx-spinner";
 })
 export class AppComponent {
   title = 'mega-front';
+  headerOne;
+  headerTwo;
+  constructor(){
+    this.headerOne=sessionStorage.getItem("headerone");
 
+    this.headerTwo=sessionStorage.getItem("headertwo");
+    console.log(this.headerOne+""+this.headerTwo)
+
+  }
 }

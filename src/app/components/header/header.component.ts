@@ -15,6 +15,7 @@ import { UserService } from "../../_services/user.service";
 export class HeaderComponent implements OnInit {
   cartData: CartModelServer;
   newproduct;
+  shows=false;
   count=sessionStorage.getItem('cart_count');
   cartTotal: Number;
   loader;
@@ -83,7 +84,7 @@ qty_set;
    offsetRent=1;
   page_itemsRent=6;
   pagesRent=1;
-
+url;
    offsetDisc=1;
   page_itemsDisc=6;
   pagesDisc=1;
@@ -105,6 +106,8 @@ qty_set;
     private cookie: CookieService,
     public cartService: CartService,  
   ) {
+ 
+
     // this.fetchCartCount2();
     // this.cart = this.adminService.updateCartCount();
   this.adminService.cartCount
@@ -136,6 +139,8 @@ qty_set;
   ninetoys = false;
   serverlink;
   ngOnInit() {
+    sessionStorage.setItem("headertwo","0")
+    
     if (!this.user_num && !this.access_token) {
       this.is_logged_out = true;
       this.is_logged_in = false;
@@ -143,7 +148,7 @@ qty_set;
       this.is_logged_in = true;
       this.is_logged_out = false;
     }
-    this.header();
+    this.header(1);
     let l = location.origin;
     var c = l.split("//");
     this.host_name = c[1];
@@ -171,6 +176,7 @@ qty_set;
             if(data['result']['is_active']=='Y'){
               sessionStorage.setItem("comp_num_new", data["result"].comp_num);
               this.comp_num_new = data["result"].comp_num;
+              console.log(this.comp_num_new+"header")
               this.medialinks(this.comp_num_new);
               this.basicCompany(this.comp_num_new);
             } else {
@@ -285,6 +291,7 @@ qty_set;
         this.ninetoys = true;
         this.ecomtrails = false;
         this.comp_num_new = sessionStorage.getItem('comp_num_new');
+        console.log("headercomp"+this.comp_num_new)
         this.adminService
           .get_host_link_of_comapny({
           comp_num : this.comp_num_new
@@ -421,6 +428,7 @@ qty_set;
 
 
   }
+  
   newProduct(dd) {
     this.adminService
       .newProducts({
@@ -994,19 +1002,29 @@ this.showsearch = !this.showsearch;
       });
     }
   }
-header(){
+header(data:number){
+  //add this js script into the web page,
+//you want reload once after first load
+
+ console.log("header")
+ setTimeout(function (){
+  document.getElementById("nav1").style.top="-70px"
+    },700)
   let prevScrollpos = window.pageYOffset;
-  console.log(prevScrollpos)
+ // console.log(prevScrollpos)
   window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    console.log(currentScrollPos)
-    /*if (prevScrollpos > currentScrollPos) {
+   // console.log(currentScrollPos)
+  
+    if (prevScrollpos > currentScrollPos) {
       document.getElementById("nav1").style.top = "-70px";
       document.getElementById("nav2").style.top="0";
+      
     } else {
       document.getElementById("nav1").style.top = "0";
+     
       document.getElementById("nav2").style.top="-100px";
-    }*/
+    }
   /* if(currentScrollPos==0){
      document.getElementById("nav2").style.top="0";
      document.getElementById("nav1").style.top="-70px"   
@@ -1021,8 +1039,12 @@ header(){
     }else{
       document.getElementById("nav2").style.top="-50px";
       document.getElementById("nav1").style.top="0";
+      this.shows=true;
     }
     
   } 
 }
+
+  
+   
 }

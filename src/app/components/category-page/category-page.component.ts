@@ -76,6 +76,7 @@ previewFlag = sessionStorage.getItem('previewFlag');
   
   ratebuy;
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
     this.compSettings_ratingOption();
     
     this.registerForm2 = this.formBuilder.group({

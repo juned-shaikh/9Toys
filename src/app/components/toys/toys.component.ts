@@ -74,7 +74,7 @@ rating_option=true;
   ratebuy;
   quick_buy='1';
   ngOnInit() {
-   
+    sessionStorage.setItem("headerone","1")
      // let l2 = location.origin;
      //    var c = l2.split("//");
      //    this.host_name = c[1];

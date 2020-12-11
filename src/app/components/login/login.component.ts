@@ -183,6 +183,7 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
+
             this.loading = true;
             if (data["status"] == 1) {
               this.snackbar.open("Login Succefull. ", "ok", {
@@ -198,12 +199,19 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem("email", data["email"]);
               sessionStorage.setItem("mobile", data["mobile"]);
               sessionStorage.setItem("name", data ["name"]);
-
+             
+             
               if (data["comp_num"] == "0" && data["usertype_id"] == "1") {
-                window.location.reload();
+               
                 this.router.navigate([""]);
+             
               } else {
+              
                 this.router.navigate([""]);
+               
+         
+            
+
               }
             } else {
               this.loading = true;
@@ -223,7 +231,12 @@ export class LoginComponent implements OnInit {
             });
           }
         );
+       
     }
+  }
+  reloadPage(){
+    this.router.navigate([""])
+    window.location.reload();
   }
   onSubmitSign() {
     this.loading = false;
@@ -288,6 +301,7 @@ export class LoginComponent implements OnInit {
           );
       }
     }
+   
   }
   onSubmitOTP() {
     // this.signup=false;

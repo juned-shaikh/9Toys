@@ -1,9 +1,6 @@
+<mg-header ></mg-header>
 <div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="height: auto;top:0px">
-  <!-- <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul> -->
+
 
   <div class="carousel-inner" style="height: 390px; border-radius: 9.5px!important;  overflow: hidden;">
     <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
