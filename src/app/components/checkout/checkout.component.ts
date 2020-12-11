@@ -270,6 +270,7 @@ save_promo2;
   // }
 
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
     if (
       sessionStorage.getItem("user_num") &&
       sessionStorage.getItem("user_num") != null && sessionStorage.getItem("user_num") != ''

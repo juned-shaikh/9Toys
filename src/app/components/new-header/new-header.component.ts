@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CartService} from "../../services/cart.service";
 import {CartModelServer} from "../../models/cart.model";
 import {NinetoysserviceService} from  '../../ninetoysservice.service'
@@ -7,12 +7,14 @@ import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 
 import { UserService } from "../../_services/user.service";
+
 @Component({
-  selector: 'mg-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'mg-new-header',
+  templateUrl: './new-header.component.html',
+  styleUrls: ['./new-header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class NewHeaderComponent implements OnInit {
+
   cartData: CartModelServer;
   newproduct;
   shows=false;
@@ -1003,48 +1005,10 @@ this.showsearch = !this.showsearch;
     }
   }
 header(data:number){
-  //add this js script into the web page,
-//you want reload once after first load
-
- console.log("header")
- setTimeout(function (){
-  document.getElementById("nav1").style.top="-70px"
-    },700)
-  let prevScrollpos = window.pageYOffset;
- // console.log(prevScrollpos)
-  window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-   // console.log(currentScrollPos)
   
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("nav1").style.top = "-70px";
-      document.getElementById("nav2").style.top="0";
-      
-    } else {
-      document.getElementById("nav1").style.top = "0";
-     
-      document.getElementById("nav2").style.top="-100px";
-    }
-  /* if(currentScrollPos==0){
-     document.getElementById("nav2").style.top="0";
-     document.getElementById("nav1").style.top="-70px"   
-   }else{
-     document.getElementById("nav2").style.top="-100px";
-     document.getElementById("nav1").style.top="0";
-   }*/
-    prevScrollpos = currentScrollPos;
-    if(prevScrollpos==0){
-      document.getElementById("nav2").style.top="0";
-      document.getElementById("nav1").style.top="-70px"   
-    }else{
-      document.getElementById("nav2").style.top="-50px";
-      document.getElementById("nav1").style.top="0";
-      this.shows=true;
-    }
-    
-  } 
 }
 
   
-   
+
+
 }

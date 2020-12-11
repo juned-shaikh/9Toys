@@ -6,7 +6,7 @@
 
 
 
-
+  <mg-new-header></mg-new-header>
 
 <div *ngIf="loader">
     <div style="background-color:#fff;" >
@@ -20,11 +20,11 @@
           </div>
         </mat-card-content>
         <mat-card-content *ngIf = "paymentStatus == 'Success'">
-          <img style="height:90px;width:185px;" src="assets/img/success.gif">
+          <img style="height:180px;width:285px;" src="../../../assets/img/5.jpg">
           <h4 class="pt-3" style="font-weight:600;">Success.!</h4>
 
 
-          <h6>Order Placed SuccessFully.</h6>
+          <h6 style="font-weight: 600; font-size: 1rem;font-family: sans-serif;">Order Placed SuccessFully.</h6>
 
           <div class="example-button-row pt-4 ">
             <button mat-raised-button class="bg-primary-color btn btn-primary"  routerLink="/">Back To Home</button>

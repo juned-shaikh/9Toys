@@ -12,6 +12,7 @@ export class WishlistComponent implements OnInit {
 
   public access_token = sessionStorage.getItem("access_token");
   public user_num = sessionStorage.getItem("user_num");
+  
   wishlist;
   product;
   counts;
@@ -26,6 +27,8 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
+    sessionStorage.setItem("headerone","1")
     this.adminService.fetchWishlist({user_num : this.user_num , access_token: this.access_token,comp_num:sessionStorage.getItem("comp_num_new"),}).subscribe(data => {
       
       if (data["status"] == "1") {

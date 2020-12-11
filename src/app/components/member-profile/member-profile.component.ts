@@ -39,6 +39,7 @@ private adminService: NinetoysserviceService,
   	) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("headerone","1")
     this.fetch_customer();
     this.compSettingsReferralAsk(this.comp_num);
   }

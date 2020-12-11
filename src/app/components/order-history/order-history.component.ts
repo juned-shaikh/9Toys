@@ -83,6 +83,7 @@ status_product_name;
     }
 
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
     this.loader=false;
     
     this.myFormReturn=this.fb.group({

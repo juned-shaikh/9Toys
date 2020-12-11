@@ -1,3 +1,4 @@
+
 <mat-card  class="">
     <div class="row justify-content-center">
       <div class="col-md-12 ">
@@ -13,6 +14,8 @@
           <div
             class="row mt-3" style="width: 98%;"  *ngFor="let address1 of address; let i = index"
               >
+              <mat-card>
+                <mat-card-content>
             <div class="col-md-12  add-more" style=" border-radius: 12px;">
               <div class="row cursor-pointer    font-weight-400 mt-1 mb-1" >
                <div class="col-md-11 col-6" >
@@ -29,7 +32,7 @@
                </div>
             
               <div class="d-flex justify-content-end col-md-1 pt-1 col-6">
-                <div class="dropdown dropleft">
+             <!--<div class="dropdown dropleft">
                   <a
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
@@ -59,7 +62,7 @@
                       ><i class="fas fa-trash-alt text-danger"></i>  delete</a
                     >
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
               <div class="row pl-3" style="color: black;">
@@ -83,7 +86,23 @@
                 <p>{{ address1.email }}</p>
              
               </div>
+              <a
+              class=" cursor-pointer btn btn-primary text-white ml-3"  style="color: white;"
+              (click)="
+                openXl(content2);
+                getAddressSpecific(address1.address_no)
+              "
+              ><i class="fas fa-pencil-alt text-white"></i>  Edit</a
+            >
+            <a
+              class=" cursor-pointer btn btn-danger text-white ml-3" style="color: white;"
+              (click)="removeAddress(address1.address_no)"
+              ><i class="fas fa-trash-alt text-white "></i>  delete</a
+            >
+         
             </div>
+          </mat-card-content>
+        </mat-card>
           </div>
         </mat-radio-group>
         
@@ -93,6 +112,8 @@
             class="row mt-3" style="width: 98%;"
             *ngFor="let address of addresses; let i = index" 
           >
+          <mat-card style="width: 100%;">
+            <mat-card-content>
             <div class="col-md-12  add-more" style=" border-radius: 12px;">
               <div class="row cursor-pointer    font-weight-400 mt-1 mb-1" >
                <div class="col-md-11 col-6" >
@@ -109,7 +130,7 @@
                </div>
             
               <div class="d-flex justify-content-end col-md-1 pt-1 col-6">
-                <div class="dropdown dropleft">
+               <!---<div class="dropdown dropleft">
                   <a
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
@@ -139,7 +160,7 @@
                       ><i class="fas fa-trash-alt text-danger"></i>  delete</a
                     >
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
               <div class="row pl-3">
@@ -161,12 +182,28 @@
               </div>
               <div class="row pl-3 project-discription">
                 <p>{{ address.email }}</p>
-             
+           
               </div>
             </div>
+            <a
+            class=" cursor-pointer btn btn-primary text-white ml-3" style="color: white;" 
+            (click)="
+              openXl(content2);
+              getAddressSpecific(address.address_no)
+            "
+            ><i class="fas fa-pencil-alt text-white "></i>  Edit</a
+          >
+          <a
+            class=" cursor-pointer btn btn-danger ml-3"  style="color: white;"
+            (click)="removeAddress(address.address_no)"
+            ><i class="fas fa-trash-alt text-white "></i>  delete</a
+          >  
+        </mat-card-content>
+          </mat-card>
           </div>
+     
         </mat-radio-group>
-        
+   
       </div>
 
 <!-- <div class="col-lg-3">
@@ -198,6 +235,7 @@ class="col-md-11  col-12 mx-auto mt-auto mb-auto"
           (click)="modal.dismiss('Cross click')"
           >close</mat-icon
         >
+        
         </div>
      
       </div>

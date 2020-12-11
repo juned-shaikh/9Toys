@@ -1,3 +1,4 @@
+<!--<p>new-header works!</p>-->
 <div class="nav" id="nav1" style="top: 10px;"> 
     <nav style="overflow: hidden;">
         <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
@@ -15,7 +16,7 @@
               aria-labelledby="navbarDropdown"
               
             >
-            <div class="profile-dropdown-node"></div> 
+            <div class="profile-dropdown-node"></div>
             <ul>
               <li class="brand-list"
                 *ngFor="let brand of brands | slice:0:9;"
@@ -44,11 +45,20 @@
   
             </div>
           </li>
-            <li *ngFor="let category of categories2; let i = index">
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" (click)="navigateCategory(category.name, category.category_no);">{{
-                  category.name
-                }} 
-                    </a>
+            <li *ngFor="let category of categories2; index as i">
+               
+                    <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
+                        category.name
+                      }} 
+                          </a>
+                          <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==1"  style="color: #F57222;" (click)="navigateCategory(category.name, category.category_no);">{{
+                            category.name
+                          }} 
+                              </a>
+                              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
+                                category.name
+                              }} 
+                                  </a>
                     
                 <ul class="mega-menu mega-menu--multiLevel">
                     <li  *ngFor="let categoryi of category.sub_category | slice:0:8;" (click)="navigateCategory(category.name, category.category_no)">
@@ -237,7 +247,7 @@
             </li>
   
             <li>
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Discover </a>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color:#CB1F3E">Discover </a>
                 <ul class="mega-menu mega-menu--multiLevel">
                   <li>
                       <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
@@ -444,7 +454,7 @@
             </li>
   
             <li>
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color: #872676;">Blog</a>
                 <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
                   <li>
                       <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>

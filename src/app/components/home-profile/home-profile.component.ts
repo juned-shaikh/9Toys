@@ -34,6 +34,7 @@ cust_reg_enable=false;
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("headerone","1")
     this.compSettingsCustReg();
     this.fetch_customer();
     this.adminService.get_profile({access_token:this.access_token,user_num:this.user_num, comp_num:this.comp_num_new}).subscribe(data=>{

@@ -27,7 +27,7 @@ export class AccountInfoComponent implements OnInit {
   public visibility = true;
   public visiblityoff = false;
 hide=true;
-hide1=true;
+hide1=true; 
 hide2=true;
   public visibility2 = true;
   public visiblityoff2 = false;
@@ -43,6 +43,7 @@ hide2=true;
     private formbuilder : FormBuilder) { }
 
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
     this.Changepassword = this.formbuilder.group({
       
       old_password : ['', Validators.required],

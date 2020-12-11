@@ -37,6 +37,7 @@ export class CheckoutStatusComponent implements OnInit {
      private cookie: CookieService) { }
 
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
      this.cookie.delete("product_id2");
     this.cookie.delete("rate_type");
     sessionStorage.removeItem("product_no2");
@@ -44,14 +45,21 @@ export class CheckoutStatusComponent implements OnInit {
     this.adminService.buy=false;
     this.cookie.set('buy_now_product',"false");
 
-    
+    this.reloadPage();
     
   	this.getPaymentStatus();
   	
 
   }
-
-
+reloadPage(){
+  console.log("reload")
+setTimeout(function(){
+this.reload();
+},700)
+}
+reload(){
+this.router.navigate([""])
+}
   getPaymentStatus() {
    
      this.api = interval(7000).pipe(startWith(0), switchMap(() => this.adminService.payment_status_check(this.data)));

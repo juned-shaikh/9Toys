@@ -24,15 +24,19 @@ import {OrderHistoryComponent} from './components/order-history/order-history.co
 import {ClientaddressComponent} from './components/clientaddress/clientaddress.component'
 import {AccountInfoComponent} from './components/account-info/account-info.component'
 import {MemberProfileComponent} from './components/member-profile/member-profile.component'
+import {HeaderComponent} from './components/header/header.component'
 const routes: Routes = [
 
   {path: 'category-page', component:CategoryPageComponent },
    {path: 'category-page/:id1/:id', component:CategoryPageComponent },
    {path: 'category-page/:id', component:CategoryPageComponent },
-
-  {
-    path: '', component: HomeComponent
-  },
+{
+  path:'',
+  component:HomeComponent,
+  
+ 
+},
+ 
   {
     path: 'login', component: LoginComponent
   },

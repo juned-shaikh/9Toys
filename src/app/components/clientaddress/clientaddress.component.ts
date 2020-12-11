@@ -255,7 +255,8 @@ save_promo2;
   // }
 
   ngOnInit() {
-     this.cookie.set('buy_now_product',"false");
+sessionStorage.setItem("headerone","1")
+    this.cookie.set('buy_now_product',"false");
 
     if(this.adminservice.buy == true){
       this.buy_now=true;

@@ -68,7 +68,10 @@ import {ToysComponent} from './components/toys/toys.component';
 import {AccountInfoComponent} from './components/account-info/account-info.component'
 import {OrderViewDetailsComponent} from './components/order-view-details/order-view-details.component'
 import {MemberProfileComponent} from './components/member-profile/member-profile.component'
-import {ClientaddressComponent} from './components/clientaddress/clientaddress.component'
+import {ClientaddressComponent} from './components/clientaddress/clientaddress.component';
+import {HeaderOneComponent} from './header-one/header-one.component'
+import {NewHeaderComponent} from './components/new-header/new-header.component'
+import {MatDividerModule} from '@angular/material/divider'
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +102,9 @@ import {ClientaddressComponent} from './components/clientaddress/clientaddress.c
     AccountInfoComponent,
     OrderHistoryComponent,
     OrderViewDetailsComponent,
-    ClientaddressComponent
+    ClientaddressComponent,
+    HeaderOneComponent,
+    NewHeaderComponent
     // HeaderOneComponent
   ],
   imports: [
@@ -139,7 +144,7 @@ MatRadioModule,
 NgbModalModule,
 MatSortModule,
 MatTableModule,
-
+MatDividerModule
 
 
 
