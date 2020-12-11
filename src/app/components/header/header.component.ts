@@ -172,6 +172,7 @@ qty_set;
             if(data['result']['is_active']=='Y'){
               sessionStorage.setItem("comp_num_new", data["result"].comp_num);
               this.comp_num_new = data["result"].comp_num;
+              console.log(this.comp_num_new+"header")
               this.medialinks(this.comp_num_new);
               this.basicCompany(this.comp_num_new);
             } else {
@@ -286,6 +287,7 @@ qty_set;
         this.ninetoys = true;
         this.ecomtrails = false;
         this.comp_num_new = sessionStorage.getItem('comp_num_new');
+        console.log("headercomp"+this.comp_num_new)
         this.adminService
           .get_host_link_of_comapny({
           comp_num : this.comp_num_new

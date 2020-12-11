@@ -202,12 +202,16 @@ export class LoginComponent implements OnInit {
              
              
               if (data["comp_num"] == "0" && data["usertype_id"] == "1") {
-             
-                //this.router.navigate([""]);
-              } else {
-                this.ngOnInit();
-                window.location.reload();
+               
                 this.router.navigate([""]);
+             
+              } else {
+              
+                this.router.navigate([""]);
+               
+         
+            
+
               }
             } else {
               this.loading = true;
@@ -227,7 +231,12 @@ export class LoginComponent implements OnInit {
             });
           }
         );
+       
     }
+  }
+  reloadPage(){
+    this.router.navigate([""])
+    window.location.reload();
   }
   onSubmitSign() {
     this.loading = false;
@@ -292,6 +301,7 @@ export class LoginComponent implements OnInit {
           );
       }
     }
+   
   }
   onSubmitOTP() {
     // this.signup=false;
