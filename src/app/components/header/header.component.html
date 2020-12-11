@@ -10,23 +10,23 @@
       <ul class="menu menu-bar" style="left: 327px;">
         
         
-          <li *ngFor="let category of categories2; index as i" >
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
-                category.name
-              }} 
-                  </a>
-                  <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==1"  style="color: #F57222;" (click)="navigateCategory(category.name, category.category_no);">{{
+          <li *ngFor="let category of categories2 ; index as  i">
+             
+                  <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
                     category.name
                   }} 
                       </a>
-                      <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
+                      <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==1"  style="color: #F57222;" (click)="navigateCategory(category.name, category.category_no);">{{
                         category.name
                       }} 
                           </a>
-                          
-                 
-              <ul class="mega-menu mega-menu--multiLevel" >
-                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8; index as i;" (click)="navigateCategory(category.name, category.category_no)">
+                          <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
+                            category.name
+                          }} 
+                              </a>
+              <ul class="mega-menu mega-menu--multiLevel" style="width: 450px;left: -220px;">
+                  <li  *ngFor="let categoryi of category.sub_category | slice:0:8;index as i" (click)="navigateCategory(category.name, category.category_no)" >
+                    
                       <a href="javascript:void(0);" *ngIf="i==0" style="color: #FDCC12;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                       <a href="javascript:void(0);" *ngIf="i==1" style="color:  #F57222;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                       <a href="javascript:void(0);" *ngIf="i==2" style="color: #CB1F3E;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
@@ -39,7 +39,7 @@
                       <a href="javascript:void(0);" *ngIf="i==9" style="color: #292967;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                       <ul class="menu menu-list" >
 
-                        <div class="container" style="width:700px" >
+                        <div class="container" style="width:1000px" >
                             <div class="row" >
                <div class="col first-column">
                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">Shop by Choice</h3>
@@ -68,7 +68,7 @@
                  
                   </div>      
                             </div>
-              <!-- <div class="col second-column">
+              <div class="col second-column">
                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">more Active Play &amp; Outdoor</h3>
                 <li *ngFor="let categoryi of category.sub_category"
                 style="list-style: none;text-align: center;" >
@@ -92,7 +92,7 @@
                       </div>
                </div>  
      </li>
-                            </div> -->
+                            </div>
                         
                             <div class="col first-column">
                               <div class="row" style="padding: 35px;">
@@ -154,73 +154,8 @@
                       </ul>
             
                   </li>
-                  <li>
-                      <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
-                      <ul class="menu menu-list">
-                          <li>
-                            <div class="row">
-                                <a>
-                                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwae4da86c/OurToys/ActivityPads/activitypads-coloring-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Coloring Books &amp; Pads</h5>
-                                </a>
-                                <a>
-                                    <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwce1bcec2/OurToys/ActivityPads/activitypads-drawing-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle">Drawing Pads</h5>
-                                </a>
-                               
-                                
-                              </div>
-                              <div class="row" style="padding-top: 10px;">
-                               
-                                <a>
-                                    <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw673a747a/OurToys/ActivityPads/activitypads-earlylearn-flyoutnav.jpg " width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Early Skill Builders</h5>
-                                </a>
-                                <a>
-                                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwa1081531/OurToys/ActivityPads/activitypads-spy-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle">Spy Mysteries</h5>
-                                </a>
-                               
-                                </div>
-                          </li>
-                          <!-- <li>
-                              <a href="/page" class="menu-link menu-list-link">1.2.2 Page link</a>
-                          </li> -->
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Art & Craft</a>
-                      <ul class="menu menu-list">
-                          <li>
-                           
-                            <div class="row">
-                                <a>
-                                    <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6edb9039/OurToys/BabyandToddler/babytoddler-books-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle" style="padding-right: 20px;"> Books </h5>
-                                </a>
-                                <a>
-                                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw48c851ab/OurToys/BabyandToddler/babytoddler-developmental-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle">Developmental Toys</h5>
-                                </a>
-                               
-                                
-                              </div>
-                              <div class="row" style="padding-top: 10px;">
-                               
-                                <a>
-                                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc3749fb2/OurToys/BabyandToddler/babytoddler-push-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Push pull Toys</h5>
-                                </a>
-                                <a>
-                                    <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6d7c45bf/OurToys/BabyandToddler/babytoddler-rocking-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                    <h5 class="extended-nav--subtitle">Ride on toys</h5>
-                                </a>
-                               
-                                </div>
-                          </li>
-                         
-                      </ul>
-                  </li>
+                
+               
                   <li>
                       <a href="/page" class="menu-link mega-menu-link">Kids toys Bundle</a>
                   </li>
@@ -234,7 +169,7 @@
           </li>
 
           <li>
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color: #292967;">Discover </a>
+              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color:#872676">Discover </a>
               <ul class="mega-menu mega-menu--multiLevel">
                 <li>
                     <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
@@ -446,7 +381,7 @@
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
-            aria-expanded="false" style="position: relative;top: 12px;">Brands</a>
+            aria-expanded="false" style="position: relative;top: 12px;color: #292967;" >Brands</a>
             <div
             class="dropdown-menu for-brands "
             aria-labelledby="navbarDropdown"
@@ -484,9 +419,9 @@
 
 
 
-          <li>
-              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" >Blog</a>
-              <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
+          <li style="position: relative;right:  27px;">
+              <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
+              <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;position: relative;">
                 <li>
                     <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>
                     <ul class="menu menu-list">
@@ -655,24 +590,9 @@
 
               <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
 
-              <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
-              <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
-            
-              <div class="dropdown1">
-                <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link"  style="font-size: 1rem;" ><i class="fa fa-user text-warning"></i></a></li>
-                <ul class="dropdown-content1">
-              <li ><a class="nav-link project-heading" routerLink="/My-Account"
-            ><i class="far fa-user text-center text-warning"></i> Account
-          </a></li>
-       <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
-          ><i class="far fa-heart text-center text-warning"></i> WishList
-        </a></li>
-        <li >
-        <a class="nav-link project-heading" (click)="logout()"
-        ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
-                </ul>
-              </div>
+              <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
               
+              <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
             </ul>
 
   </nav>
@@ -683,52 +603,12 @@
 <!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start --><!-- header 2 start -->
 
 <div class="nav" id="nav1" style="top: 10px;"> 
-    <nav style="overflow: hidden;">
+    <nav>
         <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
         <ul class="menu menu-bar" style="left: 30px;">
           <strong class="logo"><img src="assets/img/9logo.jpeg" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;"></strong>
-          <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
-              routerLink="/our-brand"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false" style="position: relative;top: 12px;" style="color: #CB1F3E;">Brands</a>
-              <div
-              class="dropdown-menu for-brands "
-              aria-labelledby="navbarDropdown"
-              
-            >
-            <div class="profile-dropdown-node"></div>
-            <ul>
-              <li class="brand-list"
-                *ngFor="let brand of brands | slice:0:9;"
-                style="list-style: none;"
-              >
-                <span 
-                  class=" cursor-pointer  text-titlecase "
-                  (click)="navigateBrand(brand.name,brand.brand_id)"
-                 
-                >
-                <!-- <div class="brand-circle"> -->
-                  <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
-                  {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
-                      : brand.name
-                  }} 
-                 <!-- </div> -->
-                 </span
-                >
-  
-             
-              </li>
-              <li>
-                <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
-              </li>
-            </ul>
-  
-            </div>
-          </li>
-            <li *ngFor="let category of categories2;  index as i">
+          
+            <li *ngFor="let category of categories2 | slice:1:89;index as i">
                 
                     <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
                       category.name
@@ -741,11 +621,10 @@
                             <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==2"  style="color: #CB1F3E;" (click)="navigateCategory(category.name, category.category_no);">{{
                               category.name
                             }} 
-                                </a>
-                    
-                <ul class="mega-menu mega-menu--multiLevel">
-                    <li  *ngFor="let categoryi of category.sub_category | slice:0:8; index as i" (click)="navigateCategory(category.name, category.category_no)">
-                       
+                                </a> 
+                <ul class="mega-menu mega-menu--multiLevel" style="width: 450px;">
+                    <li  *ngFor="let categoryi of category.sub_category ; index as i" (click)="navigateCategory(category.name, category.category_no)">
+                        <!-- <a href="javascript:void(0);"  class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a> -->
                         <a href="javascript:void(0);" *ngIf="i==0" style="color: #FDCC12;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                         <a href="javascript:void(0);" *ngIf="i==1" style="color:  #F57222;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
                         <a href="javascript:void(0);" *ngIf="i==2" style="color: #CB1F3E;" class="menu-link mega-menu-link" aria-haspopup="true">{{categoryi.name}}</a>
@@ -790,7 +669,7 @@
             </div>
                               <div class="col second-column">
                                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">more Active Play &amp; Outdoor</h3>
-                                <li *ngFor="let categoryi of category.sub_category; let i=index"
+                                <li *ngFor="let categoryi of category.sub_category"
                                 style="list-style: none;text-align: center;" >
               
                                <div class="container"  title="{{ categoryi.name }}" style="color: black;"
@@ -893,39 +772,7 @@
                         <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
                        
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Art & Craft</a>
-                        <ul class="menu menu-list">
-                            <li>
-                             
-                              <div class="row">
-                                  <a>
-                                      <span> <img src=" https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6edb9039/OurToys/BabyandToddler/babytoddler-books-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;"> Books </h5>
-                                  </a>
-                                  <a>
-                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw48c851ab/OurToys/BabyandToddler/babytoddler-developmental-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                      <h5 class="extended-nav--subtitle">Developmental Toys</h5>
-                                  </a>
-                                 
-                                  
-                                </div>
-                                <div class="row" style="padding-top: 10px;">
-                                 
-                                  <a>
-                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dwc3749fb2/OurToys/BabyandToddler/babytoddler-push-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                      <h5 class="extended-nav--subtitle" style="padding-right: 20px;">Push pull Toys</h5>
-                                  </a>
-                                  <a>
-                                      <span> <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-m-d-storefront-catalog/default/dw6d7c45bf/OurToys/BabyandToddler/babytoddler-rocking-flyoutnav.jpg" width="100px" height="100px" style="padding-right: 10px;"></span>
-                                      <h5 class="extended-nav--subtitle">Ride on toys</h5>
-                                  </a>
-                                 
-                                  </div>
-                            </li>
-                           
-                        </ul>
-                    </li>
+                    
                     <li>
                         <a href="/page" class="menu-link mega-menu-link">Kids toys Bundle</a>
                     </li>
@@ -939,7 +786,7 @@
             </li>
   
             <li>
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color: #CB1F3E;">Discover </a>
+                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color:#872676">Discover </a>
                 <ul class="mega-menu mega-menu--multiLevel">
                   <li>
                       <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
@@ -1145,7 +992,51 @@
               </ul>
             </li>
   
-            <li>
+
+            <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+              routerLink="/our-brand"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false" style="position: relative;top: 12px;color: #292967;">Brands</a>
+              <div
+              class="dropdown-menu for-brands "
+              aria-labelledby="navbarDropdown"
+              
+            >
+            <div class="profile-dropdown-node"></div>
+            <ul>
+              <li class="brand-list"
+                *ngFor="let brand of brands | slice:0:9;"
+                style="list-style: none;"
+              >
+                <span 
+                  class=" cursor-pointer  text-titlecase "
+                  (click)="navigateBrand(brand.name,brand.brand_id)"
+                 
+                >
+                <!-- <div class="brand-circle"> -->
+                  <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+                  {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                      : brand.name
+                  }} 
+                 <!-- </div> -->
+                 </span
+                >
+          
+             
+              </li>
+              <li>
+                <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+              </li>
+            </ul>
+          
+            </div>
+          </li>
+
+
+            <li style="position: relative;right: 27px;">
                 <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
                 <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
                   <li>
@@ -1202,6 +1093,7 @@
                       <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
                   </li>
               </ul>
+              
                 <!-- <ul class="mega-menu mega-menu--flat">
                     <li>
                         <a href="#" class="menu-link mega-menu-link mega-menu-header">3.1 Page link header</a>
@@ -1253,7 +1145,7 @@
   
   <!-- Search form -->
   <!-- Search form -->
-  
+ 
   <!-- Search form -->
               </ul>
           <ul style="display: flex;position: absolute;top: 10px;right: 183px;margin-right: 20px;">
@@ -1262,33 +1154,13 @@
               </div>
            </ul>
               <ul style="display: flex;position: absolute;top: 20px;right: 23px;margin-right: 20px;">
+               
                 <li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
-
-                <li class="nav-content-item" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
-                <li class="nav-content-item account-login" *ngIf="is_logged_out"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
-                
-                <div class="dropdown1">
-                  <li class="nav-content-item account-login" *ngIf="is_logged_in"><a class="nav-content-link" style="font-size: 1rem;"  ><i class="fa fa-user text-warning"></i></a></li>
-                  <ul class="dropdown-content1">
-                <li ><a class="nav-link project-heading" routerLink="/My-Account"
-              ><i class="far fa-user text-center text-warning"></i> Account
-            </a></li>
-         <li ><a class="nav-link project-heading" routerLink="My-Account/wishlist"
-            ><i class="far fa-heart text-center text-warning"></i> WishList
-          </a></li>
-          <li >
-          <a class="nav-link project-heading" (click)="logout()"
-          ><i class="fas fa-user-lock text-center text-warning"></i> Logout</a></li>
-                  </ul>
-                </div>
-                
-                <!--<li class="nav-content-item" ><a routerLink="/new-cart"><i class="fas fa-shopping-cart"> {{ cart }}</i></a></li>
 
                 <li class="nav-content-item"><a class="nav-content-link"  routerLink="/wishlist"><i class="fas fa-heart"></i></a></li>
                 
-                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>-->
+                <li class="nav-content-item account-login"><a class="nav-content-link"  routerLink="/login"><i class="fas fa-user-circle"></i></a></li>
               </ul>
   
     </nav>
   </div>
-  
