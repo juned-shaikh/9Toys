@@ -375,53 +375,10 @@
             </ul>
           </li>
 
-          <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
-            routerLink="/our-brand"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false" style="position: relative;top: 12px;color: #292967;" >Brands</a>
-            <div
-            class="dropdown-menu for-brands "
-            aria-labelledby="navbarDropdown"
-            
-          >
-          <div class="profile-dropdown-node"></div>
-          <ul>
-            <li class="brand-list"
-              *ngFor="let brand of brands | slice:0:9;"
-              style="list-style: none;"
-            >
-              <span 
-                class=" cursor-pointer  text-titlecase "
-                (click)="navigateBrand(brand.name,brand.brand_id)"
-               
-              >
-              <!-- <div class="brand-circle"> -->
-                <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
-                {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
-                    : brand.name
-                }} 
-               <!-- </div> -->
-               </span
-              >
-  
-           
-            </li>
-            <li>
-              <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
-            </li>
-          </ul>
-  
-          </div>
-        </li>
-
-
-
-          <li style="position: relative;right:  27px;">
+          
+          <li >
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
-              <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;position: relative;">
+              <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;overflow: hidden;">
                 <li>
                     <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>
                     <ul class="menu menu-list">
@@ -487,7 +444,47 @@
           </li>
 
       <!-- Search form -->
+      <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+        routerLink="/our-brand"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false" style="position: relative;top: 12px;color: #292967;" >Brands</a>
+        <div
+        class="dropdown-menu for-brands "
+        aria-labelledby="navbarDropdown"
+        
+      >
+      <div class="profile-dropdown-node"></div>
+      <ul>
+        <li class="brand-list"
+          *ngFor="let brand of brands | slice:0:9;"
+          style="list-style: none;"
+        >
+          <span 
+            class=" cursor-pointer  text-titlecase "
+            (click)="navigateBrand(brand.name,brand.brand_id)"
+           
+          >
+          <!-- <div class="brand-circle"> -->
+            <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+            {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                : brand.name
+            }} 
+           <!-- </div> -->
+           </span
+          >
 
+       
+        </li>
+        <li>
+          <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+        </li>
+      </ul>
+
+      </div>
+    </li>
 <!-- Search form -->
 <!-- Search form -->
 
@@ -560,7 +557,7 @@
                         <i class="fa fa-search mr-3 ml-3" ></i>
   
                         <a
-                          routerLink="/product/{{
+                          routerLink="/view-product/{{
                             getSlug(
                               product.name,
                               product.product_no,
@@ -993,50 +990,10 @@
             </li>
   
 
-            <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
-              routerLink="/our-brand"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false" style="position: relative;top: 12px;color: #292967;">Brands</a>
-              <div
-              class="dropdown-menu for-brands "
-              aria-labelledby="navbarDropdown"
-              
-            >
-            <div class="profile-dropdown-node"></div>
-            <ul>
-              <li class="brand-list"
-                *ngFor="let brand of brands | slice:0:9;"
-                style="list-style: none;"
-              >
-                <span 
-                  class=" cursor-pointer  text-titlecase "
-                  (click)="navigateBrand(brand.name,brand.brand_id)"
-                 
-                >
-                <!-- <div class="brand-circle"> -->
-                  <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
-                  {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
-                      : brand.name
-                  }} 
-                 <!-- </div> -->
-                 </span
-                >
-          
-             
-              </li>
-              <li>
-                <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
-              </li>
-            </ul>
-          
-            </div>
-          </li>
+            
 
 
-            <li style="position: relative;right: 27px;">
+            <li >
                 <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
                 <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
                   <li>
@@ -1130,11 +1087,48 @@
                 </ul> -->
             </li>
           
-            <!-- <li>
-                <a href="/" class="menu-link menu-bar-link">Mission</a>
-                
-            </li> -->
-  
+            <!--brand start -->
+            <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
+              routerLink="/our-brand"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false" style="position: relative;top: 12px;color: #292967;">Brands</a>
+              <div
+              class="dropdown-menu for-brands "
+              aria-labelledby="navbarDropdown"
+              
+            >
+            <div class="profile-dropdown-node"></div>
+            <ul>
+              <li class="brand-list"
+                *ngFor="let brand of brands | slice:0:9;"
+                style="list-style: none;"
+              >
+                <span 
+                  class=" cursor-pointer  text-titlecase "
+                  (click)="navigateBrand(brand.name,brand.brand_id)"
+                 
+                >
+                <!-- <div class="brand-circle"> -->
+                  <img class="brand-circle-img"  src="{{brand.image_location}}" onerror="this.src='assets/img/favicon1.png';" >  
+                  {{ brand.name.length > 40 ? (brand.name | slice: 0:40) + "..."
+                      : brand.name
+                  }} 
+                 <!-- </div> -->
+                 </span
+                >
+          
+             
+              </li>
+              <li>
+                <span class="text-danger cursor-pointer" routerLink="/our-brand" *ngIf="brands.length > 9">+ more brands</span>
+              </li>
+            </ul>
+          
+            </div>
+          </li>
             <!-- <li class="mobile-menu-header">
                 <a href="/" class="">
                     <span>Home</span>

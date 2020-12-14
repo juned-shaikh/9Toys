@@ -1004,8 +1004,10 @@ this.showsearch = !this.showsearch;
       });
     }
   }
-header(data:number){
   
+header(data:number){
+  var time= setTimeout(window.location.reload,1000)
+clearTimeout(time)
 }
 
   
