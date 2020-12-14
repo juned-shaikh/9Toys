@@ -98,8 +98,25 @@ registerForm2:FormGroup
                   access_token: sessionStorage.getItem("access_token")
                 });
   }
-
+ 
   ngOnInit() {
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
     sessionStorage.setItem("headertwo","0")
     this.adminService
     .get_host_link({
@@ -382,7 +399,7 @@ this.fetch_categories(this.comp_num_new)
         skipLocationChange: true
       })
       .then(() => 
-      this.router.navigate(["/view-product", slug]));
+      this.router.navigate(["/view-product", slug]).then(()=>{window.location.reload();}));
 
     }
   }
