@@ -1005,7 +1005,8 @@ this.showsearch = !this.showsearch;
     }
   }
 header(data:number){
-  
+ var time= setTimeout(window.location.reload,600)
+clearTimeout(time)
 }
 
   

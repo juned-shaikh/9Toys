@@ -1394,17 +1394,17 @@ count=0;
     window.scroll(0, 0);
     if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
       .then(() => this.router.navigate(["/Admin/preview/product", slug]));
 
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/product", slug]));
+      .then(() =>this.router.navigate(["/view-product", slug]).then(()=>{window.location.reload();}));
 
     }
    

@@ -29,6 +29,18 @@ export class HomeComponent implements OnInit {
   username = sessionStorage.getItem("username");
   email = sessionStorage.getItem("email");
   nm;
+  banner_group_a=0;
+  banner_group_b=0;
+  banner_group_c=0;
+   banner_group_d=0;
+  banner_group_e=0;
+
+  banner_group_linkd=0;
+  banner_group_linke=0;
+
+  banner_group_linka=0;
+  banner_group_linkb=0;
+  banner_group_linkc=0;
   public showsearch =false;
   public showsearchr =false;
   searchFocus = false;
@@ -87,7 +99,7 @@ registerForm2:FormGroup
    comp_num_new;
   previewFlag = sessionStorage.getItem('previewFlag');
   constructor(private productService: ProductService,
-              private cartService: CartService,
+              private cartService: CartService, 
               private router:Router,
               private adminService:NinetoysserviceService,
               public snackbar: MatSnackBar,private cookie:CookieService,private formBuilder:FormBuilder) {
@@ -100,6 +112,34 @@ registerForm2:FormGroup
   }
 
   ngOnInit() {
+  
+    this.adminService.ninetoysBanner({access_token:this.access_token,user_num:this.user_num,comp_num:this.comp_num_new}).subscribe(data=>{
+      if(data['status']==1){ 
+        this.bannerdata = data['result']; 
+        window.location.reload();
+      console.log(this.bannerdata)
+        }  
+           
+        
+  		
+      // else if(data['status']==0){
+      // sessionStorage.clear();
+      //  this.snackbar.open('Slider Is Not Fetch. ','' ,{
+      //           duration: 3000,
+      //           horizontalPosition:'center',
+      //   });      
+     
+      // }
+      else{
+
+      }
+  	},
+  	error=>{
+  		
+    	}
+    );
+   
+    this.home_reload();
     sessionStorage.setItem("headertwo","0")
     this.adminService
     .get_host_link({
@@ -382,7 +422,7 @@ this.fetch_categories(this.comp_num_new)
         skipLocationChange: true
       })
       .then(() => 
-      this.router.navigate(["/view-product", slug]));
+      this.router.navigate(["/view-product", slug]).then(()=>{window.location.reload();}));
 
     }
   }
@@ -416,14 +456,14 @@ this.fetch_categories(this.comp_num_new)
     return this.adminService.getGalleryThumbnail2(thumbnail2);
   }
  
-  bannerImage(dd) {
+  /*bannerImage(dd) {
     this.adminService
       .fetch_banner_image({
         comp_num: dd
       })
       .subscribe(data => {
         if (data["status"] == 1) {
-          this.bannerdata = data["data"];
+         // this.bannerdata = data["data"];
          // this.bannerData1=data['data'].value
          console.log(this.bannerdata)
           console.log(data['data'])
@@ -432,7 +472,7 @@ this.fetch_categories(this.comp_num_new)
           this.banner = false;
         }
       });
-  }
+  }*/
   topSellingProducts(dd) {
     this.adminService
       .topSellingProducts({
@@ -738,7 +778,56 @@ this.ngOnInit();
       }
     }
   }
-  
+  bannerImage(dd) {
+    this.adminService
+      .fetch_banner_image({
+        comp_num: dd
+      })
+      .subscribe(data => {
+        if (data["status"] == 1) {
+          this.bannerdata = data["data"];
+          
+          if(this.bannerdata.value.banner_image_a_group){
+            this.banner_group_a=1;
+            if(this.bannerdata.value.banner_image_a_group_type=="link"){
+              this.banner_group_linka=1;
+            }
+
+          }
+          if(this.bannerdata.value.banner_image_b_group){
+            this.banner_group_b=1;
+            if(this.bannerdata.value.banner_image_b_group_type=="link"){
+              this.banner_group_linkb=1;
+            }
+          }
+          if(this.bannerdata.value.banner_image_c_group){
+            this.banner_group_c=1;
+            if(this.bannerdata.value.banner_image_c_group_type=="link"){
+              this.banner_group_linkc=1;
+            }
+          }
+
+           if(this.bannerdata.value.banner_image_d_group){
+            this.banner_group_d=1;
+            if(this.bannerdata.value.banner_image_d_group_type=="link"){
+              this.banner_group_linkd=1;
+            }
+          }
+           if(this.bannerdata.value.banner_image_e_group){
+            this.banner_group_e=1;
+            if(this.bannerdata.value.banner_image_e_group_type=="link"){
+              this.banner_group_linke=1;
+            }
+          }
+          this.banner = true;
+         
+        } else if (data["status"] == 0) {
+          this.banner = false;
+        }
+      });
+     
+    }
+ 
   rates(product) {
     // if (
     //   this.registerForm2.controls.user_num.value == null ||
@@ -839,4 +928,19 @@ this.ngOnInit();
         this.ngOnInit();
       }
     }
+    home_reload(){
+      this.router.navigate([""]).then(()=>{
+        var  time=setTimeout(window.location.reload,500)
+        clearTimeout(time);
+      });
+      var  time=setTimeout(window.location.reload,500)
+      console.log(time)
+        clearTimeout(time);
+        
+        
+    }
+    
+     //starts the carousel
+
+
 }
