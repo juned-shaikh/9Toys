@@ -110,7 +110,7 @@ registerForm2:FormGroup
                   access_token: sessionStorage.getItem("access_token")
                 });
   }
-
+ 
   ngOnInit() {
   
     this.adminService.ninetoysBanner({access_token:this.access_token,user_num:this.user_num,comp_num:this.comp_num_new}).subscribe(data=>{

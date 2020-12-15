@@ -468,10 +468,13 @@ color: white;
   margin-bottom: auto;
   overflow: hidden;
   margin-top: auto;
-  height: 40px;
+  // height: 40px;
   background-color: #f7f7f7;
   border-radius: 5px;
   padding: 6px;
+  position: relative;
+  left: 45px;
+  width: 280px;
   }
   
   .search_input{
@@ -489,8 +492,8 @@ color: white;
   
   .searchbar:hover > .search_input{
   padding: 0 10px;
-  min-width: 320px;
-  max-width: 390px;
+  min-width: 250px;
+  max-width: 300px;
   left: 0;
   /* caret-color:black;
   transition: width 0.4s ; */
@@ -499,7 +502,7 @@ color: white;
   .searchbar:hover > .search_icon{
   // background: white;
   color: #e74c3c;
-  position: relative;top: 5px;left: 7px;
+  position: absolute;top: 5px;left: 7px;
   }
   
   .search_icon{
