@@ -1,14 +1,21 @@
 <mg-new-header></mg-new-header>
-<div class="container" *ngIf="signup == 0" style="margin-top: 10px;">
+
+
+
+<div class="card" style="margin-top: 20px;margin-bottom: 20px;">
+  <h1 class="cardTitle">Login</h1>
+  <div class="formCon">
+    <input type="text" class="form" placeholder="Username"/>
+    <input type="password" class="form" placeholder="Password"/>
+    <button type="submit" class="loginBtn">LOGIN</button>
+  </div>
+</div>
+<!-- <div class="container" *ngIf="signup == 0" style="margin-top: 10px;">
     <div class="jumbotron">
       <div class="row">
         <div class="col-md-6 d-flex mx-auto flex-column ">
           <h4 class="text-uppercase " style="margin: auto;"><strong>Login Admin</strong></h4>
-        <!--<ng-container >
-            <div class="alert alert-danger alert-dismissible text-center">
-              
-            </div>
-          </ng-container>-->
+       
           <form [formGroup]="loginForm">
             <div class="form-group">
               <label for="email">Email</label>
@@ -25,11 +32,7 @@
               [disabled]="!loading"  >Login</button>
               <hr>
               <p>Don't have an account?<span  ><a  (click)="onSubmitSign()" class="cursor-pointer text-primary"> click here!</a></span></p>
-            <!---<h4 class="text-uppercase"><strong>Login Using</strong></h4>-->
-  
-            <!--- <button  class="btn btn-danger btn-sm btn-block mt-4"><span><i
-                class="fa fa-google"></i> Google </span>
-              </button>-->
+          
             </div>
           </form>
   
@@ -37,30 +40,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <!--<div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-    
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-    
-        <div class="modal-body">
-          Modal body..
-        </div>
-        
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>-->
-  <body *ngIf="signup == 1">
+  </div> -->
+ 
+  <!-- <body *ngIf="signup == 1">
   
     <div class="panda">
       <div class="ear"></div>
@@ -286,4 +268,4 @@
   </div>
   
  
-  
+   -->

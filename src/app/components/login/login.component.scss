@@ -1,0 +1,82 @@
+html{
+    background-color: #D0DDE4;
+    padding: 20px;
+  }
+  .card{
+    position: relative;
+    width: 450px;
+    height: 350px;
+    margin: auto;
+    // background-color: rgb(255, 255, 255);
+    border:none;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 8px 8px 16px #a2afb5,
+                -8px -8px 16px #eafbff;
+  }
+  .cardTitle{
+    color: #476283;
+    font-family: sans-serif;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+  .formCon{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .form{
+    position: relative;
+    width: calc(100% - 40px);
+    line-height:45px;
+    font-size: 17px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    background-color: #fff;
+    box-shadow: inset 5px 5px 7px #B2C8D3, 
+                inset -5px -5px 10px #F2FCFF;
+    outline-style: none;
+    border: none;
+    border-radius: 50px;
+  }
+  .form::placeholder{
+    color: #93A2B4;
+  }
+  .loginBtn{
+    outline: none;
+    border: none;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 15px;
+    font-size: 17px;
+    font-weight:700;
+    color: white;
+    background: linear-gradient(90deg, rgba(146, 255,192, 0.85), rgba(62, 117, 203, 0.85));
+    border-radius: 100px;
+    box-shadow: 5px 5px 15px #a2afb5,
+                -5px -5px 15px #eafbff;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  .loginBtn:active{
+    box-shadow: none;
+  }
+  
+  /*
+  If you find it hard to play with box-shadow property,
+  you can try reading this article:
+  https://css-tricks.com/neumorphism-and-css/
+  
+  Or use this neumorphism generator instead:
+  https://neumorphism.io/ 
+  */
