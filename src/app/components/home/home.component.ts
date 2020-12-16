@@ -951,16 +951,16 @@ this.count = this.count+1;
     // let slug = name.replace(/\s+/g, '-') + "-?product_no=" + id  + "&marketplace=ECOMTRAILS";
         if(this.previewFlag == '1'){
           this.router
-          .navigateByUrl("/RefreshComponent", {
+          .navigateByUrl("/", {
             skipLocationChange: true
           })
-          .then(() => this.router.navigate(["/Admin/preview/product", slug]));
+          .then(() => this.router.navigate(["/view-product", slug]));
         }else{
           this.router
-          .navigateByUrl("/RefreshComponent", {
+          .navigateByUrl("/", {
             skipLocationChange: true
           })
-          .then(() => this.router.navigate(["/product", slug]));
+          .then(() => this.router.navigate(["/view-product", slug]));
 
         }
     }
