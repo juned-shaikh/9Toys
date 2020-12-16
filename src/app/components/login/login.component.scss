@@ -5,7 +5,7 @@ html{
   .card{
     position: relative;
     width: 450px;
-    height: 350px;
+    height: 380px;
     margin: auto;
     // background-color: rgb(255, 255, 255);
     border:none;
@@ -61,7 +61,7 @@ html{
     font-size: 17px;
     font-weight:700;
     color: white;
-    background: linear-gradient(90deg, rgba(146, 255,192, 0.85), rgba(62, 117, 203, 0.85));
+    background: linear-gradient(90deg,#F57222, #CB1F3E);
     border-radius: 100px;
     box-shadow: 5px 5px 15px #a2afb5,
                 -5px -5px 15px #eafbff;

@@ -1193,12 +1193,10 @@
   
   }
 
-  // model blur
-  body.modal-open .background-container{
-    -webkit-filter: blur(4px);
-    -moz-filter: blur(4px);
-    -o-filter: blur(4px);
-    -ms-filter: blur(4px);
-    filter: blur(4px);
-   
+  // model issue
+  .modal {
+    padding-right: 0px !important;
+}
+.modal-dialog{
+  padding-right: 0px !important;
 }
