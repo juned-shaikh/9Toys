@@ -515,6 +515,10 @@
 // .searchBox:hover i{
 //     color: #fff;
 // }
+
+
+
+// new seach start
 * {
   margin: 0;
   padding: 0;
@@ -545,12 +549,12 @@ body {
   height: 35px;
   font-size: 15px;
   float: right;
-  border: 3px #ccc solid;
+  border: 0px #ccc solid;
   border-radius: 50%;
   background: #fff;
   /* LINK FOR SEARCH ICON
    https://www.pinclipart.com/picdir/big/485-4851736_free-png-search-icon-search-icon-free-download.png */
-  background-image: url("https://www.pinclipart.com/picdir/big/485-4851736_free-png-search-icon-search-icon-free-download.png");
+  background-image: url("https://www.seekpng.com/png/full/131-1318583_we-are-enabling-hospital-providers-to-collaborate-on.png");
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -571,3 +575,5 @@ body {
   background-position-x: 97%;
   box-shadow: 0 0 10px 0 #7f7f7f;
 }
+
+// end
