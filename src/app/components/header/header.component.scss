@@ -600,6 +600,7 @@ margin-bottom: auto;
 overflow: hidden;
 margin-top: auto;
 height: 40px;
+    width: min-content;
 background-color: #f7f7f7;
 border-radius: 5px;
 padding: 6px;
@@ -631,12 +632,15 @@ transition: width 0.4s ; */
 .searchbar:hover > .search_icon{
 background: white;
 color: #e74c3c;
-padding:3px;
+padding:4px;
 }
 
 .search_icon{
 height: 30px;
+position:relative
+top:-22;
 width: 30px;
+
 float: left;
 display: flex;
 justify-content: center;
