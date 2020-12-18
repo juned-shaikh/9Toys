@@ -23,6 +23,7 @@ import { saveAs } from 'file-saver';
   templateUrl: './order-view-details.component.html',
   styleUrls: ['./order-view-details.component.scss']
 })
+
 export class OrderViewDetailsComponent implements OnInit {
 public orders: any = null;
   // public order_id: any;
@@ -89,7 +90,7 @@ myFormAcceptMulti:FormGroup
  
 
   constructor(
-  	 private snackbar:MatSnackBar,
+     private snackbar:MatSnackBar,
     private route: ActivatedRoute,
     private router: Router,
     private adminservice: NinetoysserviceService,
@@ -143,10 +144,10 @@ this.adminservice.fetch_order_with_orderrandomid({orderRandomId:this.orderRandom
           
     //         this.orders = data["result"];
     //         for(let i=0;i<this.orders.length;i++){
-    //         	for (let j=0;j<this.orders[i].order_inventory.length;j++){
+    //          for (let j=0;j<this.orders[i].order_inventory.length;j++){
     //             this.orders[i].order_inventory[j].order_number=this.orders[i].order_number;
-    //         		this.order_inventory.push(this.orders[i].order_inventory[j]);
-    //         	}
+    //            this.order_inventory.push(this.orders[i].order_inventory[j]);
+    //          }
 
     //         }
     //          this.noOrder=true;
@@ -232,10 +233,10 @@ getOrdersHistory() {
           
             this.orders = data["result"];
             for(let i=0;i<this.orders.length;i++){
-            	for (let j=0;j<this.orders[i].order_inventory.length;j++){
+              for (let j=0;j<this.orders[i].order_inventory.length;j++){
                 this.orders[i].order_inventory[j].order_number=this.orders[i].order_number;
-            		this.order_inventory.push(this.orders[i].order_inventory[j]);
-            	}
+                this.order_inventory.push(this.orders[i].order_inventory[j]);
+              }
 
             }
              this.noOrder=true;
@@ -270,7 +271,7 @@ getOrdersHistory() {
     return this.adminservice.getGalleryImage(image);
   }
   sendOrderId(order_id){
-  				 this.adminservice.fetch_order_detail_without_token({access_token:this.access_token,user_num:this.user_num,comp_num_new:this.comp_num_new,order_id:this.order_id}).subscribe(
+           this.adminservice.fetch_order_detail_without_token({access_token:this.access_token,user_num:this.user_num,comp_num_new:this.comp_num_new,order_id:this.order_id}).subscribe(
       data => {
 
         
@@ -367,9 +368,7 @@ getOrdersHistory() {
       order_item_id.push(order_item_id2.order_inventory[k].order_item_id);
    
     }
-      this.adminservice
-      .cancel_order_by_user(
-        { comp_num: sessionStorage.getItem("comp_num_new"),
+    var post2={ comp_num: sessionStorage.getItem("comp_num_new"),
         
         user_num:this.user_num,
       access_token:this.access_token,
@@ -377,8 +376,12 @@ getOrdersHistory() {
       parcel_no:parcel_no,
       order_id:order_id
 
-      }
-        )
+      };
+      console.log(post2);
+
+      this.adminservice
+      .cancel_order_by_user(
+        post2        )
       .subscribe(data => {
         if (data["status"] == 1) {
          
@@ -468,8 +471,8 @@ return_start(order_id,order_item_id,order_number){
                       access_token:this.access_token,
                       order_inventories:this.myFormSplit.value["order_item_id"],
                       return_comment:this.myFormReturn.controls.return_comment.value,
-                      reason:this.valuesSplit.parcel_no,
-                      order_id:this.valuesSplit.order_id
+                      reason:this.valuesSplit[0].parcel_no,
+                      order_id:this.valuesSplit[0].order_id
               
                       };
               flag2=1;
@@ -479,6 +482,7 @@ return_start(order_id,order_item_id,order_number){
          }
       }
       if(flag2==1){
+        console.log(post);
     // order_item_id.push(this.myFormReturn.controls.order_item_id.value);
       this.adminservice
       .update_return_initiate(
@@ -590,18 +594,52 @@ return_start(order_id,order_item_id,order_number){
 
       var res = confirm("Are you sure you want to cancel this order.");
       if(res){
-      
-        this.adminservice
-        .cancel_order_by_user(
-          { comp_num: sessionStorage.getItem("comp_num_new"),
+        var inventories=[];
+        var parcel_in=[];
+        console.log(myForm["order_item_id"]);
+         console.log(myForm["id"]);
+          
+        for(let i=0;i<myForm["id"].length;i++){
+          var status=0;
+        
+           for(let j=0;j<parcel_in.length;j++){
+            
+             if(parcel_in[j]==myForm["id"][i]){
+               status=1;
+             }
+             
+           }
+           if(status==0){
+             parcel_in.push(myForm["id"][i]);
+           }
+        }
+        console.log(parcel_in);
+        for(let i=0;i<parcel_in.length;i++){
+          var inv=[];
+          for(let j=0;j<myForm['order_item_id'].length;j++){
+            if(parcel_in[i]==myForm['id'][j]){
+              inv.push(myForm['order_item_id'][j]);
+            }
+          }
+          console.log(inv);
+          inventories.push({parcel_no:parcel_in[i],order_inventories:inv});
+        }
+        console.log(inventories);
+      var post2= { comp_num: sessionStorage.getItem("comp_num_new"),
           
           user_num:this.user_num,
         access_token:this.access_token,
         order_inventories:myForm["order_item_id"],
         parcel_no:this.valuesSplit.parcel_no,
-        order_id:this.valuesSplit.order_id
-  
-        }
+        order_id:this.valuesSplit[0].order_id,
+  inventories:inventories
+        };
+        console.log(post2);
+ console.log(this.valuesSplit);
+
+        this.adminservice
+        .cancel_order_by_user_multiple_parcel(
+         post2
           )
         .subscribe(data => {
           if (data["status"] == 1) {
@@ -610,6 +648,8 @@ return_start(order_id,order_item_id,order_number){
               duration: 3000,
               horizontalPosition:'center',
           }); 
+             this.modalService.dismissAll('Save click');
+         
           this.router.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
           this.router.navigate(['/home_profile/order-history']));          
             
@@ -668,15 +708,17 @@ this.dataSourceSplit = new MatTableDataSource(this.valuesSplit);
       this.dataSourceSplit.sort = this.sort; 
       this.masterToggleSplit(true);
 
-      var emailFormArray = <FormArray>this.myFormSplit.controls.order_item_id;
-console.log(emailFormArray)
-  for (let z=0;z<this.valuesSplit.length;z++) {
-   // console.log(this.valuesSplit.order_inventory[z].order_item_id);
-    if(this.valuesSplit[z].method_status==true){
+//       var emailFormArray = <FormArray>this.myFormSplit.controls.order_item_id;
+// console.log(emailFormArray)
+//   var emailFormArray2 = <FormArray>this.myFormSplit.controls.id;
+
+  // for (let z=0;z<this.valuesSplit.length;z++) {
+  //  // console.log(this.valuesSplit.order_inventory[z].order_item_id);
+  //   if(this.valuesSplit[z].method_status==true){
    
-        emailFormArray.push(new FormControl(this.valuesSplit[z].order_item_id));
-    }
-  }
+  //       emailFormArray.push(new FormControl(this.valuesSplit[z].order_item_id));
+  //   }
+  // }
   }
    // start split
 isAllSelectedSplit() {
@@ -687,23 +729,30 @@ isAllSelectedSplit() {
 
  removeCheckWithoutClearSplit() {
   var emailFormArray2 = <FormArray>this.myFormSplit.controls.order_item_id;
+ 
+  var emailFormArray2_id = <FormArray>this.myFormSplit.controls.id;
   for (var i = 0; i < this.valuesSplit.length; i++) {
     let index = emailFormArray2.controls.findIndex(
       x => x.value == this.valuesSplit[i].order_item_id
     );
     emailFormArray2.removeAt(index);
+emailFormArray2_id.removeAt(index);
 
   }
   //console.log(emailFormArray2);
 }
-onChangeDemoSplit(order_item_id: string, isChecked: boolean) {
+onChangeDemoSplit(order_item_id: string, isChecked: boolean,parcel_no) {
   var emailFormArray = <FormArray>this.myFormSplit.controls.order_item_id;
+ var emailFormArray_id = <FormArray>this.myFormSplit.controls.id;
 
   if (isChecked) {
     emailFormArray.push(new FormControl(order_item_id));
+  emailFormArray_id.push(new FormControl(parcel_no));
+ 
   } else {
     let index = emailFormArray.controls.findIndex(x => x.value == order_item_id);
     emailFormArray.removeAt(index);
+    emailFormArray_id.removeAt(index);
   }
   //console.log(emailFormArray);
 }
@@ -714,6 +763,8 @@ masterToggleSplit(isChecked: boolean) {
     : this.dataSourceSplit.data.forEach(row => this.selectionSplit.select(row));
 
   var emailFormArray2 = <FormArray>this.myFormSplit.controls.order_item_id;
+ var emailFormArray2_id = <FormArray>this.myFormSplit.controls.id;
+ 
   if (isChecked) {
     // code...
 
@@ -722,6 +773,7 @@ masterToggleSplit(isChecked: boolean) {
     for (var i = 0; i < this.valuesSplit.length; i++) {
       if(this.valuesSplit[i].method_status==true){
            emailFormArray2.push(new FormControl(this.valuesSplit[i].order_item_id));
+          emailFormArray2_id.push(new FormControl(this.valuesSplit[i].parcel_no));
   
       }
      }
@@ -734,11 +786,14 @@ masterToggleSplit(isChecked: boolean) {
 removeCheckSplit() {
   this.selectionSplit.clear();
   var emailFormArray = <FormArray>this.myFormSplit.controls.order_item_id;
+ 
+  var emailFormArray_id = <FormArray>this.myFormSplit.controls.id;
   for (var i = 0; i < this.valuesSplit.length; i++) {
     let index = emailFormArray.controls.findIndex(
       x => x.value == this.valuesSplit[i].order_item_id
     );
     emailFormArray.removeAt(index);
+  emailFormArray_id.removeAt(index);
 
   }
   //console.log(emailFormArray);

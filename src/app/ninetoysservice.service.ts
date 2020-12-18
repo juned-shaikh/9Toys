@@ -258,6 +258,13 @@ checkUserExist(data) {
       data
     );
   }
+
+  // vendor order
+  cancel_order_by_user_multiple_parcel(data){
+    return this.https.post(this.baseUrl + "order_vendor/cancel_order_by_user_multiple_parcel", data);
+
+  }
+  
   cancel_order_by_user(data){
     return this.https.post(this.baseUrl + "order_vendor/cancel_order_by_user", data);
     
@@ -730,6 +737,7 @@ fetch_brand_with_name(data){
   getImage(image): string {
     return this.uploadUrlApi + "product/gallery/images/" + image;
   }
+
   getFile(image): string {
     return this.uploadUrlApi + image;
   }
@@ -1083,6 +1091,8 @@ fetch_brand_with_name(data){
     return this.https.post(this.baseUrl + "admin/year_month_wise_sell", data);
 
   }
+
+
 
   // start for reports
 getPickupReport(data) {
