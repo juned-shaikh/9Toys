@@ -3,10 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
-import {CartComponent} from "./components/cart/cart.component";
+// import {CartComponent} from "./components/cart/cart.component";
 
-import {ProductComponent} from "./components/product/product.component";
-import {ThankyouComponent} from "./components/thankyou/thankyou.component";
+// import {ProductComponent} from "./components/product/product.component";
+// import {ThankyouComponent} from "./components/thankyou/thankyou.component";
 import {NewCartComponent} from "./components/new-cart/new-cart.component";
 
 import {WishlistComponent} from "./components/wishlist/wishlist.component"
@@ -43,16 +43,16 @@ const routes: Routes = [
   {
     path: 'register', component: RegisterComponent
   },
-  {
-    path: 'product/:id', component: ProductComponent
-  },
-  {
-    path: 'cart', component: CartComponent
-  },
+  // {
+  //   path: 'product/:id', component: ProductComponent
+  // },
+  // {
+  //   path: 'cart', component: CartComponent
+  // },
  
-  {
-    path: 'thankyou', component: ThankyouComponent
-  },
+  // {
+  //   path: 'thankyou', component: ThankyouComponent
+  // },
   {
     path:"wishlist",
     component:WishlistComponent
