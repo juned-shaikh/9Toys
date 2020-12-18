@@ -1686,7 +1686,7 @@ if (
       });
   }
 
-  navigateCategory(name, id) {
+ navigateCategory(name, id) {
     // this.router.navigate(['/category', id]);
     // let slug = name.replace(/\s/, "-") + "-?" + id;
     let slug =
@@ -1698,14 +1698,14 @@ if (
     window.scroll(0, 0);
     if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/Admin/preview/shop", slug]));
+      .then(() => this.router.navigate(["/shop", slug]));
 
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
       .then(() => this.router.navigate(["/shop", slug]));
