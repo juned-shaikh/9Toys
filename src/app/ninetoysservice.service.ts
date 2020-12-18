@@ -30,6 +30,8 @@ export class NinetoysserviceService {
   cartShow$ = this.cartShow.asObservable();
   private productSource = new BehaviorSubject({});
   currentList = this.productSource.asObservable();
+  public cartShow = new Subject<any>();
+  cartShow$ = this.cartShow.asObservable();
   //***************************BULK UPLOAD APIS **********************************************
 
   changeProductList(list) {
@@ -252,12 +254,30 @@ checkUserExist(data) {
     );
   }
   fetchBrandsEcom(data) {
-    return this.https.post(
+    return this.https.post( 
       this.baseUrl + "user/fetch_brand_all_for_comp_ecom",
       data
     );
   }
+  cancel_order_by_user(data){
+    return this.https.post(this.baseUrl + "order_vendor/cancel_order_by_user", data);
+    
+    }
+    update_return_initiate(data){
+      return this.https.post(this.baseUrl + "order_vendor/update_return_initiate", data);
+      
+      }
+      returnInitiate(data) {
+      return this.https.post(this.baseUrl + "admin/return_initiate", data);
+      }
+      reason_dropdown(data){
+        return this.https.post(this.baseUrl + "user_log/reason_dropdown", data);
+        
+        }      
+  fetch_customer_registration(data){
+    return this.https.post(this.baseUrl + "associates/fetch_customer_registration", data);
 
+  }
   otpGenerate(data) {
     return this.https.post(this.baseUrl + "user/otpGenerate", data);
   }
@@ -267,7 +287,15 @@ checkUserExist(data) {
   resendOtpVerify(data) {
     return this.https.post(this.baseUrl + "user/resendOtpVerify", data);
   }
-
+  shipyari_awb_track_lifecycle(data){
+    return this.https.post(this.baseUrl + "user_log/shipyari_awb_track_lifecycle", data);
+    
+    }
+    print_invoice(data){
+      return this.https.post("https://bun.ecomtrails.com/get_invoice", data,{responseType: "blob",
+      observe: "response"});
+      
+      }
   //**********************************ADMIN APIS*************************************************
 
   //login and registration apis

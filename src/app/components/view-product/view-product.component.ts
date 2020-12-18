@@ -32,7 +32,9 @@ export class ViewProductComponent implements OnInit {
   public product_no = sessionStorage.getItem("pno");
   categories;
   size_with_color=[];
+  product_image1;
   estimate_count=0;
+  imageView1;
   loader;
   ship_ask=true;
   cart_check=false;
@@ -40,6 +42,8 @@ export class ViewProductComponent implements OnInit {
   addresses;
   rating_option=true;
   percentmain;
+  img1;
+  product1;
   percentmain1=0;
   percentmain2=0;
   percentmain3=0;
@@ -51,6 +55,7 @@ export class ViewProductComponent implements OnInit {
   coloring;
   otpForm: FormGroup;
     items23=[];
+    items24=[];
 
   // items23: GalleryItem[];
   sizing;
@@ -135,7 +140,14 @@ ecomtrails = false;
   host_link;
   is_national=false;
   is_estimate=false;
+  
   ngOnInit() {
+   
+     
+    
+    
+    sessionStorage.setItem("headerone","1")
+
     window.scroll(0, 0);
     this.main = location.origin;
 
@@ -197,6 +209,8 @@ ecomtrails = false;
       delivery_postcode:[""],
       weight:[""]
     });
+
+    
 //start 21/08/2020
 this.compSettings();
 this.compSettings2();
@@ -425,7 +439,9 @@ this.compSettings_buyNowOption();
        this.sizing=this.product_groups[index].size;
      }
     this.imageView = this.product.image[0].image_link;
+    this.imageView1=this.product_image1[0].image_link;
     this.img = this.imageView;
+    this.img1=this.imageView1
      this.product_rate = this.product.rates;
 
       this.ratings = this.product_groups[index].ratings;
@@ -484,7 +500,9 @@ this.compSettings_buyNowOption();
        this.coloring=this.product_groups[index].color;
      }
       this.imageView = this.product.image[0].image_link;
+      this.imageView1=this.product_image1[0].image_link;
       this.img = this.imageView;
+      this.img1=this.imageView1
        this.product_rate =this.product.rates;
 
         this.ratings = this.product_groups[index].ratings;
@@ -513,6 +531,7 @@ pro['access_token']=sessionStorage.getItem('access_token');
        
         if (data["status"] == 1) {
           this.product = data["product"];
+          this.product1=data["product"];
            this.loader=true;
            if(this.userC==true){
              this.wishlist_num=data['wishlist_num'];
@@ -553,14 +572,20 @@ if(this.userC==true){
 
 
           this.product_image = data["product_image"];
+          this.product_image1=data["product_image"]
 
           this.imageView = this.product_image[0].image_link;
+          this.imageView1=this.product_image1[0].image_link;
 
 
           this.img = this.imageView;
 
-        
+
+        this.img1=this.imageView1
           
+        for(let y=0;y<this.product_image1.length;y++){
+          this.items24[y]={ src: this.product_image1[y].image_link, thumb: this.product_image1[y].image_link };
+        }
           for(let y=0;y<this.product_image.length;y++){
             this.items23[y]={ src: this.product_image[y].image_link, thumb: this.product_image[y].image_link };
           }
@@ -582,6 +607,7 @@ if(this.userC==true){
         // Load items into the lightbox gallery ref
         //console.log(this.items23);
         lightboxRef.load(this.items23);
+        lightboxRef.load(this.items24);
          
           
 
@@ -857,16 +883,20 @@ if(this.userC==true){
 
 
           this.product_image = data["product_image"];
-
+this.product_image1=data["product_image"]
           this.imageView = this.product_image[0].image_link;
-
+          this.imageView1=this.product_image1[0].image_link;
 
           this.img = this.imageView;
 
-        
+        this.img1=this.imageView1
           for(let y=0;y<this.product_image.length;y++){
             this.items23[y]={ src: this.product_image[y].image_link, thumb: this.product_image[y].image_link };
           }
+          for(let y=0;y<this.product_image1.length;y++){
+            this.items24[y]={ src: this.product_image1[y].image_link, thumb: this.product_image1[y].image_link };
+          }
+
           //console.log(this.items23);
           
           
@@ -886,7 +916,7 @@ if(this.userC==true){
         });
         // Load items into the lightbox gallery ref
         lightboxRef.load(this.items23);
-         
+         lightboxRef.load(this.items24);
           
 
           this.ratings = data["ratings"];
@@ -1392,17 +1422,17 @@ count=0;
     window.scroll(0, 0);
     if(this.previewFlag == '1'){
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
       .then(() => this.router.navigate(["/Admin/preview/product", slug]));
 
     }else{
       this.router
-      .navigateByUrl("/RefreshComponent", {
+      .navigateByUrl("/", {
         skipLocationChange: true
       })
-      .then(() => this.router.navigate(["/product", slug]));
+      .then(() =>this.router.navigate(["/view-product", slug]).then(()=>{window.location.reload();}));
 
     }
    
@@ -1578,8 +1608,13 @@ if (
  
   Image(image) {
     this.imageView = image;
+    
     this.img = this.imageView;
     
+  }
+  Image1(image){
+    this.imageView1=image;
+    this.img1=this.imageView1;
   }
   // view_product(){
 
@@ -1762,6 +1797,7 @@ estim(){
 }
 basicLightboxExample() {
   this.gallery.ref().load(this.items23);
+  this.gallery.ref().load(this.items24);
 }
   
 // start 13/08/2020 Priyangee for update cart
@@ -2172,6 +2208,7 @@ img_preview(){
         // Load items into the lightbox gallery ref
         //console.log(this.items23);
         lightboxRef.load(this.items23);
+        lightboxRef.load(this.items24);
          
           
 }

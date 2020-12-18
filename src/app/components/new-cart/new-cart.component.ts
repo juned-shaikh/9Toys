@@ -95,6 +95,7 @@ private prodCount = 0;
     }
   }*/
   ngOnInit() {
+    sessionStorage.setItem("headerone","1")
         this.compSettings2(this.comp);
 
     if (

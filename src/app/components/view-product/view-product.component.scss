@@ -1184,3 +1184,19 @@
     top: 40%;
     left: 35%;
   }
+
+
+  // height set 
+  #pic-1 {
+    max-height: 470px; min-height: unset; height: -webkit-fill-available; 
+    
+  
+  }
+
+  // model issue
+  .modal {
+    padding-right: 0px !important;
+}
+.modal-dialog{
+  padding-right: 0px !important;
+}

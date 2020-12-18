@@ -1,11 +1,13 @@
-<div id="demo" class="carousel slide main-slider mb-2" data-ride="carousel" *ngIf="banner" style="height: auto;top:0px">
+
+<mg-header ></mg-header>
+<div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner">
   <!-- <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul> -->
 
-  <div class="carousel-inner" style="height: 390px; border-radius: 9.5px!important;  overflow: hidden;">
+  <div class="carousel-inner">
     <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
       <img src="{{ bannerdata.value.banner_image_a }}" />
     </div>
@@ -36,7 +38,6 @@
     <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
   </a>
 </div>
-
 <!-- SECTION -->
 <!-- <div class="" style="top: 50px;" >
   <img src="assets/img/Melissa.png">
@@ -122,7 +123,7 @@
   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5" style="padding-left: 87px;">
     <!-- row -->
     <h3 class="title2" >Featured Products</h3>
-    <div class="row" >
+    <div  class="flex no-wrap" >
       <div class="card">
         <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw91a2b36e/Homepage/Passion/MDAAP-plp-pretend-play-banner-1.jpg" >
         <div class="card-content">

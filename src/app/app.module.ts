@@ -8,11 +8,11 @@ import {FooterComponent} from './components/footer/footer.component';
 import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
-import {CartComponent} from './components/cart/cart.component';
+// import {CartComponent} from './components/cart/cart.component';
 
  import {HttpClientModule} from "@angular/common/http";
-import {ProductComponent} from './components/product/product.component';
-import {ThankyouComponent} from './components/thankyou/thankyou.component';
+// import {ProductComponent} from './components/product/product.component';
+// import {ThankyouComponent} from './components/thankyou/thankyou.component';
 
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule,NgModel} from "@angular/forms";
@@ -27,7 +27,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 
 
-
+import {FileSaver} from 'file-saver'
 
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
@@ -57,7 +57,23 @@ import {CheckoutStatusComponent} from './components/checkout-status/checkout-sta
 import { CategoryPageComponent } from './components/category-page/category-page.component';
 import {OurBrandComponent} from './components/our-brand/our-brand.component'
 import {ToysComponent} from './components/toys/toys.component';
-// import { HeaderOneComponent } from './header-one/header-one.component';
+//import {WindowRefService} from './window-ref.service'
+ // import { HeaderOneComponent } from './header-one/header-one.component';
+ import {HomeProfileComponent} from './components/home-profile/home-profile.component'
+ import {CustomerProfileComponent} from './components/customer-profile/customer-profile.component'
+ import {OrderHistoryComponent} from './components/order-history/order-history.component'
+ import {MatSortModule} from "@angular/material/sort"
+ import{MatTableModule} from '@angular/material/table'
+ import {SelectionModel} from '@angular/cdk/collections'
+import {AccountInfoComponent} from './components/account-info/account-info.component'
+import {OrderViewDetailsComponent} from './components/order-view-details/order-view-details.component'
+import {MemberProfileComponent} from './components/member-profile/member-profile.component'
+import {ClientaddressComponent} from './components/clientaddress/clientaddress.component';
+
+import {NewHeaderComponent} from './components/new-header/new-header.component'
+import {MatDividerModule} from '@angular/material/divider'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,10 +82,10 @@ import {ToysComponent} from './components/toys/toys.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CartComponent,
+    // CartComponent,
    
-    ProductComponent,
-    ThankyouComponent,
+    // ProductComponent,
+    // ThankyouComponent,
     WishlistComponent,
     NewCartComponent,
   
@@ -82,6 +98,15 @@ import {ToysComponent} from './components/toys/toys.component';
     CategoryPageComponent,
     OurBrandComponent,
     ToysComponent,
+    HomeProfileComponent,
+    CustomerProfileComponent,
+    MemberProfileComponent,
+    AccountInfoComponent,
+    OrderHistoryComponent,
+    OrderViewDetailsComponent,
+    ClientaddressComponent,
+   
+    NewHeaderComponent
     // HeaderOneComponent
   ],
   imports: [
@@ -119,6 +144,9 @@ MatTabsModule,
 MatRadioModule,
 // MatSelectModule,
 NgbModalModule,
+MatSortModule,
+MatTableModule,
+MatDividerModule
 
 
 
@@ -128,6 +156,7 @@ NgbModalModule,
     AuthGuard,
     AuthenticationService,
     UserService,
+   
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]

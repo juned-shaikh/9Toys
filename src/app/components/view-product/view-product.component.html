@@ -1,4 +1,5 @@
-<!--<p>view-product works!</p>-->
+
+<mg-new-header></mg-new-header>
 <div *ngIf="loader">
 
     <section class="mt-3" style="padding-top: 0px;">
@@ -39,7 +40,7 @@
               </ul>
             </div>
 <!-- for mobile gallary -->
-            <div class="col-md-2 col-3 d-block d-md-none d-lg-none">
+            <div class="col-md-2 col-3 d-block d-md-none d-lg-none" style="position: fixed;">
 
               <ul class="preview-thumbnail nav nav-tabs  mt-1 row " >
                 <li class="col-12 col-md-12" style="display: inherit!important;"
@@ -82,7 +83,7 @@
             
               <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
                 <pinch-zoom>
-                  <img src="{{img}}" alt="" data-toggle="modal" data-target="#exampleModal">
+                  <img src="{{img}}"  alt="" data-toggle="modal" data-target="#exampleModal" height="470px">
                 </pinch-zoom>
                 
                <!---<app-zoom [img]="img" [zoom]="2" [lenSize]="120"    class="new-image-show  d-none d-lg-block d-xl-block"   [divZoomed]="divZoomed" ></app-zoom>
@@ -248,7 +249,7 @@
                   <span class="font-weight-400 cursor-pointer" routerLink="/home">  Home </span>
                   <div *ngFor="let pcat of product_category; let i = index" class="font-weight-400 category-click cursor-pointer" title="{{pcat.name}}" (click)="navigateCategory(pcat.name, pcat.category_no)">
                     
-                 /<a  class=""> {{ (pcat.name.length>20)? (pcat.name | slice:0:20)+'...':(pcat.name)  | titlecase }}  </a>
+                 /<a  class="" (click)="navigateCategory(pcat.name, pcat.category_no)"> {{ (pcat.name.length>20)? (pcat.name | slice:0:20)+'...':(pcat.name)  | titlecase }}  </a>
                     
                   </div>
                 </div>
@@ -274,11 +275,11 @@
               
               </div>
               <!-- //heading -->
-              <h5 class="product-title font-weight-600 pt-1 " style="font-family: sans-serif; color: black;">{{ product.name }}  <span  *ngIf="product.color != null || product.color != null" class="" >(<span *ngIf="product.color != null" ><span class="text-muted pl-2 pr-2" >{{ product.color }}</span></span> -<span *ngIf="product.size != null"> <span class="text-muted  pl-2 pr-2">{{ product.size }}</span></span>)</span> </h5>    
+              <h5 class="product-title font-weight-600 pt-1 " style="font-family: sans-serif; color: black;padding-top: 3px;">{{ product.name }}  <span  *ngIf="product.color != null || product.color != null" class="" >(<span *ngIf="product.color != null" ><span class="text-muted pl-2 pr-2" >{{ product.color }}</span></span> -<span *ngIf="product.size != null"> <span class="text-muted  pl-2 pr-2">{{ product.size }}</span></span>)</span> </h5>    
               <!-- //subheading -->
               
            
-              <h6 class="product-title1 pt-2" style="font-family: sans-serif;color: gray;">{{ product.subheading }}</h6>
+              <h6 class="product-title1 pt-2" style="padding-top: 3px;font-family: sans-serif;color: gray;">{{ product.subheading }}</h6>
           
           
             <div *ngIf="ratings != 0 && rating_option==true">
@@ -291,7 +292,7 @@
 
             <div *ngIf="product_rate.length != 0" class="row  mb-2">
             
-                    <div class="row ">
+                    <div class="row " style="padding-top: 5px;">
 
                   
               <div *ngFor="let prates of product_rate" class="d-flex  col-lg-12">
@@ -632,6 +633,7 @@
                   />
                 </div>
                 <!-- </a> -->
+                
                 <!-- start for wishlist,cart  -->
 <ul *ngIf="nprd2.txn_quantity < '1'">
  <li>
@@ -863,15 +865,15 @@
 
     </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999!important;">
-      <div class="modal-dialog  modal-xl" style="z-index: 111111;" style="padding-top: 45px;width: 900px;height: 500px;">
+      <div class="modal-dialog  modal-xl" style="z-index: 111111;" style="padding-top: 45px;width: 900px;height: 400px;">
         <div class="modal-content" >
            <div class="modal-header">
-            <h4 class=" font-weight-600 m-0 project-heading" style="margin-left: 16px;">{{ product?.name }}  </h4>    
+            <h4 class=" font-weight-600 m-0 project-heading" style="margin-left: 16px;">{{ product1?.name }}  </h4>    
               <button type="button" class="close btn btn-secondry" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" >&times;</span>
               </button>
             </div>
-          <div class="modal-body">
+          <div class="modal-body" style="height: 470px;">
             <section class="mt-2">
               
                       <div class="row wrapper">
@@ -893,13 +895,7 @@
                     
                       <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
                          <pinch-zoom>
-                          <img src="{{img}}" alt="" style="text-align: center;
-                          max-width: 100%;
-                          min-width: 99%;
-                          max-height: 400px;
-                          min-height: 400px;
-                          object-fit: contain;
-                          margin: auto;" >
+                          <img src="{{img1}}" alt="" height="400px" >
                          </pinch-zoom>
                          
                       
@@ -942,18 +938,18 @@
             <div class="preview-thumbnail nav nav-tabs  mt-1 row "  >
               <ul>
                 <li class="col-12 col-md-12 border border-info"  style="list-style: none;"
-                *ngFor="let image1 of product_image | slice:0:6;let s=index"
+                *ngFor="let image1 of product_image1 | slice:0:6;let s=index"
                 class="active cursor-pointer"  
               >
                 <a  
                   data-target="#pic-1" 
                   matTooltip="more product image "
                   data-toggle="tab"
-                  (click)="Image(image1.image_link)"
+                  (click)="Image1(image1.image_link)"
                 >
                   <img 
                     
-            src="{{items23[s].thumb}}"
+            src="{{items24[s].thumb}}" 
                     onerror="this.src='assets/img/favicon1.png';"
                     alt="Product Image"
                     class=" p-1"
@@ -961,7 +957,7 @@
                     width="80"
                 />
               </a> 
-                <span *ngIf="product_image > 5" style="color: white;">more</span>
+                <span *ngIf="product_image1 > 5" style="color: white;">more</span>
                
             </li>
           </ul>
