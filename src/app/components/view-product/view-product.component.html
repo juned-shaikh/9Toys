@@ -40,7 +40,7 @@
               </ul>
             </div>
 <!-- for mobile gallary -->
-            <div class="col-md-2 col-3 d-block d-md-none d-lg-none">
+            <div class="col-md-2 col-3 d-block d-md-none d-lg-none" style="position: fixed;">
 
               <ul class="preview-thumbnail nav nav-tabs  mt-1 row " >
                 <li class="col-12 col-md-12" style="display: inherit!important;"
@@ -249,7 +249,7 @@
                   <span class="font-weight-400 cursor-pointer" routerLink="/home">  Home </span>
                   <div *ngFor="let pcat of product_category; let i = index" class="font-weight-400 category-click cursor-pointer" title="{{pcat.name}}" (click)="navigateCategory(pcat.name, pcat.category_no)">
                     
-                 /<a  class=""> {{ (pcat.name.length>20)? (pcat.name | slice:0:20)+'...':(pcat.name)  | titlecase }}  </a>
+                 /<a  class="" (click)="navigateCategory(pcat.name, pcat.category_no)"> {{ (pcat.name.length>20)? (pcat.name | slice:0:20)+'...':(pcat.name)  | titlecase }}  </a>
                     
                   </div>
                 </div>
@@ -275,11 +275,11 @@
               
               </div>
               <!-- //heading -->
-              <h5 class="product-title font-weight-600 pt-1 " style="font-family: sans-serif; color: black;">{{ product.name }}  <span  *ngIf="product.color != null || product.color != null" class="" >(<span *ngIf="product.color != null" ><span class="text-muted pl-2 pr-2" >{{ product.color }}</span></span> -<span *ngIf="product.size != null"> <span class="text-muted  pl-2 pr-2">{{ product.size }}</span></span>)</span> </h5>    
+              <h5 class="product-title font-weight-600 pt-1 " style="font-family: sans-serif; color: black;padding-top: 3px;">{{ product.name }}  <span  *ngIf="product.color != null || product.color != null" class="" >(<span *ngIf="product.color != null" ><span class="text-muted pl-2 pr-2" >{{ product.color }}</span></span> -<span *ngIf="product.size != null"> <span class="text-muted  pl-2 pr-2">{{ product.size }}</span></span>)</span> </h5>    
               <!-- //subheading -->
               
            
-              <h6 class="product-title1 pt-2" style="font-family: sans-serif;color: gray;">{{ product.subheading }}</h6>
+              <h6 class="product-title1 pt-2" style="padding-top: 3px;font-family: sans-serif;color: gray;">{{ product.subheading }}</h6>
           
           
             <div *ngIf="ratings != 0 && rating_option==true">
@@ -292,7 +292,7 @@
 
             <div *ngIf="product_rate.length != 0" class="row  mb-2">
             
-                    <div class="row ">
+                    <div class="row " style="padding-top: 5px;">
 
                   
               <div *ngFor="let prates of product_rate" class="d-flex  col-lg-12">

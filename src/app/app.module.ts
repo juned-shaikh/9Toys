@@ -8,11 +8,11 @@ import {FooterComponent} from './components/footer/footer.component';
 import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
-import {CartComponent} from './components/cart/cart.component';
+// import {CartComponent} from './components/cart/cart.component';
 
  import {HttpClientModule} from "@angular/common/http";
-import {ProductComponent} from './components/product/product.component';
-import {ThankyouComponent} from './components/thankyou/thankyou.component';
+// import {ProductComponent} from './components/product/product.component';
+// import {ThankyouComponent} from './components/thankyou/thankyou.component';
 
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule,NgModel} from "@angular/forms";
@@ -82,10 +82,10 @@ import {MatDividerModule} from '@angular/material/divider'
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CartComponent,
+    // CartComponent,
    
-    ProductComponent,
-    ThankyouComponent,
+    // ProductComponent,
+    // ThankyouComponent,
     WishlistComponent,
     NewCartComponent,
   
