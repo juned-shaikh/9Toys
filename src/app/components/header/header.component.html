@@ -515,7 +515,7 @@
                     />
                     <a class="search_icon"
                       ><i
-                        class="fas fa-search" style="padding: 6px;"
+                        class="fas fa-search"
                         title="search"
                         (click)="
                           navigateCategory(
@@ -530,7 +530,7 @@
                         class="d-flex align-items-center mt-2 mb-1 cursor-pointer category-hover"
                         *ngFor="let category of searchList.category | slice: 0:6"
                       >
-                        <i class="fa fa-search mr-3 ml-3" ></i>
+                        <i class="fa fa-search mr-3 ml-3"></i>
                         <a
                           (click)="
                             navigateCategory(category.name, category.category_no)
@@ -546,7 +546,7 @@
                         class="d-flex align-items-center cursor-pointer mt-1 category-hover"
                         *ngFor="let brand of searchList.brand | slice: 0:6"
                       >
-                        <i class="fa fa-search mr-3 ml-3" ></i>
+                        <i class="fa fa-search mr-3 ml-3"></i>
                         <a (click)="navigateBrand(brand.name, brand.brand_id)">
                           <div style="font-size: 12px">in {{ brand.name }}</div>
                         </a>
@@ -556,10 +556,10 @@
                         class="d-flex align-items-center category-hover"
                         *ngFor="let product of searchList.product | slice: 0:3"
                       >
-                        <i class="fa fa-search mr-3 ml-3" ></i>
+                        <i class="fa fa-search mr-3 ml-3"></i>
   
                         <a
-                          routerLink="/view-product/{{
+                          routerLink="/product/{{
                             getSlug(
                               product.name,
                               product.product_no,
