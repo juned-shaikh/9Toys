@@ -7,11 +7,18 @@
   box-shadow: 0 0 0 1px rgb(76, 83, 146);
 }
 
+.centerImage
+{
+ text-align:center;
+ display:block;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     background-color: #fafafa;
   }
 }
+
 
 // start
 body {
