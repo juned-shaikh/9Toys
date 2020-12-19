@@ -539,42 +539,122 @@
   align-items: center;
 }
 
-.search-form {
-  height: 110px;
-  width: 35%;
- border:none;
+
+
+.search {
+  width: 70px;
+  position: relative;
+  z-index: 109;
 }
 
-.searchbox {
-  width: 35px;
-  height: 35px;
-  font-size: 15px;
-  float: right;
- border:none;
-  border-radius: 5px;
-  background: #f7f7f7;
-  /* LINK FOR SEARCH ICON
-   https://www.pinclipart.com/picdir/big/485-4851736_free-png-search-icon-search-icon-free-download.png */
-  background-image: url("https://img.pngio.com/pricing-postandcouriercom-png-image-search-350_350.png");
-  background-size: 25px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transition: all 0.5s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.searchbox:hover {
-  cursor: pointer;
- 
-}
-
-.searchbox:focus {
-  cursor: text;
-  width: 200px;
-  border-radius: 5px;
+.search .mat-card {
+  padding: 0;
+  position: relative;
+  top: -10;
+  border: none;
   outline: none;
-  text-indent: 15px;
-  background-position-x: 97%;
-  /*box-shadow: 0 0 10px 0 #7f7f7f;*/
+  box-shadow: none;
+}
+.search input{
+ 
+    width: 100%;
+    border: .25px solid #781352;
+    /* border: none; */
+    font-size: 14px;
+    height: 38px;
+    border-radius: 21px;
+    padding: 5px 40px 5px 20px;
+
 }
 
-// end
+.search input:focus{
+  /* border:none; */
+  /* box-shadow: none; */
+  outline: none;
+}
+
+.search .mat-card .searchIcon{
+  font-size: 15px;
+  position: absolute;
+  right: 15px; color: green;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.search .searchItems{
+  position: absolute;
+  top:38px;
+  left: 0;
+  background-color: white;
+}
+.search .mat-card.searchItems > div{
+  padding: 0px 0px 0px 10px ;
+}
+
+
+// .search_icon{
+// height: 30px;
+// position:relative;
+// top:-22px;
+// width: 30px;
+
+// float: left;
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// border-radius: 50%;
+// color:white;
+// text-decoration:none;
+// }
+
+
+.searchbar{
+  margin-bottom: auto;
+  overflow: hidden;
+  margin-top: auto;
+  margin-right: 10px;
+  height: 40px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  padding: 6px;
+  }
+  
+  .search_input{
+  color: black;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 14px;
+  width: 0;
+  left: 0;
+  caret-color:transparent;
+  line-height: 25px;
+  transition: width 0.4s ;
+  }
+  
+  .searchbar:hover > .search_input{
+    padding: 0 10px;
+    min-width: 285px;
+    max-width: 385px;
+    left: 0;
+  }
+  
+  .searchbar:hover > .search_icon{
+  background: white;
+  color: #fdc809;
+  }
+  
+  .search_icon{
+    height: 30px;
+    width: 30px;
+    /* line-height: 2; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fdc809;
+    text-decoration: none;
+    padding: 6px;
+    }
