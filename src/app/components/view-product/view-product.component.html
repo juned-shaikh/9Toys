@@ -24,6 +24,7 @@
                     matTooltip="more product image "
                     data-toggle="tab"
                     (click)="Image(image.image_link)"
+                    style="cursor: pointer;"
                   >
                     <img 
                       
@@ -53,6 +54,7 @@
                     matTooltip="more product image "
                     data-toggle="tab"
                         (click)="Image(image.image_link)"
+                        style="cursor: pointer;"
                   >
                     <img 
                       
@@ -84,7 +86,7 @@
             
               <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
                 <pinch-zoom>
-                  <img src="{{img}}"  alt="" data-toggle="modal" data-target="#exampleModal" height="470px">
+                  <img src="{{img}}"  alt="" data-toggle="modal" data-target="#exampleModal" height="470px"  style="cursor: pointer;">
                 </pinch-zoom>
                 
                <!---<app-zoom [img]="img" [zoom]="2" [lenSize]="120"    class="new-image-show  d-none d-lg-block d-xl-block"   [divZoomed]="divZoomed" ></app-zoom>
