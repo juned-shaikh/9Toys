@@ -2,7 +2,7 @@
 <mg-new-header></mg-new-header>
 <div *ngIf="loader">
 
-    <section class="mt-3" style="padding-top: 0px;">
+    <section class="mt-3" style="padding-top: 50px;">
       <div class="container-fluid ">
         <!-- <div class="container"> -->
           <div class=" row justify-content-center">
@@ -897,7 +897,7 @@
                     
                       <div class="tab-pane active show-image1  cursor-pointer " id="pic-1 " >  
                          <pinch-zoom>
-                          <img src="{{img1}}" alt="" height="400px" >
+                          <img src="{{img1}}" alt="" height="400px" style="cursor: pointer;">
                          </pinch-zoom>
                          
                       
@@ -948,6 +948,7 @@
                   matTooltip="more product image "
                   data-toggle="tab"
                   (click)="Image1(image1.image_link)"
+                  style="cursor: pointer;"
                 >
                   <img 
                     
@@ -990,4 +991,4 @@
       </div>
     </div>
     
- <img class="sticky" src="9toyslogo.jpeg" alt="Avatar">
+

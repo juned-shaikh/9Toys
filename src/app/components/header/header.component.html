@@ -3,7 +3,7 @@
 <div class="nav1" id="nav2" > 
   <nav style=" width: max-content;">
       <div class="center" style="position: relative;left: 568px;" > 
-          <strong class="logo"><img src="assets/img/logo1.png" class="centerImage" routerLink="/" height="70px" width="200px" style="padding-right: 10px;margin-top: 10px;cursor:pointer;"></strong>
+          <strong class="logo"><img src="assets/img/logo1.png" class="center" routerLink="/" height="70px" width="200px" style="padding-right: 10px;margin-top: 10px;cursor:pointer;outline: none;"></strong>
     </div>
       <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
       <ul class="menu menu-bar" style="left: 327px;">
@@ -494,7 +494,7 @@
 
 <!-- end sach -->
 
-        <ul style="display: flex;position: absolute;top: 30px;right: 126px;margin-right: 20px;">
+        <ul style="display: flex;position: absolute;top: 27px;right: 119px;margin-right: 20px;">
            
                 <li class="nav-item">
                   <div class="searchbar d-none d-lg-block d-md-block d-xl-block">
@@ -524,7 +524,7 @@
                         "
                       ></i
                     ></a>
-                    <div *ngIf="searchFocus" class="searchItems shadow-sm">
+                    <div *ngIf="searchFocus" class="searchItems shadow-sm" style="width: 250px;">
                       <div
                         class="d-flex align-items-center mt-2 mb-1 cursor-pointer category-hover"
                         *ngFor="let category of searchList.category | slice: 0:6"
@@ -600,7 +600,7 @@
     <nav>
         <!-- <a href="javascript:void(0);" class="mobile-menu-trigger"><i class="fa fa-bar"></i></a> -->
         <ul class="menu menu-bar" style="left: 30px;">
-          <strong class="logo"><img src="assets/img/9logo.png" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;cursor: pointer;"></strong>
+          <strong class="logo"><img src="assets/img/9logo.png" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;cursor: pointer;outline: none;"></strong>
           
             <li *ngFor="let category of categories2 | slice:1:89;index as i">
                 
@@ -1139,7 +1139,7 @@
  
   <!-- Search form -->
               </ul>
-              <ul style="display: flex;position: absolute;top: 16px;right: 13px;margin-right: 130px;">
+              <ul style="display: flex;position: absolute;top: 14px;right: 13px;margin-right: 123px;">
                <!-- <ul class="nav navbar-nav navbar-right "> -->
               <li class="nav-item">
                 <div class="searchbar d-none d-lg-block d-md-block d-xl-block">
@@ -1169,7 +1169,7 @@
                       "
                     ></i
                   ></a>
-                  <div *ngIf="searchFocus" class="searchItems shadow-sm">
+                  <div *ngIf="searchFocus" class="searchItems shadow-sm" style="width: 250px;">
                     <div
                       class="d-flex align-items-center mt-2 mb-1 cursor-pointer category-hover"
                       *ngFor="let category of searchList.category | slice: 0:6"

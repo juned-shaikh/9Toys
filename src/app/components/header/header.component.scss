@@ -572,8 +572,8 @@ color: white;
   overflow: hidden;
   margin-top: auto;
   margin-right: 10px;
-  height: 40px;
-  background-color: #f7f7f7;
+  // height: 40px;
+  background-color: #fff;
   border-radius: 5px;
   padding: 6px;
   }
@@ -586,15 +586,15 @@ color: white;
   font-size: 14px;
   width: 0;
   left: 0;
-  caret-color:transparent;
+  // caret-color:transparent;
   line-height: 25px;
   transition: width 0.4s ;
   }
   
   .searchbar:hover > .search_input{
     padding: 0 10px;
-    min-width: 285px;
-    max-width: 385px;
+    min-width: 185px;
+    max-width: 285px;
     left: 0;
   }
   
