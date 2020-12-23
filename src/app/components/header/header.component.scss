@@ -485,20 +485,6 @@ color: white;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .search {
   width: 70px;
   position: relative;
@@ -582,7 +568,7 @@ color: white;
   color: black;
   border: 0;
   outline: 0;
-  background: none;
+  // background: green;
   font-size: 14px;
   width: 0;
   left: 0;
@@ -594,6 +580,7 @@ color: white;
   .searchbar:hover > .search_input{
     padding: 0 10px;
     min-width: 185px;
+    // background: chartreuse;
     max-width: 285px;
     left: 0;
   }
