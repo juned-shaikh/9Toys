@@ -5,19 +5,20 @@ html{
   .card{
     position: relative;
     width: 450px;
-    height: 380px;
+    min-height: 200px;
     margin: auto;
     // background-color: rgb(255, 255, 255);
     border:none;
     background-color: #fff;
-    border-radius: 50px;
-    box-shadow: 8px 8px 16px #a2afb5,
-                -8px -8px 16px #eafbff;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px #a2afb5,
+                -4px -4px 8px #eafbff;
   }
   .cardTitle{
-    color: #476283;
+    color: #ffca09;
     font-family: sans-serif;
     width: fit-content;
+    font-weight: 600;
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
@@ -31,22 +32,24 @@ html{
   .form{
     position: relative;
     width: calc(100% - 40px);
-    line-height:45px;
+    line-height:36px;
     font-size: 17px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-weight: 500;
+    text-align: center;
     padding-left: 20px;
     padding-right: 20px;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     margin-top: 5px;
     background-color: #fff;
     box-shadow: inset 5px 5px 7px #B2C8D3, 
                 inset -5px -5px 10px #F2FCFF;
     outline-style: none;
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
   }
   .form::placeholder{
     color: #93A2B4;
@@ -57,16 +60,53 @@ html{
     padding: 10px;
     padding-left: 50px;
     padding-right: 50px;
-    margin-top: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     font-size: 17px;
-    font-weight:700;
+    font-weight:600;
     color: white;
     background: linear-gradient(90deg,#F57222, #CB1F3E);
-    border-radius: 100px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 7px #a2afb5,
+                -2px -2px 7px #eafbff;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  .loginBtnfor{
+    outline: none;
+    border: none;
+    // padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight:600;
+    color: white;
+    background: linear-gradient(90deg,#F57222, #CB1F3E);
+    border-radius: 20px;
+    box-shadow: 2px 2px 7px #a2afb5,
+                -2px -2px 7px #eafbff;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  .loginBtndiable{
+    outline: none;
+    border: none;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: not-allowed;
+    font-size: 17px;
+    font-weight:600;
+    color: white;
+    background: linear-gradient(90deg,#F57222, #CB1F3E);
+    border-radius: 20px;
     box-shadow: 5px 5px 15px #a2afb5,
                 -5px -5px 15px #eafbff;
     transition: 0.3s ease;
-    cursor: pointer;
   }
   .loginBtn:active{
     box-shadow: none;
@@ -80,3 +120,9 @@ html{
   Or use this neumorphism generator instead:
   https://neumorphism.io/ 
   */
+  .modal{
+    margin: 10% auto;
+  }
+  .modal-header{
+    color: #ffca09;
+  }

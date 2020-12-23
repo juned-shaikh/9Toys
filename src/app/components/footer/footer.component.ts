@@ -109,6 +109,7 @@ export class FooterComponent implements OnInit {
           for (let n = 0; n < 3; n++) {
             this.more = true;
             this.categories2.push(this.categories[n]);
+            console.log(this.categories2);
           }
           this.menuShow = true;
         } else {
