@@ -658,6 +658,13 @@
   padding: 6px;
   }
   
+:hover > .searchbar{
+ 
+  background-color: #f7f7f7;
+  
+  }
+  
+  
   .search_input{
   color: black;
   border: 0;
@@ -670,10 +677,13 @@
   line-height: 25px;
   transition: width 0.4s ;
   }
+
+
   
   .searchbar:hover > .search_input{
     padding: 0 10px;
     min-width: 185px;
+    background:#f7f7f7;
     max-width: 285px;
     left: 0;
   }
