@@ -176,7 +176,7 @@
 
 
 <!-- banner start -->
-   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
+  <!--  <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
     <div class="col-md-12">
             <div class="section-title">
               <h3 class="title2" >Preschool Products</h3>
@@ -189,10 +189,26 @@
                 <img src="https://cdn.shopify.com/s/files/1/0088/7986/5907/files/pre_school2_9e54ba9b-7dbd-4b50-80b1-d2d95f3af8ba_1350x624.jpg"  height="350px">
               </div>
             </div>
-   </div>      
+   </div>   -->    
 <!-- banner end -->
 
-  
+  <!-- End Trending product view changes by Aman Verma 20/08/2020 -->
+         <div class="container-fluid d-none d-md-block d-lg-block d-xl-block " *ngIf="ninetoysbannerdata">
+         <div class="col-md-12">
+            <div class="section-title">
+              <h3 class="title2" >Preschool Products</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mt-2 banner-image-box-card pl-2" *ngIf="ninetoysbannerdata[0] != null">
+              <img src="{{ninetoysbannerdata[0].image_link}}" class="w-100 img-fluid img-banner"  onerror="this.src='assets/img/favicon1.png';">
+            </div>
+            <div class="col-md-6 mt-2 banner-image-box-card pr-2" *ngIf="ninetoysbannerdata[1] != null">
+                <img src="{{ninetoysbannerdata[1].image_link}}" class="w-100 img-fluid img-banner"  onerror="this.src='assets/img/favicon1.png';">
+            </div>
+          </div>
+        </div>
+        
 
 
 
@@ -238,7 +254,7 @@
                         <a  class="fa fa-shopping-cart" style="display: none;" *ngIf="nprd2.txn_quantity<1"></a>
                       </li>
                   </ul>
-                  <span class="product-new-label">New</span>
+                <!--   <span class="product-new-label">New</span> -->
               </div>
               <div class="product-content">
                   <h3 class="title"><a href="#">{{ (nprd2.name.length>60)? (nprd2.name | slice:0:35)+'...':(nprd2.name) }}</a></h3>
@@ -253,7 +269,7 @@
                   ></span>
                 </span>
                   </ul>
-                  <div class="price" style="text-decoration: none;">
+                  <div  class="price" style="text-decoration: none;">
                     <span *ngIf="nprd2.rate[0].is_rent == '1'" 
                     >{{ nprd2.rate[0].name }} @ {{ nprd2.rate[0].rate }}
                   </span>
@@ -265,11 +281,11 @@
                   >
                   <span *ngIf="nprd2.rate[0].is_rent == '2'"  style="text-decoration: none;"
                     >{{ nprd2.rate[1].name }} @ {{ nprd2.rate[1].rate }} </span
-                  ><br />
+                  >&nbsp;
                   <span
                     *ngIf="nprd2.rate[0].rate < nprd2.mrp" style="text-decoration: none;"
                     class="font-wieght-bold text-center for-you text-success"
-                    >Discount : {{ nprd2.rate[0].discount_percent | number:'1.0-0' }}%</span
+                    >{{ nprd2.rate[0].discount_percent | number:'1.0-0' }}% Off</span
                   >
                   </div>
               </div>
@@ -335,7 +351,7 @@
                                       <a href="" class="fa fa-shopping-cart text-danger" *ngIf="nprd.txn_quantity<1"></a>
                                       </li>
                                   </ul>
-                                  <span class="product-new-label">New</span>
+                               <!--    <span class="product-new-label">New</span> -->
                               </div>
                               <div class="product-content">
                                   <h3 class="title"><a >{{ (nprd.name.length>60)? (nprd.name | slice:0:35)+'...':(nprd.name) }}</a></h3>
@@ -362,11 +378,11 @@
                   >
                   <span *ngIf="nprd.rate[0].is_rent == '2'" 
                     >{{ nprd.rate[1].name }} @ {{ nprd.rate[1].rate }} </span
-                  ><br />
+                  >&nbsp;
                   <span style="text-decoration: none;"
                     *ngIf="nprd.rate[0].rate < nprd.mrp"
                     class="font-wieght-bold text-center for-you text-success"
-                    >Discount : {{ nprd.rate[0].discount_percent | number:'1.0-0' }}%</span
+                    >{{ nprd.rate[0].discount_percent | number:'1.0-0' }}% Off</span
                   >
                                   </div>
                               </div>
@@ -382,28 +398,30 @@
 <!--  end juned 1/12/2020 -->
 
 
-
-<!-- banner data  2/12/2020-->
-<div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
-<div class="col-md-12">
+  <div class="container-fluid d-none d-md-block d-lg-block d-xl-block" *ngIf="ninetoysbannerdata">
+        <div class="col-md-12">
   <div class="section-title">
     <h3 class="title2" >Games Corner</h3>
   </div>
 </div>
-
- 
-  <div class="row">
-      <div class="col-md-6 col-sm-6">
-          <img src="https://cdn.shopify.com/s/files/1/0088/7986/5907/files/pre_school2_9e54ba9b-7dbd-4b50-80b1-d2d95f3af8ba_1350x624.jpg">
+          <div class="row">
+            <div class="col-md-6 mt-3 banner-image-box-card pl-2" *ngIf="ninetoysbannerdata[2] != null">
+                <img src="{{ninetoysbannerdata[2].image_link}}" class="w-100 img-fluid img-banner"  onerror="this.src='assets/img/favicon1.png';">
+            </div>
+            <div class="col-md-6 mt-3 banner-image-box-card pr-2" *ngIf="ninetoysbannerdata[3] != null">
+                <img src="{{ninetoysbannerdata[3].image_link}}" class="w-100 img-fluid img-banner"  onerror="this.src='assets/img/favicon1.png';">
+            </div>
+            <div class="col-md-6 mt-3 banner-image-box-card pl-2" *ngIf="ninetoysbannerdata[4] != null">
+                <img src="{{ninetoysbannerdata[4].image_link}}" class="w-100 img-fluid img-banner"  onerror="this.src='assets/img/favicon1.png';">
+            </div>
+            <div class="col-md-6 mt-3 pr-2 banner-image-box-card" *ngIf="ninetoysbannerdata[5] != null">
+                <img src="{{ninetoysbannerdata[5].image_link}}" class="w-100 img-fluid img-banner"  onerror="this.src='assets/img/favicon1.png';">
+            </div>
+          </div>
         </div>
-        <div class="col-md-6 col-sm-6">
-            <img src="https://cdn.shopify.com/s/files/1/0088/7986/5907/files/Brain-2_60eac94d-9be4-4268-b141-81fa4d751849_1350x624.jpg">
-        </div>
-   </div>
-   <br/>
-  
 
-</div>   
+<!-- banner data  2/12/2020-->
+
 <!-- end -->
     <button *ngIf="isShow"  (click)="gotoTop()">👆</button>  
 <!-- /SECTION -->
