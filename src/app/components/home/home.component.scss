@@ -461,3 +461,23 @@ p {
 .main-slider:hover .carousel-control-next{
   visibility: visible;
 }
+
+
+
+
+
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  font-size: 20px;
+  text-align: center;
+ 
+  outline: none;
+color: white;
+background-color:  #FDCC12;
+border: none;
+padding: 15px;
+ border-radius: 10px;
+}
