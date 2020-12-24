@@ -32,7 +32,7 @@
 .product-grid7 .title a{color:#333}
 .product-grid7 .title a:hover{color:#78e08f}
 .product-grid7 .rating{color:#78e08f;font-size:12px;padding:0;margin:0 0 10px;list-style:none}
-.product-grid7 .price{color:#333;font-size:20px;font-family:Lora,serif;font-weight:700;margin-bottom:8px;text-align:center;transition:all .3s}
+.product-grid7 .price{color:#333;font-size:7px;font-family:Lora,serif;font-weight:700;margin-bottom:8px;text-align:center;transition:all .3s}
 .product-grid7 .price span{color:#999;font-size:14px;font-weight:700;text-decoration:line-through;margin-left:7px;display:inline-block}
 @media only screen and (max-width:990px){.product-grid7{margin-bottom:30px}
 }
@@ -43,7 +43,7 @@
 .card{
   position: relative;
   width: 250px;
-  height: 350px;
+  height: 250px;
   margin: 10px;
   overflow: hidden;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -460,4 +460,49 @@ p {
 }
 .main-slider:hover .carousel-control-next{
   visibility: visible;
+}
+
+
+
+
+
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  font-size: 20px;
+  text-align: center;
+ 
+  outline: none;
+color: white;
+background-color:  #FDCC12;
+border: none;
+padding: 15px;
+ border-radius: 10px;
+}
+
+
+.banner-image-box-card{
+
+    height: 220px;  width: auto; padding: 0; overflow: hidden;
+    object-fit: fill;
+    cursor: pointer;
+}
+
+.banner-image-box-card:hover{
+    transform: scaleX(.99);
+    transition: transform 2s;
+    cursor: pointer;
+    
+}
+
+.banner-image-box-card-mobile{
+    height: 140px;  width: auto; padding: 0; overflow: hidden;
+    object-fit: fill;
+    cursor: pointer;
+}
+.img-banner{
+    height: 100%;
+    width: 100%;
 }

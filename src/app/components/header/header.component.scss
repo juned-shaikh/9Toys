@@ -56,12 +56,18 @@ nav a:visited {
 
 .menu-bar:hover .menu-link{display:block ;}
 
-.mega-menu{display: none;}
+.mega-menu{
+display: none; 
+
+max-height:500px;
+  overflow-x:auto;
+  }
 .menu-bar-link:hover + .mega-menu{display: block;}
 
 
 .menu-link {
   padding: 20px 15px;
+width:inherit;
   background: #ffffff;
   // color: #177E89;
   transition: background 0.2s, color 0.2s;
@@ -563,12 +569,18 @@ color: white;
   border-radius: 5px;
   padding: 6px;
   }
+
+  :hover > .searchbar{
+ 
+  background-color: #f7f7f7;
+  
+  }
   
   .search_input{
   color: black;
   border: 0;
   outline: 0;
-  // background: green;
+ //  background: green;
   font-size: 14px;
   width: 0;
   left: 0;
@@ -580,13 +592,13 @@ color: white;
   .searchbar:hover > .search_input{
     padding: 0 10px;
     min-width: 185px;
-    // background: chartreuse;
+    background: #f7f7f7;
     max-width: 285px;
     left: 0;
   }
   
   .searchbar:hover > .search_icon{
-  background: white;
+  background: #f7f7f7;
   color: #fdc809;
   }
   
@@ -603,3 +615,4 @@ color: white;
     text-decoration: none;
     padding: 6px;
     }
+
