@@ -160,7 +160,7 @@
     .mega-menu--multiLevel li:hover > [aria-haspopup="true"] ~ ul {
       display: block;
       transform-origin: left;
-      animation: flyout 0.2s ease-out;
+      // animation: flyout 0.2s ease-out;
     }
     .mega-menu--multiLevel li:focus-within > [aria-haspopup="true"] ~ ul {
       display: block;
