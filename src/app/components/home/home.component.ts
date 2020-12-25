@@ -954,7 +954,7 @@ this.count = this.count+1;
           .navigateByUrl("/", {
             skipLocationChange: true
           })
-          .then(() => this.router.navigate(["/view-product", slug]));
+          .then(() => this.router.navigate(["/view-product", slug]).then(()=>{window.location.reload();}));
         }else{
           this.router
           .navigateByUrl("/", {

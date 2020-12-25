@@ -1206,3 +1206,17 @@ img.sticky {
   position: -webkit-sticky;
   position: sticky;
 }
+
+
+#img1{
+  max-height: 320px; min-height: unset; height: -webkit-fill-available; -o-object-fit: contain;
+  object-fit: contain;
+  margin: none; width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  position: inherit;
+
+}
+#box-img1{
+  height: 320px; width: 100%; background: white; margin: none;    position: relative;
+}
