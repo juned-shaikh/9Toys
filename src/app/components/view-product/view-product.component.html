@@ -2,7 +2,7 @@
 <mg-new-header></mg-new-header>
 <div *ngIf="loader">
 
-    <section class="mt-3" style="padding-top: 0px;">
+    <section class="mt-3" style="padding-top: 50px;">
       <div class="container-fluid ">
         <!-- <div class="container"> -->
           <div class=" row justify-content-center">
@@ -294,7 +294,7 @@
 
             <div *ngIf="product_rate.length != 0" class="row  mb-2">
             
-                    <div class="row " style="padding-top: 5px;">
+                    <div class="row " style="padding-top: 10px;">
 
                   
               <div *ngFor="let prates of product_rate" class="d-flex  col-lg-12">
@@ -430,7 +430,7 @@
                 </div>
                 <span class="product-description pt-1">
                 
-                  <p  class="desc" [innerHTML]="product.meta_description"></p>
+                  <p   [innerHTML]="product.meta_description"></p>
                 </span>
 
                 <div class="border-bottom mt-1 " *ngIf="product_specification">
@@ -619,7 +619,7 @@
           <div class="col-sm-4 col-lg-2" *ngFor="let nprd2 of similarPro">
             <div
               class="single-publication cursor-pointer"
-              matTooltip="quick view"
+             
               id="box-img1"
             >
               <figure>
@@ -868,8 +868,8 @@
 
     </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999!important;">
-      <div class="modal-dialog  modal-xl" style="z-index: 111111;" style="padding-top: 45px;width: 900px;height: 400px;">
-        <div class="modal-content" >
+      <div class="modal-dialog  modal-xl" style="z-index: 111111;" style="padding-top: 10px;width: 900px;height: 400px;">
+        <div class="modal-content" style="margin-top: 42px !important;">
            <div class="modal-header">
             <h4 class=" font-weight-600 m-0 project-heading" style="margin-left: 16px;">{{ product1?.name }}  </h4>    
               <button type="button" class="close btn btn-secondry" data-dismiss="modal" aria-label="Close">
