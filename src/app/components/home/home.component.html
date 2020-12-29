@@ -1,11 +1,7 @@
 
 <mg-header ></mg-header>
-<div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner">
-  <!-- <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul> -->
+<div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner" style="top: 60px;">
+  
 
   <div class="carousel-inner">
     <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
@@ -29,7 +25,7 @@
     </div>
   </div>
 
-  <a class="carousel-control-prev ml-1" style="    border-top-right-radius: 120px;
+  <a class="carousel-control-prev ml-1" style="  border-top-right-radius: 120px;
   border-bottom-right-radius: 120px;" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"><i class="fas fa-chevron-left"></i></span>
   </a>
@@ -38,94 +34,23 @@
     <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
   </a>
 </div>
-<!-- SECTION -->
-<!-- <div class="" style="top: 50px;" >
-  <img src="assets/img/Melissa.png">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button"  id="ip1"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      &#x20b9;10-&#x20b9;100
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">&#x20b9;100-&#x20b9;200</a>
-      <a class="dropdown-item" href="#">&#x20b9;300-&#x20b9;400</a>
-      <a class="dropdown-item" href="#">&#x20b9;500-&#x20b9;1000</a>
-    </div>
-  </div>
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button"   id="ip2"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     0 to 12 months
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#"> 0 to 12 months</a>
-      <a class="dropdown-item" href="#"> 0 to 12 months </a>
-      <a class="dropdown-item" href="#"> 0 to 12 months</a>
-    </div>
-  </div>
-</div> -->
 
-<!-- <input  type="text" id="ip1"/> -->
-
-
-
-<!-- <div class="section">
-
-  <div class="container">
-  
-    <h3 class="title2" >Top Brand Products</h3>
-    <div class="row">
-     
-      <div class="col-md-4 col-xs-6">
-        <div class="shop">
-          <div class="shop-img">
-            <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/BestSellers_without_21-07.jpg" height="240px" alt="">
-          </div>
-          <div class="shop-body">
-            <h3>Toys<br>Collection</h3>
-            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="col-md-4 col-xs-6">
-        <div class="shop">
-          <div class="shop-img">
-            <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Fun-2-Learn__21-07.jpg" height="240px" alt="">
-          </div>
-          <div class="shop-body">
-            <h3>Baby Toys<br>Collection</h3>
-            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      </div>
-     
-      <div class="col-md-4 col-xs-6">
-        <div class="shop">
-          <div class="shop-img">
-            <img src="https://www.hamleys.in/media/wysiwyg/Hamleys/Main_content_img/Trending/Smiggle__21-07.jpg" height="240px" alt="">
-          </div>
-          <div class="shop-body">
-            <h3>Model Building Kits<br>Collection</h3>
-            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      </div>
-     
-    </div>
-   
-  </div>
- 
-</div> -->
-<!-- /SECTION -->
 
 <!-- new card by juned -->
 <div class="section" >
   <!-- container -->
-  <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5" style="padding-left: 87px;">
+  <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5 " style="padding-top: 10px;">
     <!-- row -->
-    <h3 class="title2" >Featured Products</h3>
-    <div  class="flex no-wrap" >
-      <div class="card">
-        <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw91a2b36e/Homepage/Passion/MDAAP-plp-pretend-play-banner-1.jpg" >
+
+    <div class="col-md-12">
+      <div class="section-title">
+        <h3 class="title2" >Featured Products</h3>
+      </div>
+    </div>
+   
+    <div  class="row justify-content-center" >
+      <div class="card" >
+        <img src="https://www.toycart.com/media/billboard/image/s/3/s3_2.jpg" >
         <div class="card-content">
           <a href="#">
             <p class="card-category">Toys Collection<i class="fas fa-chevron-right fa-sm"></i></p>
@@ -134,7 +59,7 @@
       </div>
       
       <div class="card">
-        <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw000e796a/Homepage/Passion/MDAAP-plp-problem-solving-banner-1.jpg" >
+        <img src="https://www.toycart.com/media/billboard/image/s/1/s1.jpg" >
         <div class="card-content">
           <a href="#">
             <p class="card-category">Baby Toys<i class="fas fa-chevron-right fa-sm"></i></p>
@@ -142,7 +67,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw553b7201/Homepage/Passion/MDAAP-plp-dev-play-banner-1.jpg" >
+        <img src="https://www.toycart.com/media/billboard/image/c/h/chess-banner.jpg" >
         <div class="card-content">
           <a href="#">
             <p class="card-category">Building Blocks<i class="fas fa-chevron-right fa-sm"></i></p>
@@ -150,7 +75,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwc31df4a8/Homepage/Passion/MDAAP-plp-art-creativity-banner-1.jpg" >
+        <img src="https://www.toycart.com/media/billboard/image/s/4/s4.jpg" >
         <div class="card-content">
           <a href="#">
             <p class="card-category">Art & Craft<i class="fas fa-chevron-right fa-sm"></i></p>
@@ -158,19 +83,20 @@
         </div>
       </div>
 
-      <div class="card">
-        <img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw91a2b36e/Homepage/Passion/MDAAP-plp-pretend-play-banner-1.jpg" >
+      <!-- <div class="card">
+        <img src="https://www.toycart.com/media/billboard/image/s/5/s5.jpg" >
         <div class="card-content">
           <a href="#">
             <p class="card-category">Toys Collection<i class="fas fa-chevron-right fa-sm"></i></p>
           </a>
         </div>
-      </div>
+      </div> -->
 
       
     </div>
-   </div>
- </div>
+  
+    </div>
+    </div>
 <!-- end card -->
 
 
@@ -193,7 +119,7 @@
 <!-- banner end -->
 
   <!-- End Trending product view changes by Aman Verma 20/08/2020 -->
-         <div class="container-fluid d-none d-md-block d-lg-block d-xl-block " *ngIf="ninetoysbannerdata">
+   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block " *ngIf="ninetoysbannerdata">
          <div class="col-md-12">
             <div class="section-title">
               <h3 class="title2" >Preschool Products</h3>
@@ -221,8 +147,38 @@
                 </div>
               </div>
  
- 
+              
+              <div class="pagination  row">
+                <div class="col-md-6">
+                <li class="page-item  " *ngIf="offsetRent != 1">
+                  <a matTooltip="Previous "
+                    class="page-link page-previous"
+                    (click)="changeOffsetRent(offsetRent - 1)"
+                    aria-label="Previous"
+                  >
+                    <span aria-hidden="true" class=" font-weight-bold cursor-pointer"><i class="fas fa-angle-left"></i></span>
+                  </a>
+                </li>
+              </div>
+              <div class="col-md-6 text-right ">
+                <li class="page-item float-right mr-4" *ngIf="offsetRent != pagesRent">
+                  <a  matTooltip="Next"
+                    class="page-link page-next"
+                    (click)="changeOffsetRent(offsetRent + 1)"
+                    aria-label="Next"
+                  >
+                    <span aria-hidden="true" class=" font-weight-bold cursor-pointer"> <i class="fas fa-angle-right"></i></span>
+                  </a>
+                </li>
+              </div>
+               
+              <!-- </div> -->
+            </div>
+          
+
+
   <div class="row justify-content-start mt-0">
+    
       <div class="col-md-2 col-sm-6" *ngFor="let nprd2 of topSelling">
           <div class="product-grid7">
               <div class="product-image7" id="box-img1" >
@@ -256,6 +212,7 @@
                   </ul>
                 <!--   <span class="product-new-label">New</span> -->
               </div>
+              
               <div class="product-content">
                   <h3 class="title"><a href="#">{{ (nprd2.name.length>60)? (nprd2.name | slice:0:35)+'...':(nprd2.name) }}</a></h3>
                   <ul class="rating justify-content-center text-center pb-1 start-mobile"  *ngIf="rating_option==true"  >
@@ -288,12 +245,21 @@
                     >{{ nprd2.rate[0].discount_percent | number:'1.0-0' }}% Off</span
                   >
                   </div>
+                
               </div>
           </div>
+
+         
+
+
       </div>
-     
+      
       
        </div>
+     
+
+
+
 
 <hr>
 </div>
@@ -309,6 +275,33 @@
         </div>
   </div>
   <!-- /section title -->
+  
+  <div class="pagination  row">
+    <div class="col-md-6">
+    <li class="page-item  " *ngIf="offsetRent != 1">
+      <a matTooltip="Previous "
+        class="page-link page-previous"
+        (click)="changeOffsetRent(offsetRent - 1)"
+        aria-label="Previous"
+      >
+        <span aria-hidden="true" class=" font-weight-bold cursor-pointer"><i class="fas fa-angle-left"></i></span>
+      </a>
+    </li>
+  </div>
+  <div class="col-md-6 text-right ">
+    <li class="page-item float-right mr-4" *ngIf="offsetRent != pagesRent">
+      <a  matTooltip="Next"
+        class="page-link page-next"
+        (click)="changeOffsetRent(offsetRent + 1)"
+        aria-label="Next"
+      >
+        <span aria-hidden="true" class=" font-weight-bold cursor-pointer"> <i class="fas fa-angle-right"></i></span>
+      </a>
+    </li>
+  </div>
+   
+  <!-- </div> -->
+</div>
   <!-- <div class="container" > -->
         <div class="row " >
             <div class="col-md-2 col-sm-6" *ngFor="let nprd of newproduct">
@@ -421,6 +414,18 @@
         </div>
 
 <!-- banner data  2/12/2020-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- end -->
     <button *ngIf="isShow"  (click)="gotoTop()">👆</button>  

@@ -62,12 +62,18 @@ export class HomeComponent implements OnInit {
   page_itemsSelling=6;
 
    offsetRent=1;
-  page_itemsRent=6;
+  page_itemsRent=4;
   pagesRent=1;
 
    offsetDisc=1;
-  page_itemsDisc=6;
+  page_itemsDisc=4;
   pagesDisc=1;
+
+
+
+
+  
+
 
 
   public access_token = sessionStorage.getItem("access_token");
@@ -954,7 +960,7 @@ this.count = this.count+1;
           .navigateByUrl("/", {
             skipLocationChange: true
           })
-          .then(() => this.router.navigate(["/view-product", slug]));
+          .then(() => this.router.navigate(["/view-product", slug]).then(()=>{window.location.reload();}));
         }else{
           this.router
           .navigateByUrl("/", {

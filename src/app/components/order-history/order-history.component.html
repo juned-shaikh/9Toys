@@ -123,10 +123,10 @@
                     <h6 class="order-history-heading1 project-heading  cursor-pointer font-weight-600 p-0 m-0" *ngFor="let order_status of parcel_inventory.order_inventory[0].status_flow; let i = index; first as isFirst; last as isLast">
                       <span *ngIf="isLast" style="color: #B89D4E; text-shadow: -2px 1px black;">{{order_status.status}}</span>
                     </h6>
-                    <mat-divider style="color: grey;border: 1px solid;width: 100%;"></mat-divider>
+                  
                   </div>
                   
-                  <div class="col-md-3 d-flex "> &nbsp; &nbsp;
+                  <div class="col-md-3 d-flex " style="left: 58px;top: 30px;"> &nbsp; &nbsp;
 <h6 class="order-history-heading text-primary text-right link-click project-discription cursor-pointer font-weight-600 p-0 m-0" (click)="trackStatus(parcel_inventory.order_inventory[0].status_flow,parcel_inventory.order_inventory[0].product.name,orders.order_number,parcel_inventory.awb_no,parcel_inventory.courier_method_id);openXl(contentTrack)">Track Details</h6> &nbsp; &nbsp;
 &nbsp;
 <h6 class="order-history-heading  text-primary project-discription link-click cursor-pointer font-weight-600 text-right p-0 m-0" *ngIf="invoice_gen==1 && orders.parcel_inventory[0].order_inventory[0].deliver==true" 
@@ -180,7 +180,7 @@
                    </div>
                  </div>
                
-
+                 <mat-divider style="color: grey;border: 1px solid;width: 100%;"></mat-divider>
 
 
               
