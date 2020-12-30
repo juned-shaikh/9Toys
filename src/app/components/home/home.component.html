@@ -1,9 +1,12 @@
 
 <mg-header ></mg-header>
-<!-- <div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner" style="top: 60px;">
+
+<div class="container">
+
+<div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner" style="top: 60px;scroll-behavior: smooth;">
   
 
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="scroll-behavior: smooth;">
     <div  *ngIf="bannerdata.value.banner_image_a_group && bannerdata.value.banner_image_a_group!=''" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
       <img src="{{ bannerdata.value.banner_image_a }}" />
     </div>
@@ -33,8 +36,11 @@
   border-bottom-left-radius: 120px;" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
   </a>
-</div> -->
-<div id="demo" class="carousel slide main-slider" data-ride="carousel" *ngIf="banner" style="top: 60px;">
+</div>
+
+
+
+<!-- <div id="demo" class="carousel slide main-slider" data-ride="carousel" *ngIf="banner" style="top: 60px;scroll-behavior: smooth;">
   <div class="carousel-inner">
     <div *ngIf="banner_group_a==0 || bannerdata.value.banner_image_a_group==''" class="carousel-item active">
       <img src="{{ bannerdata.value.banner_image_a }}" />
@@ -73,7 +79,7 @@
 <a *ngIf="banner_group_c==1 && bannerdata.value.banner_image_c_group!='' && banner_group_linkc==1" class="carousel-item active cursor-pointer" target="_blank"  href="{{bannerdata.value.banner_image_c_group}}"
     >
     <img src="{{bannerdata.value.banner_image_c}}" />
-  </a>    
+  </a>     -->
 
   <!-- start for 4 and 5 -->
 <!-- start for 4 -->
@@ -108,7 +114,7 @@
 <!-- end for 5 -->
   <!-- end for 4 and 5 -->
   
-  </div>
+  <!-- </div>
 
   <a class="carousel-control-prev ml-1" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"><i class="fas fa-chevron-left"></i></span>
@@ -116,7 +122,7 @@
   <a class="carousel-control-next mr-1" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
   </a>
-</div>
+</div> -->
 
 <!-- new card by juned -->
 <div class="section" >
@@ -201,7 +207,7 @@
 <!-- banner end -->
 
   <!-- End Trending product view changes by Aman Verma 20/08/2020 -->
-   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block " *ngIf="ninetoysbannerdata">
+   <div class="container-fluid  d-md-block d-lg-block d-xl-block " *ngIf="ninetoysbannerdata">
          <div class="col-md-12">
             <div class="section-title">
               <h3 class="title2" >Preschool Products</h3>
@@ -222,7 +228,7 @@
 
 
 <!-- trending product start -->
-<div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
+<div class="container-fluid  d-md-block d-lg-block d-xl-block mt-5">
               <div class="col-md-12">
                 <div class="section-title">
                   <h3 class="title2" >Trending Products</h3>
@@ -233,7 +239,7 @@
               <div class="pagination  row">
                 <div class="col-md-6">
                 <li class="page-item  " *ngIf="offsetRent != 1">
-                  <a matTooltip="Previous "
+                  <a 
                     class="page-link page-previous"
                     (click)="changeOffsetRent(offsetRent - 1)"
                     aria-label="Previous"
@@ -244,7 +250,7 @@
               </div>
               <div class="col-md-6 text-right ">
                 <li class="page-item float-right mr-4" *ngIf="offsetRent != pagesRent">
-                  <a  matTooltip="Next"
+                  <a  
                     class="page-link page-next"
                     (click)="changeOffsetRent(offsetRent + 1)"
                     aria-label="Next"
@@ -350,7 +356,7 @@
      
 
    <!-- section title -->
-   <div class="container-fluid d-none d-md-block d-lg-block d-xl-block mt-5">
+   <div class="container-fluid  d-md-block d-lg-block d-xl-block mt-5">
    <div class="col-md-12">
         <div class="section-title">
           <h3 class="title2" >New Products</h3>
@@ -361,7 +367,7 @@
   <div class="pagination  row">
     <div class="col-md-6">
     <li class="page-item  " *ngIf="offsetRent != 1">
-      <a matTooltip="Previous "
+      <a 
         class="page-link page-previous"
         (click)="changeOffsetRent(offsetRent - 1)"
         aria-label="Previous"
@@ -372,7 +378,7 @@
   </div>
   <div class="col-md-6 text-right ">
     <li class="page-item float-right mr-4" *ngIf="offsetRent != pagesRent">
-      <a  matTooltip="Next"
+      <a 
         class="page-link page-next"
         (click)="changeOffsetRent(offsetRent + 1)"
         aria-label="Next"
@@ -579,4 +585,4 @@
 </div>
 
 -->
-
+</div>

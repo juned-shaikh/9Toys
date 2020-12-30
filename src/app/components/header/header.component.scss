@@ -1,3 +1,31 @@
+@media only screen and (max-width: 238px) {
+  body {
+    background-color: lightblue;
+    display: none;
+  }
+  .nav{
+    display: none;
+ }
+ .nav1{
+  display: none;
+}
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+  .nav{
+    display: none;
+ }
+ .nav1{
+  display: none;
+}
+}
+
+
+
+
 .active-purple-4 input[type=text]:focus:not([readonly]) {
   border: 1px solid rgb(76, 83, 146);
   box-shadow: 0 0 0 1px rgb(76, 83, 146);
@@ -94,10 +122,10 @@ width:inherit;
   font-weight: bold;
   color: #136a73;
 }
-.mega-menu {
-  background: #ffffff;
-  z-index: 10;
-}
+// .mega-menu {
+//   background: #ffffff;
+//   z-index: 10;
+// }
 .mega-menu--multiLevel {
   flex-direction: column;
 }
@@ -163,11 +191,11 @@ width:inherit;
     color: #136a73;
   }
   .mega-menu--multiLevel > li {
-    width: 33.33333333%;
+    width: 41.33333333%;
   }
   .mega-menu--multiLevel > li > [aria-haspopup="true"] ~ ul {
     left: 33.33333333%;
-    width: 33.33333333%;
+    width: 41.33333333%;
   }
   .mega-menu--multiLevel > li > [aria-haspopup="true"] ~ ul ul {
     width: 100%;

@@ -1,5 +1,5 @@
 
-html, body { height: 100%; }
+html, body { height: 100%;scroll-behavior: smooth; }
 body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @media (max-width: 768px) {
     .carousel-inner .carousel-item > div {
@@ -36,3 +36,12 @@ body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translateX(0);
 }
 
+@media (min-width: 1200px){
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1400px;
+}}
+
+*{
+  scroll-behavior: smooth;
+}

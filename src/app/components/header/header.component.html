@@ -50,7 +50,7 @@
                       <ul class="menu menu-list" >
 
                         <div class="container" style="width:910px;" >
-                            <div class="row" style="position: relative;right: 200px">
+                            <div class="row" style="position: relative;right: 179px">
                <div class="col first-column">
                 <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">Shop by Choice</h3>
                 <div class="row" >
@@ -180,7 +180,7 @@
 
           <li class="menu-bar-link">
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color:#872676">Discover </a>
-              <ul class="mega-menu mega-menu--multiLevel">
+              <ul class="mega-menu mega-menu--multiLevel" style="left: -35px;">
                 <li>
                     <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Age</a>
                     <ul class="menu menu-list">
@@ -355,27 +355,21 @@
             <li>
               <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Special Needs</a>
               <ul class="menu menu-list">
-                  <li>
-                      <a href="/page" class="menu-link menu-list-link">1.3.1 Page link</a>
-                  </li>
+                  
                   
               </ul>
           </li>
           <li>
             <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Disney</a>
             <ul class="menu menu-list">
-                <li>
-                    <a href="/page" class="menu-link menu-list-link">1.3.1 Page link</a>
-                </li>
+               
                 
             </ul>
         </li>
         <li>
           <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Personalized toyz </a>
           <ul class="menu menu-list">
-              <li>
-                  <a href="/page" class="menu-link menu-list-link">1.3.1 Page link</a>
-              </li>
+              
               
           </ul>
       </li>
@@ -388,7 +382,7 @@
           
           <li class="menu-bar-link">
               <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
-              <ul class="mega-menu mega-menu--flat" style="width: 450px;">
+              <ul class="mega-menu mega-menu--flat" style="width: 450px;background-color: white;">
                 <li>
                     <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>
                     <ul class="menu menu-list">
@@ -693,7 +687,7 @@
         <ul class="menu menu-bar" style="left: 30px;">
           <strong class="logo"><img src="assets/img/9logo.png" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;cursor: pointer;outline: none;"></strong>
           
-            <li *ngFor="let category of categories2 | slice:1:89;index as i" class="menu-bar-link">
+            <li *ngFor="let category of categories2 ;index as i" class="menu-bar-link">
                 
                     <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
                       category.name
@@ -725,7 +719,7 @@
   
 
       <div class="container" style="width:1000px" >
-         <div class="row" style="position: relative;right: 200px">
+         <div class="row" style="position: relative;right: 178px">
             <div class="col first-column">
               <h3 style="padding: 30px;text-align: center;text-transform: uppercase;">Shop by Choice</h3>
               <div class="row" >
@@ -1082,7 +1076,7 @@
             
 
 
-            <li class="menu-bar-link">
+            <!-- <li class="menu-bar-link">
                 <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
                 <ul class="mega-menu mega-menu--flat " style="height: 400px; ">
                   <li>
@@ -1140,41 +1134,8 @@
                   </li>
               </ul>
               
-                <!-- <ul class="mega-menu mega-menu--flat">
-                    <li>
-                        <a href="#" class="menu-link mega-menu-link mega-menu-header">3.1 Page link header</a>
-                        <ul class="menu menu-list">
-                            <li>
-                                <a href="/page" class="menu-link menu-list-link">
-                                    3.1.1 Page link<br />
-                                    <small>Short decription of link</small>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/page" class="menu-link menu-list-link">
-                                    3.1.2 Page link<br />
-                                    <small>Short decription of link</small>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/page" class="menu-link menu-list-link">
-                                    3.1.2 Page link<br />
-                                    <small>Short decription of link</small>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="mega-menu-content">
-                        <p class="mega-menu-header">3.2 Page link header</p>
-                        <p>This is just static content. You can add anything here. Images, text, buttons, your grandma's
-                            secrect
-                            recipe.</p>
-                    </li>
-                    <li class="mobile-menu-back-item">
-                        <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
-                    </li>
-                </ul> -->
-            </li>
+               
+            </li> -->
           
             <!--brand start -->
             <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
@@ -1231,7 +1192,7 @@
  
   <!-- Search form -->
               </ul>
-               <ul style="display: flex;position: absolute;top: 14px;right: 13px;margin-right: 90px;">
+               <ul style="display: flex;position: absolute;top: 13px;right: 13px;margin-right: 121px;">
                <!-- <ul class="nav navbar-nav navbar-right "> -->
               <li class="nav-item">
                 <div class="searchbar d-none d-lg-block d-md-block d-xl-block">
