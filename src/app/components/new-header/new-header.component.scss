@@ -605,3 +605,11 @@ padding: 5px 40px 5px 12px;
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+
+.mega-menu{
+  display: none!important; 
+  
+  
+    }
+  .menu-bar-link:hover  .mega-menu{display: block!important;}

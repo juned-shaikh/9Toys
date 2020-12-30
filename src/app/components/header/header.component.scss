@@ -57,11 +57,11 @@ nav a:visited {
 .menu-bar:hover .menu-link{display:block ;}
 
 .mega-menu{
-display: none; 
+display: none!important; 
 
 
   }
-.menu-bar-link:hover + .mega-menu{display: block;}
+.menu-bar-link:hover  .mega-menu{display: block!important;}
 
 
 .menu-link {
