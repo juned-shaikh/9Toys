@@ -36,18 +36,3 @@ body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translateX(0);
 }
 
-.modal-content {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-top: 120px!important;
-  width: 100%;
-  pointer-events: auto;
-  background-color: #fff;
-  background-clip: padding-box;
-  z-index: auto;
-  border: 1px solid rgba(0,0,0,.2);
-  outline: 0;
-}

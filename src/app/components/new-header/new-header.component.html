@@ -4,7 +4,7 @@
         <ul class="menu menu-bar" style="left: 30px;">
           <strong class="logo"><img src="assets/img/9logo.png" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;cursor: pointer;outline: none;"></strong>
           
-            <li *ngFor="let category of categories2 | slice:1:89;index as i">
+            <li *ngFor="let category of categories2 | slice:1:89;index as i" class="menu-bar-link">
                 
                     <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
                       category.name
@@ -182,7 +182,7 @@
                 </ul>
             </li>
   
-            <li>
+            <li class="menu-bar-link">
                 <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" style="color:#872676">Discover </a>
                 <ul class="mega-menu mega-menu--multiLevel">
                   <li>
@@ -393,7 +393,7 @@
             
 
 
-            <li >
+            <li class="menu-bar-link">
                 <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
                 <ul class="mega-menu mega-menu--flat" style="width:1084px;height: 400px;">
                   <li>
