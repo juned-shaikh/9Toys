@@ -1,6 +1,6 @@
 
 <mg-header ></mg-header>
-<div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner" style="top: 60px;">
+<!-- <div id="demo" class="carousel slide " data-ride="carousel" *ngIf="banner" style="top: 60px;">
   
 
   <div class="carousel-inner">
@@ -33,8 +33,90 @@
   border-bottom-left-radius: 120px;" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
   </a>
-</div>
+</div> -->
+<div id="demo" class="carousel slide main-slider" data-ride="carousel" *ngIf="banner" style="top: 60px;">
+  <div class="carousel-inner">
+    <div *ngIf="banner_group_a==0 || bannerdata.value.banner_image_a_group==''" class="carousel-item active">
+      <img src="{{ bannerdata.value.banner_image_a }}" />
+    </div>
+    <div *ngIf="banner_group_a==1 && bannerdata.value.banner_image_a_group!='' && banner_group_linka==0" class="carousel-item active cursor-pointer" (click)="navigation(bannerdata.value.banner_image_a_group,bannerdata.value.banner_image_a_group_type,bannerdata.value.banner_image_a_group_id)">
+      <img  src="{{ bannerdata.value.banner_image_a }}" />
+    </div>
+  
+    <a *ngIf="banner_group_a==1 && bannerdata.value.banner_image_a_group!='' && banner_group_linka==1" class="carousel-item active cursor-pointer" target="_blank"  href="{{bannerdata.value.banner_image_a_group}}"
+    >
+    <img src="{{bannerdata.value.banner_image_a}}" />
+  </a>
+  
 
+    <div *ngIf="banner_group_b==0 || bannerdata.value.banner_image_b_group==''" class="carousel-item">
+      <img src="{{ bannerdata.value.banner_image_b }}" />
+    </div>
+    <div *ngIf="banner_group_b==1 && bannerdata.value.banner_image_b_group!=''  && banner_group_linkb==0"  class="carousel-item cursor-pointer" (click)="navigation(bannerdata.value.banner_image_b_group,bannerdata.value.banner_image_b_group_type,bannerdata.value.banner_image_b_group_id)">
+      <img  src="{{ bannerdata.value.banner_image_b }}" />
+    </div>
+  
+    <a *ngIf="banner_group_b==1 && bannerdata.value.banner_image_b_group!='' && banner_group_linkb==1" class="carousel-item active cursor-pointer" target="_blank"  href="{{bannerdata.value.banner_image_b_group}}"
+    >
+    <img src="{{bannerdata.value.banner_image_b}}" />
+  </a>
+
+    <div class="carousel-item" *ngIf="banner_group_c==0 || bannerdata.value.banner_image_c_group==''" class="carousel-item">
+    <img src="{{ bannerdata.value.banner_image_c }}" />
+  </div>
+    <div  *ngIf="banner_group_c==1 && bannerdata.value.banner_image_c_group!='' && banner_group_linkc==0" class="carousel-item cursor-pointer" (click)="navigation(bannerdata.value.banner_image_c_group,bannerdata.value.banner_image_c_group_type,bannerdata.value.banner_image_c_group_id)">
+    <img src="{{ bannerdata.value.banner_image_c }}" />
+  </div>
+
+
+
+<a *ngIf="banner_group_c==1 && bannerdata.value.banner_image_c_group!='' && banner_group_linkc==1" class="carousel-item active cursor-pointer" target="_blank"  href="{{bannerdata.value.banner_image_c_group}}"
+    >
+    <img src="{{bannerdata.value.banner_image_c}}" />
+  </a>    
+
+  <!-- start for 4 and 5 -->
+<!-- start for 4 -->
+<!-- <div class="carousel-item" *ngIf="banner_group_d==0 || bannerdata.value.banner_image_d_group==''" class="carousel-item">
+    <img src="{{ bannerdata.value.banner_image_d }}" />
+  </div>
+    <div  *ngIf="banner_group_d==1 && bannerdata.value.banner_image_d_group!='' && banner_group_linkd==0" class="carousel-item cursor-pointer" (click)="navigation(bannerdata.value.banner_image_d_group,bannerdata.value.banner_image_d_group_type,bannerdata.value.banner_image_d_group_id)">
+    <img src="{{ bannerdata.value.banner_image_d }}" />
+  </div>
+
+
+
+<a *ngIf="banner_group_d==1 && bannerdata.value.banner_image_d_group!='' && banner_group_linkd==1" class="carousel-item active cursor-pointer" target="_blank"  href="{{bannerdata.value.banner_image_d_group}}"
+    >
+    <img src="{{bannerdata.value.banner_image_d}}" />
+  </a>   -->
+<!-- end for 4 -->
+<!-- start for 5 -->
+<!-- <div class="carousel-item" *ngIf="banner_group_e==0 || bannerdata.value.banner_image_e_group==''" class="carousel-item">
+    <img src="{{ bannerdata.value.banner_image_e }}" />
+  </div>
+    <div  *ngIf="banner_group_e==1 && bannerdata.value.banner_image_e_group!='' && banner_group_linke==0" class="carousel-item cursor-pointer" (click)="navigation(bannerdata.value.banner_image_e_group,bannerdata.value.banner_image_e_group_type,bannerdata.value.banner_image_e_group_id)">
+    <img src="{{ bannerdata.value.banner_image_e }}" />
+  </div>
+
+
+
+<a *ngIf="banner_group_e==1 && bannerdata.value.banner_image_e_group!='' && banner_group_linke==1" class="carousel-item active cursor-pointer" target="_blank"  href="{{bannerdata.value.banner_image_e_group}}"
+    >
+    <img src="{{bannerdata.value.banner_image_e}}" />
+  </a>   -->
+<!-- end for 5 -->
+  <!-- end for 4 and 5 -->
+  
+  </div>
+
+  <a class="carousel-control-prev ml-1" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"><i class="fas fa-chevron-left"></i></span>
+  </a>
+  <a class="carousel-control-next mr-1" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"><i class="fas fa-chevron-right"></i></span>
+  </a>
+</div>
 
 <!-- new card by juned -->
 <div class="section" >
