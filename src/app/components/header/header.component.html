@@ -166,12 +166,12 @@
                   </li>
                 
                
-                  <li>
+                  <!-- <li>
                       <a href="/page" class="menu-link mega-menu-link">Kids toys Bundle</a>
                   </li>
                   <li>
                     <a href="/page" class="menu-link mega-menu-link">Books</a>
-                </li>
+                </li> -->
                   <li class="mobile-menu-back-item">
                       <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
                   </li>
@@ -687,7 +687,7 @@
         <ul class="menu menu-bar" style="left: 30px;">
           <strong class="logo"><img src="assets/img/9logo.png" routerLink="/" height="50px" width="70px" style="padding-right: 10px;margin-top: 10px;cursor: pointer;outline: none;"></strong>
           
-            <li *ngFor="let category of categories2 ;index as i" class="menu-bar-link">
+            <li *ngFor="let category of categories2 ;index as i" class="menu-bar-link" >
                 
                     <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true" *ngIf="i==0"  style="color:#FDCC12;" (click)="navigateCategory(category.name, category.category_no);">{{
                       category.name
@@ -848,7 +848,7 @@
                         </ul>
               
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="javascript:void(0);" class="menu-link mega-menu-link" aria-haspopup="true">Activity Pads</a>
                        
                     </li>
@@ -858,7 +858,7 @@
                     </li>
                     <li>
                       <a href="/page" class="menu-link mega-menu-link">Books</a>
-                  </li>
+                  </li> -->
                     <li class="mobile-menu-back-item">
                         <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
                     </li>
@@ -1076,67 +1076,7 @@
             
 
 
-            <!-- <li class="menu-bar-link">
-                <a href="javascript:void(0);" class="menu-link menu-bar-link" aria-haspopup="true">Blog</a>
-                <ul class="mega-menu mega-menu--flat " style="height: 400px; ">
-                  <li>
-                      <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw616b14c5/StaticPages/blog-nav-latest-fly-out-nav.jpg"></a>
-                      <ul class="menu menu-list">
-                          <li>
-                            <h4 class="regular-heading simple-nav--item-title" style="font-family: hooligan-jf;    margin-left: 75px;
-                            font-size: 30px;
-                            font-weight: 400;
-                            line-height: 1;">
-                              The Latest
-                              </h4>
-                          </li>
-                          <li>
-                            <p class="simple-nav--item-descr" style=" margin-left: 35px;">Check out our most recent posts to find great play ideas, activities, advice, and more!</p>
-                          </li>
-                          
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dwb0e13e7a/StaticPages/blog-nav-melissas-corner-fly-out-nav.jpg"></a>
-                      <ul class="menu menu-list">
-                          <li>
-                            <h4 class="regular-heading simple-nav--item-title" style="font-family: hooligan-jf;    margin-left: 85px;
-                            font-size: 30px;
-                            font-weight: 400;
-                            line-height: 1;">
-                              Melissa's 
-                              </h4>
-                          </li>
-                          <li>
-                            <p class="simple-nav--item-descr" style=" margin-left: 35px;">Get inspired by Melissa’s heartfelt take on nurturing the magic and wonder of childhood!</p>
-                          </li>
-                          
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="/page" class="menu-link mega-menu-link mega-menu-header"><img src="https://www.melissaanddoug.com/on/demandware.static/-/Sites-melissaanddoug-Library/default/dw659d1643/StaticPages/blog-nav-seasonal-ideas-fly-out-nav.jpg"></a>
-                      <ul class="menu menu-list">
-                          <li>
-                            <h4 class="regular-heading simple-nav--item-title" style="font-family: hooligan-jf;    margin-left: 75px;
-                            font-size: 30px;
-                            font-weight: 400;
-                            line-height: 1;">
-                              Arts &amp; Crafts
-                              </h4>
-                          </li>
-                          <li>
-                            <p class="simple-nav--item-descr" style=" margin-left: 35px;">Discover fun and easy ideas to get kids tapping into their creativity!</p>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="mobile-menu-back-item">
-                      <a href="javascript:void(0);" class="menu-link mobile-menu-back-link">Back</a>
-                  </li>
-              </ul>
-              
-               
-            </li> -->
-          
+           
             <!--brand start -->
             <li *ngIf="brands.length>1"><a class="nav-link  dropdwon-toggle cursor-pointer"
               routerLink="/our-brand"
@@ -1144,7 +1084,7 @@
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
-              aria-expanded="false" style="position: relative;top: 12px;color: #292967;">Brands</a>
+              aria-expanded="false" style="position: relative;top: 6px;color: #292967;">Brands</a>
               <div
               class="dropdown-menu for-brands "
               aria-labelledby="navbarDropdown"

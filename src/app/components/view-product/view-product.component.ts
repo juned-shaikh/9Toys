@@ -91,6 +91,10 @@ export class ViewProductComponent implements OnInit {
   shipping_rate=0;
   shipping_name=null;
   megaMenu = false;
+  public is_logged_in = false;
+  public is_logged_out = false;
+  public access_token = sessionStorage.getItem("access_token");
+  public user_num = sessionStorage.getItem("user_num");
   previewFlag = sessionStorage.getItem('previewFlag');
   constructor(
     private snackbar: MatSnackBar,
@@ -210,7 +214,13 @@ ecomtrails = false;
       weight:[""]
     });
 
-    
+    if (!this.user_num && !this.access_token) {
+      this.is_logged_out = true;
+      this.is_logged_in = false;
+    } else {
+      this.is_logged_in = true;
+      this.is_logged_out = false;
+    }   
 //start 21/08/2020
 this.compSettings();
 this.compSettings2();

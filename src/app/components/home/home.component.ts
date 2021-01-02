@@ -35,13 +35,15 @@ export class HomeComponent implements OnInit {
   notbuy=true;
   categories2 = [];
   more = false;
+  public is_logged_in = false;
+  public is_logged_out = false;
   topPosToStartShowing = 100;
   megaMenu = false;
   banner = false;
   shipping='0';
   rentShow  = false;
   offsetNew=1;
-  page_itemsNew=6;
+  page_itemsNew=5;
   pagesNew=1;
   ratebuy;
   banner_group_a=0;
@@ -59,14 +61,14 @@ export class HomeComponent implements OnInit {
 
    offsetSelling=1;
    pagesSelling=1;
-  page_itemsSelling=6;
+  page_itemsSelling=5;
 
    offsetRent=1;
-  page_itemsRent=4;
+  page_itemsRent=5;
   pagesRent=1;
 
    offsetDisc=1;
-  page_itemsDisc=4;
+  page_itemsDisc=5;
   pagesDisc=1;
 
 
@@ -162,6 +164,14 @@ export class HomeComponent implements OnInit {
   		
     	}
     );
+
+    if (!this.user_num && !this.access_token) {
+      this.is_logged_out = true;
+      this.is_logged_in = false;
+    } else {
+      this.is_logged_in = true;
+      this.is_logged_out = false;
+    }
     this.compSettings_ratingOption();
 
     this.compSettings_buyNowOption();
